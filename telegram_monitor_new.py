@@ -1834,6 +1834,29 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
         
         if session_found:
             print(f"✅ Found session file at: {actual_path}")
+            # Verify the session file is valid
+            try:
+                file_size = os.path.getsize(actual_path)
+                print(f"   File size: {file_size} bytes")
+                if file_size == 0:
+                    print("   ⚠️  WARNING: Session file is empty (0 bytes)!")
+                    print("   This will cause authentication to fail.")
+                    raise FileNotFoundError(f"Session file '{actual_path}' is empty. Please ensure a valid session file is deployed.")
+                elif file_size < 1000:
+                    print("   ⚠️  WARNING: Session file is very small, might be corrupted!")
+                # Try to verify it's a valid SQLite file
+                try:
+                    import sqlite3
+                    conn = sqlite3.connect(actual_path)
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+                    tables = cursor.fetchall()
+                    conn.close()
+                    print(f"   ✅ Session file is valid SQLite (tables: {len(tables)})")
+                except Exception as sqlite_error:
+                    print(f"   ⚠️  WARNING: Session file might be corrupted: {sqlite_error}")
+            except Exception as e:
+                print(f"   ⚠️  Could not verify session file: {e}")
     
     for attempt in range(1, max_attempts + 1):
         try:
