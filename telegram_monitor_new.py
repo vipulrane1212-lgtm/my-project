@@ -1794,23 +1794,45 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
                 break
         
         if not session_found:
+            # Last resort: Check if file exists in current directory (Railway might deploy it there)
+            current_dir_files = os.listdir('.')
+            session_files = [f for f in current_dir_files if f.endswith('.session')]
+            
             print("\n" + "=" * 80)
             print("⚠️  SESSION FILE NOT FOUND")
             print("=" * 80)
             print(f"Session file '{session_file}' does not exist in any expected location.")
             print(f"Checked paths: {possible_paths}")
             print(f"Current working directory: {os.getcwd()}")
-            print(f"Files in current directory: {os.listdir('.')[:10]}")
-            print("\n🔧 SOLUTION:")
-            print("1. The session file should be in GitHub and deployed automatically")
-            print(f"2. Verify '{session_file}' is in your GitHub repository")
-            print("3. Check Railway Dashboard → Deployments → Latest deployment logs")
-            print("4. If file is missing, ensure it's committed to Git and not in .gitignore")
-            print("5. Redeploy on Railway after ensuring file is in GitHub")
-            print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
-            print("=" * 80 + "\n")
-            raise FileNotFoundError(f"Session file '{session_file}' not found. Please ensure it's in GitHub and Railway has deployed it.")
-        else:
+            print(f"All .session files in current directory: {session_files}")
+            print(f"All files in current directory (first 20): {current_dir_files[:20]}")
+            
+            # If we find ANY session file, try to use it as a last resort
+            if session_files:
+                print(f"\n⚠️  Found other session files: {session_files}")
+                print("   Trying to use the first one as fallback...")
+                fallback_session = session_files[0]
+                try:
+                    import shutil
+                    shutil.copy2(fallback_session, session_file)
+                    print(f"✅ Copied {fallback_session} to {session_file}")
+                    actual_path = session_file
+                    session_found = True
+                except Exception as e:
+                    print(f"❌ Could not copy fallback session: {e}")
+            
+            if not session_found:
+                print("\n🔧 SOLUTION:")
+                print("1. The session file should be in GitHub and deployed automatically")
+                print(f"2. Verify '{session_file}' is in your GitHub repository")
+                print("3. Check Railway Dashboard → Deployments → Latest deployment logs")
+                print("4. If file is missing, ensure it's committed to Git and not in .gitignore")
+                print("5. Redeploy on Railway after ensuring file is in GitHub")
+                print("\nSee RAILWAY_SESSION_SETUP.md for detailed instructions")
+                print("=" * 80 + "\n")
+                raise FileNotFoundError(f"Session file '{session_file}' not found. Please ensure it's in GitHub and Railway has deployed it.")
+        
+        if session_found:
             print(f"✅ Found session file at: {actual_path}")
     
     for attempt in range(1, max_attempts + 1):
