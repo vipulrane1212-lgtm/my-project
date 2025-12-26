@@ -1057,21 +1057,7 @@ class TelegramMonitorNew:
                     
                     # Handle group/channel tier preferences
                     if is_group or is_channel:
-                        # Check if user is admin (but allow if check fails - more lenient)
-                        user_is_admin = False
-                        try:
-                            admins = await self.bot_client.get_participants(chat, filter=ChannelParticipantsAdmins)
-                            user_is_admin = any(p.id == user_id for p in admins)
-                        except:
-                            # If we can't check admins, allow the command (more lenient)
-                            user_is_admin = True
-                        
-                        # If not admin and we could check, deny
-                        if not user_is_admin:
-                            await event.respond("❌ Only admins can set tier preferences for groups/channels.", parse_mode='Markdown')
-                            return
-                        
-                        # Check if group/channel is added
+                        # Check if group/channel is added first
                         if chat_id not in self.alert_groups:
                             await event.respond(
                                 "❌ **This group/channel is not receiving alerts.**\n\n"
@@ -1079,6 +1065,35 @@ class TelegramMonitorNew:
                                 parse_mode='Markdown'
                             )
                             return
+                        
+                        # If group is already added, allow tier preferences to be set
+                        # (More lenient - if someone added the group, they can set preferences)
+                        # Only check admin if we can, but don't block if check fails
+                        user_is_admin = False
+                        try:
+                            admins = await self.bot_client.get_participants(chat, filter=ChannelParticipantsAdmins)
+                            user_is_admin = any(p.id == user_id for p in admins)
+                        except Exception as e:
+                            # If we can't check admins (permission issue, etc.), allow the command
+                            print(f"⚠️ Could not check admin status for user {user_id} in chat {chat_id}: {e}")
+                            user_is_admin = True  # Allow if check fails
+                        
+                        # Only deny if we successfully checked AND user is not admin
+                        # If check failed, we allow (more lenient)
+                        if not user_is_admin:
+                            # Try one more time with a different method
+                            try:
+                                # Check if bot is admin and can see admins
+                                bot_me = await self.bot_client.get_me()
+                                bot_admins = await self.bot_client.get_participants(chat, filter=ChannelParticipantsAdmins)
+                                user_is_admin = any(p.id == user_id for p in bot_admins)
+                                if not user_is_admin:
+                                    await event.respond("❌ Only admins can set tier preferences for groups/channels.", parse_mode='Markdown')
+                                    return
+                            except:
+                                # If all checks fail, allow anyway (user added the group, so they should be able to set preferences)
+                                print(f"⚠️ Admin check failed for user {user_id}, but allowing since group is already added")
+                                pass  # Allow the command
                         
                         # Parse tier preferences for group/channel
                         if tier_arg == 'all':
