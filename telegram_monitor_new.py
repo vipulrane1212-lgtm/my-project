@@ -1984,6 +1984,20 @@ async def main():
             print(f"   The file from GitHub might not have been deployed correctly.")
             raise FileNotFoundError(f"Session file '{session_file}' is empty. Please ensure a valid session file is deployed.")
         
+        # Verify it's a valid SQLite file
+        try:
+            import sqlite3
+            conn = sqlite3.connect(session_file)
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            tables = cursor.fetchall()
+            conn.close()
+            print(f"   ✅ Session file is valid SQLite (tables: {len(tables)})")
+        except Exception as sqlite_error:
+            print(f"   ❌ ERROR: Session file is corrupted or invalid: {sqlite_error}")
+            print(f"   This will cause authentication to fail.")
+            raise FileNotFoundError(f"Session file '{session_file}' is corrupted. Please ensure a valid session file is deployed.")
+        
         if not os.path.exists(f"/app/{session_file}"):
             try:
                 import shutil
@@ -2004,6 +2018,7 @@ async def main():
         print(f"   ❌ Session file {session_file} not found in current directory")
         print(f"   This will cause authentication to fail!")
         print(f"   Please ensure the session file is in GitHub and Railway has deployed it.")
+        # Don't raise here - let connect_with_retry handle it with better error message
     
     # TelegramClient will create the session file on first run if it doesn't exist
     # The user will be prompted to authenticate via phone number
