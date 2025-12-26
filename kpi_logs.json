@@ -16,7 +16,8 @@
       ],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T14:22:51.904842+00:00",
@@ -33,7 +34,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T14:25:09.827175+00:00",
@@ -51,7 +53,8 @@
       ],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T14:25:10.884407+00:00",
@@ -70,7 +73,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T15:03:08.315389+00:00",
@@ -89,7 +93,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T15:27:05.691332+00:00",
@@ -108,7 +113,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T15:29:06.427843+00:00",
@@ -127,7 +133,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T15:54:59.236977+00:00",
@@ -143,7 +150,8 @@
       "matched_signals": [],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T16:01:00.007712+00:00",
@@ -167,7 +175,8 @@
         "weak_social"
       ],
       "mc_usd": 298200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T16:29:48.861519+00:00",
@@ -184,7 +193,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T16:30:40.822139+00:00",
@@ -204,7 +214,8 @@
         "has_glydo",
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T17:13:16.440298+00:00",
@@ -225,7 +236,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T17:13:50.709054+00:00",
@@ -245,7 +257,8 @@
         "tiny_buy"
       ],
       "mc_usd": 864300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T17:15:07.957516+00:00",
@@ -266,7 +279,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T18:08:18.968061+00:00",
@@ -285,7 +299,8 @@
         "weak_social"
       ],
       "mc_usd": 298200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T18:20:46.034220+00:00",
@@ -308,7 +323,8 @@
         "Large buy: 7.45 SOL",
         "Whale buy"
       ],
-      "tags": []
+      "tags": [],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T18:21:11.955804+00:00",
@@ -328,7 +344,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-22T18:30:41.009649+00:00",
@@ -350,7 +367,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-22T18:30:59.726493+00:00",
@@ -366,7 +384,8 @@
       "matched_signals": [],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T05:14:10.285662+00:00",
@@ -383,7 +402,8 @@
       "tags": [
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T05:58:27.619041+00:00",
@@ -406,7 +426,8 @@
         "weak_social"
       ],
       "mc_usd": 235200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T05:59:44.252126+00:00",
@@ -425,7 +446,8 @@
         "weak_social"
       ],
       "mc_usd": 196100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T06:17:15.469297+00:00",
@@ -445,7 +467,8 @@
         "weak_social"
       ],
       "mc_usd": 196100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T06:57:49.724747+00:00",
@@ -466,7 +489,8 @@
         "weak_social"
       ],
       "mc_usd": 160700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T08:07:28.708461+00:00",
@@ -487,7 +511,8 @@
         "tiny_buy"
       ],
       "mc_usd": 196100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T08:18:06.449551+00:00",
@@ -508,7 +533,8 @@
         "weak_social"
       ],
       "mc_usd": 198600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T09:05:25.397537+00:00",
@@ -526,7 +552,8 @@
         "tiny_buy"
       ],
       "mc_usd": 196100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T09:23:56.874782+00:00",
@@ -546,7 +573,8 @@
         "weak_social"
       ],
       "mc_usd": 139700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T09:52:58.436649+00:00",
@@ -564,7 +592,8 @@
         "tiny_buy"
       ],
       "mc_usd": 235200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T10:25:11.500127+00:00",
@@ -586,7 +615,8 @@
         "weak_social"
       ],
       "mc_usd": 174900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T10:31:38.515631+00:00",
@@ -608,7 +638,8 @@
         "weak_social"
       ],
       "mc_usd": 118600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T13:09:38.565128+00:00",
@@ -626,7 +657,8 @@
         "tiny_buy"
       ],
       "mc_usd": 864300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T14:40:59.053962+00:00",
@@ -647,7 +679,8 @@
         "tiny_buy"
       ],
       "mc_usd": 137200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T14:48:16.904308+00:00",
@@ -670,7 +703,8 @@
         "weak_social"
       ],
       "mc_usd": 242400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:14:25.252133+00:00",
@@ -691,7 +725,8 @@
         "weak_social"
       ],
       "mc_usd": 81800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:20:51.663839+00:00",
@@ -712,7 +747,8 @@
         "tiny_buy"
       ],
       "mc_usd": 864300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T15:22:17.474874+00:00",
@@ -733,7 +769,8 @@
         "weak_social"
       ],
       "mc_usd": 98600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:24:35.987902+00:00",
@@ -751,7 +788,8 @@
       ],
       "tags": [],
       "mc_usd": 321300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:32:18.473942+00:00",
@@ -770,7 +808,8 @@
         "weak_social"
       ],
       "mc_usd": 146900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:40:38.008795+00:00",
@@ -794,7 +833,8 @@
         "weak_social"
       ],
       "mc_usd": 115600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:54:43.097294+00:00",
@@ -814,7 +854,8 @@
         "weak_social"
       ],
       "mc_usd": 94700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T15:56:06.381149+00:00",
@@ -833,7 +874,8 @@
       ],
       "tags": [],
       "mc_usd": 181700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T16:16:32.199374+00:00",
@@ -849,7 +891,8 @@
       "matched_signals": [],
       "tags": [],
       "mc_usd": 145400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T16:20:43.504783+00:00",
@@ -869,7 +912,8 @@
         "weak_social"
       ],
       "mc_usd": 387600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T16:29:41.729774+00:00",
@@ -887,7 +931,8 @@
         "tiny_buy"
       ],
       "mc_usd": 864300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T16:45:45.562454+00:00",
@@ -909,7 +954,8 @@
         "tiny_buy"
       ],
       "mc_usd": 476300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T16:50:44.724483+00:00",
@@ -931,7 +977,8 @@
         "weak_social"
       ],
       "mc_usd": 178700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:01:21.802543+00:00",
@@ -949,7 +996,8 @@
         "tiny_buy"
       ],
       "mc_usd": 573500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:03:03.273108+00:00",
@@ -969,7 +1017,8 @@
       ],
       "tags": [],
       "mc_usd": 176500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:17:29.696534+00:00",
@@ -985,7 +1034,8 @@
       "matched_signals": [],
       "tags": [],
       "mc_usd": 2380000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:23:10.110076+00:00",
@@ -1003,7 +1053,8 @@
         "tiny_buy"
       ],
       "mc_usd": 10160000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:24:22.485978+00:00",
@@ -1027,7 +1078,8 @@
         "weak_social"
       ],
       "mc_usd": 83200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T17:40:41.945052+00:00",
@@ -1047,7 +1099,8 @@
         "tiny_buy"
       ],
       "mc_usd": 1860000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T18:00:55.301824+00:00",
@@ -1067,7 +1120,8 @@
       ],
       "tags": [],
       "mc_usd": 176500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T18:12:03.618365+00:00",
@@ -1086,7 +1140,8 @@
       ],
       "tags": [],
       "mc_usd": 66800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T18:14:41.347292+00:00",
@@ -1108,7 +1163,8 @@
         "weak_social"
       ],
       "mc_usd": 126700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T18:25:01.941145+00:00",
@@ -1131,7 +1187,8 @@
         "weak_social"
       ],
       "mc_usd": 126700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T18:44:41.734562+00:00",
@@ -1153,7 +1210,8 @@
         "weak_social"
       ],
       "mc_usd": 77400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T19:06:22.106942+00:00",
@@ -1175,7 +1233,8 @@
         "weak_social"
       ],
       "mc_usd": 104200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T19:44:13.064752+00:00",
@@ -1199,7 +1258,8 @@
         "weak_social"
       ],
       "mc_usd": 367800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T19:52:40.283860+00:00",
@@ -1218,7 +1278,8 @@
       ],
       "tags": [],
       "mc_usd": 523500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T19:53:22.279208+00:00",
@@ -1238,7 +1299,8 @@
         "weak_social"
       ],
       "mc_usd": 12700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T20:15:41.898447+00:00",
@@ -1257,7 +1319,8 @@
         "weak_social"
       ],
       "mc_usd": 397200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T20:59:47.252454+00:00",
@@ -1279,7 +1342,8 @@
         "weak_social"
       ],
       "mc_usd": 567900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T21:24:34.797040+00:00",
@@ -1300,7 +1364,8 @@
         "tiny_buy"
       ],
       "mc_usd": 289700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T21:39:45.156768+00:00",
@@ -1326,7 +1391,8 @@
         "weak_social"
       ],
       "mc_usd": 536800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T21:40:04.181867+00:00",
@@ -1348,7 +1414,8 @@
         "tiny_buy"
       ],
       "mc_usd": 289700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T21:50:06.789084+00:00",
@@ -1371,7 +1438,8 @@
         "has_glydo"
       ],
       "mc_usd": 5680000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T22:09:54.203054+00:00",
@@ -1393,7 +1461,8 @@
         "weak_social"
       ],
       "mc_usd": 70900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T22:16:02.151251+00:00",
@@ -1414,7 +1483,8 @@
         "weak_social"
       ],
       "mc_usd": 116600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-23T22:40:08.461222+00:00",
@@ -1436,7 +1506,8 @@
         "weak_social"
       ],
       "mc_usd": 116600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T22:57:28.936785+00:00",
@@ -1458,7 +1529,8 @@
         "weak_social"
       ],
       "mc_usd": 212700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-23T23:01:59.622989+00:00",
@@ -1486,7 +1558,8 @@
         "weak_social"
       ],
       "mc_usd": 302300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T00:54:30.743555+00:00",
@@ -1511,7 +1584,8 @@
         "weak_social"
       ],
       "mc_usd": 160700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T02:00:34.174491+00:00",
@@ -1532,7 +1606,8 @@
         "weak_social"
       ],
       "mc_usd": 201600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T02:15:06.457320+00:00",
@@ -1552,7 +1627,8 @@
         "weak_social"
       ],
       "mc_usd": 146700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T03:09:12.227014+00:00",
@@ -1577,7 +1653,8 @@
         "weak_social"
       ],
       "mc_usd": 367800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T03:50:14.120335+00:00",
@@ -1599,7 +1676,8 @@
         "weak_social"
       ],
       "mc_usd": 260899.99999999997,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T04:00:18.001915+00:00",
@@ -1618,7 +1696,8 @@
       ],
       "tags": [],
       "mc_usd": 298200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T05:00:20.737265+00:00",
@@ -1639,7 +1718,8 @@
         "weak_social"
       ],
       "mc_usd": 186700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T05:15:42.392077+00:00",
@@ -1658,7 +1738,8 @@
       ],
       "tags": [],
       "mc_usd": 66800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T05:19:16.836946+00:00",
@@ -1680,7 +1761,8 @@
         "weak_social"
       ],
       "mc_usd": 115600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T05:41:45.353195+00:00",
@@ -1700,7 +1782,8 @@
         "weak_social"
       ],
       "mc_usd": 265600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T05:57:52.055640+00:00",
@@ -1720,7 +1803,8 @@
         "weak_social"
       ],
       "mc_usd": 265600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T07:47:03.762778+00:00",
@@ -1746,7 +1830,8 @@
         "weak_social"
       ],
       "mc_usd": 212700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T08:23:27.810104+00:00",
@@ -1767,7 +1852,8 @@
         "has_glydo"
       ],
       "mc_usd": 118400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T17:07:32.103691+00:00",
@@ -1785,7 +1871,8 @@
         "tiny_buy"
       ],
       "mc_usd": 474600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T17:17:21.441296+00:00",
@@ -1803,7 +1890,8 @@
         "tiny_buy"
       ],
       "mc_usd": 10160000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T17:20:56.516214+00:00",
@@ -1823,7 +1911,8 @@
         "tiny_buy"
       ],
       "mc_usd": 212700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T17:35:17.518167+00:00",
@@ -1845,7 +1934,8 @@
         "weak_social"
       ],
       "mc_usd": 93700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T17:41:13.255847+00:00",
@@ -1867,7 +1957,8 @@
         "weak_social"
       ],
       "mc_usd": 70000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T17:55:09.894053+00:00",
@@ -1889,7 +1980,8 @@
         "weak_social"
       ],
       "mc_usd": 286400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T18:25:11.767843+00:00",
@@ -1911,7 +2003,8 @@
         "weak_social"
       ],
       "mc_usd": 174600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T18:40:34.258848+00:00",
@@ -1934,7 +2027,8 @@
         "weak_social"
       ],
       "mc_usd": 706800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T18:56:31.413138+00:00",
@@ -1952,7 +2046,8 @@
         "tiny_buy"
       ],
       "mc_usd": 63900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T19:05:36.722491+00:00",
@@ -1970,7 +2065,8 @@
         "tiny_buy"
       ],
       "mc_usd": 212700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T20:00:10.803492+00:00",
@@ -1989,7 +2085,8 @@
         "weak_social"
       ],
       "mc_usd": 706800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T20:28:17.129419+00:00",
@@ -2010,7 +2107,8 @@
         "weak_social"
       ],
       "mc_usd": 53800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T20:46:00.146049+00:00",
@@ -2031,7 +2129,8 @@
         "weak_social"
       ],
       "mc_usd": 185700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T20:46:15.667898+00:00",
@@ -2052,7 +2151,8 @@
         "weak_social"
       ],
       "mc_usd": 213600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T21:05:36.041888+00:00",
@@ -2072,7 +2172,8 @@
         "tiny_buy"
       ],
       "mc_usd": 265600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T21:43:01.121135+00:00",
@@ -2091,7 +2192,8 @@
         "weak_social"
       ],
       "mc_usd": 83400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T22:10:43.773833+00:00",
@@ -2114,7 +2216,8 @@
         "weak_social"
       ],
       "mc_usd": 555100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T22:10:48.681816+00:00",
@@ -2136,7 +2239,8 @@
         "weak_social"
       ],
       "mc_usd": 87400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T22:20:45.540093+00:00",
@@ -2166,7 +2270,8 @@
         "weak_social"
       ],
       "mc_usd": 555100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T22:26:56.930002+00:00",
@@ -2191,7 +2296,8 @@
         "weak_social"
       ],
       "mc_usd": 75700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T22:56:52.175565+00:00",
@@ -2209,7 +2315,8 @@
       ],
       "tags": [],
       "mc_usd": 278100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T23:37:30.370360+00:00",
@@ -2233,7 +2340,8 @@
         "weak_social"
       ],
       "mc_usd": 100500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-24T23:50:06.755085+00:00",
@@ -2257,7 +2365,8 @@
         "weak_social"
       ],
       "mc_usd": 100500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-24T23:51:10.965310+00:00",
@@ -2275,7 +2384,8 @@
         "tiny_buy"
       ],
       "mc_usd": 523500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T00:37:16.390542+00:00",
@@ -2297,7 +2407,8 @@
         "weak_social"
       ],
       "mc_usd": 92200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T00:38:08.283779+00:00",
@@ -2317,7 +2428,8 @@
         "weak_social"
       ],
       "mc_usd": 38200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T00:53:53.666179+00:00",
@@ -2338,7 +2450,8 @@
         "weak_social"
       ],
       "mc_usd": 89700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T01:11:41.770546+00:00",
@@ -2359,7 +2472,8 @@
         "weak_social"
       ],
       "mc_usd": 89700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T02:46:29.193091+00:00",
@@ -2377,7 +2491,8 @@
       ],
       "tags": [],
       "mc_usd": 265600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T03:09:33.476994+00:00",
@@ -2401,7 +2516,8 @@
         "weak_social"
       ],
       "mc_usd": 308700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T03:20:32.892380+00:00",
@@ -2422,7 +2538,8 @@
       ],
       "tags": [],
       "mc_usd": 53800.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T04:16:02.326778+00:00",
@@ -2440,7 +2557,8 @@
       ],
       "tags": [],
       "mc_usd": 278100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T05:11:17.103522+00:00",
@@ -2460,7 +2578,8 @@
         "weak_social"
       ],
       "mc_usd": 108600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T05:17:02.432612+00:00",
@@ -2478,7 +2597,8 @@
         "tiny_buy"
       ],
       "mc_usd": 4540000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T06:00:10.564749+00:00",
@@ -2498,7 +2618,8 @@
         "weak_social"
       ],
       "mc_usd": 125400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T08:53:27.110830+00:00",
@@ -2516,7 +2637,8 @@
         "tiny_buy"
       ],
       "mc_usd": 1860000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T09:11:10.295707+00:00",
@@ -2536,7 +2658,8 @@
         "tiny_buy"
       ],
       "mc_usd": 1250000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T09:30:49.659689+00:00",
@@ -2560,7 +2683,8 @@
         "weak_social"
       ],
       "mc_usd": 67500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T10:09:33.365628+00:00",
@@ -2578,7 +2702,8 @@
         "tiny_buy"
       ],
       "mc_usd": 1900000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T10:12:59.150026+00:00",
@@ -2601,7 +2726,8 @@
         "weak_social"
       ],
       "mc_usd": 101600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T10:17:24.321536+00:00",
@@ -2624,7 +2750,8 @@
         "weak_social"
       ],
       "mc_usd": 439900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T10:59:05.633821+00:00",
@@ -2644,7 +2771,8 @@
         "tiny_buy"
       ],
       "mc_usd": 278100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T11:37:06.875713+00:00",
@@ -2663,7 +2791,8 @@
         "weak_social"
       ],
       "mc_usd": 213600.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T12:35:09.977468+00:00",
@@ -2684,7 +2813,8 @@
         "weak_social"
       ],
       "mc_usd": 185100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T13:07:16.151309+00:00",
@@ -2709,7 +2839,8 @@
         "weak_social"
       ],
       "mc_usd": 222200.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T14:16:45.598763+00:00",
@@ -2732,7 +2863,8 @@
         "weak_social"
       ],
       "mc_usd": 388700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T14:59:02.888676+00:00",
@@ -2754,7 +2886,8 @@
         "weak_social"
       ],
       "mc_usd": 38900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T15:10:28.626969+00:00",
@@ -2775,7 +2908,8 @@
         "weak_social"
       ],
       "mc_usd": 271300.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T15:57:15.567066+00:00",
@@ -2796,7 +2930,8 @@
         "tiny_buy"
       ],
       "mc_usd": 5680000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T16:25:55.264957+00:00",
@@ -2816,7 +2951,8 @@
         "tiny_buy"
       ],
       "mc_usd": 1420000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T17:04:06.800663+00:00",
@@ -2839,7 +2975,8 @@
         "weak_social"
       ],
       "mc_usd": 5680000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T17:05:33.871553+00:00",
@@ -2861,7 +2998,8 @@
         "weak_social"
       ],
       "mc_usd": 252100.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T17:13:54.233376+00:00",
@@ -2879,7 +3017,8 @@
         "tiny_buy"
       ],
       "mc_usd": 140400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T17:43:44.249025+00:00",
@@ -2898,7 +3037,8 @@
       ],
       "tags": [],
       "mc_usd": 226400.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T18:07:25.542661+00:00",
@@ -2920,7 +3060,8 @@
         "weak_social"
       ],
       "mc_usd": 38900.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T18:17:25.595968+00:00",
@@ -2938,7 +3079,8 @@
         "tiny_buy"
       ],
       "mc_usd": 186700.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T18:36:54.916439+00:00",
@@ -2960,7 +3102,8 @@
       ],
       "tags": [],
       "mc_usd": 11390000.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T18:43:03.232405+00:00",
@@ -2980,7 +3123,8 @@
         "weak_social"
       ],
       "mc_usd": 143500.0,
-      "mc_source": "telegram_post"
+      "mc_source": "telegram_post",
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T19:32:11.888585+00:00",
@@ -3003,7 +3147,8 @@
         "has_glydo",
         "tiny_buy",
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T19:59:22.138938+00:00",
@@ -3026,7 +3171,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T19:59:38.944233+00:00",
@@ -3044,7 +3190,8 @@
       "matched_signals": [],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T20:17:44.658107+00:00",
@@ -3065,7 +3212,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T20:19:59.332618+00:00",
@@ -3088,7 +3236,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T20:32:06.582568+00:00",
@@ -3113,7 +3262,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T20:34:46.668236+00:00",
@@ -3131,7 +3281,8 @@
       "matched_signals": [],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T21:21:38.538473+00:00",
@@ -3154,7 +3305,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T21:28:03.405228+00:00",
@@ -3174,7 +3326,8 @@
       ],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T21:40:15.417435+00:00",
@@ -3196,7 +3349,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T21:43:38.684714+00:00",
@@ -3219,7 +3373,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T22:04:37.700513+00:00",
@@ -3237,7 +3392,8 @@
       "matched_signals": [],
       "tags": [
         "tiny_buy"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T22:06:22.549820+00:00",
@@ -3258,7 +3414,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T22:12:23.571898+00:00",
@@ -3281,7 +3438,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T22:37:22.912683+00:00",
@@ -3303,7 +3461,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T22:41:03.690019+00:00",
@@ -3326,7 +3485,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T22:46:53.494303+00:00",
@@ -3347,7 +3507,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T22:55:19.181505+00:00",
@@ -3365,7 +3526,8 @@
       "matched_signals": [
         "Early trending"
       ],
-      "tags": []
+      "tags": [],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T23:01:43.752972+00:00",
@@ -3386,7 +3548,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-25T23:05:05.487232+00:00",
@@ -3410,7 +3573,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-25T23:15:05.198902+00:00",
@@ -3428,7 +3592,8 @@
       "matched_signals": [],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T00:48:41.545842+00:00",
@@ -3449,7 +3614,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T01:10:06.881279+00:00",
@@ -3467,7 +3633,8 @@
       "matched_signals": [
         "Early trending"
       ],
-      "tags": []
+      "tags": [],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T01:22:56.720045+00:00",
@@ -3490,7 +3657,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T01:54:56.413443+00:00",
@@ -3511,7 +3679,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-26T02:04:24.707584+00:00",
@@ -3532,7 +3701,8 @@
         "Large buy: 14.79 SOL",
         "Whale buy"
       ],
-      "tags": []
+      "tags": [],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T02:42:24.892085+00:00",
@@ -3554,7 +3724,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     },
     {
       "timestamp": "2025-12-26T02:44:50.389002+00:00",
@@ -3575,7 +3746,8 @@
       "tags": [
         "has_glydo",
         "tiny_buy"
-      ]
+      ],
+      "tier": 1
     },
     {
       "timestamp": "2025-12-26T03:20:38.839724+00:00",
@@ -3606,7 +3778,8 @@
       ],
       "tags": [
         "weak_social"
-      ]
+      ],
+      "tier": 3
     }
   ],
   "false_positives": [],
