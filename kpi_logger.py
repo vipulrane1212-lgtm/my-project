@@ -47,36 +47,59 @@ class KPILogger:
         self.log_file.write_text(json.dumps(data, indent=2))
     
     def log_alert(self, alert: Dict, level: str):
-        """Log an alert with metadata."""
-        # Get market cap - prefer entry_mc (alert time), then mc_usd (enriched), then live_mcap
-        # This ensures we save the market cap that was shown in the Telegram post
-        mcap = alert.get("entry_mc") or alert.get("mc_usd") or alert.get("live_mcap")
+        """Log an alert with metadata.
         
-        alert_entry = {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "level": level,
-            "token": alert.get("token"),
-            "contract": alert.get("contract"),
-            "score": alert.get("score"),
-            "callers": alert.get("callers"),
-            "subs": alert.get("subs"),
-            "liq_usd": alert.get("liq_usd"),
-            "mc_usd": mcap,  # Save the market cap that was shown in the post
-            "entry_mc": alert.get("entry_mc"),  # Also save entry_mc separately if available
-            "last_buy_sol": alert.get("last_buy_sol"),
-            "top_buy_sol": alert.get("top_buy_sol"),
-            "matched_signals": alert.get("matched_signals", []),
-            "tags": self._generate_tags(alert),
-            # Add tiered strategy fields for API server
-            "tier": alert.get("tier"),
-            "glydo_in_top5": alert.get("glydo_in_top5"),
-            "hot_list": alert.get("hot_list"),  # Save hot_list dict or bool
-            "hot_list_status": alert.get("hot_list_status"),  # Alternative field name
-            "confirmations": alert.get("confirmations"),  # Save confirmations for API
-        }
-        self.alerts.append(alert_entry)
-        self.save_logs()
-        return alert_entry
+        CRITICAL: This method MUST always succeed - alerts must be saved to JSON
+        even if there are errors. This ensures the API always has the latest alerts.
+        """
+        try:
+            # Get market cap - prefer entry_mc (alert time), then mc_usd (enriched), then live_mcap
+            # This ensures we save the market cap that was shown in the Telegram post
+            mcap = alert.get("entry_mc") or alert.get("mc_usd") or alert.get("live_mcap")
+            
+            alert_entry = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "level": level,
+                "token": alert.get("token"),
+                "contract": alert.get("contract"),
+                "score": alert.get("score"),
+                "callers": alert.get("callers"),
+                "subs": alert.get("subs"),
+                "liq_usd": alert.get("liq_usd"),
+                "mc_usd": mcap,  # Save the market cap that was shown in the post
+                "entry_mc": alert.get("entry_mc"),  # Also save entry_mc separately if available
+                "last_buy_sol": alert.get("last_buy_sol"),
+                "top_buy_sol": alert.get("top_buy_sol"),
+                "matched_signals": alert.get("matched_signals", []),
+                "tags": self._generate_tags(alert),
+                # Add tiered strategy fields for API server
+                "tier": alert.get("tier"),
+                "glydo_in_top5": alert.get("glydo_in_top5"),
+                "hot_list": alert.get("hot_list"),  # Save hot_list dict or bool
+                "hot_list_status": alert.get("hot_list_status"),  # Alternative field name
+                "confirmations": alert.get("confirmations"),  # Save confirmations for API
+            }
+            self.alerts.append(alert_entry)
+            
+            # CRITICAL: Save logs immediately - don't batch, ensure persistence
+            try:
+                self.save_logs()
+            except Exception as save_error:
+                # If save fails, try again with backup
+                print(f"⚠️ First save attempt failed: {save_error}, retrying...")
+                import time
+                time.sleep(0.1)  # Brief delay
+                self.save_logs()  # Retry once
+            
+            return alert_entry
+        except Exception as e:
+            # CRITICAL: Never fail silently - log the error but don't crash
+            print(f"❌ CRITICAL ERROR in log_alert: {e}")
+            print(f"   Alert data: token={alert.get('token')}, tier={alert.get('tier')}")
+            import traceback
+            traceback.print_exc()
+            # Return None to indicate failure, but don't raise exception
+            return None
     
     def _generate_tags(self, alert: Dict) -> List[str]:
         """Generate tags for false positive analysis."""

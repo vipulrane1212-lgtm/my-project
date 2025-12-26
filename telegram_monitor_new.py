@@ -417,11 +417,20 @@ class TelegramMonitorNew:
             # format_alert() uses alert.get("tier") to determine what tier to display
             tier_from_alert = alert.get("tier")
             
-            # Log alert for KPI tracking
+            # CRITICAL: Save alert to JSON FIRST, before sending to Telegram
+            # This ensures alerts are always saved even if sending fails
             # IMPORTANT: The tier field in the alert is what was shown in the Telegram post
             # This gets saved to kpi_logs.json and the API uses it directly
             level = alert.get("level", "MEDIUM")
-            self.kpi_logger.log_alert(alert, level)
+            try:
+                saved_alert = self.kpi_logger.log_alert(alert, level)
+                print(f"✅ Alert saved to kpi_logs.json: {token} (Tier {tier_from_alert}, MC ${current_mcap or alert.get('mc_usd') or 0:,.0f})")
+            except Exception as e:
+                print(f"❌ CRITICAL: Failed to save alert to kpi_logs.json: {e}")
+                print(f"   Token: {token}, Tier: {tier_from_alert}")
+                import traceback
+                traceback.print_exc()
+                # Continue anyway - try to send alert even if save failed
             
             # Pass weights for tagline selection
             weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
@@ -439,7 +448,13 @@ class TelegramMonitorNew:
                 # #region agent log
                 debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"telegram_monitor_new.py:390","message":"Calling send_telegram_alert","data":{"token":token,"tier":tier,"alert_id":alert.get("alert_id")},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                 # #endregion
-                await self.send_telegram_alert(alert_message, alert=alert)
+                try:
+                    await self.send_telegram_alert(alert_message, alert=alert)
+                except Exception as e:
+                    print(f"❌ Failed to send alert to Telegram: {e}")
+                    print(f"   BUT alert was already saved to kpi_logs.json ✅")
+                    import traceback
+                    traceback.print_exc()
     
     async def send_telegram_alert(self, alert_message: str, alert: Dict = None):
         """Send formatted alert to Telegram with tier filtering"""
