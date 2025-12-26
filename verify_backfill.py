@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Verify backfill results and check data integrity"""
 
 import json
+import sys
 from collections import defaultdict
 from datetime import datetime, timezone
+
+# Fix Windows console encoding for emojis
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except:
+        pass
 
 def verify_backfill():
     """Verify that backfill was successful."""
