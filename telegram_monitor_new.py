@@ -1030,14 +1030,14 @@ class TelegramMonitorNew:
                             await event.respond(
                                 "❌ **Invalid format.**\n\n"
                                 "**Usage:**\n"
-                                "`/set t1` — Receive only TIER 1 alerts\n"
-                                "`/set t2` — Receive only TIER 2 alerts\n"
-                                "`/set t3` — Receive only TIER 3 alerts\n"
-                                "`/set t1,t2` — Receive TIER 1 and TIER 2 alerts\n"
+                                "`/set 1` or `/set t1` — Receive only TIER 1 alerts\n"
+                                "`/set 2` or `/set t2` — Receive only TIER 2 alerts\n"
+                                "`/set 3` or `/set t3` — Receive only TIER 3 alerts\n"
+                                "`/set 1,2` or `/set t1,t2` — Receive TIER 1 and TIER 2 alerts\n"
                                 "`/set all` — Receive all tier alerts (default)\n\n"
                                 "**Examples:**\n"
-                                "`/set t1`\n"
-                                "`/set t1,t2`\n"
+                                "`/set 1` or `/set t1`\n"
+                                "`/set 1,2` or `/set t1,t2`\n"
                                 "`/set all`",
                                 parse_mode='Markdown'
                             )
@@ -1045,8 +1045,8 @@ class TelegramMonitorNew:
                             await event.respond(
                                 "❌ **Invalid format.**\n\n"
                                 "**Usage:**\n"
-                                "`/set t1` — This group/channel receives only TIER 1 alerts\n"
-                                "`/set t1,t2` — This group/channel receives TIER 1 and TIER 2 alerts\n"
+                                "`/set 1` or `/set t1` — This group/channel receives only TIER 1 alerts\n"
+                                "`/set 1,2` or `/set t1,t2` — This group/channel receives TIER 1 and TIER 2 alerts\n"
                                 "`/set all` — This group/channel receives all tier alerts (default)\n\n"
                                 "**Note:** Only admins can set tier preferences for groups/channels.",
                                 parse_mode='Markdown'
@@ -1057,15 +1057,19 @@ class TelegramMonitorNew:
                     
                     # Handle group/channel tier preferences
                     if is_group or is_channel:
-                        # Check if user is admin
+                        # Check if user is admin (but allow if check fails - more lenient)
+                        user_is_admin = False
                         try:
                             admins = await self.bot_client.get_participants(chat, filter=ChannelParticipantsAdmins)
                             user_is_admin = any(p.id == user_id for p in admins)
-                            if not user_is_admin:
-                                await event.respond("❌ Only admins can set tier preferences for groups/channels.", parse_mode='Markdown')
-                                return
                         except:
-                            pass  # Allow if can't check
+                            # If we can't check admins, allow the command (more lenient)
+                            user_is_admin = True
+                        
+                        # If not admin and we could check, deny
+                        if not user_is_admin:
+                            await event.respond("❌ Only admins can set tier preferences for groups/channels.", parse_mode='Markdown')
+                            return
                         
                         # Check if group/channel is added
                         if chat_id not in self.alert_groups:
