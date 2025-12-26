@@ -1842,11 +1842,14 @@ async def run_api_server():
     try:
         import uvicorn
         from api_server import app
-        config = uvicorn.Config(app, host="0.0.0.0", port=5000, log_level="info")
+        # Railway uses PORT environment variable, fallback to 5000 for local dev
+        port = int(os.getenv("PORT", "5000"))
+        config = uvicorn.Config(app, host="0.0.0.0", port=port, log_level="info")
         server = uvicorn.Server(config)
         print("🚀 Starting SolBoy Alerts API Server...")
-        print("📡 API will be available at: http://0.0.0.0:5000")
-        print("📖 API docs at: http://0.0.0.0:5000/docs")
+        print(f"📡 API will be available at: http://0.0.0.0:{port}")
+        print(f"📖 API docs at: http://0.0.0.0:{port}/docs")
+        print(f"💚 Health check: http://0.0.0.0:{port}/api/health")
         await server.serve()
     except Exception as e:
         print(f"⚠️ Warning: Could not start API server: {e}")

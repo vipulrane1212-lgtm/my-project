@@ -1,2 +1,2 @@
-worker: python telegram_monitor_new.py
+web: python telegram_monitor_new.py
 

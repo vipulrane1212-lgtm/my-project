@@ -595,11 +595,13 @@ async def get_daily_stats(days: int = 7):
 
 if __name__ == "__main__":
     import uvicorn
+    # Railway uses PORT environment variable, fallback to 5000 for local dev
+    port = int(os.getenv("PORT", "5000"))
     print("🚀 Starting SolBoy Alerts API Server...")
-    print("📡 API will be available at: http://localhost:5000")
-    print("📖 API docs at: http://localhost:5000/docs")
-    print("💚 Health check: http://localhost:5000/api/health")
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    print(f"📡 API will be available at: http://0.0.0.0:{port}")
+    print(f"📖 API docs at: http://0.0.0.0:{port}/docs")
+    print(f"💚 Health check: http://0.0.0.0:{port}/api/health")
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 
 
