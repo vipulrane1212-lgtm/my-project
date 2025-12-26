@@ -1737,7 +1737,7 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
     from telethon.errors import AuthKeyDuplicatedError
     import sys
     
-    # Check if session file exists (for non-bot connections)
+    # Check if session file exists (for non-bot connections) before attempting connection
     if not is_bot:
         session_file = f"{SESSION_NAME}.session"
         if not os.path.exists(session_file):
@@ -1746,15 +1746,17 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             print("=" * 80)
             print(f"Session file '{session_file}' does not exist.")
             print("\n🔧 SOLUTION:")
-            print("1. Upload your session file to Railway:")
+            print("1. Create session file locally first:")
+            print("   - Run the bot locally: python telegram_monitor_new.py")
+            print("   - Enter your phone number and authentication code")
+            print(f"   - This creates: {session_file}")
+            print("\n2. Upload session file to Railway:")
             print("   - Go to Railway dashboard → Your service → Files tab")
-            print(f"   - Upload: {session_file}")
-            print("\n2. Alternative: Create session file locally first:")
-            print("   - Run the bot locally once to create the session")
-            print("   - Then upload the .session file to Railway")
-            print("\n3. See RAILWAY_SESSION_SETUP.md for detailed instructions")
+            print(f"   - Click 'Upload' and select: {session_file}")
+            print("\n3. Redeploy on Railway")
+            print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
             print("=" * 80 + "\n")
-            raise FileNotFoundError(f"Session file '{session_file}' not found. Please upload it to Railway.")
+            raise FileNotFoundError(f"Session file '{session_file}' not found. Please create it locally and upload to Railway.")
     
     for attempt in range(1, max_attempts + 1):
         try:
@@ -1763,26 +1765,17 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             if is_bot and bot_token:
                 await client.start(bot_token=bot_token)
             else:
-                # Check if we're in a non-interactive environment (like Railway)
-                if not sys.stdin.isatty():
-                    # Non-interactive environment - session file must exist
-                    if not os.path.exists(f"{SESSION_NAME}.session"):
-                        raise FileNotFoundError(
-                            f"Session file '{SESSION_NAME}.session' not found. "
-                            "Railway requires the session file to be uploaded. "
-                            "Please upload your .session file to Railway Files tab."
-                        )
                 await client.start()
             
             print(f"✅ Connection successful{' (bot)' if is_bot else ''}!")
             return True
         except AuthKeyDuplicatedError as e:
             # CRITICAL: Session file is being used from multiple IPs
-            session_name = client.session.filename if hasattr(client.session, 'filename') else 'session'
+            session_name = client.session.filename if hasattr(client.session, 'filename') else SESSION_NAME
             print("\n" + "=" * 80)
             print("❌ AUTH KEY DUPLICATED ERROR")
             print("=" * 80)
-            print(f"The session file '{session_name}' is being used from multiple IP addresses.")
+            print(f"The session file '{session_name}.session' is being used from multiple IP addresses.")
             print("This happens when the bot runs locally AND on Railway simultaneously.")
             print("\n🔧 FIX:")
             print("1. Stop the bot on your local machine (if running)")
@@ -1791,30 +1784,47 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             print(f"   - Delete: {session_name}.session")
             print("3. OR delete the session file locally if you want to run on Railway only:")
             print(f"   - Delete: {session_name}.session from your local directory")
-            print("4. Redeploy on Railway - it will create a new session")
+            print("4. Create a new session and upload to Railway")
             print("\n💡 TIP: Only run the bot in ONE place at a time!")
             print("   - Either locally OR on Railway, not both")
             print("=" * 80 + "\n")
             raise  # Don't retry - this needs manual intervention
-        except (EOFError, FileNotFoundError) as e:
-            # Non-interactive environment or missing session file
-            if isinstance(e, EOFError):
-                print("\n" + "=" * 80)
-                print("❌ AUTHENTICATION ERROR - NON-INTERACTIVE ENVIRONMENT")
-                print("=" * 80)
-                print("Railway cannot prompt for phone number interactively.")
-                print("The session file must be uploaded to Railway.")
-                print("\n🔧 SOLUTION:")
-                print("1. Create session file locally first:")
-                print("   - Run the bot locally: python telegram_monitor_new.py")
-                print("   - Enter your phone number and authentication code")
-                print(f"   - This creates: {SESSION_NAME}.session")
-                print("\n2. Upload session file to Railway:")
-                print("   - Go to Railway dashboard → Your service → Files tab")
-                print(f"   - Click 'Upload' and select: {SESSION_NAME}.session")
-                print("\n3. Redeploy on Railway")
-                print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
-                print("=" * 80 + "\n")
+        except EOFError as e:
+            # Non-interactive environment (Railway) trying to prompt for phone number
+            print("\n" + "=" * 80)
+            print("❌ AUTHENTICATION ERROR - NON-INTERACTIVE ENVIRONMENT")
+            print("=" * 80)
+            print("Railway cannot prompt for phone number interactively.")
+            print("The session file must be uploaded to Railway.")
+            print("\n🔧 SOLUTION:")
+            print("1. Create session file locally first:")
+            print("   - Run the bot locally: python telegram_monitor_new.py")
+            print("   - Enter your phone number and authentication code")
+            print(f"   - This creates: {SESSION_NAME}.session")
+            print("\n2. Upload session file to Railway:")
+            print("   - Go to Railway dashboard → Your service → Files tab")
+            print(f"   - Click 'Upload' and select: {SESSION_NAME}.session")
+            print("\n3. Redeploy on Railway")
+            print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
+            print("=" * 80 + "\n")
+            raise  # Don't retry - needs manual intervention
+        except FileNotFoundError as e:
+            # Session file missing (should be caught earlier, but handle just in case)
+            print("\n" + "=" * 80)
+            print("⚠️  SESSION FILE NOT FOUND")
+            print("=" * 80)
+            print(f"Session file '{SESSION_NAME}.session' does not exist.")
+            print("\n🔧 SOLUTION:")
+            print("1. Create session file locally first:")
+            print("   - Run the bot locally: python telegram_monitor_new.py")
+            print("   - Enter your phone number and authentication code")
+            print(f"   - This creates: {SESSION_NAME}.session")
+            print("\n2. Upload session file to Railway:")
+            print("   - Go to Railway dashboard → Your service → Files tab")
+            print(f"   - Click 'Upload' and select: {SESSION_NAME}.session")
+            print("\n3. Redeploy on Railway")
+            print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
+            print("=" * 80 + "\n")
             raise  # Don't retry - needs manual intervention
         except Exception as e:
             if attempt < max_attempts:
