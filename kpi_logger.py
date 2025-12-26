@@ -67,6 +67,12 @@ class KPILogger:
             "top_buy_sol": alert.get("top_buy_sol"),
             "matched_signals": alert.get("matched_signals", []),
             "tags": self._generate_tags(alert),
+            # Add tiered strategy fields for API server
+            "tier": alert.get("tier"),
+            "glydo_in_top5": alert.get("glydo_in_top5"),
+            "hot_list": alert.get("hot_list"),  # Save hot_list dict or bool
+            "hot_list_status": alert.get("hot_list_status"),  # Alternative field name
+            "confirmations": alert.get("confirmations"),  # Save confirmations for API
         }
         self.alerts.append(alert_entry)
         self.save_logs()
