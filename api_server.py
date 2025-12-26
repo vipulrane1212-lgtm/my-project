@@ -75,20 +75,34 @@ def load_json_file(file_path: Path, default: dict = None) -> dict:
         return default
 
 
-def get_tier_from_level(level: str) -> int:
-    """Convert alert level to tier number."""
+def get_tier_from_level(level: str, alert_tier: Optional[int] = None) -> int:
+    """Convert alert level to tier number.
+    
+    IMPORTANT: Tier 1 alerts are stored as level="HIGH", but HIGH should map to tier 1, not tier 2.
+    Use alert_tier if available (from the tier field in the alert), otherwise infer from level.
+    """
+    # If tier is explicitly provided, use it (most reliable)
+    if alert_tier is not None and alert_tier in [1, 2, 3]:
+        return alert_tier
+    
     level_upper = level.upper()
+    
+    # Explicit tier strings
     if level_upper in ["ULTRA", "TIER 1", "TIER1", "1"]:
         return 1
-    elif level_upper in ["HIGH", "TIER 2", "TIER2", "2"]:
+    elif level_upper in ["TIER 2", "TIER2", "2"]:
         return 2
-    elif level_upper in ["MEDIUM", "TIER 3", "TIER3", "3"]:
+    elif level_upper in ["TIER 3", "TIER3", "3"]:
         return 3
-    # Default mapping based on level
+    
+    # CRITICAL FIX: Tier 1 alerts are stored as level="HIGH"
+    # But we can't distinguish tier 1 HIGH from tier 2 HIGH without the tier field
+    # So we default HIGH to tier 1 (since tier 1 uses HIGH, tier 2 uses MEDIUM)
     if "HIGH" in level_upper:
-        return 2
+        return 1  # Changed from 2 to 1 - tier 1 alerts use HIGH
     elif "MEDIUM" in level_upper:
-        return 3
+        return 2  # Tier 2 uses MEDIUM (tier 3 also uses MEDIUM, but we default to 2)
+    
     return 3  # Default to tier 3
 
 
@@ -144,7 +158,8 @@ async def get_stats():
         tier_counts = {1: 0, 2: 0, 3: 0}
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            tier = get_tier_from_level(level)
+            alert_tier = alert.get("tier")  # Use tier field if available
+            tier = get_tier_from_level(level, alert_tier)
             tier_counts[tier] = tier_counts.get(tier, 0) + 1
         
         # Calculate win rate (true positives / total alerts)
@@ -204,7 +219,8 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None):
             filtered_alerts = []
             for alert in alerts:
                 level = alert.get("level", "MEDIUM")
-                alert_tier = get_tier_from_level(level)
+                alert_tier_field = alert.get("tier")  # Use tier field if available
+                alert_tier = get_tier_from_level(level, alert_tier_field)
                 if alert_tier == tier:
                     filtered_alerts.append(alert)
             alerts = filtered_alerts
@@ -216,7 +232,8 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None):
         formatted_alerts = []
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            tier_num = get_tier_from_level(level)
+            alert_tier_field = alert.get("tier")  # Use tier field if available (most reliable)
+            tier_num = get_tier_from_level(level, alert_tier_field)
             
             # Get hotlist status
             try:
@@ -356,7 +373,8 @@ async def get_tier_breakdown():
         
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            tier = get_tier_from_level(level)
+            alert_tier_field = alert.get("tier")  # Use tier field if available
+            tier = get_tier_from_level(level, alert_tier_field)
             tier_breakdown[tier]["count"] += 1
             
             # Add to recent alerts for this tier (last 10)
@@ -398,7 +416,8 @@ async def get_daily_stats(days: int = 7):
                     daily_stats[date_key]["total"] += 1
                     
                     level = alert.get("level", "MEDIUM")
-                    tier = get_tier_from_level(level)
+                    alert_tier_field = alert.get("tier")  # Use tier field if available
+                    tier = get_tier_from_level(level, alert_tier_field)
                     daily_stats[date_key][f"tier{tier}"] += 1
             except Exception:
                 continue
