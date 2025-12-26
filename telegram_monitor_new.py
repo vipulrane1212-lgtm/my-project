@@ -1156,13 +1156,22 @@ class TelegramMonitorNew:
                                 parse_mode='Markdown'
                             )
                         else:
-                            # Parse tier numbers
+                            # Parse tier numbers - support both /set 1 and /set t1 formats
                             tier_numbers = []
                             for part in tier_arg.split(','):
                                 part = part.strip()
+                                # Support both formats: "t1" or just "1"
                                 if part.startswith('t'):
                                     try:
                                         tier_num = int(part[1:])
+                                        if tier_num in [1, 2, 3]:
+                                            tier_numbers.append(tier_num)
+                                    except ValueError:
+                                        pass
+                                else:
+                                    # Direct number format: "1", "2", "3"
+                                    try:
+                                        tier_num = int(part)
                                         if tier_num in [1, 2, 3]:
                                             tier_numbers.append(tier_num)
                                     except ValueError:
@@ -1172,8 +1181,8 @@ class TelegramMonitorNew:
                                 await event.respond(
                                     "❌ **Invalid tier format.**\n\n"
                                     "**Usage:**\n"
-                                    "`/set t1` — Receive only TIER 1 alerts\n"
-                                    "`/set t1,t2` — Receive TIER 1 and TIER 2 alerts\n"
+                                    "`/set 1` or `/set t1` — Receive only TIER 1 alerts\n"
+                                    "`/set 1,2` or `/set t1,t2` — Receive TIER 1 and TIER 2 alerts\n"
                                     "`/set all` — Receive all tier alerts",
                                     parse_mode='Markdown'
                                 )
