@@ -480,10 +480,10 @@ class TelegramMonitorNew:
                         sent_count += 1
                         print(f"✅ Alert sent to group/channel {group_id}")
                     except Exception as e:
-                    print(f"❌ Failed to send to group {group_id}: {e}")
-                    # Remove invalid group (bot removed or no permission)
-                    self.alert_groups.discard(group_id)
-                    self.save_alert_groups()
+                        print(f"❌ Failed to send to group {group_id}: {e}")
+                        # Remove invalid group (bot removed or no permission)
+                        self.alert_groups.discard(group_id)
+                        self.save_alert_groups()
                 else:
                     print(f"⏭️ Skipped group/channel {group_id} - tier {alert_tier} not in preferences {group_tiers}")
         
@@ -540,10 +540,10 @@ class TelegramMonitorNew:
                         )
                         sent_count += 1
                     except Exception as e:
-                    print(f"❌ Failed to send to user {user_id}: {e}")
-                    # Remove invalid user from subscriptions
-                    self.subscribed_users.discard(user_id)
-                    self.save_subscriptions()
+                        print(f"❌ Failed to send to user {user_id}: {e}")
+                        # Remove invalid user from subscriptions
+                        self.subscribed_users.discard(user_id)
+                        self.save_subscriptions()
         
         if sent_count > 0:
             print(f"✅ Alert sent to {sent_count} destination(s) ({len(self.alert_groups)} groups, {len(self.subscribed_users)} users)")
