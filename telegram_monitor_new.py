@@ -40,7 +40,7 @@ def debug_log(data: dict):
 # ========== CONFIG ==========
 API_ID = int(os.getenv('API_ID', '25177061'))
 API_HASH = os.getenv('API_HASH', 'c11ea2f1db2aa742144dfa2a30448408')
-SESSION_NAME = os.getenv('SESSION_NAME', 'blackhat_empire_session')
+SESSION_NAME = os.getenv('SESSION_NAME', 'railway_production_session')
 
 # Forum topics to monitor
 FORUM_TOPICS = [
