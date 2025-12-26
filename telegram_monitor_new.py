@@ -425,28 +425,49 @@ class TelegramMonitorNew:
             # This is the MCAP displayed in the formatted message, not the entry MCAP
             # We need to save this so the API returns the correct MCAP
             import re
-            current_mc_match = re.search(r'Current MC:\s*\*\*\$?([0-9,]+\.?[0-9]*)\s*([KMkm]?)\*\*', alert_message)
-            if current_mc_match:
-                current_mc_value = float(current_mc_match.group(1).replace(',', ''))
-                current_mc_unit = current_mc_match.group(2).upper() if current_mc_match.group(2) else ''
-                if current_mc_unit == 'K':
-                    current_mc_value *= 1000
-                elif current_mc_unit == 'M':
-                    current_mc_value *= 1000000
+            # Try multiple patterns to match "Current MC: **$142.0K**" or "Current MC: **$142,000**"
+            patterns = [
+                r'Current MC:\s*\*\*\$?([0-9,]+\.?[0-9]*)\s*([KMkm]?)\*\*',  # Original pattern
+                r'Current MC:\s*\*\*\$([0-9,]+\.?[0-9]*)\s*([KMkm]?)\*\*',   # With $ required
+                r'Current MC[:\s]+\*\*\$?([0-9,]+\.?[0-9]*)\s*([KMkm]?)\*\*', # More flexible spacing
+            ]
+            
+            current_mc_value = None
+            for pattern in patterns:
+                current_mc_match = re.search(pattern, alert_message)
+                if current_mc_match:
+                    try:
+                        value_str = current_mc_match.group(1).replace(',', '')
+                        current_mc_value = float(value_str)
+                        current_mc_unit = current_mc_match.group(2).upper() if len(current_mc_match.groups()) > 1 and current_mc_match.group(2) else ''
+                        if current_mc_unit == 'K':
+                            current_mc_value *= 1000
+                        elif current_mc_unit == 'M':
+                            current_mc_value *= 1000000
+                        break  # Successfully matched
+                    except (ValueError, IndexError):
+                        continue
+            
+            if current_mc_value is not None:
                 # Save the current MCAP that was shown in the post
                 alert["current_mcap"] = current_mc_value
                 alert["current_mcap_shown"] = True  # Flag to indicate this is the MCAP from the post
                 print(f"📊 Current MCAP from post: ${current_mc_value:,.0f}")
             else:
-                # Fallback: use the current_mcap we calculated earlier
+                # Fallback: use the current_mcap we calculated earlier (from DexScreener or alert data)
                 if current_mcap:
                     alert["current_mcap"] = current_mcap
                     alert["current_mcap_shown"] = True
+                    print(f"📊 Current MCAP from DexScreener/enrichment: ${current_mcap:,.0f}")
                 else:
                     # Last resort: use entry MCAP
-                    alert["current_mcap"] = alert.get("entry_mc") or alert.get("mc_usd")
-                    alert["current_mcap_shown"] = False
-                    print(f"⚠️ Could not extract Current MC from post, using entry MCAP")
+                    entry_mc_fallback = alert.get("entry_mc") or alert.get("mc_usd")
+                    if entry_mc_fallback:
+                        alert["current_mcap"] = entry_mc_fallback
+                        alert["current_mcap_shown"] = False
+                        print(f"⚠️ Could not extract Current MC from post, using entry MCAP: ${entry_mc_fallback:,.0f}")
+                    else:
+                        print(f"⚠️ Could not extract Current MC from post and no fallback available")
             
             # CRITICAL: Save alert to JSON FIRST, before sending to Telegram
             # This ensures alerts are always saved even if sending fails
