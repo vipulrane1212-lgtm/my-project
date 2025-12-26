@@ -385,14 +385,16 @@ class TelegramMonitorNew:
             self.recent_alerts = {k: v for k, v in self.recent_alerts.items() if v > cutoff}
             
             # Enrich with live MCAP/symbol from DexScreener if enabled
+            current_mcap = None
             if self.enrich_with_live_mcap and alert.get("contract"):
                 try:
                     enriched = enrich_alert_with_live_data(alert)
                     # Update alert with live data if available
                     if enriched.get("live_mcap") is not None:
-                        alert["mc_usd"] = enriched["live_mcap"]
+                        current_mcap = enriched["live_mcap"]
+                        alert["mc_usd"] = current_mcap
                         alert["mc_source"] = "dexscreener_live"
-                        print(f"[DexScreener] Updated MCAP for {alert.get('token')}: ${enriched['live_mcap']:,.2f}")
+                        print(f"[DexScreener] Updated MCAP for {alert.get('token')}: ${current_mcap:,.2f}")
                     if enriched.get("live_symbol") and not alert.get("token"):
                         alert["token"] = enriched["live_symbol"]
                         print(f"[DexScreener] Updated symbol: {enriched['live_symbol']}")
@@ -402,11 +404,14 @@ class TelegramMonitorNew:
                     # Don't fail alerts if DexScreener API fails
                     print(f"[DexScreener] Warning: Could not enrich alert: {e}")
             
-            # Skip alerts if current MCAP is above 500k
-            current_mcap = alert.get("mc_usd") or alert.get("market_cap")
-            if current_mcap and current_mcap > 500000:
-                print(f"⏭️ Skipping alert for {token} TIER {tier} - Current MCAP ${current_mcap:,.0f} exceeds 500k limit")
-                continue
+            # MCAP Filter: Skip alerts if current MCAP > 500k
+            if current_mcap is None:
+                # Fallback to alert's MCAP if enrichment failed
+                current_mcap = alert.get("mc_usd") or alert.get("market_cap")
+            
+            if current_mcap and current_mcap > 500000:  # 500k threshold
+                print(f"⏭️ Skipping alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold")
+                continue  # Skip this alert
             
             # Log alert for KPI tracking
             level = alert.get("level", "MEDIUM")
@@ -1751,6 +1756,22 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
                 raise
     return False
 
+async def run_api_server():
+    """Run the API server in background"""
+    try:
+        import uvicorn
+        from api_server import app
+        config = uvicorn.Config(app, host="0.0.0.0", port=5000, log_level="info")
+        server = uvicorn.Server(config)
+        print("🚀 Starting SolBoy Alerts API Server...")
+        print("📡 API will be available at: http://0.0.0.0:5000")
+        print("📖 API docs at: http://0.0.0.0:5000/docs")
+        await server.serve()
+    except Exception as e:
+        print(f"⚠️ Warning: Could not start API server: {e}")
+        import traceback
+        traceback.print_exc()
+
 async def main():
     """Main function"""
     # TelegramClient will create the session file on first run if it doesn't exist
@@ -1802,7 +1823,13 @@ async def main():
         print(f"Connected as: {me.first_name} (@{me.username or 'N/A'})\n")
         
         monitor = TelegramMonitorNew(client, bot_client=bot_client)
-        await monitor.start()
+        
+        # Start API server and monitor concurrently
+        await asyncio.gather(
+            run_api_server(),
+            monitor.start(),
+            return_exceptions=True
+        )
         
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user")
