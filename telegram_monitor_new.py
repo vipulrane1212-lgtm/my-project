@@ -471,19 +471,19 @@ class TelegramMonitorNew:
                         # #region agent log
                         debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:421","message":"Sending alert to group","data":{"group_id":group_id,"alert_tier":alert_tier,"token":alert.get("token") if alert else None},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                         # #endregion
-                        await self.bot_client.send_message(
-                            group_id,
+                    await self.bot_client.send_message(
+                        group_id,
                             alert_message,
-                            parse_mode='Markdown',
-                            link_preview=False
-                        )
-                        sent_count += 1
+                        parse_mode='Markdown',
+                        link_preview=False
+                    )
+                    sent_count += 1
                         print(f"✅ Alert sent to group/channel {group_id}")
-                    except Exception as e:
-                        print(f"❌ Failed to send to group {group_id}: {e}")
-                        # Remove invalid group (bot removed or no permission)
-                        self.alert_groups.discard(group_id)
-                        self.save_alert_groups()
+                except Exception as e:
+                    print(f"❌ Failed to send to group {group_id}: {e}")
+                    # Remove invalid group (bot removed or no permission)
+                    self.alert_groups.discard(group_id)
+                    self.save_alert_groups()
                 else:
                     print(f"⏭️ Skipped group/channel {group_id} - tier {alert_tier} not in preferences {group_tiers}")
         
@@ -532,18 +532,18 @@ class TelegramMonitorNew:
                         # #region agent log
                         debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:516","message":"Sending alert to user","data":{"user_id":user_id,"alert_tier":alert_tier,"token":alert.get("token") if alert else None},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                         # #endregion
-                        await self.bot_client.send_message(
-                            user_id,
+                    await self.bot_client.send_message(
+                        user_id,
                             alert_message,
-                            parse_mode='Markdown',
-                            link_preview=False
-                        )
-                        sent_count += 1
-                    except Exception as e:
-                        print(f"❌ Failed to send to user {user_id}: {e}")
-                        # Remove invalid user from subscriptions
-                        self.subscribed_users.discard(user_id)
-                        self.save_subscriptions()
+                        parse_mode='Markdown',
+                        link_preview=False
+                    )
+                    sent_count += 1
+                except Exception as e:
+                    print(f"❌ Failed to send to user {user_id}: {e}")
+                    # Remove invalid user from subscriptions
+                    self.subscribed_users.discard(user_id)
+                    self.save_subscriptions()
         
         if sent_count > 0:
             print(f"✅ Alert sent to {sent_count} destination(s) ({len(self.alert_groups)} groups, {len(self.subscribed_users)} users)")
@@ -1824,8 +1824,12 @@ async def main():
         
         monitor = TelegramMonitorNew(client, bot_client=bot_client)
         
-        # Start monitor only (API server disabled)
-        await monitor.start()
+        # Start API server and monitor concurrently
+        await asyncio.gather(
+            run_api_server(),
+            monitor.start(),
+            return_exceptions=True
+        )
         
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user")
