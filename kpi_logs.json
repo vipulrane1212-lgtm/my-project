@@ -1,0 +1,3615 @@
+{
+  "alerts": [
+    {
+      "timestamp": "2025-12-22T14:22:39.787263+00:00",
+      "level": "MEDIUM",
+      "token": "SUNABOZU",
+      "contract": "6EPGCRNQ2FZSC4QP4SFZV4TVWGELJ11A27SCNJHSPUMP",
+      "score": 75,
+      "callers": 23,
+      "subs": 160436,
+      "liq_usd": 49935.52,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T14:22:51.904842+00:00",
+      "level": "MEDIUM",
+      "token": "MAN",
+      "contract": "5YDUYHHRMM9UBF3AVWTILB27R3DP3JCP3KVPMQPPUMP",
+      "score": 62.0,
+      "callers": 17,
+      "subs": 105608,
+      "liq_usd": 106153.32,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T14:25:09.827175+00:00",
+      "level": "HIGH",
+      "token": "SUNABOZU",
+      "contract": "6EPGCRNQ2FZSC4QP4SFZV4TVWGELJ11A27SCNJHSPUMP",
+      "score": 25,
+      "callers": 23,
+      "subs": 160436,
+      "liq_usd": 50442.13,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T14:25:10.884407+00:00",
+      "level": "HIGH",
+      "token": "MAN",
+      "contract": "5YDUYHHRMM9UBF3AVWTILB27R3DP3JCP3KVPMQPPUMP",
+      "score": 80.0,
+      "callers": 17,
+      "subs": 105608,
+      "liq_usd": 125817.08,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T15:03:08.315389+00:00",
+      "level": "HIGH",
+      "token": "MAN",
+      "contract": "5YDUYHHRMM9UBF3AVWTILB27R3DP3JCP3KVPMQPPUMP",
+      "score": 80.0,
+      "callers": 19,
+      "subs": 117004,
+      "liq_usd": 171491.9,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T15:27:05.691332+00:00",
+      "level": "MEDIUM",
+      "token": "HORSE",
+      "contract": "BD2WZA2Z1EUBD3BGBGPVVVP8FKQ9HX5CILUSKBUKPUMP",
+      "score": 75,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 35730.03,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 15.0,
+      "matched_signals": [
+        "Large buy: 14.85 SOL",
+        "Large buy: 15.0 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T15:29:06.427843+00:00",
+      "level": "MEDIUM",
+      "token": "MOONBALL",
+      "contract": "7AYQMIVEQGM4NUBG65HQDZBDE6Q9E1B2MNTUAKZ4PUMP",
+      "score": 75,
+      "callers": 15,
+      "subs": 53490,
+      "liq_usd": 50169.9,
+      "last_buy_sol": 4.02,
+      "top_buy_sol": 4.02,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T15:54:59.236977+00:00",
+      "level": "MEDIUM",
+      "token": "WANSHITONG",
+      "contract": "DZMMSKTWMC2VHDXECD5EH5QR1MZNYJYZ8UE3UHAXPUMP",
+      "score": 56.0,
+      "callers": 29,
+      "subs": 106472,
+      "liq_usd": 33946.64,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T16:01:00.007712+00:00",
+      "level": "MEDIUM",
+      "token": "ICEWIZARD",
+      "contract": "GCAGYJ35CB3ZXEQRQIBFL8B8NWQVE9NTWHZWBSMPPUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 21201,
+      "liq_usd": 31503.46,
+      "last_buy_sol": 9.9,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Large buy: 5.87 SOL",
+        "Large buy: 5.92 SOL",
+        "Large buy: 9.9 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 298200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-22T16:29:48.861519+00:00",
+      "level": "MEDIUM",
+      "token": "LIQUID",
+      "contract": "5AZEFXDXNMSFWSQDKBDM6JUX2T4Z8IEPXDVBFKRKPUMP",
+      "score": 64.0,
+      "callers": 28,
+      "subs": 96461,
+      "liq_usd": 83138.29,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T16:30:40.822139+00:00",
+      "level": "HIGH",
+      "token": "LIQUID",
+      "contract": "5AZEFXDXNMSFWSQDKBDM6JUX2T4Z8IEPXDVBFKRKPUMP",
+      "score": 79.0,
+      "callers": 28,
+      "subs": 96461,
+      "liq_usd": 85463.85,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T17:13:16.440298+00:00",
+      "level": "MEDIUM",
+      "token": "BEENZ",
+      "contract": "8AJ8GEN3BF6EKRPDM8MDCHEMUG3GJVDARHRI6KVDPUMP",
+      "score": 75,
+      "callers": 1,
+      "subs": 9821,
+      "liq_usd": 52802.91,
+      "last_buy_sol": 2.94,
+      "top_buy_sol": 62.99,
+      "matched_signals": [
+        "Large buy: 14.14 SOL",
+        "Large buy: 60.08 SOL",
+        "Large buy: 62.99 SOL",
+        "Large buy: 9.99 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T17:13:50.709054+00:00",
+      "level": "HIGH",
+      "token": "WHITE",
+      "contract": "BDKCHLHUVDZ8Z6Q5LWRY9OB5AZBFBZR1NERC3NA6PUMP",
+      "score": 80.0,
+      "callers": 38,
+      "subs": 237252,
+      "liq_usd": 40450.34,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 864300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-22T17:15:07.957516+00:00",
+      "level": "HIGH",
+      "token": "BEENZ",
+      "contract": "8AJ8GEN3BF6EKRPDM8MDCHEMUG3GJVDARHRI6KVDPUMP",
+      "score": 25,
+      "callers": 1,
+      "subs": 9821,
+      "liq_usd": 52589.23,
+      "last_buy_sol": 2.0,
+      "top_buy_sol": 62.99,
+      "matched_signals": [
+        "Large buy: 14.14 SOL",
+        "Large buy: 60.08 SOL",
+        "Large buy: 62.99 SOL",
+        "Large buy: 9.99 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T18:08:18.968061+00:00",
+      "level": "MEDIUM",
+      "token": "ICEWIZARD",
+      "contract": "GCAGYJ35CB3ZXEQRQIBFL8B8NWQVE9NTWHZWBSMPPUMP",
+      "score": 75,
+      "callers": 19,
+      "subs": 84232,
+      "liq_usd": 44227.1,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 2.97,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 298200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-22T18:20:46.034220+00:00",
+      "level": "MEDIUM",
+      "token": "PEEPO",
+      "contract": "2ANPRC6DASQMOUN5WEHQQE1YGCQYMBCCPI1ZKIQWPUMP",
+      "score": 75,
+      "callers": 38,
+      "subs": 331487,
+      "liq_usd": 150495.92,
+      "last_buy_sol": 4.96,
+      "top_buy_sol": 11.64,
+      "matched_signals": [
+        "Large buy: 11.64 SOL",
+        "Large buy: 5.52 SOL",
+        "Large buy: 5.69 SOL",
+        "Large buy: 5.86 SOL",
+        "Large buy: 6.36 SOL",
+        "Large buy: 7.08 SOL",
+        "Large buy: 7.45 SOL",
+        "Whale buy"
+      ],
+      "tags": []
+    },
+    {
+      "timestamp": "2025-12-22T18:21:11.955804+00:00",
+      "level": "MEDIUM",
+      "token": "USEFUL",
+      "contract": "HEM4SBT8DFNENA31WQZC67F4KXTFXMRVZG9STFVUPUMP",
+      "score": 75,
+      "callers": 11,
+      "subs": 37097,
+      "liq_usd": 30141.15,
+      "last_buy_sol": 0.89,
+      "top_buy_sol": 5.0,
+      "matched_signals": [
+        "Early trending",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T18:30:41.009649+00:00",
+      "level": "HIGH",
+      "token": "USEFUL",
+      "contract": "HEM4SBT8DFNENA31WQZC67F4KXTFXMRVZG9STFVUPUMP",
+      "score": 25,
+      "callers": 16,
+      "subs": 56795,
+      "liq_usd": 47387.08,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 14.14,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.14 SOL",
+        "Large buy: 6.84 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-22T18:30:59.726493+00:00",
+      "level": "MEDIUM",
+      "token": "PERCOLATOR",
+      "contract": "8PZFWYLPCVEMBZMVJCARTU5R69XKJX1RD7YGPWVNPUMP",
+      "score": 62.0,
+      "callers": 63,
+      "subs": 649559,
+      "liq_usd": 39994.01,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-23T05:14:10.285662+00:00",
+      "level": "MEDIUM",
+      "token": "SAFEMOONV2",
+      "contract": "TCQFMVJXVYWN3KCPJA2ATU5Y9CGOAOZ3XXVWSNREJV2",
+      "score": 64.0,
+      "callers": 22,
+      "subs": 83251,
+      "liq_usd": 42662.2,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-23T05:58:27.619041+00:00",
+      "level": "HIGH",
+      "token": "SOB",
+      "contract": "4JUFFEMGZDMQ8VPECCAOXVAZGT7DBS8DMXXEVEU9PUMP",
+      "score": 85.0,
+      "callers": 19,
+      "subs": 88272,
+      "liq_usd": 41455.58,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo",
+        "spydefi"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 235200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T05:59:44.252126+00:00",
+      "level": "MEDIUM",
+      "token": "BURNV2",
+      "contract": "FKVAL4PSCSFFF62EQSUSSE7J1N5STDY14H5YDHQTPUMP",
+      "score": 56.0,
+      "callers": 22,
+      "subs": 61003,
+      "liq_usd": 29477.63,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 196100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T06:17:15.469297+00:00",
+      "level": "HIGH",
+      "token": "BURNV2",
+      "contract": "FKVAL4PSCSFFF62EQSUSSE7J1N5STDY14H5YDHQTPUMP",
+      "score": 25,
+      "callers": 22,
+      "subs": 61003,
+      "liq_usd": 32420.11,
+      "last_buy_sol": 7.13,
+      "top_buy_sol": 7.13,
+      "matched_signals": [
+        "Large buy: 7.13 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 196100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T06:57:49.724747+00:00",
+      "level": "MEDIUM",
+      "token": "QUESADILLA",
+      "contract": "HT41SF2VFPURV9BJK9N2VVDSVTX3VZ4PVVBCSAQSPUMP",
+      "score": 75,
+      "callers": 18,
+      "subs": 43089,
+      "liq_usd": 29752.58,
+      "last_buy_sol": 2.5,
+      "top_buy_sol": 3.2,
+      "matched_signals": [
+        "Whale buy"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 160700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T08:07:28.708461+00:00",
+      "level": "HIGH",
+      "token": "BURNV2",
+      "contract": "FKVAL4PSCSFFF62EQSUSSE7J1N5STDY14H5YDHQTPUMP",
+      "score": 79.0,
+      "callers": 33,
+      "subs": 209227,
+      "liq_usd": 48429.91,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 196100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T08:18:06.449551+00:00",
+      "level": "HIGH",
+      "token": "FLUSH",
+      "contract": "C9TGM9UWPNF3HTB9FBCMUY9UEIR5K9SHQWG4KK1NPUMP",
+      "score": 25,
+      "callers": 15,
+      "subs": 39200,
+      "liq_usd": 42458.32,
+      "last_buy_sol": 29.7,
+      "top_buy_sol": 29.7,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 29.7 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 198600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T09:05:25.397537+00:00",
+      "level": "MEDIUM",
+      "token": "BURNV2",
+      "contract": "FKVAL4PSCSFFF62EQSUSSE7J1N5STDY14H5YDHQTPUMP",
+      "score": 75,
+      "callers": 33,
+      "subs": 209227,
+      "liq_usd": 44033.33,
+      "last_buy_sol": 2.32,
+      "top_buy_sol": 4.25,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 196100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T09:23:56.874782+00:00",
+      "level": "HIGH",
+      "token": "REINVEST",
+      "contract": "94Y9CKPQJR1H141JUZH3BUSGBKVKWC5SY8NMNZFKPUMP",
+      "score": 25,
+      "callers": 15,
+      "subs": 89114,
+      "liq_usd": 35869.55,
+      "last_buy_sol": 5.0,
+      "top_buy_sol": 7.02,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 139700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T09:52:58.436649+00:00",
+      "level": "MEDIUM",
+      "token": "SOB",
+      "contract": "4JUFFEMGZDMQ8VPECCAOXVAZGT7DBS8DMXXEVEU9PUMP",
+      "score": 75,
+      "callers": 21,
+      "subs": 101182,
+      "liq_usd": 47136.89,
+      "last_buy_sol": 1.86,
+      "top_buy_sol": 2.32,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 235200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T10:25:11.500127+00:00",
+      "level": "MEDIUM",
+      "token": "HOHO",
+      "contract": "E9ZFB6GX8COHG3QJSRPGOMWR6PCBFZJ2NCMUSFHPUMP",
+      "score": 57.0,
+      "callers": 2,
+      "subs": 10671,
+      "liq_usd": 39298.3,
+      "last_buy_sol": 16.06,
+      "top_buy_sol": 54.32,
+      "matched_signals": [
+        "glydo",
+        "large_buy"
+      ],
+      "tags": [
+        "has_glydo",
+        "weak_social"
+      ],
+      "mc_usd": 174900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T10:31:38.515631+00:00",
+      "level": "MEDIUM",
+      "token": "UNFUN",
+      "contract": "HPJVIHKEXLMGTVMA9ISFUFAERLXVCXKMFMIHNQBYU6GM",
+      "score": 75,
+      "callers": 19,
+      "subs": 38331,
+      "liq_usd": 32668.4,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 2.97,
+      "matched_signals": [
+        "Early trending",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 118600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T13:09:38.565128+00:00",
+      "level": "MEDIUM",
+      "token": "WHITE",
+      "contract": "BDKCHLHUVDZ8Z6Q5LWRY9OB5AZBFBZR1NERC3NA6PUMP",
+      "score": 70.0,
+      "callers": 50,
+      "subs": 264414,
+      "liq_usd": 77325.27,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 864300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T14:40:59.053962+00:00",
+      "level": "HIGH",
+      "token": "XAG",
+      "contract": "8PPJPE9G6TKOKDHCDMBO1AGDZDZUWSVRPBG8PLKVPUMP",
+      "score": 77.0,
+      "callers": 29,
+      "subs": 281522,
+      "liq_usd": 38609.34,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 137200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T14:48:16.904308+00:00",
+      "level": "MEDIUM",
+      "token": "SNOWDOM",
+      "contract": "VN1BXXAK1OH2VS6BN9HRREDCSDFPBSUHCJJUXAUPUMP",
+      "score": 75,
+      "callers": 8,
+      "subs": 24056,
+      "liq_usd": 46477.96,
+      "last_buy_sol": 8.9,
+      "top_buy_sol": 8.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.59 SOL",
+        "Large buy: 5.85 SOL",
+        "Large buy: 8.9 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 242400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:14:25.252133+00:00",
+      "level": "MEDIUM",
+      "token": "FART",
+      "contract": "HTRCNCADDHX3EQT2ZT124YLEQ74PG22F3NMUHU8I93V2",
+      "score": 75,
+      "callers": 5,
+      "subs": 15439,
+      "liq_usd": 26812.87,
+      "last_buy_sol": 4.95,
+      "top_buy_sol": 5.04,
+      "matched_signals": [
+        "Large buy: 5.04 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 81800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:20:51.663839+00:00",
+      "level": "HIGH",
+      "token": "WHITE",
+      "contract": "BDKCHLHUVDZ8Z6Q5LWRY9OB5AZBFBZR1NERC3NA6PUMP",
+      "score": 85.0,
+      "callers": 51,
+      "subs": 288714,
+      "liq_usd": 83378.93,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 864300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:22:17.474874+00:00",
+      "level": "MEDIUM",
+      "token": "VOLLEYBALL",
+      "contract": "7HYFHRNWCS27ECAJKM7GPLU2ZDXBOEHNYKUZHHAVPUMP",
+      "score": 75,
+      "callers": 9,
+      "subs": 42467,
+      "liq_usd": 29559.07,
+      "last_buy_sol": 5.7,
+      "top_buy_sol": 6.86,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.7 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 98600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:24:35.987902+00:00",
+      "level": "MEDIUM",
+      "token": "LIQUID",
+      "contract": "J2KVSJCVGMKYH5NQO9X7VJGH2JPMKKNDZAAYUFKSPUMP",
+      "score": 50,
+      "callers": 27,
+      "subs": 142971,
+      "liq_usd": 80268.83,
+      "last_buy_sol": 6.46,
+      "top_buy_sol": 6.46,
+      "matched_signals": [
+        "Large buy: 6.46 SOL"
+      ],
+      "tags": [],
+      "mc_usd": 321300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:32:18.473942+00:00",
+      "level": "MEDIUM",
+      "token": "A1LON9",
+      "contract": "EY9KAC39JAKS2ZSJMRD4KFZTBPSXFGHRNCM5BSWFPUMP",
+      "score": 62.0,
+      "callers": 23,
+      "subs": 91875,
+      "liq_usd": 37281.56,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 146900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:40:38.008795+00:00",
+      "level": "MEDIUM",
+      "token": "FARTV2",
+      "contract": "D74KUWMEADTLQYGUAQNMGKYXK1QHDUHU7PDT6ZVYPUMP",
+      "score": 75,
+      "callers": 11,
+      "subs": 16317,
+      "liq_usd": 31742.34,
+      "last_buy_sol": 8.01,
+      "top_buy_sol": 8.01,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.01 SOL",
+        "Large buy: 8.0 SOL",
+        "Large buy: 8.01 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 115600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:54:43.097294+00:00",
+      "level": "MEDIUM",
+      "token": "YEAR",
+      "contract": "2GHZRPFPDOYTTRWGUGD38BWMVBTACTL6OHJMV9J6PUMP",
+      "score": 75,
+      "callers": 14,
+      "subs": 42208,
+      "liq_usd": 28752.06,
+      "last_buy_sol": 5.24,
+      "top_buy_sol": 5.24,
+      "matched_signals": [
+        "Large buy: 5.24 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 94700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T15:56:06.381149+00:00",
+      "level": "MEDIUM",
+      "token": "THETACHI",
+      "contract": "4QT63VTKITR84EG4XMX4DWYX6UYRHKTN3NBHZWGEFGV2",
+      "score": 75,
+      "callers": 37,
+      "subs": 135913,
+      "liq_usd": 42106.34,
+      "last_buy_sol": 4.95,
+      "top_buy_sol": 8.0,
+      "matched_signals": [
+        "Early trending",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 181700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T16:16:32.199374+00:00",
+      "level": "MEDIUM",
+      "token": "JACKPOT",
+      "contract": "7NG7J9KYRQNVAJCFJWLCXSWBYXI37BIGGUDCF3FVAGV2",
+      "score": 75,
+      "callers": 35,
+      "subs": 163835,
+      "liq_usd": 37265.39,
+      "last_buy_sol": 3.15,
+      "top_buy_sol": 5.94,
+      "matched_signals": [],
+      "tags": [],
+      "mc_usd": 145400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T16:20:43.504783+00:00",
+      "level": "HIGH",
+      "token": "YAWN",
+      "contract": "3PYYHHA8LURCSMLFY2VNDJKDF7BBWNDUYM8PYVWEPUMP",
+      "score": 25,
+      "callers": 14,
+      "subs": 43787,
+      "liq_usd": 60411.15,
+      "last_buy_sol": 6.91,
+      "top_buy_sol": 6.91,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 387600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T16:29:41.729774+00:00",
+      "level": "MEDIUM",
+      "token": "WHITE",
+      "contract": "BDKCHLHUVDZ8Z6Q5LWRY9OB5AZBFBZR1NERC3NA6PUMP",
+      "score": 75,
+      "callers": 51,
+      "subs": 288714,
+      "liq_usd": 96541.76,
+      "last_buy_sol": 3.06,
+      "top_buy_sol": 3.06,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 864300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T16:45:45.562454+00:00",
+      "level": "HIGH",
+      "token": "PUMP2",
+      "contract": "5OBSHGWHKNTSK4KRTRIDFMMNGWK39K3K8JNXM1HXPUMP",
+      "score": 91.0,
+      "callers": 29,
+      "subs": 115570,
+      "liq_usd": 74442.8,
+      "last_buy_sol": 1.5,
+      "top_buy_sol": 1.5,
+      "matched_signals": [
+        "glydo",
+        "whalebuy"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 476300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T16:50:44.724483+00:00",
+      "level": "MEDIUM",
+      "token": "REALJD",
+      "contract": "CA233TZWTNORDMUARMFKDJA2FIN1DZMKDF3HKWUPUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 17600,
+      "liq_usd": 40196.84,
+      "last_buy_sol": 26.91,
+      "top_buy_sol": 26.91,
+      "matched_signals": [
+        "Large buy: 22.05 SOL",
+        "Large buy: 26.89 SOL",
+        "Large buy: 26.91 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 178700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:01:21.802543+00:00",
+      "level": "MEDIUM",
+      "token": "AQLIQ",
+      "contract": "6FT5EVCYI51SG7JFOABJEZV54AG5FBNS37YHAVBNPUMP",
+      "score": 75,
+      "callers": 30,
+      "subs": 422188,
+      "liq_usd": 81129.52,
+      "last_buy_sol": 4.95,
+      "top_buy_sol": 4.95,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 573500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:03:03.273108+00:00",
+      "level": "MEDIUM",
+      "token": "BEAT",
+      "contract": "91LUGNCZW3IPYHOKE6PDSBBAWUG3YWWZBJQGGOIDPUMP",
+      "score": 75,
+      "callers": 31,
+      "subs": 247570,
+      "liq_usd": 41603.53,
+      "last_buy_sol": 14.83,
+      "top_buy_sol": 14.83,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.83 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 176500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:17:29.696534+00:00",
+      "level": "MEDIUM",
+      "token": "PUMPV2",
+      "contract": "864WM2KZNIM6CFQDEHS1PW6J2NGGRG1RUOAUXWJTPUMP",
+      "score": 75,
+      "callers": 63,
+      "subs": 857169,
+      "liq_usd": 173689.34,
+      "last_buy_sol": 4.95,
+      "top_buy_sol": 39.34,
+      "matched_signals": [],
+      "tags": [],
+      "mc_usd": 2380000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:23:10.110076+00:00",
+      "level": "MEDIUM",
+      "token": "WHITEWHALE",
+      "contract": "A3W4QUTOEJA4232T2GWZUFGYJTETR96PU4SJMWPPUMP",
+      "score": 70.0,
+      "callers": 57,
+      "subs": 1064202,
+      "liq_usd": 398721.56,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 10160000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:24:22.485978+00:00",
+      "level": "MEDIUM",
+      "token": "POLYPIN",
+      "contract": "6PXFPECEPMUNREF9RQCUECT539DETCZH2CS4EMMAPUMP",
+      "score": 75,
+      "callers": 6,
+      "subs": 24871,
+      "liq_usd": 27242.82,
+      "last_buy_sol": 0.98,
+      "top_buy_sol": 25.0,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 13.0 SOL",
+        "Large buy: 25.0 SOL",
+        "Large buy: 5.87 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 83200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T17:40:41.945052+00:00",
+      "level": "HIGH",
+      "token": "ALTCOIN",
+      "contract": "6PDR3O1KGCCET3M8XFKORVKBFJKKKWUQZ5GTLXGAPUMP",
+      "score": 88.0,
+      "callers": 58,
+      "subs": 632206,
+      "liq_usd": 146748.23,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 1860000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T18:00:55.301824+00:00",
+      "level": "HIGH",
+      "token": "BEAT",
+      "contract": "91LUGNCZW3IPYHOKE6PDSBBAWUG3YWWZBJQGGOIDPUMP",
+      "score": 25,
+      "callers": 31,
+      "subs": 247570,
+      "liq_usd": 40561.28,
+      "last_buy_sol": 0.49,
+      "top_buy_sol": 14.83,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.83 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 176500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T18:12:03.618365+00:00",
+      "level": "HIGH",
+      "token": "XMASCOIN",
+      "contract": "AKY2Z8F6NFVAMWSMBJGVRKJKLHKXFFM5HAQZQHPCPUMP",
+      "score": 25,
+      "callers": 24,
+      "subs": 104070,
+      "liq_usd": 35469.61,
+      "last_buy_sol": 1.47,
+      "top_buy_sol": 9.59,
+      "matched_signals": [
+        "Large buy: 9.59 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 66800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T18:14:41.347292+00:00",
+      "level": "MEDIUM",
+      "token": "RAPE",
+      "contract": "51GAPFKHSHTDHXEA12P2L5NB9GGMSSSEFFBVYDWBPUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 13052,
+      "liq_usd": 34446.77,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 10.0,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 5.94 SOL",
+        "Large buy: 6.36 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 126700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T18:25:01.941145+00:00",
+      "level": "HIGH",
+      "token": "RAPE",
+      "contract": "51GAPFKHSHTDHXEA12P2L5NB9GGMSSSEFFBVYDWBPUMP",
+      "score": 25,
+      "callers": 4,
+      "subs": 13052,
+      "liq_usd": 34224.79,
+      "last_buy_sol": 4.9,
+      "top_buy_sol": 10.0,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 5.94 SOL",
+        "Large buy: 6.36 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 126700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T18:44:41.734562+00:00",
+      "level": "MEDIUM",
+      "token": "AU",
+      "contract": "E9QGYKGOK8ACFXWUVQIYM8KRMDBETUARLGRBJTHWPUMP",
+      "score": 75,
+      "callers": 13,
+      "subs": 36539,
+      "liq_usd": 26077.43,
+      "last_buy_sol": 0.05,
+      "top_buy_sol": 7.33,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 7.33 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 77400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T19:06:22.106942+00:00",
+      "level": "MEDIUM",
+      "token": "CAGE",
+      "contract": "GDCN7RQA5EGC8SU2BC2KKB2KMWELNEQZJVST8GGBPUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 66625,
+      "liq_usd": 31018.22,
+      "last_buy_sol": 9.9,
+      "top_buy_sol": 11.94,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 9.9 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 104200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T19:44:13.064752+00:00",
+      "level": "HIGH",
+      "token": "SOTER",
+      "contract": "2FK2ZY4EYFEUTD7GNH4UNDWF2UQJQBJ5VWN5JA3GPUMP",
+      "score": 25,
+      "callers": 16,
+      "subs": 62604,
+      "liq_usd": 40843.08,
+      "last_buy_sol": 4.9,
+      "top_buy_sol": 6.89,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.72 SOL",
+        "Large buy: 6.89 SOL",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 367800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T19:52:40.283860+00:00",
+      "level": "MEDIUM",
+      "token": "JUICE",
+      "contract": "2LZLH5PHG3NDQZ6GOTLAVDXFDBSBGAR8QEM3BDXDPUMP",
+      "score": 75,
+      "callers": 35,
+      "subs": 189232,
+      "liq_usd": 74419.75,
+      "last_buy_sol": 16.1,
+      "top_buy_sol": 16.1,
+      "matched_signals": [
+        "Large buy: 16.1 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 523500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T19:53:22.279208+00:00",
+      "level": "MEDIUM",
+      "token": "MWC",
+      "contract": "2KM3QA4ZAH2FPYEHYTHFZ9UVFTJ7M9FNNDWDCJNSPUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 97637,
+      "liq_usd": 10619.09,
+      "last_buy_sol": 3.04,
+      "top_buy_sol": 7.64,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 12700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T20:15:41.898447+00:00",
+      "level": "MEDIUM",
+      "token": "GOLD",
+      "contract": "B1GQB5DMCVRPNVKJP1S1CVMDF5JNCFTUTG8EZVE3BONK",
+      "score": 75,
+      "callers": 7,
+      "subs": 33020,
+      "liq_usd": 60104.44,
+      "last_buy_sol": 1.49,
+      "top_buy_sol": 2.0,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 397200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T20:59:47.252454+00:00",
+      "level": "MEDIUM",
+      "token": "RLS",
+      "contract": "6WVA2BBMNHBHJHCK6JCYCZUC2L6OMGAHDK6YJHUOPUMP",
+      "score": 75,
+      "callers": 5,
+      "subs": 27147,
+      "liq_usd": 71359.39,
+      "last_buy_sol": 0.88,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Large buy: 5.14 SOL",
+        "Large buy: 5.18 SOL",
+        "Large buy: 9.9 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 567900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T21:24:34.797040+00:00",
+      "level": "MEDIUM",
+      "token": "IMGV2",
+      "contract": "3JZHPQAYVJ1JQG4WQVTH6C7A9NSXUMUPSQ2PBCQGEZUQ",
+      "score": 71.0,
+      "callers": 29,
+      "subs": 109051,
+      "liq_usd": 41460.32,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 289700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T21:39:45.156768+00:00",
+      "level": "MEDIUM",
+      "token": "ORANGIE",
+      "contract": "CFSGV9STEPPXGNJBYHW6PXMUY6OTVHBMATAYBTCPUMP",
+      "score": 75,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 69029.49,
+      "last_buy_sol": 5.0,
+      "top_buy_sol": 19.95,
+      "matched_signals": [
+        "Large buy: 10.01 SOL",
+        "Large buy: 11.95 SOL",
+        "Large buy: 14.62 SOL",
+        "Large buy: 19.95 SOL",
+        "Large buy: 9.48 SOL",
+        "Large buy: 9.82 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 536800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T21:40:04.181867+00:00",
+      "level": "HIGH",
+      "token": "IMGV2",
+      "contract": "3JZHPQAYVJ1JQG4WQVTH6C7A9NSXUMUPSQ2PBCQGEZUQ",
+      "score": 89.0,
+      "callers": 29,
+      "subs": 109051,
+      "liq_usd": 52314.62,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 289700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T21:50:06.789084+00:00",
+      "level": "MEDIUM",
+      "token": "NULL",
+      "contract": "48EKHWWADM7LJ57MSUDYDQ36CXX23RATDBU74PA1NULL",
+      "score": 61.5,
+      "callers": 25,
+      "subs": 289325,
+      "liq_usd": 135871.19,
+      "last_buy_sol": 11.99,
+      "top_buy_sol": 11.99,
+      "matched_signals": [
+        "glydo",
+        "sol_sb1",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_sb1",
+        "has_glydo"
+      ],
+      "mc_usd": 5680000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T22:09:54.203054+00:00",
+      "level": "MEDIUM",
+      "token": "SSLOP",
+      "contract": "HFXGTCXZPZNAMPARMDQ89PNRPBWCUSBMFNZDK5YXPUMP",
+      "score": 75,
+      "callers": 12,
+      "subs": 40366,
+      "liq_usd": 25027.78,
+      "last_buy_sol": 1.96,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Large buy: 9.9 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 70900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T22:16:02.151251+00:00",
+      "level": "MEDIUM",
+      "token": "MONA",
+      "contract": "TFH4JJG3JK9YJZDMQY3E12IDBEI1LGYQR74MJOCPUMP",
+      "score": 75,
+      "callers": 8,
+      "subs": 38661,
+      "liq_usd": 29956.88,
+      "last_buy_sol": 7.92,
+      "top_buy_sol": 8.99,
+      "matched_signals": [
+        "Large buy: 7.82 SOL",
+        "Large buy: 7.92 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 116600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T22:40:08.461222+00:00",
+      "level": "HIGH",
+      "token": "MONA",
+      "contract": "TFH4JJG3JK9YJZDMQY3E12IDBEI1LGYQR74MJOCPUMP",
+      "score": 25,
+      "callers": 8,
+      "subs": 38661,
+      "liq_usd": 32282,
+      "last_buy_sol": 7.92,
+      "top_buy_sol": 8.99,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 7.82 SOL",
+        "Large buy: 7.92 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 116600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T22:57:28.936785+00:00",
+      "level": "HIGH",
+      "token": "KOROSUKE",
+      "contract": "DNXEPJZIHYXWU7HWHXHRTNBVXTFVT3Y4D7P8EEWMPK5",
+      "score": 25,
+      "callers": 20,
+      "subs": 62845,
+      "liq_usd": 38289.78,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.03 SOL",
+        "Large buy: 5.08 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 212700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-23T23:01:59.622989+00:00",
+      "level": "HIGH",
+      "token": "VILLAGER",
+      "contract": "CRHCHTP4KFY9ECSWQHGQ55FWO56G2TCMM56HESLDPUMP",
+      "score": 25,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 51914.72,
+      "last_buy_sol": 24.77,
+      "top_buy_sol": 25.0,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 24.63 SOL",
+        "Large buy: 24.77 SOL",
+        "Large buy: 24.88 SOL",
+        "Large buy: 25.0 SOL",
+        "Large buy: 9.8 SOL",
+        "Large buy: 9.9 SOL",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 302300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T00:54:30.743555+00:00",
+      "level": "HIGH",
+      "token": "QUESADILLA",
+      "contract": "HT41SF2VFPURV9BJK9N2VVDSVTX3VZ4PVVBCSAQSPUMP",
+      "score": 25,
+      "callers": 26,
+      "subs": 72817,
+      "liq_usd": 38506.98,
+      "last_buy_sol": 4.95,
+      "top_buy_sol": 11.88,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 10.89 SOL",
+        "Large buy: 11.88 SOL",
+        "Large buy: 9.78 SOL",
+        "Large buy: 9.9 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 160700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T02:00:34.174491+00:00",
+      "level": "MEDIUM",
+      "token": "SRC",
+      "contract": "4U4W3EY8EWYW7PZWYUH6KAGF7PUX97KYLP3TNFCEPUMP",
+      "score": 75,
+      "callers": 28,
+      "subs": 82077,
+      "liq_usd": 42197.24,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 3.03,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 201600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T02:15:06.457320+00:00",
+      "level": "HIGH",
+      "token": "SANTA",
+      "contract": "4RUSJD1ZRGGZRWYMIGNX9M9Y74NZZXS8MYIFRJGZPUMP",
+      "score": 25,
+      "callers": 24,
+      "subs": 46361,
+      "liq_usd": 35758.44,
+      "last_buy_sol": 7.0,
+      "top_buy_sol": 7.0,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 146700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T03:09:12.227014+00:00",
+      "level": "MEDIUM",
+      "token": "SOTER",
+      "contract": "2FK2ZY4EYFEUTD7GNH4UNDWF2UQJQBJ5VWN5JA3GPUMP",
+      "score": 75,
+      "callers": 21,
+      "subs": 95539,
+      "liq_usd": 61100.08,
+      "last_buy_sol": 2.72,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.72 SOL",
+        "Large buy: 6.89 SOL",
+        "Large buy: 9.9 SOL",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 367800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T03:50:14.120335+00:00",
+      "level": "MEDIUM",
+      "token": "BEM",
+      "contract": "J5SL1EZZJSWCYP7SQNFGNZGLDJXASJVNW1ANSUKPUMP",
+      "score": 50,
+      "callers": 4,
+      "subs": 7160,
+      "liq_usd": 48621.29,
+      "last_buy_sol": 26.88,
+      "top_buy_sol": 26.88,
+      "matched_signals": [
+        "Large buy: 12.41 SOL",
+        "Large buy: 21.82 SOL",
+        "Large buy: 26.88 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 260899.99999999997,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T04:00:18.001915+00:00",
+      "level": "MEDIUM",
+      "token": "ICEWIZARD",
+      "contract": "GCAGYJ35CB3ZXEQRQIBFL8B8NWQVE9NTWHZWBSMPPUMP",
+      "score": 75,
+      "callers": 27,
+      "subs": 114202,
+      "liq_usd": 54929.63,
+      "last_buy_sol": 0.27,
+      "top_buy_sol": 9.81,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 9.81 SOL"
+      ],
+      "tags": [],
+      "mc_usd": 298200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T05:00:20.737265+00:00",
+      "level": "HIGH",
+      "token": "PUMPCLAUS",
+      "contract": "C3FCTYQLRWHSEM22JZFDIWYDVWIVNTRDOTAQD7CPUMP",
+      "score": 25,
+      "callers": 2,
+      "subs": 9821,
+      "liq_usd": 40235.92,
+      "last_buy_sol": 1.0,
+      "top_buy_sol": 54.32,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 18.73 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 186700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T05:15:42.392077+00:00",
+      "level": "MEDIUM",
+      "token": "XMASCOIN",
+      "contract": "AKY2Z8F6NFVAMWSMBJGVRKJKLHKXFFM5HAQZQHPCPUMP",
+      "score": 75,
+      "callers": 30,
+      "subs": 133861,
+      "liq_usd": 25027.12,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 9.59,
+      "matched_signals": [
+        "Large buy: 9.59 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 66800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T05:19:16.836946+00:00",
+      "level": "HIGH",
+      "token": "MOOD",
+      "contract": "H3TZWTXUG6TUR28GKJNAYPGIOOS1EDXOUGUFMCKKPUMP",
+      "score": 25,
+      "callers": 17,
+      "subs": 56324,
+      "liq_usd": 31866.61,
+      "last_buy_sol": 30.06,
+      "top_buy_sol": 30.06,
+      "matched_signals": [
+        "Large buy: 30.06 SOL",
+        "Large buy: 6.93 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 115600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T05:41:45.353195+00:00",
+      "level": "MEDIUM",
+      "token": "HIGHER",
+      "contract": "36GBI1FUJ3TVXKSG7DDHGQYFB5SVH4BNHBRXA2FAPUMP",
+      "score": 75,
+      "callers": 25,
+      "subs": 86751,
+      "liq_usd": 33979.3,
+      "last_buy_sol": 0.96,
+      "top_buy_sol": 5.84,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 265600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T05:57:52.055640+00:00",
+      "level": "HIGH",
+      "token": "HIGHER",
+      "contract": "36GBI1FUJ3TVXKSG7DDHGQYFB5SVH4BNHBRXA2FAPUMP",
+      "score": 25,
+      "callers": 25,
+      "subs": 86751,
+      "liq_usd": 37651.79,
+      "last_buy_sol": 0.96,
+      "top_buy_sol": 5.84,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 265600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T07:47:03.762778+00:00",
+      "level": "MEDIUM",
+      "token": "KOROSUKE",
+      "contract": "DNXEPJZIHYXWU7HWHXHRTNBVXTFVT3Y4D7P8EEWMPK5",
+      "score": 75,
+      "callers": 23,
+      "subs": 71485,
+      "liq_usd": 26335.25,
+      "last_buy_sol": 1.98,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.03 SOL",
+        "Large buy: 5.08 SOL",
+        "Large buy: 5.69 SOL",
+        "Large buy: 9.09 SOL",
+        "Large buy: 9.9 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 212700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T08:23:27.810104+00:00",
+      "level": "HIGH",
+      "token": "PIPER",
+      "contract": "3V8TMUCRNHXGPEHGTES7BIEGYVKUSKXSPVWTLTGBPUMP",
+      "score": 79.0,
+      "callers": 47,
+      "subs": 417626,
+      "liq_usd": 32988.45,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 40.97,
+      "matched_signals": [
+        "glydo",
+        "spydefi"
+      ],
+      "tags": [
+        "has_glydo"
+      ],
+      "mc_usd": 118400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:07:32.103691+00:00",
+      "level": "MEDIUM",
+      "token": "WIFMAS",
+      "contract": "3YH5ZMJ8NLFPX3QBBDUDV8UAFHWGCDWJ52AMTFZVPUMP",
+      "score": 62.0,
+      "callers": 52,
+      "subs": 613160,
+      "liq_usd": 78243.23,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 474600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:17:21.441296+00:00",
+      "level": "MEDIUM",
+      "token": "WHITEWHALE",
+      "contract": "A3W4QUTOEJA4232T2GWZUFGYJTETR96PU4SJMWPPUMP",
+      "score": 70.0,
+      "callers": 58,
+      "subs": 1150602,
+      "liq_usd": 2150933.17,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 10160000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:20:56.516214+00:00",
+      "level": "HIGH",
+      "token": "KOROSUKE",
+      "contract": "DNXEPJZIHYXWU7HWHXHRTNBVXTFVT3Y4D7P8EEWMPK5",
+      "score": 78.0,
+      "callers": 29,
+      "subs": 164967,
+      "liq_usd": 51890.64,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "spydefi"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 212700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:35:17.518167+00:00",
+      "level": "MEDIUM",
+      "token": "MINDSET",
+      "contract": "GKBENKFE5MMKZGDOGNOFWUY92HOZBBARASYBV4M5ZS4M",
+      "score": 75,
+      "callers": 4,
+      "subs": 4090,
+      "liq_usd": 28560.08,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 5.32,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.32 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 93700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:41:13.255847+00:00",
+      "level": "MEDIUM",
+      "token": "ANIME",
+      "contract": "AWNQ3NFFVCT1DM1BSCVSJM8OFS2JVN146SWSAHGDPUMP",
+      "score": 75,
+      "callers": 5,
+      "subs": 16051,
+      "liq_usd": 24610.8,
+      "last_buy_sol": 9.78,
+      "top_buy_sol": 9.78,
+      "matched_signals": [
+        "Large buy: 5.22 SOL",
+        "Large buy: 9.78 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 70000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T17:55:09.894053+00:00",
+      "level": "MEDIUM",
+      "token": "ROB",
+      "contract": "FMLQPSMNQ5KPDQGPBQWVJVKMK5INXCET97HEKV8PUMP",
+      "score": 75,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 50088.16,
+      "last_buy_sol": 25.92,
+      "top_buy_sol": 26.84,
+      "matched_signals": [
+        "Large buy: 23.36 SOL",
+        "Large buy: 25.92 SOL",
+        "Large buy: 26.84 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 286400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T18:25:11.767843+00:00",
+      "level": "MEDIUM",
+      "token": "ALONEURO",
+      "contract": "CRKKHUUPRMYQRUNTW9NVB4VKQGUKYKUXFR1JMN5PPUMP",
+      "score": 75,
+      "callers": 10,
+      "subs": 27306,
+      "liq_usd": 39770.21,
+      "last_buy_sol": 9.0,
+      "top_buy_sol": 9.0,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 9.0 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 174600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T18:40:34.258848+00:00",
+      "level": "HIGH",
+      "token": "VWANCE",
+      "contract": "FAVLKEXF2JGYWQLRUEMVBPNRWVPTMPUY5HQZQHXVBONK",
+      "score": 95.0,
+      "callers": 17,
+      "subs": 93882,
+      "liq_usd": 94001.34,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 706800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T18:56:31.413138+00:00",
+      "level": "MEDIUM",
+      "token": "GAS",
+      "contract": "GO7SCSGLKMPTZIUDBDBZZRDGZFCNVCJ2HXMXDJDNPUMP",
+      "score": 56.0,
+      "callers": 28,
+      "subs": 126683,
+      "liq_usd": 23757.95,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 63900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T19:05:36.722491+00:00",
+      "level": "MEDIUM",
+      "token": "KOROSUKE",
+      "contract": "DNXEPJZIHYXWU7HWHXHRTNBVXTFVT3Y4D7P8EEWMPK5",
+      "score": 75,
+      "callers": 29,
+      "subs": 164967,
+      "liq_usd": 46826.79,
+      "last_buy_sol": 1.98,
+      "top_buy_sol": 1.98,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 212700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T20:00:10.803492+00:00",
+      "level": "MEDIUM",
+      "token": "VWANCE",
+      "contract": "FAVLKEXF2JGYWQLRUEMVBPNRWVPTMPUY5HQZQHXVBONK",
+      "score": 75,
+      "callers": 17,
+      "subs": 93882,
+      "liq_usd": 90839.85,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 706800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T20:28:17.129419+00:00",
+      "level": "HIGH",
+      "token": "COIN",
+      "contract": "31HFNNVEKLTKUXB2DNZV3U6HGPGKUS3WYWMRYJNYPUMP",
+      "score": 25,
+      "callers": 22,
+      "subs": 86861,
+      "liq_usd": 64627.19,
+      "last_buy_sol": 14.85,
+      "top_buy_sol": 14.85,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.85 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 53800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T20:46:00.146049+00:00",
+      "level": "HIGH",
+      "token": "LIQUIDIFY",
+      "contract": "DER9EXLKNJ9DE6ZNR7A8FKGXUOR9HCNQGPBDWTYQV6EC",
+      "score": 25,
+      "callers": 21,
+      "subs": 56755,
+      "liq_usd": 42711.07,
+      "last_buy_sol": 1.49,
+      "top_buy_sol": 1.49,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 185700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T20:46:15.667898+00:00",
+      "level": "MEDIUM",
+      "token": "BEAR",
+      "contract": "GDPT5L4J59THYQ8L4US3ROGHKJJJZIYHBQZGPESTPUMP",
+      "score": 66.0,
+      "callers": 12,
+      "subs": 92596,
+      "liq_usd": 33085.86,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 213600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T21:05:36.041888+00:00",
+      "level": "HIGH",
+      "token": "HIGHER",
+      "contract": "36GBI1FUJ3TVXKSG7DDHGQYFB5SVH4BNHBRXA2FAPUMP",
+      "score": 25,
+      "callers": 37,
+      "subs": 143342,
+      "liq_usd": 46974.25,
+      "last_buy_sol": 1.85,
+      "top_buy_sol": 2.14,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 265600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T21:43:01.121135+00:00",
+      "level": "MEDIUM",
+      "token": "LHUNT",
+      "contract": "8FWDSIXKWFSZHL7VVEX1JZYSTAKMV5M7PWAHN2WFPUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 14388,
+      "liq_usd": 27124.27,
+      "last_buy_sol": 0.26,
+      "top_buy_sol": 3.96,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 83400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T22:10:43.773833+00:00",
+      "level": "MEDIUM",
+      "token": "BEPE",
+      "contract": "FTDKGCFFUDCXBQRQL3YELYJA3E3PNAZ6KJH1SBSAPUMP",
+      "score": 75,
+      "callers": 3,
+      "subs": 4720,
+      "liq_usd": 39812.5,
+      "last_buy_sol": 4.9,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 9.9 SOL",
+        "Momentum spike",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 555100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T22:10:48.681816+00:00",
+      "level": "MEDIUM",
+      "token": "BREPE",
+      "contract": "7XQLNJ5PPU7CWBSTFZHNFH4G6DAGRH9H5PIOJVZAWPZB",
+      "score": 75,
+      "callers": 2,
+      "subs": 3240,
+      "liq_usd": 27677.32,
+      "last_buy_sol": 0.2,
+      "top_buy_sol": 6.84,
+      "matched_signals": [
+        "Large buy: 5.32 SOL",
+        "Large buy: 6.84 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 87400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T22:20:45.540093+00:00",
+      "level": "HIGH",
+      "token": "BEPE",
+      "contract": "FTDKGCFFUDCXBQRQL3YELYJA3E3PNAZ6KJH1SBSAPUMP",
+      "score": 25,
+      "callers": 11,
+      "subs": 41087,
+      "liq_usd": 72853.08,
+      "last_buy_sol": 1.0,
+      "top_buy_sol": 14.85,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 10.0 SOL",
+        "Large buy: 14.85 SOL",
+        "Large buy: 6.06 SOL",
+        "Large buy: 8.91 SOL",
+        "Large buy: 9.81 SOL",
+        "Large buy: 9.82 SOL",
+        "Large buy: 9.9 SOL",
+        "Momentum spike",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 555100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T22:26:56.930002+00:00",
+      "level": "MEDIUM",
+      "token": "MOLDY",
+      "contract": "5RZSEVSSTRNIZIPLENUBBYHILQYKGQMSO2GKGNLMPUMP",
+      "score": 75,
+      "callers": 3,
+      "subs": 12408,
+      "liq_usd": 26069.72,
+      "last_buy_sol": 0.05,
+      "top_buy_sol": 14.99,
+      "matched_signals": [
+        "Large buy: 14.99 SOL",
+        "Large buy: 5.3 SOL",
+        "Large buy: 5.91 SOL",
+        "Large buy: 6.0 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 75700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T22:56:52.175565+00:00",
+      "level": "HIGH",
+      "token": "FUGGLERS",
+      "contract": "6VG63OXKVPCLN7KGQJMZJRGZHWQCMXCWKDFMGHYEPUMP",
+      "score": 25,
+      "callers": 35,
+      "subs": 141189,
+      "liq_usd": 35243.68,
+      "last_buy_sol": 2.02,
+      "top_buy_sol": 6.0,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [],
+      "mc_usd": 278100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T23:37:30.370360+00:00",
+      "level": "MEDIUM",
+      "token": "MEME",
+      "contract": "8DFGOZVKKW3YZ9WZ21WCQJ16XRZPTOZNUML74GG4PUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 60420,
+      "liq_usd": 32140.69,
+      "last_buy_sol": 6.86,
+      "top_buy_sol": 9.79,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.86 SOL",
+        "Large buy: 6.91 SOL",
+        "Large buy: 9.79 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 100500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T23:50:06.755085+00:00",
+      "level": "HIGH",
+      "token": "MEME",
+      "contract": "8DFGOZVKKW3YZ9WZ21WCQJ16XRZPTOZNUML74GG4PUMP",
+      "score": 25,
+      "callers": 17,
+      "subs": 60420,
+      "liq_usd": 29813.08,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 9.79,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.86 SOL",
+        "Large buy: 6.91 SOL",
+        "Large buy: 9.79 SOL",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 100500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-24T23:51:10.965310+00:00",
+      "level": "MEDIUM",
+      "token": "JUICE",
+      "contract": "2LZLH5PHG3NDQZ6GOTLAVDXFDBSBGAR8QEM3BDXDPUMP",
+      "score": 70.0,
+      "callers": 37,
+      "subs": 204842,
+      "liq_usd": 88459.37,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 523500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T00:37:16.390542+00:00",
+      "level": "MEDIUM",
+      "token": "SPEED",
+      "contract": "CMX58KKLXQJGURTZEFJQBQNKRKTSPLMN5HAPWIKZPUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 47110,
+      "liq_usd": 28488.78,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 6.91,
+      "matched_signals": [
+        "Large buy: 6.91 SOL",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 92200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T00:38:08.283779+00:00",
+      "level": "HIGH",
+      "token": "2026",
+      "contract": "3VJCVB2ERAOZARHUTU6JLVXUGHPRY9GEIENXHZOZPUMP",
+      "score": 25,
+      "callers": 12,
+      "subs": 31671,
+      "liq_usd": 18360.12,
+      "last_buy_sol": 1.58,
+      "top_buy_sol": 5.06,
+      "matched_signals": [
+        "Large buy: 5.06 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 38200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T00:53:53.666179+00:00",
+      "level": "MEDIUM",
+      "token": "SURGE",
+      "contract": "HSQMA4YGN7J9SNVNSQEGBUJCKPVR3TQCWRG2H3TY7H19",
+      "score": 75,
+      "callers": 21,
+      "subs": 69622,
+      "liq_usd": 34891.21,
+      "last_buy_sol": 1.47,
+      "top_buy_sol": 1.47,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 89700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T01:11:41.770546+00:00",
+      "level": "HIGH",
+      "token": "SURGE",
+      "contract": "HSQMA4YGN7J9SNVNSQEGBUJCKPVR3TQCWRG2H3TY7H19",
+      "score": 25,
+      "callers": 21,
+      "subs": 69622,
+      "liq_usd": 29769.35,
+      "last_buy_sol": 0.25,
+      "top_buy_sol": 3.96,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 89700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T02:46:29.193091+00:00",
+      "level": "MEDIUM",
+      "token": "HIGHER",
+      "contract": "36GBI1FUJ3TVXKSG7DDHGQYFB5SVH4BNHBRXA2FAPUMP",
+      "score": 75,
+      "callers": 40,
+      "subs": 148624,
+      "liq_usd": 53417.52,
+      "last_buy_sol": 2.17,
+      "top_buy_sol": 30.84,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [],
+      "mc_usd": 265600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T03:09:33.476994+00:00",
+      "level": "MEDIUM",
+      "token": "MC",
+      "contract": "XSF8W9ZBJT4CKPCHBB9HGL23I5IIF6EGJZCMUXGPUMP",
+      "score": 75,
+      "callers": 2,
+      "subs": 11561,
+      "liq_usd": 52830.8,
+      "last_buy_sol": 1.36,
+      "top_buy_sol": 22.47,
+      "matched_signals": [
+        "Large buy: 11.8 SOL",
+        "Large buy: 16.09 SOL",
+        "Large buy: 16.11 SOL",
+        "Large buy: 16.44 SOL",
+        "Large buy: 20.3 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 308700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T03:20:32.892380+00:00",
+      "level": "MEDIUM",
+      "token": "COIN",
+      "contract": "31HFNNVEKLTKUXB2DNZV3U6HGPGKUS3WYWMRYJNYPUMP",
+      "score": 75,
+      "callers": 28,
+      "subs": 103418,
+      "liq_usd": 23825.93,
+      "last_buy_sol": 1.0,
+      "top_buy_sol": 14.85,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 10.32 SOL",
+        "Large buy: 14.85 SOL",
+        "Large buy: 5.11 SOL"
+      ],
+      "tags": [],
+      "mc_usd": 53800.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T04:16:02.326778+00:00",
+      "level": "MEDIUM",
+      "token": "FUGGLERS",
+      "contract": "6VG63OXKVPCLN7KGQJMZJRGZHWQCMXCWKDFMGHYEPUMP",
+      "score": 75,
+      "callers": 36,
+      "subs": 144669,
+      "liq_usd": 41885.39,
+      "last_buy_sol": 1.51,
+      "top_buy_sol": 6.0,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [],
+      "mc_usd": 278100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T05:11:17.103522+00:00",
+      "level": "MEDIUM",
+      "token": "CLAVICULAR",
+      "contract": "CKNNWUTVSYKBN9TNVJGDCB6ZCZL84VDDDNZHVLFWPUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 277199,
+      "liq_usd": 33411.52,
+      "last_buy_sol": 5.06,
+      "top_buy_sol": 5.06,
+      "matched_signals": [
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 108600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T05:17:02.432612+00:00",
+      "level": "MEDIUM",
+      "token": "POPFROG",
+      "contract": "DA1QLPGD1M7TNNRPYCIZYQCORLCT7GAX1YTEVRFYPUMP",
+      "score": 70.0,
+      "callers": 77,
+      "subs": 1342793,
+      "liq_usd": 982139.45,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 4540000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T06:00:10.564749+00:00",
+      "level": "MEDIUM",
+      "token": "LAUNCHR",
+      "contract": "86ZNAUJEVLMTNNAZECET1ZYR7HN2PEF5ZPEWUKTDPUMP",
+      "score": 75,
+      "callers": 15,
+      "subs": 93114,
+      "liq_usd": 33682.9,
+      "last_buy_sol": 3.0,
+      "top_buy_sol": 5.93,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 125400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T08:53:27.110830+00:00",
+      "level": "MEDIUM",
+      "token": "ALTCOIN",
+      "contract": "6PDR3O1KGCCET3M8XFKORVKBFJKKKWUQZ5GTLXGAPUMP",
+      "score": 70.0,
+      "callers": 58,
+      "subs": 632206,
+      "liq_usd": 161985.8,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 1860000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T09:11:10.295707+00:00",
+      "level": "HIGH",
+      "token": "ORG",
+      "contract": "DUXUGM4OTXRGDOPGXGUDYHBOAF6UUG1GVBJ6JK6QBONK",
+      "score": 88.0,
+      "callers": 29,
+      "subs": 163877,
+      "liq_usd": 125660.39,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "solana_early_trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 1250000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T09:30:49.659689+00:00",
+      "level": "MEDIUM",
+      "token": "DATTWHALE",
+      "contract": "DKY2A4VCFEHA8AY6QHNBESMZVCWFF2QNE49XINKJPUMP",
+      "score": 75,
+      "callers": 7,
+      "subs": 16197,
+      "liq_usd": 24177.32,
+      "last_buy_sol": 5.4,
+      "top_buy_sol": 9.74,
+      "matched_signals": [
+        "Large buy: 5.4 SOL",
+        "Large buy: 8.91 SOL",
+        "Large buy: 9.24 SOL",
+        "Large buy: 9.56 SOL",
+        "Large buy: 9.74 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 67500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T10:09:33.365628+00:00",
+      "level": "MEDIUM",
+      "token": "PREDICT",
+      "contract": "5GTRGGNMBMCJCUNC3XMWECGVQDETSDXTDVVDWUTCPUMP",
+      "score": 64.0,
+      "callers": 34,
+      "subs": 168266,
+      "liq_usd": 140586.91,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 1900000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T10:12:59.150026+00:00",
+      "level": "MEDIUM",
+      "token": "AGENT",
+      "contract": "EKJ3WKBBIQPCWEPDDRDA3TD4MQ2ZNFMFKKRQC53DPUMP",
+      "score": 75,
+      "callers": 1,
+      "subs": 7820,
+      "liq_usd": 29638.11,
+      "last_buy_sol": 0.2,
+      "top_buy_sol": 8.8,
+      "matched_signals": [
+        "Large buy: 5.83 SOL",
+        "Large buy: 8.8 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 101600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T10:17:24.321536+00:00",
+      "level": "MEDIUM",
+      "token": "AC",
+      "contract": "PSGDZ5VTMDHZBPC32WFMV25N3QX14NSOJHFOQMKPUMP",
+      "score": 75,
+      "callers": 9,
+      "subs": 61281,
+      "liq_usd": 63627.87,
+      "last_buy_sol": 21.22,
+      "top_buy_sol": 26.59,
+      "matched_signals": [
+        "Large buy: 21.22 SOL",
+        "Large buy: 22.0 SOL",
+        "Large buy: 26.59 SOL",
+        "Large buy: 8.62 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 439900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T10:59:05.633821+00:00",
+      "level": "HIGH",
+      "token": "FUGGLERS",
+      "contract": "6VG63OXKVPCLN7KGQJMZJRGZHWQCMXCWKDFMGHYEPUMP",
+      "score": 25,
+      "callers": 49,
+      "subs": 279764,
+      "liq_usd": 50969.51,
+      "last_buy_sol": 2.37,
+      "top_buy_sol": 4.06,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 278100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T11:37:06.875713+00:00",
+      "level": "MEDIUM",
+      "token": "BEAR",
+      "contract": "GDPT5L4J59THYQ8L4US3ROGHKJJJZIYHBQZGPESTPUMP",
+      "score": 56.0,
+      "callers": 17,
+      "subs": 101703,
+      "liq_usd": 43163.29,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 213600.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T12:35:09.977468+00:00",
+      "level": "MEDIUM",
+      "token": "BLACKWHALE",
+      "contract": "8Y45AJZCUBSZL1UDFQRZCKOVQBLQFUDBRPPEG5YNPUMP",
+      "score": 75,
+      "callers": 19,
+      "subs": 321300,
+      "liq_usd": 40579.49,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 185100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T13:07:16.151309+00:00",
+      "level": "MEDIUM",
+      "token": "DOIT",
+      "contract": "LCFM68SQMJGG7H8MMCVNKPZZ8XC6RCGTDDQYUFZPUMP",
+      "score": 75,
+      "callers": 3,
+      "subs": 18981,
+      "liq_usd": 44043.97,
+      "last_buy_sol": 14.91,
+      "top_buy_sol": 19.95,
+      "matched_signals": [
+        "Large buy: 14.03 SOL",
+        "Large buy: 14.91 SOL",
+        "Large buy: 15.67 SOL",
+        "Large buy: 16.17 SOL",
+        "Large buy: 19.95 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 222200.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T14:16:45.598763+00:00",
+      "level": "HIGH",
+      "token": "HT",
+      "contract": "BTQN5WLQTOJX8EGK5JBCORPVGTB4FPKQCBISOR4PUMP",
+      "score": 75.0,
+      "callers": 3,
+      "subs": 12971,
+      "liq_usd": 59105.82,
+      "last_buy_sol": 15.72,
+      "top_buy_sol": 20.89,
+      "matched_signals": [
+        "glydo",
+        "large_buy",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_glydo",
+        "weak_social"
+      ],
+      "mc_usd": 388700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T14:59:02.888676+00:00",
+      "level": "MEDIUM",
+      "token": "AGENTCITY",
+      "contract": "4FVTEERFL9PMXOJ4T1AA6F5FN1X3TZ6EG6TPIAESPUMP",
+      "score": 75,
+      "callers": 15,
+      "subs": 92654,
+      "liq_usd": 34202.33,
+      "last_buy_sol": 4.94,
+      "top_buy_sol": 5.0,
+      "matched_signals": [
+        "Early trending",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 38900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T15:10:28.626969+00:00",
+      "level": "HIGH",
+      "token": "UNIPCS",
+      "contract": "2ORNGAZHWM1F2G2KKKSLQGZENH4VTJ2IMHAYCW6M5SNV",
+      "score": 25,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 53822.77,
+      "last_buy_sol": 0.5,
+      "top_buy_sol": 5.04,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.04 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 271300.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T15:57:15.567066+00:00",
+      "level": "HIGH",
+      "token": "NULL",
+      "contract": "48EKHWWADM7LJ57MSUDYDQ36CXX23RATDBU74PA1NULL",
+      "score": 85.0,
+      "callers": 27,
+      "subs": 312725,
+      "liq_usd": 203055.99,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ],
+      "mc_usd": 5680000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T16:25:55.264957+00:00",
+      "level": "MEDIUM",
+      "token": "TUNA",
+      "contract": "GFLD9EQN7A1UJOPYVJ8AUUJHQHX14DWFF8OBWKW8PUMP",
+      "score": 75,
+      "callers": 74,
+      "subs": 1088063,
+      "liq_usd": 143892.59,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 1420000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T17:04:06.800663+00:00",
+      "level": "MEDIUM",
+      "token": "NULL",
+      "contract": "48EKHWWADM7LJ57MSUDYDQ36CXX23RATDBU74PA1NULL",
+      "score": 72.0,
+      "callers": 0,
+      "subs": 0,
+      "liq_usd": 240477.74,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy",
+        "weak_social"
+      ],
+      "mc_usd": 5680000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T17:05:33.871553+00:00",
+      "level": "MEDIUM",
+      "token": "ALON",
+      "contract": "UYH9YENH9A4RN7EXGUUHRFFS364BD49CAGCBNZWPUMP",
+      "score": 75,
+      "callers": 2,
+      "subs": 20521,
+      "liq_usd": 47467.05,
+      "last_buy_sol": 21.92,
+      "top_buy_sol": 26.92,
+      "matched_signals": [
+        "Large buy: 21.82 SOL",
+        "Large buy: 21.92 SOL",
+        "Large buy: 26.92 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 252100.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T17:13:54.233376+00:00",
+      "level": "MEDIUM",
+      "token": "TREMP",
+      "contract": "59C9BRXXG3KEOREPEWLXYUOTHVYHFQQB2MRTA8UABONK",
+      "score": 70.0,
+      "callers": 35,
+      "subs": 200774,
+      "liq_usd": 38313.48,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 140400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T17:43:44.249025+00:00",
+      "level": "MEDIUM",
+      "token": "HONSE",
+      "contract": "5ZQU5EUPKBUBSWLSBOC7QNF7DS8XDRLNEWEPAAIGPUMP",
+      "score": 75,
+      "callers": 29,
+      "subs": 118986,
+      "liq_usd": 45883.09,
+      "last_buy_sol": 2.87,
+      "top_buy_sol": 21.98,
+      "matched_signals": [
+        "Large buy: 21.98 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 226400.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T18:07:25.542661+00:00",
+      "level": "HIGH",
+      "token": "AGENTCITY",
+      "contract": "4FVTEERFL9PMXOJ4T1AA6F5FN1X3TZ6EG6TPIAESPUMP",
+      "score": 25,
+      "callers": 15,
+      "subs": 92654,
+      "liq_usd": 18874.93,
+      "last_buy_sol": 7.92,
+      "top_buy_sol": 7.92,
+      "matched_signals": [
+        "Early trending",
+        "PFBF volume alert",
+        "Whale buy"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 38900.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T18:17:25.595968+00:00",
+      "level": "MEDIUM",
+      "token": "CLAWDIS",
+      "contract": "ALGXBZ2J2VMXSXU5ZDKZ5MVNQLXYTPAAQ4UE63RCPUMP",
+      "score": 75,
+      "callers": 31,
+      "subs": 148489,
+      "liq_usd": 41935.48,
+      "last_buy_sol": 1.64,
+      "top_buy_sol": 4.95,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ],
+      "mc_usd": 186700.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T18:36:54.916439+00:00",
+      "level": "MEDIUM",
+      "token": "SNOWBALL",
+      "contract": "GBU7JAKHTVTGYRRYG8CYPIKNHONXPUQBRZUCDJFUPUMP",
+      "score": 75,
+      "callers": 93,
+      "subs": 664494,
+      "liq_usd": 494878.78,
+      "last_buy_sol": 0.99,
+      "top_buy_sol": 29.7,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 6.58 SOL",
+        "Large buy: 6.6 SOL",
+        "Large buy: 9.97 SOL",
+        "Whale buy"
+      ],
+      "tags": [],
+      "mc_usd": 11390000.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T18:43:03.232405+00:00",
+      "level": "MEDIUM",
+      "token": "LICO",
+      "contract": "678QT3ZQCCBLJJZB5IC5FVMAV94AYRIWSZ3FUYSRVYNC",
+      "score": 75,
+      "callers": 18,
+      "subs": 100791,
+      "liq_usd": 35805.71,
+      "last_buy_sol": 0.97,
+      "top_buy_sol": 8.46,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "weak_social"
+      ],
+      "mc_usd": 143500.0,
+      "mc_source": "telegram_post"
+    },
+    {
+      "timestamp": "2025-12-25T19:32:11.888585+00:00",
+      "level": "HIGH",
+      "token": "COLLA",
+      "contract": "3OEHLDG8VOKQBM37U7OHKBKUKCDPE8ST8BTGRXOVPUMP",
+      "score": 81.0,
+      "callers": 14,
+      "subs": 48134,
+      "liq_usd": 46421.81,
+      "mc_usd": 90200.0,
+      "entry_mc": 90200.0,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "glydo",
+        "solana_early_trending"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy",
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T19:59:22.138938+00:00",
+      "level": "MEDIUM",
+      "token": "PILLS",
+      "contract": "4EWKFNCS8LCEF46RI3Q1VKGAVKK5PMUCFQ9RGNMMPUMP",
+      "score": 75,
+      "callers": 14,
+      "subs": 44047,
+      "liq_usd": 35503.41,
+      "mc_usd": 52300.0,
+      "entry_mc": 52300.0,
+      "last_buy_sol": 0.97,
+      "top_buy_sol": 5.63,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.03 SOL",
+        "Large buy: 5.63 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T19:59:38.944233+00:00",
+      "level": "MEDIUM",
+      "token": "WHITEWHALE",
+      "contract": "A3W4QUTOEJA4232T2GWZUFGYJTETR96PU4SJMWPPUMP",
+      "score": 70.0,
+      "callers": 60,
+      "subs": 1194064,
+      "liq_usd": 3095239.95,
+      "mc_usd": 57200.0,
+      "entry_mc": 57200.0,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T20:17:44.658107+00:00",
+      "level": "MEDIUM",
+      "token": "PHBT",
+      "contract": "8FFFYZVJ3LUGCRVWR1JPDB33ZMZMQK2PVLQXJTK5PUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 21099,
+      "liq_usd": 33208.22,
+      "mc_usd": 47700.0,
+      "entry_mc": 47700.0,
+      "last_buy_sol": 1.98,
+      "top_buy_sol": 5.94,
+      "matched_signals": [
+        "Large buy: 5.94 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T20:19:59.332618+00:00",
+      "level": "HIGH",
+      "token": "PILLS",
+      "contract": "4EWKFNCS8LCEF46RI3Q1VKGAVKK5PMUCFQ9RGNMMPUMP",
+      "score": 25,
+      "callers": 14,
+      "subs": 44047,
+      "liq_usd": 22631.65,
+      "mc_usd": 52300.0,
+      "entry_mc": 52300.0,
+      "last_buy_sol": 0.98,
+      "top_buy_sol": 5.63,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.03 SOL",
+        "Large buy: 5.63 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T20:32:06.582568+00:00",
+      "level": "HIGH",
+      "token": "PHBT",
+      "contract": "8FFFYZVJ3LUGCRVWR1JPDB33ZMZMQK2PVLQXJTK5PUMP",
+      "score": 25,
+      "callers": 27,
+      "subs": 99708,
+      "liq_usd": 52841.81,
+      "mc_usd": 47700.0,
+      "entry_mc": 47700.0,
+      "last_buy_sol": 1.49,
+      "top_buy_sol": 15.0,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.7 SOL",
+        "Large buy: 14.85 SOL",
+        "Large buy: 15.0 SOL",
+        "Large buy: 5.94 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T20:34:46.668236+00:00",
+      "level": "MEDIUM",
+      "token": "NULL",
+      "contract": "48EKHWWADM7LJ57MSUDYDQ36CXX23RATDBU74PA1NULL",
+      "score": 70.0,
+      "callers": 27,
+      "subs": 312725,
+      "liq_usd": 274974.6,
+      "mc_usd": 238800.0,
+      "entry_mc": 238800.0,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T21:21:38.538473+00:00",
+      "level": "MEDIUM",
+      "token": "SILVER",
+      "contract": "DVGUBPGNIXDWVCM654YIALCMNIY2CDUYJXJK3U9GPUMP",
+      "score": 75,
+      "callers": 19,
+      "subs": 66644,
+      "liq_usd": 32527.9,
+      "mc_usd": 56500.0,
+      "entry_mc": 56500.0,
+      "last_buy_sol": 4.9,
+      "top_buy_sol": 7.12,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.88 SOL",
+        "Large buy: 5.94 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T21:28:03.405228+00:00",
+      "level": "HIGH",
+      "token": "LAUNCHR",
+      "contract": "86ZNAUJEVLMTNNAZECET1ZYR7HN2PEF5ZPEWUKTDPUMP",
+      "score": 25,
+      "callers": 36,
+      "subs": 171307,
+      "liq_usd": 106615.63,
+      "mc_usd": 50300.0,
+      "entry_mc": 50300.0,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T21:40:15.417435+00:00",
+      "level": "MEDIUM",
+      "token": "BEGUY",
+      "contract": "4JZJ5VGDCR1QAR1YN8KOHWXAKIED6EFA24GEFDUFPUMP",
+      "score": 75,
+      "callers": 11,
+      "subs": 46090,
+      "liq_usd": 39564.03,
+      "mc_usd": 79100.0,
+      "entry_mc": 79100.0,
+      "last_buy_sol": 10.0,
+      "top_buy_sol": 10.0,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 10.0 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T21:43:38.684714+00:00",
+      "level": "HIGH",
+      "token": "SILVER",
+      "contract": "DVGUBPGNIXDWVCM654YIALCMNIY2CDUYJXJK3U9GPUMP",
+      "score": 25,
+      "callers": 19,
+      "subs": 66644,
+      "liq_usd": 36986.58,
+      "mc_usd": 56500.0,
+      "entry_mc": 56500.0,
+      "last_buy_sol": 2.39,
+      "top_buy_sol": 7.12,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.88 SOL",
+        "Large buy: 5.94 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:04:37.700513+00:00",
+      "level": "MEDIUM",
+      "token": "CHARIZARD",
+      "contract": "3WZD8XONBRVAREQ1QY4VUQIV1ZO9RWA2YDTY9FZBTBUR",
+      "score": 62.0,
+      "callers": 32,
+      "subs": 198644,
+      "liq_usd": 27783.09,
+      "mc_usd": 33400.0,
+      "entry_mc": 33400.0,
+      "last_buy_sol": null,
+      "top_buy_sol": null,
+      "matched_signals": [],
+      "tags": [
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:06:22.549820+00:00",
+      "level": "MEDIUM",
+      "token": "CLICKMAS",
+      "contract": "ETR6CANGS2SUEVXW6BVWJWCDMS1ZPVVX423GYDFMPUMP",
+      "score": 75,
+      "callers": 1,
+      "subs": 847,
+      "liq_usd": 28916.35,
+      "mc_usd": 34200.0,
+      "entry_mc": 34200.0,
+      "last_buy_sol": 9.24,
+      "top_buy_sol": 9.24,
+      "matched_signals": [
+        "Large buy: 9.24 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:12:23.571898+00:00",
+      "level": "MEDIUM",
+      "token": "DIPSHIELD",
+      "contract": "JAWMGP9M3Z7SEWOEVFGDH2Q54AMIDI116BJ1LY9XPUMP",
+      "score": 75,
+      "callers": 19,
+      "subs": 62293,
+      "liq_usd": 32162.66,
+      "mc_usd": 60100.0,
+      "entry_mc": 60100.0,
+      "last_buy_sol": 5.94,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.94 SOL",
+        "Large buy: 9.78 SOL",
+        "Large buy: 9.9 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:37:22.912683+00:00",
+      "level": "HIGH",
+      "token": "BEGUY",
+      "contract": "4JZJ5VGDCR1QAR1YN8KOHWXAKIED6EFA24GEFDUFPUMP",
+      "score": 25,
+      "callers": 16,
+      "subs": 74580,
+      "liq_usd": 49526.46,
+      "mc_usd": 79100.0,
+      "entry_mc": 79100.0,
+      "last_buy_sol": 10.0,
+      "top_buy_sol": 10.0,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 10.0 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:41:03.690019+00:00",
+      "level": "HIGH",
+      "token": "DIPSHIELD",
+      "contract": "JAWMGP9M3Z7SEWOEVFGDH2Q54AMIDI116BJ1LY9XPUMP",
+      "score": 25,
+      "callers": 19,
+      "subs": 62293,
+      "liq_usd": 20360.46,
+      "mc_usd": 60100.0,
+      "entry_mc": 60100.0,
+      "last_buy_sol": 0.78,
+      "top_buy_sol": 9.9,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 5.94 SOL",
+        "Large buy: 9.78 SOL",
+        "Large buy: 9.9 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:46:53.494303+00:00",
+      "level": "MEDIUM",
+      "token": "ZAZU",
+      "contract": "F6DPFEYBSEHCAG8KPBHZ71WYAGUBH2763ZJL7J6SPUMP",
+      "score": 75,
+      "callers": 11,
+      "subs": 33653,
+      "liq_usd": 35133.14,
+      "mc_usd": 50500.0,
+      "entry_mc": 50500.0,
+      "last_buy_sol": 6.84,
+      "top_buy_sol": 6.84,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.84 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T22:55:19.181505+00:00",
+      "level": "HIGH",
+      "token": "LARPBALL",
+      "contract": "CE5HEYZTBWUP5U2UDCMDFGHJMH7OH7VVPVKNP3FFPUMP",
+      "score": 25,
+      "callers": 24,
+      "subs": 146449,
+      "liq_usd": 39863.3,
+      "mc_usd": 44400.0,
+      "entry_mc": 44400.0,
+      "last_buy_sol": 5.03,
+      "top_buy_sol": 9.88,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": []
+    },
+    {
+      "timestamp": "2025-12-25T23:01:43.752972+00:00",
+      "level": "HIGH",
+      "token": "ZAZU",
+      "contract": "F6DPFEYBSEHCAG8KPBHZ71WYAGUBH2763ZJL7J6SPUMP",
+      "score": 25,
+      "callers": 21,
+      "subs": 63091,
+      "liq_usd": 33842.85,
+      "mc_usd": 50500.0,
+      "entry_mc": 50500.0,
+      "last_buy_sol": 4.9,
+      "top_buy_sol": 6.84,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 6.84 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T23:05:05.487232+00:00",
+      "level": "MEDIUM",
+      "token": "MARKOVIC",
+      "contract": "GRFDWLCYXCBTRXFT8KRDVRYIATEXJSQCRZLUX3PNPUMP",
+      "score": 75,
+      "callers": 4,
+      "subs": 13570,
+      "liq_usd": 29045.62,
+      "mc_usd": 44400.0,
+      "entry_mc": 44400.0,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 10.1,
+      "matched_signals": [
+        "Large buy: 10.0 SOL",
+        "Large buy: 10.1 SOL",
+        "Large buy: 5.02 SOL",
+        "Large buy: 5.94 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-25T23:15:05.198902+00:00",
+      "level": "MEDIUM",
+      "token": "GM",
+      "contract": "9RABDMWL2HCMAH5YZXJBLIIYXHIBBD2JSEH3Q6KCPUMP",
+      "score": 75,
+      "callers": 17,
+      "subs": 61241,
+      "liq_usd": 30733.5,
+      "mc_usd": 52700.0,
+      "entry_mc": 52700.0,
+      "last_buy_sol": 1.5,
+      "top_buy_sol": 5.0,
+      "matched_signals": [],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T00:48:41.545842+00:00",
+      "level": "MEDIUM",
+      "token": "SNOWWIF",
+      "contract": "D3HZIGZUE8XCJBU8PFYLGC8IEPA5ZNBFCWQJUMEUPUMP",
+      "score": 75,
+      "callers": 21,
+      "subs": 37723,
+      "liq_usd": 33020.99,
+      "mc_usd": 61800.0,
+      "entry_mc": 61800.0,
+      "last_buy_sol": 8.59,
+      "top_buy_sol": 8.59,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 8.59 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T01:10:06.881279+00:00",
+      "level": "MEDIUM",
+      "token": "SNSWAP",
+      "contract": "ATK1H4THSWJ9CFQQTBFJCHWPDEMTP4PZKY4LFGB9PUMP",
+      "score": 75,
+      "callers": 25,
+      "subs": 140319,
+      "liq_usd": 33073.83,
+      "mc_usd": 62100.0,
+      "entry_mc": 62100.0,
+      "last_buy_sol": 2.97,
+      "top_buy_sol": 7.0,
+      "matched_signals": [
+        "Early trending"
+      ],
+      "tags": []
+    },
+    {
+      "timestamp": "2025-12-26T01:22:56.720045+00:00",
+      "level": "MEDIUM",
+      "token": "TRANSPARENT",
+      "contract": "DVZPHSFCNAKHY8CUURKW1NV3KZLVTS5FV19WJSANZRFC",
+      "score": 75,
+      "callers": 11,
+      "subs": 43639,
+      "liq_usd": 31344.67,
+      "mc_usd": 49400.0,
+      "entry_mc": 49400.0,
+      "last_buy_sol": 0.98,
+      "top_buy_sol": 8.8,
+      "matched_signals": [
+        "Large buy: 8.22 SOL",
+        "Large buy: 8.73 SOL",
+        "Large buy: 8.8 SOL",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T01:54:56.413443+00:00",
+      "level": "HIGH",
+      "token": "SNOWWIF",
+      "contract": "D3HZIGZUE8XCJBU8PFYLGC8IEPA5ZNBFCWQJUMEUPUMP",
+      "score": 25,
+      "callers": 21,
+      "subs": 37723,
+      "liq_usd": 21608.73,
+      "mc_usd": 61800.0,
+      "entry_mc": 61800.0,
+      "last_buy_sol": 7.17,
+      "top_buy_sol": 8.59,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 8.59 SOL"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T02:04:24.707584+00:00",
+      "level": "MEDIUM",
+      "token": "HONSE",
+      "contract": "5ZQU5EUPKBUBSWLSBOC7QNF7DS8XDRLNEWEPAAIGPUMP",
+      "score": 50,
+      "callers": 30,
+      "subs": 119379,
+      "liq_usd": 55346.52,
+      "mc_usd": 107100.0,
+      "entry_mc": 107100.0,
+      "last_buy_sol": 14.79,
+      "top_buy_sol": 14.79,
+      "matched_signals": [
+        "Early trending",
+        "Large buy: 14.64 SOL",
+        "Large buy: 14.79 SOL",
+        "Whale buy"
+      ],
+      "tags": []
+    },
+    {
+      "timestamp": "2025-12-26T02:42:24.892085+00:00",
+      "level": "MEDIUM",
+      "token": "BANK",
+      "contract": "8TB4MYMMTJBPW9P7KSEUPAGBQXK8IPNPJFAH8MVCPUMP",
+      "score": 75,
+      "callers": 2,
+      "subs": 11561,
+      "liq_usd": 22797.27,
+      "mc_usd": 30000.0,
+      "entry_mc": 30000.0,
+      "last_buy_sol": 5.94,
+      "top_buy_sol": 5.94,
+      "matched_signals": [
+        "Large buy: 5.94 SOL",
+        "Momentum spike",
+        "PFBF volume alert"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T02:44:50.389002+00:00",
+      "level": "HIGH",
+      "token": "LICO",
+      "contract": "678QT3ZQCCBLJJZB5IC5FVMAV94AYRIWSZ3FUYSRVYNC",
+      "score": 79.0,
+      "callers": 21,
+      "subs": 113650,
+      "liq_usd": 39472.41,
+      "mc_usd": 51700.0,
+      "entry_mc": 51700.0,
+      "last_buy_sol": 2.01,
+      "top_buy_sol": 2.01,
+      "matched_signals": [
+        "glydo"
+      ],
+      "tags": [
+        "has_glydo",
+        "tiny_buy"
+      ]
+    },
+    {
+      "timestamp": "2025-12-26T03:20:38.839724+00:00",
+      "level": "MEDIUM",
+      "token": "EOS",
+      "contract": "9GCHKPMBEEDPPCPRVWT7B9O9MM8BUUHWDL64TUFPUMP",
+      "score": 75,
+      "callers": null,
+      "subs": null,
+      "liq_usd": 49919.98,
+      "mc_usd": 135100.0,
+      "entry_mc": 135100.0,
+      "last_buy_sol": 26.89,
+      "top_buy_sol": 26.89,
+      "matched_signals": [
+        "Large buy: 13.36 SOL",
+        "Large buy: 13.75 SOL",
+        "Large buy: 14.69 SOL",
+        "Large buy: 21.44 SOL",
+        "Large buy: 21.83 SOL",
+        "Large buy: 22.0 SOL",
+        "Large buy: 22.01 SOL",
+        "Large buy: 22.31 SOL",
+        "Large buy: 22.84 SOL",
+        "Large buy: 23.36 SOL",
+        "Large buy: 26.89 SOL",
+        "Momentum spike"
+      ],
+      "tags": [
+        "weak_social"
+      ]
+    }
+  ],
+  "false_positives": [],
+  "true_positives": [],
+  "last_updated": "2025-12-26T03:20:38.839743+00:00"
+}
