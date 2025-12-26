@@ -1827,6 +1827,26 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             print("   - Either locally OR on Railway, not both")
             print("=" * 80 + "\n")
             raise  # Don't retry - this needs manual intervention
+        except (EOFError, FileNotFoundError) as e:
+            # Non-interactive environment or missing session file
+            if isinstance(e, EOFError):
+                print("\n" + "=" * 80)
+                print("❌ AUTHENTICATION ERROR - NON-INTERACTIVE ENVIRONMENT")
+                print("=" * 80)
+                print("Railway cannot prompt for phone number interactively.")
+                print("The session file must be uploaded to Railway.")
+                print("\n🔧 SOLUTION:")
+                print("1. Create session file locally first:")
+                print("   - Run the bot locally: python telegram_monitor_new.py")
+                print("   - Enter your phone number and authentication code")
+                print("   - This creates: blackhat_empire_session.session")
+                print("\n2. Upload session file to Railway:")
+                print("   - Go to Railway dashboard → Your service → Files tab")
+                print("   - Click 'Upload' and select: blackhat_empire_session.session")
+                print("   - OR use Railway CLI: railway run")
+                print("\n3. Redeploy on Railway")
+                print("=" * 80 + "\n")
+            raise  # Don't retry - needs manual intervention
         except Exception as e:
             if attempt < max_attempts:
                 wait_time = min(2 ** attempt, 30)  # Exponential backoff, max 30 seconds
