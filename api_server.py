@@ -425,52 +425,49 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                 else:
                     description = "Alert description not available"
             
-            # CRITICAL: Get the "Current MCAP" that was shown in the Telegram post
-            # The Telegram post shows "Current MC: $142.0K" - this is what users see
+            # CRITICAL: "Entry MCAP" = The MCAP that was shown in the Telegram post at the time it was posted
+            # This is what the user sees as "Current MC" in the Telegram post
+            # This is considered the "entry" MCAP because it's the MCAP at the time of the alert posting
             # Priority: current_mcap (from post) > mc_usd (saved current MC) > entry_mc (fallback)
-            current_mcap = None
+            entry_mcap = None
             
             # First try current_mcap field (this is the MCAP that was shown in the Telegram post)
             current_mcap_field = alert.get("current_mcap")
             if current_mcap_field is not None:
                 try:
-                    current_mcap = float(current_mcap_field)
+                    entry_mcap = float(current_mcap_field)
                 except (ValueError, TypeError):
                     pass
             
             # If no current_mcap field, try mc_usd (this should be the current MCAP from the post)
-            if current_mcap is None:
+            if entry_mcap is None:
                 mc_usd = alert.get("mc_usd")
                 if mc_usd is not None:
                     try:
-                        current_mcap = float(mc_usd)
+                        entry_mcap = float(mc_usd)
                     except (ValueError, TypeError):
                         pass
             
-            # Fallback: try entry_mc (market cap at the time alert was triggered)
-            # This is less accurate but better than nothing
-            if current_mcap is None:
-                entry_mc = alert.get("entry_mc")
-                if entry_mc is not None:
+            # Fallback: try entry_mc (old field name, but might have the value we need)
+            if entry_mcap is None:
+                entry_mc_old = alert.get("entry_mc")
+                if entry_mc_old is not None:
                     try:
-                        current_mcap = float(entry_mc)
+                        entry_mcap = float(entry_mc_old)
                     except (ValueError, TypeError):
                         pass
             
             # Last resort: try other field names
-            if current_mcap is None:
+            if entry_mcap is None:
                 other_fields = ["live_mcap", "market_cap", "mcap"]
                 for field in other_fields:
                     value = alert.get(field)
                     if value is not None:
                         try:
-                            current_mcap = float(value)
+                            entry_mcap = float(value)
                             break
                         except (ValueError, TypeError):
                             continue
-            
-            # Get entry MCAP (market cap when alert was triggered)
-            entry_mc = alert.get("entry_mc")
             
             # Get confirmation count
             confirmation_count = 0
@@ -548,8 +545,7 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                 "tags": alert.get("tags", []),
                 "hotlist": hotlist,
                 "description": description,
-                "currentMcap": current_mcap,
-                "entryMc": entry_mc,  # Entry MCAP (when alert was triggered)
+                "entryMc": entry_mcap,  # Entry MCAP = MCAP shown in Telegram post at time of posting (this is the "Current MC" from the post)
                 "confirmationCount": confirmation_count,  # Number of confirmations
                 "cohortTime": cohort_time_relative  # Relative time like "0s ago"
             }
