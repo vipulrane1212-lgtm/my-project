@@ -380,6 +380,70 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                         except (ValueError, TypeError):
                             continue
             
+            # Get entry MCAP (market cap when alert was triggered)
+            entry_mc = alert.get("entry_mc")
+            
+            # Get confirmation count
+            confirmation_count = 0
+            confirmations = alert.get("confirmations")
+            if isinstance(confirmations, dict):
+                confirmation_count = confirmations.get("total", 0)
+            elif isinstance(confirmations, (int, float)):
+                confirmation_count = int(confirmations)
+            else:
+                # Fallback: count matched signals
+                matched_signals = alert.get("matched_signals", [])
+                confirmation_count = len(matched_signals)
+            
+            # Get cohort time relative (e.g., "0s ago", "5m ago")
+            cohort_time_relative = None
+            try:
+                cohort_start = alert.get("cohort_start_utc") or alert.get("cohort_start_ist")
+                if cohort_start:
+                    if isinstance(cohort_start, str):
+                        cohort_dt = datetime.fromisoformat(cohort_start.replace("Z", "+00:00"))
+                    else:
+                        cohort_dt = cohort_start
+                    
+                    if cohort_dt.tzinfo is None:
+                        cohort_dt = cohort_dt.replace(tzinfo=timezone.utc)
+                    
+                    now = datetime.now(timezone.utc)
+                    delta = now - cohort_dt
+                    
+                    if delta.total_seconds() >= 0:
+                        total_seconds = int(delta.total_seconds())
+                        if total_seconds < 60:
+                            cohort_time_relative = f"{total_seconds}s ago"
+                        else:
+                            minutes = total_seconds // 60
+                            seconds = total_seconds % 60
+                            if minutes < 60:
+                                if seconds > 0:
+                                    cohort_time_relative = f"{minutes}m {seconds}s ago"
+                                else:
+                                    cohort_time_relative = f"{minutes}m ago"
+                            else:
+                                hours = minutes // 60
+                                minutes = minutes % 60
+                                if hours < 24:
+                                    if minutes > 0:
+                                        cohort_time_relative = f"{hours}h {minutes}m ago"
+                                    else:
+                                        cohort_time_relative = f"{hours}h ago"
+                                else:
+                                    days = hours // 24
+                                    hours = hours % 24
+                                    if days < 7:
+                                        if hours > 0:
+                                            cohort_time_relative = f"{days}d {hours}h ago"
+                                        else:
+                                            cohort_time_relative = f"{days}d ago"
+                                    else:
+                                        cohort_time_relative = f"{days}d ago"
+            except Exception:
+                pass  # Silently fail if cohort time calculation fails
+            
             formatted_alert = {
                 "id": alert.get("contract", "")[:8] + "_" + alert.get("timestamp", "")[:10],
                 "token": alert.get("token", "UNKNOWN"),
@@ -395,7 +459,10 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                 "tags": alert.get("tags", []),
                 "hotlist": hotlist,
                 "description": description,
-                "currentMcap": current_mcap
+                "currentMcap": current_mcap,
+                "entryMc": entry_mc,  # Entry MCAP (when alert was triggered)
+                "confirmationCount": confirmation_count,  # Number of confirmations
+                "cohortTime": cohort_time_relative  # Relative time like "0s ago"
             }
             formatted_alerts.append(formatted_alert)
         
