@@ -402,6 +402,12 @@ class TelegramMonitorNew:
                     # Don't fail alerts if DexScreener API fails
                     print(f"[DexScreener] Warning: Could not enrich alert: {e}")
             
+            # Skip alerts if current MCAP is above 500k
+            current_mcap = alert.get("mc_usd") or alert.get("market_cap")
+            if current_mcap and current_mcap > 500000:
+                print(f"⏭️ Skipping alert for {token} TIER {tier} - Current MCAP ${current_mcap:,.0f} exceeds 500k limit")
+                continue
+            
             # Log alert for KPI tracking
             level = alert.get("level", "MEDIUM")
             self.kpi_logger.log_alert(alert, level)
