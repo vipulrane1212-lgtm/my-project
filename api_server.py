@@ -62,17 +62,46 @@ USER_PREFERENCES_FILE = BASE_DIR / "user_preferences.json"
 
 
 def load_json_file(file_path: Path, default: dict = None) -> dict:
-    """Safely load JSON file."""
+    """Safely load JSON file with retry logic."""
     if default is None:
         default = {}
-    try:
-        if file_path.exists():
-            with open(file_path, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        return default
-    except Exception as e:
-        print(f"Error loading {file_path}: {e}")
-        return default
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            if file_path.exists():
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return data
+            return default
+        except json.JSONDecodeError as e:
+            # JSON decode error - file might be corrupted or being written
+            if attempt < max_retries - 1:
+                import time
+                time.sleep(0.1 * (attempt + 1))  # Brief delay before retry
+                print(f"⚠️ JSON decode error (attempt {attempt + 1}/{max_retries}), retrying...")
+            else:
+                print(f"❌ Error loading {file_path}: JSON decode error: {e}")
+                # Try to load backup file if main file is corrupted
+                backup_file = file_path.with_suffix('.json.backup')
+                if backup_file.exists():
+                    try:
+                        print(f"⚠️ Attempting to load backup file: {backup_file}")
+                        with open(backup_file, 'r', encoding='utf-8') as f:
+                            return json.load(f)
+                    except Exception as backup_error:
+                        print(f"❌ Backup file also failed: {backup_error}")
+                return default
+        except Exception as e:
+            if attempt < max_retries - 1:
+                import time
+                time.sleep(0.1 * (attempt + 1))
+                print(f"⚠️ Error loading {file_path} (attempt {attempt + 1}/{max_retries}): {e}, retrying...")
+            else:
+                print(f"❌ Error loading {file_path} after {max_retries} attempts: {e}")
+                return default
+    
+    return default
 
 
 def get_tier_from_level(level: str, alert_tier: Optional[int] = None, alert: Optional[Dict] = None) -> int:
@@ -166,6 +195,29 @@ async def root():
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint."""
+    # Get latest alert info for debugging
+    latest_alert = None
+    alert_count = 0
+    try:
+        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
+        alerts = kpi_data.get("alerts", [])
+        alert_count = len(alerts)
+        if alerts:
+            # Get most recent alert
+            alerts_sorted = sorted(
+                alerts,
+                key=lambda x: datetime.fromisoformat(x.get("timestamp", "2000-01-01")).replace(tzinfo=timezone.utc),
+                reverse=True
+            )
+            latest = alerts_sorted[0]
+            latest_alert = {
+                "token": latest.get("token"),
+                "timestamp": latest.get("timestamp"),
+                "tier": latest.get("tier"),
+            }
+    except Exception as e:
+        print(f"Error getting latest alert info: {e}")
+    
     return {
         "status": "healthy",
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -174,6 +226,10 @@ async def health_check():
             "kpi_logs": KPI_LOGS_FILE.exists(),
             "alert_groups": ALERT_GROUPS_FILE.exists(),
             "user_preferences": USER_PREFERENCES_FILE.exists(),
+        },
+        "alerts": {
+            "total": alert_count,
+            "latest": latest_alert
         }
     }
 
@@ -269,14 +325,47 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         )
         
         # Deduplicate: Keep only the latest alert per token (if dedupe=True)
+        # BUT: Only dedupe if there are multiple alerts for the same token within a short time window
+        # This ensures recent alerts are never hidden
         if dedupe:
-            seen_tokens = set()
+            seen_tokens = {}
             deduplicated = []
             for alert in alerts:
                 token = alert.get("token", "").upper()
-                if token and token not in seen_tokens:
-                    seen_tokens.add(token)
+                if not token:
+                    deduplicated.append(alert)  # Keep alerts without token
+                    continue
+                
+                # Get alert timestamp
+                try:
+                    alert_time = datetime.fromisoformat(alert.get("timestamp", "2000-01-01")).replace(tzinfo=timezone.utc)
+                except:
+                    alert_time = datetime.now(timezone.utc)
+                
+                # If we've seen this token before, check if this alert is newer
+                if token in seen_tokens:
+                    existing_alert, existing_time = seen_tokens[token]
+                    # Only replace if this alert is newer (within last 24 hours)
+                    time_diff = (alert_time - existing_time).total_seconds()
+                    if time_diff > 0 and time_diff < 86400:  # 24 hours
+                        # This alert is newer - replace the old one
+                        deduplicated.remove(existing_alert)
+                        deduplicated.append(alert)
+                        seen_tokens[token] = (alert, alert_time)
+                    # If older than 24 hours, treat as separate alert (token relaunched)
+                    elif time_diff >= 86400:
+                        deduplicated.append(alert)
+                        seen_tokens[token] = (alert, alert_time)
+                else:
+                    # First time seeing this token
+                    seen_tokens[token] = (alert, alert_time)
                     deduplicated.append(alert)
+            
+            # Sort again after deduplication (newest first)
+            deduplicated.sort(
+                key=lambda x: datetime.fromisoformat(x.get("timestamp", "2000-01-01")).replace(tzinfo=timezone.utc),
+                reverse=True
+            )
             alerts = deduplicated
         
         # Filter by tier if specified

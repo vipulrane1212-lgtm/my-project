@@ -37,14 +37,38 @@ class KPILogger:
                 pass
     
     def save_logs(self):
-        """Save logs to file."""
+        """Save logs to file with atomic write and error handling."""
         data = {
             "alerts": self.alerts,
             "false_positives": self.false_positives,
             "true_positives": self.true_positives,
             "last_updated": datetime.now(timezone.utc).isoformat(),
         }
-        self.log_file.write_text(json.dumps(data, indent=2))
+        
+        # Atomic write: write to temp file first, then rename
+        # This prevents corruption if the process crashes during write
+        temp_file = self.log_file.with_suffix('.json.tmp')
+        try:
+            # Write to temporary file first
+            json_str = json.dumps(data, indent=2, ensure_ascii=False)
+            temp_file.write_text(json_str, encoding='utf-8')
+            
+            # Atomic rename (works on most filesystems)
+            temp_file.replace(self.log_file)
+            
+            # Verify the file was written correctly
+            if not self.log_file.exists():
+                raise IOError(f"Failed to save {self.log_file} - file does not exist after write")
+            
+        except Exception as e:
+            # If temp file exists, try to clean it up
+            if temp_file.exists():
+                try:
+                    temp_file.unlink()
+                except:
+                    pass
+            # Re-raise the exception so caller can handle it
+            raise IOError(f"Failed to save logs to {self.log_file}: {e}") from e
     
     def log_alert(self, alert: Dict, level: str):
         """Log an alert with metadata.
@@ -90,14 +114,42 @@ class KPILogger:
             self.alerts.append(alert_entry)
             
             # CRITICAL: Save logs immediately - don't batch, ensure persistence
-            try:
-                self.save_logs()
-            except Exception as save_error:
-                # If save fails, try again with backup
-                print(f"⚠️ First save attempt failed: {save_error}, retrying...")
-                import time
-                time.sleep(0.1)  # Brief delay
-                self.save_logs()  # Retry once
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    self.save_logs()
+                    print(f"✅ Alert saved to kpi_logs.json: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
+                    break  # Success - exit retry loop
+                except Exception as save_error:
+                    if attempt < max_retries - 1:
+                        print(f"⚠️ Save attempt {attempt + 1} failed: {save_error}, retrying...")
+                        import time
+                        time.sleep(0.2 * (attempt + 1))  # Exponential backoff
+                    else:
+                        # Last attempt failed - this is critical
+                        print(f"❌ CRITICAL: Failed to save alert after {max_retries} attempts: {save_error}")
+                        print(f"   Alert data: token={alert.get('token')}, tier={alert.get('tier')}")
+                        # Try one more time with a different approach - direct write
+                        try:
+                            import shutil
+                            # Create backup of current file
+                            if self.log_file.exists():
+                                backup_file = self.log_file.with_suffix('.json.backup')
+                                shutil.copy2(self.log_file, backup_file)
+                            
+                            # Direct write as last resort
+                            json_str = json.dumps({
+                                "alerts": self.alerts,
+                                "false_positives": self.false_positives,
+                                "true_positives": self.true_positives,
+                                "last_updated": datetime.now(timezone.utc).isoformat(),
+                            }, indent=2, ensure_ascii=False)
+                            self.log_file.write_text(json_str, encoding='utf-8')
+                            print(f"✅ Emergency save succeeded for {alert.get('token')}")
+                        except Exception as emergency_error:
+                            print(f"❌ EMERGENCY SAVE ALSO FAILED: {emergency_error}")
+                            import traceback
+                            traceback.print_exc()
             
             return alert_entry
         except Exception as e:
