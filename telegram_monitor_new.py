@@ -1778,23 +1778,40 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
     # Check if session file exists (for non-bot connections) before attempting connection
     if not is_bot:
         session_file = f"{SESSION_NAME}.session"
-        if not os.path.exists(session_file):
+        # Check multiple possible locations
+        possible_paths = [
+            session_file,  # Current directory
+            f"/app/{session_file}",  # Railway /app directory
+            os.path.join(os.getcwd(), session_file),  # Absolute path from current dir
+        ]
+        
+        session_found = False
+        actual_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                session_found = True
+                actual_path = path
+                break
+        
+        if not session_found:
             print("\n" + "=" * 80)
             print("⚠️  SESSION FILE NOT FOUND")
             print("=" * 80)
-            print(f"Session file '{session_file}' does not exist.")
+            print(f"Session file '{session_file}' does not exist in any expected location.")
+            print(f"Checked paths: {possible_paths}")
+            print(f"Current working directory: {os.getcwd()}")
+            print(f"Files in current directory: {os.listdir('.')[:10]}")
             print("\n🔧 SOLUTION:")
-            print("1. Create session file locally first:")
-            print("   - Run the bot locally: python telegram_monitor_new.py")
-            print("   - Enter your phone number and authentication code")
-            print(f"   - This creates: {session_file}")
-            print("\n2. Upload session file to Railway:")
-            print("   - Go to Railway dashboard → Your service → Files tab")
-            print(f"   - Click 'Upload' and select: {session_file}")
-            print("\n3. Redeploy on Railway")
+            print("1. The session file should be in GitHub and deployed automatically")
+            print(f"2. Verify '{session_file}' is in your GitHub repository")
+            print("3. Check Railway Dashboard → Deployments → Latest deployment logs")
+            print("4. If file is missing, ensure it's committed to Git and not in .gitignore")
+            print("5. Redeploy on Railway after ensuring file is in GitHub")
             print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
             print("=" * 80 + "\n")
-            raise FileNotFoundError(f"Session file '{session_file}' not found. Please create it locally and upload to Railway.")
+            raise FileNotFoundError(f"Session file '{session_file}' not found. Please ensure it's in GitHub and Railway has deployed it.")
+        else:
+            print(f"✅ Found session file at: {actual_path}")
     
     for attempt in range(1, max_attempts + 1):
         try:
