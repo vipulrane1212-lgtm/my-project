@@ -1913,6 +1913,21 @@ async def run_api_server():
 
 async def main():
     """Main function"""
+    # CRITICAL: Ensure session file is in the right location for Railway
+    # If session file exists in current directory but not in /app/, copy it
+    session_file = f"{SESSION_NAME}.session"
+    if os.path.exists(session_file) and not os.path.exists(f"/app/{session_file}"):
+        try:
+            import shutil
+            # Ensure /app directory exists
+            os.makedirs("/app", exist_ok=True)
+            # Copy session file to /app/ for Railway
+            shutil.copy2(session_file, f"/app/{session_file}")
+            print(f"✅ Copied session file to /app/{session_file}")
+        except Exception as e:
+            print(f"⚠️  Could not copy session file to /app/: {e}")
+            # Continue anyway - might work from current directory
+    
     # TelegramClient will create the session file on first run if it doesn't exist
     # The user will be prompted to authenticate via phone number
     # Increase connection timeout and add connection retry settings
