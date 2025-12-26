@@ -471,15 +471,15 @@ class TelegramMonitorNew:
                         # #region agent log
                         debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:421","message":"Sending alert to group","data":{"group_id":group_id,"alert_tier":alert_tier,"token":alert.get("token") if alert else None},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                         # #endregion
-                    await self.bot_client.send_message(
-                        group_id,
+                        await self.bot_client.send_message(
+                            group_id,
                             alert_message,
-                        parse_mode='Markdown',
-                        link_preview=False
-                    )
-                    sent_count += 1
+                            parse_mode='Markdown',
+                            link_preview=False
+                        )
+                        sent_count += 1
                         print(f"✅ Alert sent to group/channel {group_id}")
-                except Exception as e:
+                    except Exception as e:
                     print(f"❌ Failed to send to group {group_id}: {e}")
                     # Remove invalid group (bot removed or no permission)
                     self.alert_groups.discard(group_id)
@@ -532,14 +532,14 @@ class TelegramMonitorNew:
                         # #region agent log
                         debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:516","message":"Sending alert to user","data":{"user_id":user_id,"alert_tier":alert_tier,"token":alert.get("token") if alert else None},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                         # #endregion
-                    await self.bot_client.send_message(
-                        user_id,
+                        await self.bot_client.send_message(
+                            user_id,
                             alert_message,
-                        parse_mode='Markdown',
-                        link_preview=False
-                    )
-                    sent_count += 1
-                except Exception as e:
+                            parse_mode='Markdown',
+                            link_preview=False
+                        )
+                        sent_count += 1
+                    except Exception as e:
                     print(f"❌ Failed to send to user {user_id}: {e}")
                     # Remove invalid user from subscriptions
                     self.subscribed_users.discard(user_id)
