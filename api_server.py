@@ -75,11 +75,15 @@ def load_json_file(file_path: Path, default: dict = None) -> dict:
         return default
 
 
-def get_tier_from_level(level: str, alert_tier: Optional[int] = None) -> int:
+def get_tier_from_level(level: str, alert_tier: Optional[int] = None, alert: Optional[Dict] = None) -> int:
     """Convert alert level to tier number.
     
-    IMPORTANT: Tier 1 alerts are stored as level="HIGH", but HIGH should map to tier 1, not tier 2.
-    Use alert_tier if available (from the tier field in the alert), otherwise infer from level.
+    IMPORTANT: 
+    - Tier 1 alerts are stored as level="HIGH"
+    - Tier 2 and Tier 3 alerts are both stored as level="MEDIUM"
+    - We can't distinguish Tier 2 from Tier 3 without the tier field or additional data
+    
+    Use alert_tier if available (from the tier field in the alert), otherwise infer from level and alert data.
     """
     # If tier is explicitly provided, use it (most reliable)
     if alert_tier is not None and alert_tier in [1, 2, 3]:
@@ -96,12 +100,40 @@ def get_tier_from_level(level: str, alert_tier: Optional[int] = None) -> int:
         return 3
     
     # CRITICAL FIX: Tier 1 alerts are stored as level="HIGH"
-    # But we can't distinguish tier 1 HIGH from tier 2 HIGH without the tier field
-    # So we default HIGH to tier 1 (since tier 1 uses HIGH, tier 2 uses MEDIUM)
     if "HIGH" in level_upper:
-        return 1  # Changed from 2 to 1 - tier 1 alerts use HIGH
+        return 1  # Tier 1 uses HIGH
+    
+    # PROBLEM: Both Tier 2 and Tier 3 use MEDIUM level
+    # We need to use heuristics to distinguish them when tier field is missing
     elif "MEDIUM" in level_upper:
-        return 2  # Tier 2 uses MEDIUM (tier 3 also uses MEDIUM, but we default to 2)
+        if alert:
+            # Try to infer tier from alert data
+            # Tier 2: Has Glydo top 5 + confirmations
+            # Tier 3: No Glydo top 5 OR delayed Glydo OR multiple non-Glydo confirmations
+            
+            glydo_in_top5 = alert.get("glydo_in_top5", False)
+            hot_list = alert.get("hot_list")
+            if isinstance(hot_list, dict):
+                was_in_hot_list = hot_list.get("was_in_hot_list", False)
+            else:
+                was_in_hot_list = bool(hot_list)
+            
+            # If has Glydo top 5, more likely Tier 2
+            if glydo_in_top5 or was_in_hot_list:
+                # Check confirmations - Tier 2 needs at least 1 confirmation
+                confirmations = alert.get("confirmations", {})
+                if isinstance(confirmations, dict):
+                    total_confirmations = confirmations.get("total", 0)
+                    strong_confirmations = confirmations.get("strong_total", 0)
+                    if total_confirmations >= 1 or strong_confirmations >= 1:
+                        return 2  # Tier 2: Glydo top 5 + confirmations
+            
+            # Default MEDIUM to Tier 3 (more common, and safer default)
+            return 3
+        
+        # No alert data available - default MEDIUM to Tier 3
+        # (Tier 3 is more common than Tier 2, so safer default)
+        return 3
     
     return 3  # Default to tier 3
 
@@ -159,7 +191,7 @@ async def get_stats():
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
             alert_tier = alert.get("tier")  # Use tier field if available
-            tier = get_tier_from_level(level, alert_tier)
+            tier = get_tier_from_level(level, alert_tier, alert)  # Pass alert for heuristics
             tier_counts[tier] = tier_counts.get(tier, 0) + 1
         
         # Calculate win rate (true positives / total alerts)
@@ -237,7 +269,7 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
             for alert in alerts:
                 level = alert.get("level", "MEDIUM")
                 alert_tier_field = alert.get("tier")  # Use tier field if available
-                alert_tier = get_tier_from_level(level, alert_tier_field)
+                alert_tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
                 if alert_tier == tier:
                     filtered_alerts.append(alert)
             alerts = filtered_alerts
@@ -250,7 +282,7 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
             alert_tier_field = alert.get("tier")  # Use tier field if available (most reliable)
-            tier_num = get_tier_from_level(level, alert_tier_field)
+            tier_num = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
             
             # Get hotlist status
             try:
@@ -391,7 +423,7 @@ async def get_tier_breakdown():
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
             alert_tier_field = alert.get("tier")  # Use tier field if available
-            tier = get_tier_from_level(level, alert_tier_field)
+            tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
             tier_breakdown[tier]["count"] += 1
             
             # Add to recent alerts for this tier (last 10)
@@ -434,7 +466,7 @@ async def get_daily_stats(days: int = 7):
                     
                     level = alert.get("level", "MEDIUM")
                     alert_tier_field = alert.get("tier")  # Use tier field if available
-                    tier = get_tier_from_level(level, alert_tier_field)
+                    tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
                     daily_stats[date_key][f"tier{tier}"] += 1
             except Exception:
                 continue
