@@ -1782,6 +1782,7 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
         possible_paths = [
             session_file,  # Current directory
             f"/app/{session_file}",  # Railway /app directory
+            f"/app/sessions/{session_file}",  # Railway volumes mount point
             os.path.join(os.getcwd(), session_file),  # Absolute path from current dir
         ]
         
