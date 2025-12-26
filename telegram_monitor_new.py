@@ -1834,17 +1834,18 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
         
         if session_found:
             print(f"✅ Found session file at: {actual_path}")
-            # Verify the session file is valid
+            # CRITICAL: Verify the session file is valid BEFORE attempting connection
             try:
                 file_size = os.path.getsize(actual_path)
                 print(f"   File size: {file_size} bytes")
                 if file_size == 0:
-                    print("   ⚠️  WARNING: Session file is empty (0 bytes)!")
+                    print("   ❌ ERROR: Session file is empty (0 bytes)!")
                     print("   This will cause authentication to fail.")
                     raise FileNotFoundError(f"Session file '{actual_path}' is empty. Please ensure a valid session file is deployed.")
                 elif file_size < 1000:
                     print("   ⚠️  WARNING: Session file is very small, might be corrupted!")
-                # Try to verify it's a valid SQLite file
+                
+                # CRITICAL: Verify it's a valid SQLite file BEFORE connecting
                 try:
                     import sqlite3
                     conn = sqlite3.connect(actual_path)
@@ -1852,11 +1853,22 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
                     cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
                     tables = cursor.fetchall()
                     conn.close()
+                    if len(tables) == 0:
+                        print("   ❌ ERROR: Session file has no tables - it's invalid!")
+                        raise FileNotFoundError(f"Session file '{actual_path}' is invalid (no tables). Please ensure a valid session file is deployed.")
                     print(f"   ✅ Session file is valid SQLite (tables: {len(tables)})")
+                except sqlite3.DatabaseError as sqlite_error:
+                    print(f"   ❌ ERROR: Session file is corrupted: {sqlite_error}")
+                    raise FileNotFoundError(f"Session file '{actual_path}' is corrupted. Please ensure a valid session file is deployed.")
                 except Exception as sqlite_error:
-                    print(f"   ⚠️  WARNING: Session file might be corrupted: {sqlite_error}")
+                    print(f"   ⚠️  WARNING: Could not verify SQLite format: {sqlite_error}")
+                    # Don't fail here - might still work
+            except FileNotFoundError:
+                # Re-raise FileNotFoundError (from empty file or invalid SQLite)
+                raise
             except Exception as e:
                 print(f"   ⚠️  Could not verify session file: {e}")
+                # Continue anyway - might still work
     
     for attempt in range(1, max_attempts + 1):
         try:
