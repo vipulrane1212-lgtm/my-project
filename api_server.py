@@ -78,19 +78,24 @@ def load_json_file(file_path: Path, default: dict = None) -> dict:
 def get_tier_from_level(level: str, alert_tier: Optional[int] = None, alert: Optional[Dict] = None) -> int:
     """Convert alert level to tier number.
     
-    CRITICAL: The tier field comes directly from the Telegram alert post.
-    If the alert was posted as "TIER 1", the tier field should be 1.
+    CRITICAL: The tier field comes DIRECTLY from the Telegram alert post.
+    If the Telegram post says "TIER 1", the tier field MUST be 1.
+    If the Telegram post says "TIER 2", the tier field MUST be 2.
+    If the Telegram post says "TIER 3", the tier field MUST be 3.
+    
+    THE TELEGRAM POST IS THE SOURCE OF TRUTH - NO HEURISTICS WHEN TIER FIELD EXISTS!
     
     IMPORTANT: 
     - Tier 1 alerts are stored as level="HIGH"
     - Tier 2 and Tier 3 alerts are both stored as level="MEDIUM"
     - We can't distinguish Tier 2 from Tier 3 without the tier field
     
-    PRIORITY:
-    1. Use alert_tier if available (from the tier field - this is what was shown in Telegram)
-    2. Only use heuristics if tier field is missing (for old alerts)
+    PRIORITY (STRICT):
+    1. Use alert_tier if available (from the tier field - this is EXACTLY what was shown in Telegram post)
+    2. ONLY use heuristics if tier field is missing (for old alerts before tier field was added)
     """
-    # PRIORITY 1: If tier is explicitly provided, use it (this is what was shown in Telegram post)
+    # PRIORITY 1: If tier is explicitly provided, use it DIRECTLY (this is EXACTLY what was shown in Telegram post)
+    # NO HEURISTICS - THE TELEGRAM POST DECIDES THE TIER!
     if alert_tier is not None and alert_tier in [1, 2, 3]:
         return alert_tier
     
@@ -273,8 +278,14 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
             filtered_alerts = []
             for alert in alerts:
                 level = alert.get("level", "MEDIUM")
-                alert_tier_field = alert.get("tier")  # Use tier field if available
-                alert_tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
+                # CRITICAL: Use tier field DIRECTLY from Telegram post - this is the source of truth
+                alert_tier_field = alert.get("tier")
+                if alert_tier_field is not None and alert_tier_field in [1, 2, 3]:
+                    # Tier field exists - use it directly (this is EXACTLY what was shown in Telegram post)
+                    alert_tier = alert_tier_field
+                else:
+                    # Only use heuristics if tier field is missing (for old alerts)
+                    alert_tier = get_tier_from_level(level, alert_tier_field, alert)
                 if alert_tier == tier:
                     filtered_alerts.append(alert)
             alerts = filtered_alerts
@@ -286,8 +297,16 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         formatted_alerts = []
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            alert_tier_field = alert.get("tier")  # Use tier field if available (most reliable)
-            tier_num = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
+            # CRITICAL: Use tier field DIRECTLY from Telegram post - this is the source of truth
+            # If Telegram post says "TIER 1", tier field is 1. If it says "TIER 2", tier field is 2.
+            # NO HEURISTICS - THE TELEGRAM POST DECIDES THE TIER!
+            alert_tier_field = alert.get("tier")
+            if alert_tier_field is not None and alert_tier_field in [1, 2, 3]:
+                # Tier field exists - use it directly (this is EXACTLY what was shown in Telegram post)
+                tier_num = alert_tier_field
+            else:
+                # Only use heuristics if tier field is missing (for old alerts)
+                tier_num = get_tier_from_level(level, alert_tier_field, alert)
             
             # Get hotlist status
             try:
@@ -427,8 +446,14 @@ async def get_tier_breakdown():
         
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            alert_tier_field = alert.get("tier")  # Use tier field if available
-            tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
+            # CRITICAL: Use tier field DIRECTLY from Telegram post - this is the source of truth
+            alert_tier_field = alert.get("tier")
+            if alert_tier_field is not None and alert_tier_field in [1, 2, 3]:
+                # Tier field exists - use it directly (this is EXACTLY what was shown in Telegram post)
+                tier = alert_tier_field
+            else:
+                # Only use heuristics if tier field is missing (for old alerts)
+                tier = get_tier_from_level(level, alert_tier_field, alert)
             tier_breakdown[tier]["count"] += 1
             
             # Add to recent alerts for this tier (last 10)
@@ -470,8 +495,14 @@ async def get_daily_stats(days: int = 7):
                     daily_stats[date_key]["total"] += 1
                     
                     level = alert.get("level", "MEDIUM")
-                    alert_tier_field = alert.get("tier")  # Use tier field if available
-                    tier = get_tier_from_level(level, alert_tier_field, alert)  # Pass alert for heuristics
+                    # CRITICAL: Use tier field DIRECTLY from Telegram post - this is the source of truth
+                    alert_tier_field = alert.get("tier")
+                    if alert_tier_field is not None and alert_tier_field in [1, 2, 3]:
+                        # Tier field exists - use it directly (this is EXACTLY what was shown in Telegram post)
+                        tier = alert_tier_field
+                    else:
+                        # Only use heuristics if tier field is missing (for old alerts)
+                        tier = get_tier_from_level(level, alert_tier_field, alert)
                     daily_stats[date_key][f"tier{tier}"] += 1
             except Exception:
                 continue
