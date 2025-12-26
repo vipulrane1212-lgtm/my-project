@@ -1961,17 +1961,49 @@ async def main():
     # CRITICAL: Ensure session file is in the right location for Railway
     # If session file exists in current directory but not in /app/, copy it
     session_file = f"{SESSION_NAME}.session"
-    if os.path.exists(session_file) and not os.path.exists(f"/app/{session_file}"):
-        try:
-            import shutil
-            # Ensure /app directory exists
-            os.makedirs("/app", exist_ok=True)
-            # Copy session file to /app/ for Railway
-            shutil.copy2(session_file, f"/app/{session_file}")
-            print(f"✅ Copied session file to /app/{session_file}")
-        except Exception as e:
-            print(f"⚠️  Could not copy session file to /app/: {e}")
-            # Continue anyway - might work from current directory
+    print(f"\n🔍 Checking for session file: {session_file}")
+    print(f"   SESSION_NAME env: {SESSION_NAME}")
+    print(f"   Current directory: {os.getcwd()}")
+    
+    # List all .session files in current directory
+    try:
+        all_files = os.listdir('.')
+        session_files = [f for f in all_files if f.endswith('.session')]
+        print(f"   All .session files in current directory: {session_files}")
+    except Exception as e:
+        print(f"   Could not list directory: {e}")
+    
+    if os.path.exists(session_file):
+        file_size = os.path.getsize(session_file)
+        print(f"   ✅ Found {session_file} ({file_size} bytes)")
+        
+        # Verify file is not empty
+        if file_size == 0:
+            print(f"   ❌ ERROR: Session file is empty (0 bytes)!")
+            print(f"   This will cause authentication to fail.")
+            print(f"   The file from GitHub might not have been deployed correctly.")
+            raise FileNotFoundError(f"Session file '{session_file}' is empty. Please ensure a valid session file is deployed.")
+        
+        if not os.path.exists(f"/app/{session_file}"):
+            try:
+                import shutil
+                # Ensure /app directory exists
+                os.makedirs("/app", exist_ok=True)
+                # Copy session file to /app/ for Railway
+                shutil.copy2(session_file, f"/app/{session_file}")
+                copied_size = os.path.getsize(f"/app/{session_file}")
+                print(f"   ✅ Copied session file to /app/{session_file} ({copied_size} bytes)")
+            except Exception as e:
+                print(f"   ⚠️  Could not copy session file to /app/: {e}")
+                import traceback
+                traceback.print_exc()
+        else:
+            app_size = os.path.getsize(f"/app/{session_file}")
+            print(f"   ✅ Session file already exists in /app/ ({app_size} bytes)")
+    else:
+        print(f"   ❌ Session file {session_file} not found in current directory")
+        print(f"   This will cause authentication to fail!")
+        print(f"   Please ensure the session file is in GitHub and Railway has deployed it.")
     
     # TelegramClient will create the session file on first run if it doesn't exist
     # The user will be prompted to authenticate via phone number
