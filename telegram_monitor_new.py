@@ -1986,52 +1986,92 @@ async def main():
     except Exception as e:
         print(f"   Could not list directory: {e}")
     
-    if os.path.exists(session_file):
-        file_size = os.path.getsize(session_file)
-        print(f"   ✅ Found {session_file} ({file_size} bytes)")
-        
-        # Verify file is not empty
-        if file_size == 0:
-            print(f"   ❌ ERROR: Session file is empty (0 bytes)!")
-            print(f"   This will cause authentication to fail.")
-            print(f"   The file from GitHub might not have been deployed correctly.")
-            raise FileNotFoundError(f"Session file '{session_file}' is empty. Please ensure a valid session file is deployed.")
-        
-        # Verify it's a valid SQLite file
+    # CRITICAL: Check if file exists and is valid BEFORE creating TelegramClient
+    session_found = False
+    session_path = None
+    
+    # Check multiple possible locations
+    possible_paths = [
+        session_file,  # Current directory
+        f"/app/{session_file}",  # Railway /app directory
+        f"/app/sessions/{session_file}",  # Railway volumes
+        os.path.join(os.getcwd(), session_file),  # Absolute path
+    ]
+    
+    for path in possible_paths:
+        if os.path.exists(path):
+            file_size = os.path.getsize(path)
+            if file_size > 0:  # File exists and is not empty
+                # Verify it's valid SQLite
+                try:
+                    import sqlite3
+                    conn = sqlite3.connect(path)
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+                    tables = cursor.fetchall()
+                    conn.close()
+                    if len(tables) > 0:  # Valid SQLite with tables
+                        session_found = True
+                        session_path = path
+                        print(f"   ✅ Found valid session file at: {path} ({file_size:,} bytes, {len(tables)} tables)")
+                        break
+                except Exception:
+                    # Not valid SQLite, try next path
+                    continue
+    
+    if not session_found:
+        # Last resort: Check for ANY .session file in current directory
         try:
-            import sqlite3
-            conn = sqlite3.connect(session_file)
-            cursor = conn.cursor()
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
-            tables = cursor.fetchall()
-            conn.close()
-            print(f"   ✅ Session file is valid SQLite (tables: {len(tables)})")
-        except Exception as sqlite_error:
-            print(f"   ❌ ERROR: Session file is corrupted or invalid: {sqlite_error}")
-            print(f"   This will cause authentication to fail.")
-            raise FileNotFoundError(f"Session file '{session_file}' is corrupted. Please ensure a valid session file is deployed.")
-        
-        if not os.path.exists(f"/app/{session_file}"):
-            try:
-                import shutil
-                # Ensure /app directory exists
-                os.makedirs("/app", exist_ok=True)
-                # Copy session file to /app/ for Railway
-                shutil.copy2(session_file, f"/app/{session_file}")
-                copied_size = os.path.getsize(f"/app/{session_file}")
-                print(f"   ✅ Copied session file to /app/{session_file} ({copied_size} bytes)")
-            except Exception as e:
-                print(f"   ⚠️  Could not copy session file to /app/: {e}")
-                import traceback
-                traceback.print_exc()
-        else:
-            app_size = os.path.getsize(f"/app/{session_file}")
-            print(f"   ✅ Session file already exists in /app/ ({app_size} bytes)")
-    else:
-        print(f"   ❌ Session file {session_file} not found in current directory")
+            all_files = os.listdir('.')
+            session_files = [f for f in all_files if f.endswith('.session')]
+            if session_files:
+                print(f"   ⚠️  Found other session files: {session_files}")
+                # Try the first one as fallback
+                fallback = session_files[0]
+                try:
+                    import sqlite3
+                    conn = sqlite3.connect(fallback)
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+                    tables = cursor.fetchall()
+                    conn.close()
+                    if len(tables) > 0:
+                        # Copy fallback to expected location
+                        import shutil
+                        shutil.copy2(fallback, session_file)
+                        session_found = True
+                        session_path = session_file
+                        print(f"   ✅ Using fallback session: {fallback} -> {session_file}")
+                except Exception:
+                    pass
+        except Exception:
+            pass
+    
+    if not session_found:
+        print(f"   ❌ Session file {session_file} not found or invalid!")
+        print(f"   Checked paths: {possible_paths}")
+        print(f"   Current directory: {os.getcwd()}")
+        try:
+            all_files = os.listdir('.')
+            session_files = [f for f in all_files if f.endswith('.session')]
+            print(f"   All .session files in current directory: {session_files}")
+        except Exception:
+            pass
         print(f"   This will cause authentication to fail!")
         print(f"   Please ensure the session file is in GitHub and Railway has deployed it.")
         # Don't raise here - let connect_with_retry handle it with better error message
+    else:
+        # Ensure file is in /app/ for Railway
+        if session_path != f"/app/{session_file}" and not os.path.exists(f"/app/{session_file}"):
+            try:
+                import shutil
+                os.makedirs("/app", exist_ok=True)
+                shutil.copy2(session_path, f"/app/{session_file}")
+                copied_size = os.path.getsize(f"/app/{session_file}")
+                print(f"   ✅ Copied session file to /app/{session_file} ({copied_size:,} bytes)")
+            except Exception as e:
+                print(f"   ⚠️  Could not copy to /app/: {e}")
+                # Not critical - file exists in current location
     
     # TelegramClient will create the session file on first run if it doesn't exist
     # The user will be prompted to authenticate via phone number
