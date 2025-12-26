@@ -1,0 +1,2447 @@
+[
+  {
+    "token": "TUNA",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 11:07:20+00:00",
+    "cohort_timestamp_ist": "2025-12-20 16:37:20+00:00",
+    "entry_mc": 50500.0,
+    "peak_multiplier": 25.0,
+    "glydo_appearances": {
+      "in_top5_window": false,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "DEXTER",
+        "SAROS",
+        "SHIBE",
+        "WHISK",
+        "ELIZA",
+        "SCHIZO",
+        "JUP",
+        "GOR",
+        "FRANKLIN",
+        "LOWKENUINE",
+        "PEPPA",
+        "BENNY",
+        "DADDY",
+        "AI16Z",
+        "TARD",
+        "KERMIT",
+        "SSL",
+        "LABUBU",
+        "JCOIN",
+        "1776",
+        "XMAS",
+        "PAYAI",
+        "VVAIFU",
+        "MONEROCHAN",
+        "FRIES"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 75,
+    "xtrack_signals": 10
+  },
+  {
+    "token": "BURG",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 11:46:37+00:00",
+    "cohort_timestamp_ist": "2025-12-20 17:16:37+00:00",
+    "entry_mc": 58100.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 10,
+      "glydo_symbols": [
+        "ADA",
+        "TUNA",
+        "67",
+        "ITALIANROT",
+        "REDACTED",
+        "HUCH",
+        "YUREI",
+        "KALSHI",
+        "BURG",
+        "PEEPO",
+        "ZAMA",
+        "ACE",
+        "MAPPIN",
+        "PEPPA",
+        "BENNY",
+        "SHORSEPRO",
+        "AI16Z",
+        "TARD",
+        "SSL",
+        "KERMIT",
+        "ROME",
+        "JCOIN",
+        "NVIDIA",
+        "BOME",
+        "MONEROCHAN",
+        "FRIES"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 10:10:04+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 10:45:04+00:00",
+          "rank": 2
+        },
+        {
+          "timestamp": "2025-12-20 11:40:04+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 11:45:04+00:00",
+          "rank": 4
+        }
+      ],
+      "count": 4
+    },
+    "total_messages": 5,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "ADA",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 12:19:10+00:00",
+    "cohort_timestamp_ist": "2025-12-20 17:49:10+00:00",
+    "entry_mc": 46800.0,
+    "peak_multiplier": 14.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "ADA",
+        "PUMP",
+        "TUNA",
+        "CINEMA",
+        "REDACTED",
+        "DASK",
+        "YUREI",
+        "KALSHI",
+        "BURG",
+        "ZAMA",
+        "SPARK",
+        "MAGA",
+        "TTD",
+        "ACE",
+        "MAPPIN",
+        "NYAN",
+        "HAMM",
+        "PEPPA",
+        "BENNY",
+        "SHORSEPRO",
+        "AI16Z",
+        "TARD",
+        "KERMIT",
+        "KMNO",
+        "NOVA",
+        "BOME",
+        "MONEROCHAN",
+        "FRIES"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 3,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 3,
+      "details": [
+        "Large buy: 5.83 SOL",
+        "Large buy: 5.04 SOL",
+        "Large buy: 9.9 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 11:35:11+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 11:40:04+00:00",
+          "rank": 2
+        }
+      ],
+      "count": 2
+    },
+    "total_messages": 94,
+    "xtrack_signals": 8
+  },
+  {
+    "token": "WINNIE",
+    "tier": 2,
+    "cohort_timestamp_utc": "2025-12-20 13:00:24+00:00",
+    "cohort_timestamp_ist": "2025-12-20 18:30:24+00:00",
+    "entry_mc": 38800.0,
+    "peak_multiplier": 6.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "BARRON",
+        "ADA",
+        "IPXAI",
+        "TUNA",
+        "DREAMS",
+        "LUCE",
+        "DASK",
+        "PIPPIN",
+        "SCHIZO",
+        "WINNIE",
+        "AVICI",
+        "JOBS",
+        "GORK",
+        "BURG",
+        "LILPEPE",
+        "FRANKLIN",
+        "ACE",
+        "DINO",
+        "AI16Z",
+        "W1N",
+        "MSAI",
+        "ROME",
+        "GAIX",
+        "NOVA",
+        "JCOIN",
+        "MONEROCHAN",
+        "FRIES"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.49 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 13:00:07+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 5,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "OXE",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 14:56:08+00:00",
+    "cohort_timestamp_ist": "2025-12-20 20:26:08+00:00",
+    "entry_mc": 90000.0,
+    "peak_multiplier": 5.0,
+    "glydo_appearances": {
+      "in_top5_window": false,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "PUMPCADE",
+        "ADA",
+        "TUNA",
+        "GOLDCARD",
+        "DISCOBOLUS",
+        "SIMD",
+        "ELIZA",
+        "DOT",
+        "GORK",
+        "OK",
+        "DARK",
+        "DINO",
+        "PEPPA",
+        "AI16Z",
+        "TARD",
+        "WHITEWHALE",
+        "KEAK",
+        "2026",
+        "42",
+        "FRIES"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 1,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "TARD",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 15:24:50+00:00",
+    "cohort_timestamp_ist": "2025-12-20 20:54:50+00:00",
+    "entry_mc": 45800.0,
+    "peak_multiplier": 9.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "NOBODY",
+        "ADA",
+        "CHILLHOUSE",
+        "TUNA",
+        "DISCOBOLUS",
+        "SIMD",
+        "ELIZA",
+        "FKH",
+        "OK",
+        "DARK",
+        "PEPPA",
+        "WLF",
+        "AI16Z",
+        "TARD",
+        "WHITEWHALE",
+        "KEAK",
+        "FRIES",
+        "2026",
+        "42",
+        "FROGE",
+        "OXE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 13:45:04+00:00",
+          "rank": 5
+        },
+        {
+          "timestamp": "2025-12-20 13:50:04+00:00",
+          "rank": 5
+        },
+        {
+          "timestamp": "2025-12-20 14:00:08+00:00",
+          "rank": 4
+        },
+        {
+          "timestamp": "2025-12-20 14:45:04+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 15:00:07+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 5
+    },
+    "total_messages": 6,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "RYAN",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 17:05:22+00:00",
+    "cohort_timestamp_ist": "2025-12-20 22:35:22+00:00",
+    "entry_mc": 58200.0,
+    "peak_multiplier": 7.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "OWO",
+        "PUMPCADE",
+        "BARRON",
+        "ADA",
+        "POPFROG",
+        "DAC",
+        "TUNA",
+        "96",
+        "67",
+        "REDACTED",
+        "RYAN",
+        "468",
+        "YUREI",
+        "ACT",
+        "BURG",
+        "PRVT",
+        "GOOGLE",
+        "KEAK",
+        "CAESAR",
+        "METAMASK",
+        "42"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.9 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 17:05:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 31,
+    "xtrack_signals": 5
+  },
+  {
+    "token": "PEEPO",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 19:16:29+00:00",
+    "cohort_timestamp_ist": "2025-12-21 00:46:29+00:00",
+    "entry_mc": 70400.0,
+    "peak_multiplier": 3.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "ADA",
+        "POPFROG",
+        "TUNA",
+        "RYAN",
+        "GLOVING",
+        "CHUNGUS",
+        "TESLA",
+        "PIPPIN",
+        "PREDICT",
+        "GBOY",
+        "JEFF",
+        "LILPEPE",
+        "PEEPO",
+        "DARK",
+        "MOONCAKE",
+        "PRGN",
+        "SPACEX",
+        "WABISABI",
+        "POLYFACTS",
+        "42",
+        "BTC"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 6.12 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 19:10:05+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 19:15:04+00:00",
+          "rank": 2
+        }
+      ],
+      "count": 2
+    },
+    "total_messages": 7,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "WABISABI",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 19:25:59+00:00",
+    "cohort_timestamp_ist": "2025-12-21 00:55:59+00:00",
+    "entry_mc": 51200.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 7,
+      "glydo_symbols": [
+        "ADA",
+        "POPFROG",
+        "TUNA",
+        "RYAN",
+        "GLOVING",
+        "TESLA",
+        "PIPPIN",
+        "PREDICT",
+        "JEFF",
+        "JOBS",
+        "LILPEPE",
+        "PEEPO",
+        "MOONCAKE",
+        "PRGN",
+        "SPACEX",
+        "WABISABI",
+        "POLYFACTS",
+        "42",
+        "BTC",
+        "SOA"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 11,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "BTC",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 19:32:21+00:00",
+    "cohort_timestamp_ist": "2025-12-21 01:02:21+00:00",
+    "entry_mc": 66700.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 7,
+      "glydo_symbols": [
+        "ADA",
+        "TUNA",
+        "REDACTED",
+        "RYAN",
+        "GLOVING",
+        "TESLA",
+        "PIPPIN",
+        "PREDICT",
+        "JEFF",
+        "JOBS",
+        "LILPEPE",
+        "PEEPO",
+        "MOONCAKE",
+        "PRGN",
+        "SPACEX",
+        "WABISABI",
+        "POLYFACTS",
+        "42",
+        "BTC",
+        "SOA"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 2,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 2,
+      "details": [
+        "Large buy: 14.99 SOL",
+        "Large buy: 10.0 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 46,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "RETAIL",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 21:17:58+00:00",
+    "cohort_timestamp_ist": "2025-12-21 02:47:58+00:00",
+    "entry_mc": 60700.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "ADA",
+        "POPFROG",
+        "TUNA",
+        "JELLYJELLY",
+        "REDACTED",
+        "RYAN",
+        "SIMD",
+        "DUMPLINGS",
+        "CHUNGUS",
+        "PIPPIN",
+        "PREDICT",
+        "GIGA",
+        "DICKBUTT",
+        "KABUTO",
+        "RETAIL",
+        "AI16Z",
+        "WHITEWHALE",
+        "LIGHT",
+        "HTTPS",
+        "1776",
+        "42",
+        "BTC",
+        "SILVER",
+        "BOXABL",
+        "FROGE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 1,
+      "details": [
+        "Early trending"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 21:15:04+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 21:15:04+00:00",
+          "rank": 3
+        }
+      ],
+      "count": 2
+    },
+    "total_messages": 42,
+    "xtrack_signals": 5
+  },
+  {
+    "token": "DICKBUTT",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 21:20:30+00:00",
+    "cohort_timestamp_ist": "2025-12-21 02:50:30+00:00",
+    "entry_mc": 79600.0,
+    "peak_multiplier": 3.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "POPFROG",
+        "REPLY",
+        "TUNA",
+        "JELLYJELLY",
+        "REDACTED",
+        "RYAN",
+        "DUMPLINGS",
+        "CHUNGUS",
+        "PIPPIN",
+        "PREDICT",
+        "GIGA",
+        "DICKBUTT",
+        "KABUTO",
+        "RETAIL",
+        "AI16Z",
+        "WHITEWHALE",
+        "LIGHT",
+        "HTTPS",
+        "1776",
+        "42",
+        "BTC",
+        "SILVER",
+        "BOXABL",
+        "FROGE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 19.8 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 21:20:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 9,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "CHUNGUS",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 21:43:02+00:00",
+    "cohort_timestamp_ist": "2025-12-21 03:13:02+00:00",
+    "entry_mc": 43300.0,
+    "peak_multiplier": 8.0,
+    "glydo_appearances": {
+      "in_top5_window": false,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "POPFROG",
+        "REPLY",
+        "TUNA",
+        "ZOOP",
+        "SIMD",
+        "RYAN",
+        "DUMPLINGS",
+        "PREDICT",
+        "DICKBUTT",
+        "KABUTO",
+        "FKH",
+        "RETAIL",
+        "FARTCOIN",
+        "AI16Z",
+        "W1N",
+        "LIGHT",
+        "BITTY",
+        "LLM",
+        "HTTPS",
+        "1776",
+        "42",
+        "BTC",
+        "BOXABL"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 21:05:45+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 1,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "DUELS",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-20 23:12:41+00:00",
+    "cohort_timestamp_ist": "2025-12-21 04:42:41+00:00",
+    "entry_mc": 121100.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "BARRON",
+        "ADA",
+        "ONRE",
+        "POPFROG",
+        "TUNA",
+        "OIIAOIIA",
+        "RYAN",
+        "DUMPLINGS",
+        "ALTCOIN",
+        "BOBO",
+        "CHUNGUS",
+        "JIZZY",
+        "GBOY",
+        "KALSHI",
+        "DICKBUTT",
+        "DUELS",
+        "RETAIL",
+        "DADDY",
+        "HTTPS",
+        "NOVA",
+        "1776",
+        "42",
+        "BTC"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 2,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 2,
+      "details": [
+        "Large buy: 18.18 SOL",
+        "Large buy: 25.0 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 22:50:03+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-20 23:00:39+00:00",
+          "rank": 2
+        },
+        {
+          "timestamp": "2025-12-20 23:05:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 3
+    },
+    "total_messages": 10,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "G",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-20 23:32:22+00:00",
+    "cohort_timestamp_ist": "2025-12-21 05:02:22+00:00",
+    "entry_mc": 44200.0,
+    "peak_multiplier": 5.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "ONRE",
+        "POPFROG",
+        "TUNA",
+        "67",
+        "OIIAOIIA",
+        "RYAN",
+        "ALTCOIN",
+        "BOBO",
+        "CHUNGUS",
+        "GBOY",
+        "KALSHI",
+        "RNT",
+        "G",
+        "DUELS",
+        "RETAIL",
+        "DADDY",
+        "HTTPS",
+        "NOVA",
+        "42"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 2,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 2,
+      "details": [
+        "Large buy: 9.9 SOL",
+        "Large buy: 14.85 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 39,
+    "xtrack_signals": 4
+  },
+  {
+    "token": "DADDY",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 00:15:10+00:00",
+    "cohort_timestamp_ist": "2025-12-21 05:45:10+00:00",
+    "entry_mc": 50000.0,
+    "peak_multiplier": 3.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 12,
+      "glydo_symbols": [
+        "NOBODY",
+        "ADA",
+        "ONRE",
+        "POPFROG",
+        "TUNA",
+        "BAGWORK",
+        "RYAN",
+        "BTW",
+        "SIMD",
+        "BITWAY",
+        "DUMPLINGS",
+        "USACOIN",
+        "BOBO",
+        "ELIZA",
+        "PIPPIN",
+        "PREDICT",
+        "GBOY",
+        "G",
+        "JESTER",
+        "DUELS",
+        "CALVIN",
+        "DADDY",
+        "SHORSEPRO",
+        "GROKTOR",
+        "HTTPS",
+        "NOVA",
+        "42"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-20 23:30:04+00:00",
+          "rank": 5
+        },
+        {
+          "timestamp": "2025-12-20 23:35:05+00:00",
+          "rank": 2
+        }
+      ],
+      "count": 2
+    },
+    "total_messages": 38,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "JESTER",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 00:35:26+00:00",
+    "cohort_timestamp_ist": "2025-12-21 06:05:26+00:00",
+    "entry_mc": 66800.0,
+    "peak_multiplier": 3.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "ONRE",
+        "POPFROG",
+        "NEURVONA",
+        "RYAN",
+        "BTW",
+        "SIMD",
+        "BITWAY",
+        "BOBO",
+        "BREV",
+        "PIPPIN",
+        "PREDICT",
+        "YUREI",
+        "G",
+        "JESTER",
+        "HAMM",
+        "DADDY",
+        "SHORSEPRO",
+        "WHITEWHALE",
+        "GROKTOR",
+        "HTTPS",
+        "BTC",
+        "FROGE"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 21.98 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 00:35:05+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 11,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "WHITEWHALE",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 00:49:28+00:00",
+    "cohort_timestamp_ist": "2025-12-21 06:19:28+00:00",
+    "entry_mc": 57200.0,
+    "peak_multiplier": 139.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "POPFROG",
+        "NEURVONA",
+        "RYAN",
+        "SIMD",
+        "BTW",
+        "BITWAY",
+        "BOBO",
+        "BREV",
+        "PIPPIN",
+        "YUREI",
+        "G",
+        "JESTER",
+        "DUELS",
+        "HAMM",
+        "DADDY",
+        "SHORSEPRO",
+        "WHITEWHALE",
+        "GROKTOR",
+        "BTC",
+        "FROGE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 00:40:46+00:00",
+          "rank": 3
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 5,
+    "xtrack_signals": 5
+  },
+  {
+    "token": "NEURVONA",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 00:58:54+00:00",
+    "cohort_timestamp_ist": "2025-12-21 06:28:54+00:00",
+    "entry_mc": 84700.0,
+    "peak_multiplier": 11.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "POPFROG",
+        "NEURVONA",
+        "RYAN",
+        "BTW",
+        "BOBO",
+        "BREV",
+        "YUREI",
+        "GBOY",
+        "G",
+        "DTV",
+        "DUELS",
+        "HAMM",
+        "DADDY",
+        "SHORSEPRO",
+        "TARD",
+        "MACARON",
+        "WHITEWHALE",
+        "BTC",
+        "FROGE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 6,
+      "multi_buy": 1,
+      "whale_buy": 1,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 8,
+      "details": [
+        "Early trending",
+        "Large buy: 5.05 SOL",
+        "Large buy: 7.92 SOL",
+        "Large buy: 24.75 SOL",
+        "Large buy: 33.0 SOL",
+        "Large buy: 10.01 SOL",
+        "Large buy: 7.92 SOL",
+        "Whale buy"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 00:50:04+00:00",
+          "rank": 1
+        },
+        {
+          "timestamp": "2025-12-21 00:55:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 2
+    },
+    "total_messages": 64,
+    "xtrack_signals": 8
+  },
+  {
+    "token": "PENNY",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 02:14:22+00:00",
+    "cohort_timestamp_ist": "2025-12-21 07:44:22+00:00",
+    "entry_mc": 57000.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "POPFROG",
+        "67",
+        "PENNY",
+        "NEURVONA",
+        "BTW",
+        "DUMPLINGS",
+        "BOBO",
+        "CHUNGUS",
+        "YUREI",
+        "NEET",
+        "ZAMA",
+        "DARWS",
+        "TTD",
+        "MOONCAKE",
+        "DUVE",
+        "DADDY",
+        "RETAIL",
+        "TARD",
+        "WHITEWHALE",
+        "MACARON",
+        "W1N",
+        "PURCH",
+        "NOVA",
+        "42"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 17,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "MOONCAKE",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 02:20:42+00:00",
+    "cohort_timestamp_ist": "2025-12-21 07:50:42+00:00",
+    "entry_mc": 36500.0,
+    "peak_multiplier": 13.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 10,
+      "glydo_symbols": [
+        "POPFROG",
+        "67",
+        "PENNY",
+        "NEURVONA",
+        "BTW",
+        "DUMPLINGS",
+        "CHUNGUS",
+        "BOBO",
+        "YUREI",
+        "GAY",
+        "NEET",
+        "PEEPO",
+        "ZAMA",
+        "VALOR",
+        "DARWS",
+        "TTD",
+        "DUELS",
+        "MOONCAKE",
+        "DUVE",
+        "DADDY",
+        "RETAIL",
+        "TARD",
+        "WHITEWHALE",
+        "MACARON",
+        "W1N",
+        "PURCH",
+        "NOVA"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 02:01:43+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 10,
+    "xtrack_signals": 7
+  },
+  {
+    "token": "INTELLIS",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 02:30:32+00:00",
+    "cohort_timestamp_ist": "2025-12-21 08:00:32+00:00",
+    "entry_mc": 70800.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": false,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "POPFROG",
+        "PENNY",
+        "NEURVONA",
+        "BTW",
+        "DUMPLINGS",
+        "ALTCOIN",
+        "YUREI",
+        "GAY",
+        "PEEPO",
+        "ZAMA",
+        "VALOR",
+        "DARWS",
+        "DUELS",
+        "MOONCAKE",
+        "DUVE",
+        "RETAIL",
+        "PURCH",
+        "W1N",
+        "WHITEWHALE",
+        "HARAMBE"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 01:50:04+00:00",
+          "rank": 5
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 9,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "MEEPCAT",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 04:32:30+00:00",
+    "cohort_timestamp_ist": "2025-12-21 10:02:30+00:00",
+    "entry_mc": 88100.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "POPFROG",
+        "TUNA",
+        "MEEPCAT",
+        "NEURVONA",
+        "POPJAK",
+        "DUMPLINGS",
+        "BOBO",
+        "BOT",
+        "LILPEPE",
+        "INFINIT",
+        "FRANKLIN",
+        "DUELS",
+        "MOONCAKE",
+        "CALVIN",
+        "RETAIL",
+        "TARD",
+        "MACARON",
+        "HTTPS",
+        "NOVA",
+        "51",
+        "2026",
+        "ZERA"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 03:50:04+00:00",
+          "rank": 3
+        },
+        {
+          "timestamp": "2025-12-21 04:01:43+00:00",
+          "rank": 2
+        },
+        {
+          "timestamp": "2025-12-21 04:20:04+00:00",
+          "rank": 2
+        },
+        {
+          "timestamp": "2025-12-21 04:30:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 4
+    },
+    "total_messages": 29,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "OGBERRY",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 07:43:56+00:00",
+    "cohort_timestamp_ist": "2025-12-21 13:13:56+00:00",
+    "entry_mc": 88100.0,
+    "peak_multiplier": 9.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "NOBODY",
+        "POPFROG",
+        "YOTSUBA",
+        "TUNA",
+        "OGBERRY",
+        "MEEPCAT",
+        "NEURVONA",
+        "UNI",
+        "APU",
+        "BOBO",
+        "YUREI",
+        "XION",
+        "ZAMA",
+        "FRANKLIN",
+        "COCACOLA",
+        "RETAIL",
+        "HTTPS",
+        "42",
+        "REK",
+        "YZI"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 07:15:04+00:00",
+          "rank": 4
+        },
+        {
+          "timestamp": "2025-12-21 07:20:04+00:00",
+          "rank": 3
+        },
+        {
+          "timestamp": "2025-12-21 07:30:04+00:00",
+          "rank": 5
+        },
+        {
+          "timestamp": "2025-12-21 07:35:04+00:00",
+          "rank": 4
+        }
+      ],
+      "count": 4
+    },
+    "total_messages": 2,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "REK",
+    "tier": 2,
+    "cohort_timestamp_utc": "2025-12-21 07:59:38+00:00",
+    "cohort_timestamp_ist": "2025-12-21 13:29:38+00:00",
+    "entry_mc": 35900.0,
+    "peak_multiplier": 5.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "NOBODY",
+        "POPFROG",
+        "67",
+        "OGBERRY",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "UNI",
+        "APU",
+        "BOBO",
+        "PIPPIN",
+        "YUREI",
+        "XION",
+        "LILPEPE",
+        "FRANKLIN",
+        "JESTER",
+        "MOONCAKE",
+        "RETAIL",
+        "HTTPS",
+        "42",
+        "PAYAI",
+        "REK",
+        "CSS",
+        "YZI"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 2,
+      "details": [
+        "Early trending",
+        "Large buy: 15.03 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 26,
+    "xtrack_signals": 4
+  },
+  {
+    "token": "YETI",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 08:46:08+00:00",
+    "cohort_timestamp_ist": "2025-12-21 14:16:08+00:00",
+    "entry_mc": 47200.0,
+    "peak_multiplier": 16.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "PUMPCADE",
+        "TUNA",
+        "DEXTER",
+        "67",
+        "DREAMS",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "APU",
+        "SPSC",
+        "CHUNGUS",
+        "BOBO",
+        "POLY",
+        "PREDICT",
+        "SHOGGOTH",
+        "ESDEEKID",
+        "LILPEPE",
+        "UMBRA",
+        "ACE",
+        "DOG",
+        "FOLKS",
+        "MINER",
+        "2026",
+        "42",
+        "VVAIFU",
+        "REK",
+        "XION"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 1,
+      "details": [
+        "Early trending"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 08:45:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 46,
+    "xtrack_signals": 13
+  },
+  {
+    "token": "BLUNT",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 09:07:39+00:00",
+    "cohort_timestamp_ist": "2025-12-21 14:37:39+00:00",
+    "entry_mc": 55100.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "PUMPCADE",
+        "ONRE",
+        "POPFROG",
+        "TUNA",
+        "DREAMS",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "APU",
+        "BOBO",
+        "PREDICT",
+        "ESDEEKID",
+        "LILPEPE",
+        "TOKS",
+        "ACE",
+        "NOTHING",
+        "BLUNT",
+        "MINER",
+        "2026",
+        "42",
+        "POLY",
+        "XION"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.9 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 8,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "MVP",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 10:51:51+00:00",
+    "cohort_timestamp_ist": "2025-12-21 16:21:51+00:00",
+    "entry_mc": 51900.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "MVP",
+        "POPFROG",
+        "TUNA",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "DUMPLINGS",
+        "BUCK",
+        "YUREI",
+        "GIKO",
+        "GBOY",
+        "GOR",
+        "UMBRA",
+        "ZAMA",
+        "MAGA",
+        "MAPPIN",
+        "MOONCAKE",
+        "MEMO",
+        "RETAIL",
+        "GOOGLE",
+        "42",
+        "XION"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.9 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 10:50:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 11,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "FIREBALL",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 11:40:19+00:00",
+    "cohort_timestamp_ist": "2025-12-21 17:10:19+00:00",
+    "entry_mc": 50100.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "MVP",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "PIPPIN",
+        "YUREI",
+        "GBOY",
+        "ACT",
+        "FIREBALL",
+        "ESDEEKID",
+        "MAPPIN",
+        "GROK",
+        "MOONCAKE",
+        "GOOGLE",
+        "TESTICLE",
+        "2026",
+        "42",
+        "749B",
+        "SWTCH",
+        "XION"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 11:40:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 54,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "749B",
+    "tier": 2,
+    "cohort_timestamp_utc": "2025-12-21 11:44:37+00:00",
+    "cohort_timestamp_ist": "2025-12-21 17:14:37+00:00",
+    "entry_mc": 37200.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 11,
+      "glydo_symbols": [
+        "MVP",
+        "DEXTER",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "DUMPLINGS",
+        "PIPPIN",
+        "PREDICT",
+        "YUREI",
+        "WET",
+        "GBOY",
+        "ACT",
+        "FIREBALL",
+        "ESDEEKID",
+        "FRANKLIN",
+        "JESTER",
+        "MAPPIN",
+        "GROK",
+        "MOONCAKE",
+        "GOOGLE",
+        "TESTICLE",
+        "WHITEWHALE",
+        "2026",
+        "42",
+        "749B",
+        "MONEROCHAN",
+        "SWTCH",
+        "XION"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.72 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 2,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "TESTICLE",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 11:59:58+00:00",
+    "cohort_timestamp_ist": "2025-12-21 17:29:58+00:00",
+    "entry_mc": 46100.0,
+    "peak_multiplier": 6.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 11,
+      "glydo_symbols": [
+        "TUNA",
+        "DEXTER",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "FREYA",
+        "DUMPLINGS",
+        "PIPPIN",
+        "PREDICT",
+        "WET",
+        "ACT",
+        "GBOY",
+        "FIREBALL",
+        "FRANKLIN",
+        "JESTER",
+        "MAPPIN",
+        "GROK",
+        "GOOGLE",
+        "TESTICLE",
+        "WHITEWHALE",
+        "2026",
+        "42",
+        "749B",
+        "MONEROCHAN",
+        "XION"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 2,
+      "details": [
+        "Early trending",
+        "Large buy: 7.49 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 25,
+    "xtrack_signals": 4
+  },
+  {
+    "token": "RSA",
+    "tier": 2,
+    "cohort_timestamp_utc": "2025-12-21 12:19:43+00:00",
+    "cohort_timestamp_ist": "2025-12-21 17:49:43+00:00",
+    "entry_mc": 30100.0,
+    "peak_multiplier": 18.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 11,
+      "glydo_symbols": [
+        "TUNA",
+        "DEXTER",
+        "YETI",
+        "MEEPCAT",
+        "NEURVONA",
+        "RYAN",
+        "FREYA",
+        "DUMPLINGS",
+        "PIPPIN",
+        "PREDICT",
+        "YUREI",
+        "WET",
+        "GBOY",
+        "KALSHI",
+        "FIREBALL",
+        "FLY",
+        "FRANKLIN",
+        "XMASBALL",
+        "JESTER",
+        "MAPPIN",
+        "GROK",
+        "TESTICLE",
+        "WHITEWHALE",
+        "42",
+        "MONEROCHAN",
+        "RSA",
+        "XION",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.58 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 17,
+    "xtrack_signals": 6
+  },
+  {
+    "token": "SNOWMAN",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 12:35:37+00:00",
+    "cohort_timestamp_ist": "2025-12-21 18:05:37+00:00",
+    "entry_mc": 56100.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "KEAK",
+        "TESTICLE",
+        "XMASBALL",
+        "MAPPIN",
+        "42",
+        "YUREI",
+        "FRANK",
+        "YETI",
+        "SNOC",
+        "KALSHI",
+        "MEEPCAT",
+        "FIREBALL",
+        "NEURVONA",
+        "RSA",
+        "FLY",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 1,
+      "details": [
+        "Early trending"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 12:35:04+00:00",
+          "rank": 3
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 25,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "FRANK",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 12:43:18+00:00",
+    "cohort_timestamp_ist": "2025-12-21 18:13:18+00:00",
+    "entry_mc": 48700.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "KEAK",
+        "XMASBALL",
+        "FF",
+        "MAPPIN",
+        "FIREBALL",
+        "YUREI",
+        "DUELS",
+        "FRANK",
+        "YETI",
+        "SNOC",
+        "KALSHI",
+        "MEEPCAT",
+        "FLY",
+        "NEURVONA",
+        "RSA",
+        "RETAIL",
+        "TESTICLE",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 2,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 2,
+      "details": [
+        "Large buy: 9.99 SOL",
+        "Large buy: 18.0 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 12:00:41+00:00",
+          "rank": 2
+        },
+        {
+          "timestamp": "2025-12-21 12:00:44+00:00",
+          "rank": 3
+        },
+        {
+          "timestamp": "2025-12-21 12:41:40+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 3
+    },
+    "total_messages": 18,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "USR",
+    "tier": 2,
+    "cohort_timestamp_utc": "2025-12-21 13:41:37+00:00",
+    "cohort_timestamp_ist": "2025-12-21 19:11:37+00:00",
+    "entry_mc": 30900.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "TRENCHES",
+        "TESTICLE",
+        "DONGZHI",
+        "NEURVONA",
+        "SIMD",
+        "OOBE",
+        "AS",
+        "FRANK",
+        "YETI",
+        "KDK",
+        "PB2026",
+        "USR",
+        "JUP",
+        "KEAK",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.55 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 13:40:47+00:00",
+          "rank": 5
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 3,
+    "xtrack_signals": 2
+  },
+  {
+    "token": "AS",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 13:55:05+00:00",
+    "cohort_timestamp_ist": "2025-12-21 19:25:05+00:00",
+    "entry_mc": 84800.0,
+    "peak_multiplier": 4.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "FREEZE",
+        "KEAK",
+        "TRENCHES",
+        "BOBO",
+        "SIMD",
+        "TF",
+        "42",
+        "OOBE",
+        "AS",
+        "FRANK",
+        "YETI",
+        "KDK",
+        "NEURVONA",
+        "USR",
+        "JUP",
+        "TESTICLE",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 9.49 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 4,
+    "xtrack_signals": 3
+  },
+  {
+    "token": "WHITEBALL",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 14:07:36+00:00",
+    "cohort_timestamp_ist": "2025-12-21 19:37:36+00:00",
+    "entry_mc": 43600.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 9,
+      "glydo_symbols": [
+        "YETI",
+        "NEURVONA",
+        "SIMD",
+        "WHITEBALL",
+        "TRENCHES",
+        "BOBO",
+        "TF",
+        "PIPPIN",
+        "AS",
+        "KDK",
+        "JUP",
+        "FREEZE",
+        "FRANK",
+        "USR",
+        "TESTICLE",
+        "KEAK",
+        "NOVA",
+        "42",
+        "PB2026",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 1,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 1,
+      "details": [
+        "Large buy: 5.03 SOL"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 2,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "GROKMAS",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 14:36:46+00:00",
+    "cohort_timestamp_ist": "2025-12-21 20:06:46+00:00",
+    "entry_mc": 48800.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "TESTICLE",
+        "HTTPS",
+        "NEURVONA",
+        "NOVA",
+        "TF",
+        "PBEAR",
+        "42",
+        "PIPPIN",
+        "MOONCAKE",
+        "GROKMAS",
+        "FRANK",
+        "YETI",
+        "KDK",
+        "FIREBALL",
+        "PB2026",
+        "WHITEBALL",
+        "KEAK",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 1,
+      "details": [
+        "Early trending"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 16,
+    "xtrack_signals": 1
+  },
+  {
+    "token": "PBEAR",
+    "tier": 3,
+    "cohort_timestamp_utc": "2025-12-21 14:38:44+00:00",
+    "cohort_timestamp_ist": "2025-12-21 20:08:44+00:00",
+    "entry_mc": 30800.0,
+    "peak_multiplier": 7.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 8,
+      "glydo_symbols": [
+        "TESTICLE",
+        "HTTPS",
+        "NEURVONA",
+        "NOVA",
+        "TF",
+        "PBEAR",
+        "42",
+        "PIPPIN",
+        "MOONCAKE",
+        "GROKMAS",
+        "FRANK",
+        "YETI",
+        "KDK",
+        "FIREBALL",
+        "PB2026",
+        "WHITEBALL",
+        "KEAK",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": true
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 0,
+      "total": 0,
+      "details": []
+    },
+    "hot_list_status": {
+      "was_in_hot_list": false,
+      "appearances": [],
+      "count": 0
+    },
+    "total_messages": 6,
+    "xtrack_signals": 5
+  },
+  {
+    "token": "PISSBALL",
+    "tier": 1,
+    "cohort_timestamp_utc": "2025-12-21 15:18:27+00:00",
+    "cohort_timestamp_ist": "2025-12-21 20:48:27+00:00",
+    "entry_mc": 55300.0,
+    "peak_multiplier": 2.0,
+    "glydo_appearances": {
+      "in_top5_window": true,
+      "glydo_messages_count": 7,
+      "glydo_symbols": [
+        "OPIUM",
+        "TUNA",
+        "PBEAR",
+        "VIC",
+        "PISSBALL",
+        "YETI",
+        "SIMD",
+        "RYAN",
+        "LEGENDARY",
+        "DUMPLINGS",
+        "HONEY",
+        "FIREBALL",
+        "DUELS",
+        "TESTICLE",
+        "NOVA",
+        "JCOIN",
+        "42",
+        "GROKMAS",
+        "PAYAI",
+        "SNOWMAN"
+      ],
+      "delayed_appearance": false
+    },
+    "confirmations": {
+      "momentum_spike": 0,
+      "large_buy": 0,
+      "multi_buy": 0,
+      "whale_buy": 0,
+      "pfbf_volume": 0,
+      "early_trending": 1,
+      "total": 1,
+      "details": [
+        "Early trending"
+      ]
+    },
+    "hot_list_status": {
+      "was_in_hot_list": true,
+      "appearances": [
+        {
+          "timestamp": "2025-12-21 15:15:04+00:00",
+          "rank": 1
+        }
+      ],
+      "count": 1
+    },
+    "total_messages": 8,
+    "xtrack_signals": 1
+  }
+]

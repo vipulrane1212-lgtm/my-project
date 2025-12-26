@@ -1,0 +1,85 @@
+========================================
+📡 API SERVER INFORMATION FOR LOVABLE AI
+========================================
+
+✅ API SERVER STATUS: RUNNING
+
+📍 LOCAL URL:
+   http://localhost:5000
+
+🌐 PUBLIC URL (via ngrok):
+   https://mildred-unstatuesque-seedily.ngrok-free.dev
+   
+   (If ngrok is not running, start it with: ngrok http 5000)
+
+========================================
+📋 ADD THIS TO LOVABLE AI:
+========================================
+
+Secret Name: SOLBOY_API_URL
+Secret Value: https://mildred-unstatuesque-seedily.ngrok-free.dev
+
+========================================
+🔗 AVAILABLE ENDPOINTS:
+========================================
+
+1. GET /api/health
+   - Health check
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/health
+
+2. GET /api/stats
+   - Real-time statistics
+   - Returns: subscribers, alerts, tiers, win rate
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/stats
+
+3. GET /api/alerts/recent
+   - Recent alerts (with optional filtering)
+   - Query params: ?limit=20&tier=1
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/recent
+   - Response includes: hotlist, description, currentMcap (market cap at alert time)
+
+4. GET /api/subscribers
+   - Subscriber information
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/subscribers
+
+5. GET /api/alerts/tiers
+   - Tier breakdown
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/tiers
+
+6. GET /api/alerts/stats/daily
+   - Daily statistics for charts
+   - Query params: ?days=7
+   - URL: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/stats/daily?days=7
+
+========================================
+🧪 TEST YOUR API:
+========================================
+
+1. Health Check:
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/health
+
+2. Statistics:
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/stats
+
+3. Recent Alerts:
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/recent
+
+========================================
+📝 IMPORTANT NOTES:
+========================================
+
+1. Keep both running:
+   - API server (port 5000)
+   - ngrok tunnel (if using public URL)
+
+2. ngrok URL changes when restarted (free tier)
+   - Update Lovable AI secret if URL changes
+
+3. All endpoints return JSON
+4. All endpoints are GET requests
+5. CORS is enabled for all origins
+
+========================================
+✅ READY TO USE!
+========================================
+

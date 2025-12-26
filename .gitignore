@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+
+# Telegram session files (keep these, but don't commit sensitive ones)
+*.session-journal
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+debug.log
+
+# Data files (these will be created on Railway)
+token_states.json
+auto_buy_signals.json
+subscriptions.json
+alert_groups.json
+user_preferences.json
+group_preferences.json
+kpi_logs.json
+kpi_logs.json.backup
+
+# Scraped data
+scraped_sources_30h/
+
+# Backtest files
+backtest_*.py
+*_backtest.py
+*_backtest_*.py
+backtest_report.md
+STRATEGY_ANALYSIS_REPORT.md
+
+# Scripts
+*.bat
+*.ps1
+*.sh
+
+# Documentation (optional - you can commit these if you want)
+# *.md
+
+# Environment variables (never commit these)
+.env
+.env.local
+

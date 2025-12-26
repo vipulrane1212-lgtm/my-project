@@ -1,0 +1,64 @@
+========================================
+🚀 SOLBOY ALERTS API SERVER
+========================================
+
+📍 LOCAL ACCESS:
+   http://localhost:5000
+
+📖 API DOCUMENTATION:
+   http://localhost:5000/docs
+
+💚 HEALTH CHECK:
+   http://localhost:5000/api/health
+
+📊 MAIN ENDPOINTS:
+   http://localhost:5000/api/stats
+   http://localhost:5000/api/alerts/recent
+   http://localhost:5000/api/subscribers
+   http://localhost:5000/api/alerts/tiers
+   http://localhost:5000/api/alerts/stats/daily
+
+========================================
+🌐 PUBLIC ACCESS (via ngrok):
+========================================
+
+If ngrok is running, your public URL is:
+https://mildred-unstatuesque-seedily.ngrok-free.dev
+
+📋 FOR LOVABLE AI:
+   Secret Name: SOLBOY_API_URL
+   Secret Value: https://mildred-unstatuesque-seedily.ngrok-free.dev
+
+🧪 TEST ENDPOINTS:
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/health
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/stats
+   https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/recent
+
+========================================
+📝 ALL AVAILABLE ENDPOINTS:
+========================================
+
+1. GET /api/health
+   - Health check and file status
+
+2. GET /api/stats
+   - Real-time statistics (subscribers, alerts, tiers, win rate)
+
+3. GET /api/alerts/recent?limit=20&tier=1
+   - Recent alerts with optional filtering
+   - Query params: limit (default: 20), tier (1, 2, or 3)
+
+4. GET /api/subscribers
+   - Subscriber count information
+
+5. GET /api/alerts/tiers
+   - Alert breakdown by tier
+
+6. GET /api/alerts/stats/daily?days=7
+   - Daily statistics for charts
+   - Query param: days (default: 7)
+
+========================================
+✅ SERVER STATUS: RUNNING
+========================================
+

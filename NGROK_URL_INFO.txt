@@ -1,0 +1,22 @@
+========================================
+✅ NGROK TUNNEL IS ACTIVE!
+========================================
+
+🌐 Your Public URL:
+   https://mildred-unstatuesque-seedily.ngrok-free.dev
+
+📋 For Lovable AI:
+   Secret Name: SOLBOY_API_URL
+   Secret Value: https://mildred-unstatuesque-seedily.ngrok-free.dev
+
+🧪 Test URLs:
+   Health: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/health
+   Stats: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/stats
+   Alerts: https://mildred-unstatuesque-seedily.ngrok-free.dev/api/alerts/recent
+
+========================================
+✅ Ready to use in Lovable AI!
+========================================
+
+
+

@@ -1,0 +1,46 @@
+{
+  "bot_token": "8276826313:AAH2vOYZmqDfmvflNwtz3FimjMsg3gtgqjs",
+  "alert_destinations": {
+    "high_alert_groups": [-1001122334455, -1002782074434],
+    "medium_alert_groups": [-1002782074434],
+    "direct_subscribers": [],
+    "audit_webhook": null
+  },
+  "sources": {
+    "glydo": { "channel_id": -1002782074434, "name": "Glydo Alerts" },
+    "xtrack": { "group_id": -1002134751475, "thread_id": 3791791, "name": "XTRACK SOL NEW" },
+    "sol_sb1": { "group_id": -1002134751475, "thread_id": 3285418, "name": "SOL SB1" },
+    "sol_sb_mb": { "group_id": -1002134751475, "thread_id": 3285420, "name": "SOL SB/MB" },
+    "whalebuy": { "group_id": -1002134751475, "thread_id": 3285422, "name": "WhaleBuy" },
+    "momentum_tracker": { "group_id": -1002195249735, "thread_id": 8037, "name": "Momentum Tracker" },
+    "large_buys_tracker": { "group_id": -1002195249735, "thread_id": 8047, "name": "Large Buys Tracker" },
+    "pfbf_volume_alert": { "channel_id": -1002225558516, "name": "pfbf volume alert" },
+    "call_analyzer": { "channel_id": -1002050218130, "name": "call analyzer" },
+    "kolscope": { "channel_id": -1002397610468, "name": "kolscope" },
+    "spydefi": { "channel_id": -1001960616143, "name": "spydefi" },
+    "solana_early_trending": { "channel_id": -1002093384030, "name": "Solana Early Trending" }
+  },
+  "channels": {
+    "alerts_high": {
+      "chat_id": -1001122334455,
+      "name": "trading_high_alerts",
+      "notify_webhook": null
+    },
+    "alerts_medium": {
+      "chat_id": -1002782074434,
+      "name": "watchlist_alerts",
+      "notify_webhook": null
+    },
+    "ingest_errors": {
+      "chat_id": -1002782074434,
+      "name": "ingest_errors",
+      "notify_webhook": null
+    },
+    "ops": {
+      "chat_id": -1002782074434,
+      "name": "ops_team",
+      "notify_webhook": null
+    }
+  }
+}
+

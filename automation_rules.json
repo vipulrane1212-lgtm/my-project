@@ -1,0 +1,67 @@
+{
+  "scoring": {
+    "base": { "2x": 12, "3x": 20 },
+
+    "sources": {
+      "sol_sb1": -50,
+      "sol_sb_mb": -50,
+      "glydo": 15,
+      "kolscope": 0,
+      "solana_early_trending": 18,
+      "momentum": 15,
+      "spydefi": 8,
+      "pfbf_volume": 8,
+      "whalebuy": 6,
+      "large_buy": 4,
+      "other": 4
+    },
+
+    "meta": {
+      "contract_present": 12,
+      "mc_sweet_spot": 10,
+      "liq_ok": 6,
+      "early_cohort_bonus": 20
+    },
+
+    "callers_tiers": {
+      "1_4": 2,
+      "5_9": 5,
+      "10_19": 12,
+      "20_plus": 25
+    },
+
+    "subs_tiers": {
+      "50k_plus": 12,
+      "100k_plus": 20
+    },
+
+    "buy_size": {
+      "last_buy_5sol": 6,
+      "top_buy_20sol": 10
+    },
+
+    "cap": 100
+  },
+
+  "thresholds": {
+    "high": 75,
+    "medium": 55,
+    "high_social_callers_min": 30,
+    "high_social_subs_min": 150000,
+    "high_require_ca_or_social": true
+  },
+
+  "timers": {
+    "confirm_window_minutes": 30,
+    "tail_window_hours": 6,
+    "early_cohort_minutes": 15
+  },
+
+  "retention": {
+    "raw_feed_ttl_hours": 168,
+    "cohort_ttl_hours": 720,
+    "alerts_ttl_hours": 168,
+    "cursor_ttl_hours": 8760
+  }
+}
+
