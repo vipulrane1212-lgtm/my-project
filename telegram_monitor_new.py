@@ -1794,6 +1794,8 @@ class TelegramMonitorNew:
 
 async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_bot: bool = False, bot_token: str = None):
     """Connect to Telegram with retry logic and exponential backoff"""
+    from telethon.errors import AuthKeyDuplicatedError
+    
     for attempt in range(1, max_attempts + 1):
         try:
             print(f"Attempt {attempt} at connecting{' bot' if is_bot else ''}...")
@@ -1805,6 +1807,26 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             
             print(f"✅ Connection successful{' (bot)' if is_bot else ''}!")
             return True
+        except AuthKeyDuplicatedError as e:
+            # CRITICAL: Session file is being used from multiple IPs
+            session_name = client.session.filename if hasattr(client.session, 'filename') else 'session'
+            print("\n" + "=" * 80)
+            print("❌ AUTH KEY DUPLICATED ERROR")
+            print("=" * 80)
+            print(f"The session file '{session_name}' is being used from multiple IP addresses.")
+            print("This happens when the bot runs locally AND on Railway simultaneously.")
+            print("\n🔧 FIX:")
+            print("1. Stop the bot on your local machine (if running)")
+            print("2. Delete the session file on Railway:")
+            print(f"   - Go to Railway dashboard → Your service → Files")
+            print(f"   - Delete: {session_name}.session")
+            print("3. OR delete the session file locally if you want to run on Railway only:")
+            print(f"   - Delete: {session_name}.session from your local directory")
+            print("4. Redeploy on Railway - it will create a new session")
+            print("\n💡 TIP: Only run the bot in ONE place at a time!")
+            print("   - Either locally OR on Railway, not both")
+            print("=" * 80 + "\n")
+            raise  # Don't retry - this needs manual intervention
         except Exception as e:
             if attempt < max_attempts:
                 wait_time = min(2 ** attempt, 30)  # Exponential backoff, max 30 seconds
