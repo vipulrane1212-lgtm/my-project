@@ -78,14 +78,19 @@ def load_json_file(file_path: Path, default: dict = None) -> dict:
 def get_tier_from_level(level: str, alert_tier: Optional[int] = None, alert: Optional[Dict] = None) -> int:
     """Convert alert level to tier number.
     
+    CRITICAL: The tier field comes directly from the Telegram alert post.
+    If the alert was posted as "TIER 1", the tier field should be 1.
+    
     IMPORTANT: 
     - Tier 1 alerts are stored as level="HIGH"
     - Tier 2 and Tier 3 alerts are both stored as level="MEDIUM"
-    - We can't distinguish Tier 2 from Tier 3 without the tier field or additional data
+    - We can't distinguish Tier 2 from Tier 3 without the tier field
     
-    Use alert_tier if available (from the tier field in the alert), otherwise infer from level and alert data.
+    PRIORITY:
+    1. Use alert_tier if available (from the tier field - this is what was shown in Telegram)
+    2. Only use heuristics if tier field is missing (for old alerts)
     """
-    # If tier is explicitly provided, use it (most reliable)
+    # PRIORITY 1: If tier is explicitly provided, use it (this is what was shown in Telegram post)
     if alert_tier is not None and alert_tier in [1, 2, 3]:
         return alert_tier
     

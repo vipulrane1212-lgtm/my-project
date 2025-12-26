@@ -413,13 +413,25 @@ class TelegramMonitorNew:
                 print(f"⏭️ Skipping alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold")
                 continue  # Skip this alert
             
+            # Get tier from alert (this is what will be shown in Telegram post)
+            # format_alert() uses alert.get("tier") to determine what tier to display
+            tier_from_alert = alert.get("tier")
+            
             # Log alert for KPI tracking
+            # IMPORTANT: The tier field in the alert is what was shown in the Telegram post
+            # This gets saved to kpi_logs.json and the API uses it directly
             level = alert.get("level", "MEDIUM")
             self.kpi_logger.log_alert(alert, level)
             
             # Pass weights for tagline selection
             weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
             alert_message = format_alert(alert, weights=weights)
+            
+            # Debug: Print the tier that will be shown in Telegram
+            if tier_from_alert:
+                print(f"📊 Alert tier (from Telegram post): {tier_from_alert}")
+            else:
+                print(f"⚠️ Warning: Alert has no tier field - format_alert will default to tier 3")
             print(f"\n{'='*80}")
             print(alert_message)
             print(f"{'='*80}\n")
