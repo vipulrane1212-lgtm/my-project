@@ -413,67 +413,13 @@ class TelegramMonitorNew:
                 print(f"⏭️ Skipping alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold")
                 continue  # Skip this alert
             
-            # Get tier from alert (this is what will be shown in Telegram post)
-            # format_alert() uses alert.get("tier") to determine what tier to display
-            tier_from_alert = alert.get("tier")
-            
-            # CRITICAL: Get the Current MCAP that will be shown in the Telegram post
-            # This is calculated by format_alert() using _get_current_mc() which prefers:
-            # 1. live_mcap (from DexScreener enrichment)
-            # 2. mc_usd (from alert data)
-            # 3. entry_mc (fallback)
-            # We need to save this BEFORE formatting so we know what was shown
-            from live_alert_formatter import _get_current_mc
-            current_mc_shown = _get_current_mc(alert)
-            
-            if current_mc_shown:
-                # Save the Current MCAP that will be shown in the Telegram post
-                alert["current_mcap"] = current_mc_shown
-                # Determine source for logging
-                if alert.get("mc_source") == "dexscreener_live" or alert.get("live_mcap"):
-                    alert["current_mcap_source"] = "dexscreener"
-                    print(f"📊 Current MCAP (DexScreener): ${current_mc_shown:,.0f}")
-                elif alert.get("mc_usd") and abs(alert.get("mc_usd", 0) - current_mc_shown) < 1:
-                    alert["current_mcap_source"] = "alert_data"
-                    print(f"📊 Current MCAP (from alert data): ${current_mc_shown:,.0f}")
-                else:
-                    alert["current_mcap_source"] = "entry_mc"
-                    print(f"📊 Current MCAP (entry MC fallback): ${current_mc_shown:,.0f}")
-            else:
-                # Last resort: use entry MCAP
-                entry_mc_fallback = alert.get("entry_mc") or alert.get("mc_usd")
-                if entry_mc_fallback:
-                    alert["current_mcap"] = entry_mc_fallback
-                    alert["current_mcap_source"] = "entry_mc"
-                    print(f"⚠️ No current MCAP available, using entry MCAP: ${entry_mc_fallback:,.0f}")
-                else:
-                    print(f"⚠️ No MCAP data available at all!")
+            # Log alert for KPI tracking
+            level = alert.get("level", "MEDIUM")
+            self.kpi_logger.log_alert(alert, level)
             
             # Pass weights for tagline selection
             weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
             alert_message = format_alert(alert, weights=weights)
-            
-            # CRITICAL: Save alert to JSON FIRST, before sending to Telegram
-            # This ensures alerts are always saved even if sending fails
-            # IMPORTANT: The tier field in the alert is what was shown in the Telegram post
-            # This gets saved to kpi_logs.json and the API uses it directly
-            level = alert.get("level", "MEDIUM")
-            try:
-                saved_alert = self.kpi_logger.log_alert(alert, level)
-                current_mcap_saved = alert.get("current_mcap") or current_mcap or alert.get('mc_usd') or 0
-                print(f"✅ Alert saved to kpi_logs.json: {token} (Tier {tier_from_alert}, Current MC ${current_mcap_saved:,.0f})")
-            except Exception as e:
-                print(f"❌ CRITICAL: Failed to save alert to kpi_logs.json: {e}")
-                print(f"   Token: {token}, Tier: {tier_from_alert}")
-                import traceback
-                traceback.print_exc()
-                # Continue anyway - try to send alert even if save failed
-            
-            # Debug: Print the tier that will be shown in Telegram
-            if tier_from_alert:
-                print(f"📊 Alert tier (from Telegram post): {tier_from_alert}")
-            else:
-                print(f"⚠️ Warning: Alert has no tier field - format_alert will default to tier 3")
             print(f"\n{'='*80}")
             print(alert_message)
             print(f"{'='*80}\n")
@@ -481,13 +427,7 @@ class TelegramMonitorNew:
                 # #region agent log
                 debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"telegram_monitor_new.py:390","message":"Calling send_telegram_alert","data":{"token":token,"tier":tier,"alert_id":alert.get("alert_id")},"timestamp":int(datetime.now(timezone.utc).timestamp()*1000)})
                 # #endregion
-                try:
-                    await self.send_telegram_alert(alert_message, alert=alert)
-                except Exception as e:
-                    print(f"❌ Failed to send alert to Telegram: {e}")
-                    print(f"   BUT alert was already saved to kpi_logs.json ✅")
-                    import traceback
-                    traceback.print_exc()
+                await self.send_telegram_alert(alert_message, alert=alert)
     
     async def send_telegram_alert(self, alert_message: str, alert: Dict = None):
         """Send formatted alert to Telegram with tier filtering"""
@@ -1795,6 +1735,26 @@ class TelegramMonitorNew:
 async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_bot: bool = False, bot_token: str = None):
     """Connect to Telegram with retry logic and exponential backoff"""
     from telethon.errors import AuthKeyDuplicatedError
+    import sys
+    
+    # Check if session file exists (for non-bot connections)
+    if not is_bot:
+        session_file = f"{SESSION_NAME}.session"
+        if not os.path.exists(session_file):
+            print("\n" + "=" * 80)
+            print("⚠️  SESSION FILE NOT FOUND")
+            print("=" * 80)
+            print(f"Session file '{session_file}' does not exist.")
+            print("\n🔧 SOLUTION:")
+            print("1. Upload your session file to Railway:")
+            print("   - Go to Railway dashboard → Your service → Files tab")
+            print(f"   - Upload: {session_file}")
+            print("\n2. Alternative: Create session file locally first:")
+            print("   - Run the bot locally once to create the session")
+            print("   - Then upload the .session file to Railway")
+            print("\n3. See RAILWAY_SESSION_SETUP.md for detailed instructions")
+            print("=" * 80 + "\n")
+            raise FileNotFoundError(f"Session file '{session_file}' not found. Please upload it to Railway.")
     
     for attempt in range(1, max_attempts + 1):
         try:
@@ -1803,6 +1763,15 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             if is_bot and bot_token:
                 await client.start(bot_token=bot_token)
             else:
+                # Check if we're in a non-interactive environment (like Railway)
+                if not sys.stdin.isatty():
+                    # Non-interactive environment - session file must exist
+                    if not os.path.exists(f"{SESSION_NAME}.session"):
+                        raise FileNotFoundError(
+                            f"Session file '{SESSION_NAME}.session' not found. "
+                            "Railway requires the session file to be uploaded. "
+                            "Please upload your .session file to Railway Files tab."
+                        )
                 await client.start()
             
             print(f"✅ Connection successful{' (bot)' if is_bot else ''}!")
@@ -1839,12 +1808,12 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
                 print("1. Create session file locally first:")
                 print("   - Run the bot locally: python telegram_monitor_new.py")
                 print("   - Enter your phone number and authentication code")
-                print("   - This creates: blackhat_empire_session.session")
+                print(f"   - This creates: {SESSION_NAME}.session")
                 print("\n2. Upload session file to Railway:")
                 print("   - Go to Railway dashboard → Your service → Files tab")
-                print("   - Click 'Upload' and select: blackhat_empire_session.session")
-                print("   - OR use Railway CLI: railway run")
+                print(f"   - Click 'Upload' and select: {SESSION_NAME}.session")
                 print("\n3. Redeploy on Railway")
+                print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
                 print("=" * 80 + "\n")
             raise  # Don't retry - needs manual intervention
         except Exception as e:
@@ -1863,17 +1832,11 @@ async def run_api_server():
     try:
         import uvicorn
         from api_server import app
-        import os
-        # Railway assigns PORT dynamically, fallback to 5000 for local dev
-        port = int(os.getenv("PORT", "5000"))
-        config = uvicorn.Config(app, host="0.0.0.0", port=port, log_level="info")
+        config = uvicorn.Config(app, host="0.0.0.0", port=5000, log_level="info")
         server = uvicorn.Server(config)
         print("🚀 Starting SolBoy Alerts API Server...")
-        print(f"📡 API will be available at: http://0.0.0.0:{port}")
-        print(f"📖 API docs at: http://0.0.0.0:{port}/docs")
-        print(f"💚 Health check: http://0.0.0.0:{port}/api/health")
-        print(f"✅ API server started successfully on port {port}")
-        print(f"⚠️  To access from outside Railway, generate a public domain in Railway Settings")
+        print("📡 API will be available at: http://0.0.0.0:5000")
+        print("📖 API docs at: http://0.0.0.0:5000/docs")
         await server.serve()
     except Exception as e:
         print(f"⚠️ Warning: Could not start API server: {e}")
@@ -1955,4 +1918,3 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-
