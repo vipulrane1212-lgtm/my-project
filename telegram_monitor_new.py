@@ -1824,12 +1824,8 @@ async def main():
         
         monitor = TelegramMonitorNew(client, bot_client=bot_client)
         
-        # Start API server and monitor concurrently
-        await asyncio.gather(
-            run_api_server(),
-            monitor.start(),
-            return_exceptions=True
-        )
+        # Start monitor only (API server disabled)
+        await monitor.start()
         
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user")
