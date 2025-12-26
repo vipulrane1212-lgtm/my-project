@@ -261,7 +261,7 @@
       "callers": 21,
       "subs": 63091,
       "liq_usd": 33842.85,
-      "mc_usd": 50500.0,
+      "mc_usd": 142000.0,
       "entry_mc": 50500.0,
       "last_buy_sol": 4.9,
       "top_buy_sol": 6.84,
@@ -272,7 +272,8 @@
       "tags": [
         "weak_social"
       ],
-      "tier": 1
+      "tier": 1,
+      "current_mcap": 142000.0
     },
     {
       "timestamp": "2025-12-25T22:55:19.181505+00:00",
@@ -283,7 +284,7 @@
       "callers": 24,
       "subs": 146449,
       "liq_usd": 39863.3,
-      "mc_usd": 44400.0,
+      "mc_usd": 180400.0,
       "entry_mc": 44400.0,
       "last_buy_sol": 5.03,
       "top_buy_sol": 9.88,
@@ -291,7 +292,8 @@
         "Early trending"
       ],
       "tags": [],
-      "tier": 1
+      "tier": 1,
+      "current_mcap": 180400.0
     },
     {
       "timestamp": "2025-12-25T22:46:53.494303+00:00",

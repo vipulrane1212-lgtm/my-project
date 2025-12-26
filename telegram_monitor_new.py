@@ -417,6 +417,37 @@ class TelegramMonitorNew:
             # format_alert() uses alert.get("tier") to determine what tier to display
             tier_from_alert = alert.get("tier")
             
+            # Pass weights for tagline selection
+            weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
+            alert_message = format_alert(alert, weights=weights)
+            
+            # CRITICAL: Extract the "Current MC" that was shown in the Telegram post
+            # This is the MCAP displayed in the formatted message, not the entry MCAP
+            # We need to save this so the API returns the correct MCAP
+            import re
+            current_mc_match = re.search(r'Current MC:\s*\*\*\$?([0-9,]+\.?[0-9]*)\s*([KMkm]?)\*\*', alert_message)
+            if current_mc_match:
+                current_mc_value = float(current_mc_match.group(1).replace(',', ''))
+                current_mc_unit = current_mc_match.group(2).upper() if current_mc_match.group(2) else ''
+                if current_mc_unit == 'K':
+                    current_mc_value *= 1000
+                elif current_mc_unit == 'M':
+                    current_mc_value *= 1000000
+                # Save the current MCAP that was shown in the post
+                alert["current_mcap"] = current_mc_value
+                alert["current_mcap_shown"] = True  # Flag to indicate this is the MCAP from the post
+                print(f"📊 Current MCAP from post: ${current_mc_value:,.0f}")
+            else:
+                # Fallback: use the current_mcap we calculated earlier
+                if current_mcap:
+                    alert["current_mcap"] = current_mcap
+                    alert["current_mcap_shown"] = True
+                else:
+                    # Last resort: use entry MCAP
+                    alert["current_mcap"] = alert.get("entry_mc") or alert.get("mc_usd")
+                    alert["current_mcap_shown"] = False
+                    print(f"⚠️ Could not extract Current MC from post, using entry MCAP")
+            
             # CRITICAL: Save alert to JSON FIRST, before sending to Telegram
             # This ensures alerts are always saved even if sending fails
             # IMPORTANT: The tier field in the alert is what was shown in the Telegram post
@@ -424,17 +455,14 @@ class TelegramMonitorNew:
             level = alert.get("level", "MEDIUM")
             try:
                 saved_alert = self.kpi_logger.log_alert(alert, level)
-                print(f"✅ Alert saved to kpi_logs.json: {token} (Tier {tier_from_alert}, MC ${current_mcap or alert.get('mc_usd') or 0:,.0f})")
+                current_mcap_saved = alert.get("current_mcap") or current_mcap or alert.get('mc_usd') or 0
+                print(f"✅ Alert saved to kpi_logs.json: {token} (Tier {tier_from_alert}, Current MC ${current_mcap_saved:,.0f})")
             except Exception as e:
                 print(f"❌ CRITICAL: Failed to save alert to kpi_logs.json: {e}")
                 print(f"   Token: {token}, Tier: {tier_from_alert}")
                 import traceback
                 traceback.print_exc()
                 # Continue anyway - try to send alert even if save failed
-            
-            # Pass weights for tagline selection
-            weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
-            alert_message = format_alert(alert, weights=weights)
             
             # Debug: Print the tier that will be shown in Telegram
             if tier_from_alert:

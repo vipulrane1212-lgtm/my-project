@@ -53,9 +53,16 @@ class KPILogger:
         even if there are errors. This ensures the API always has the latest alerts.
         """
         try:
-            # Get market cap - prefer entry_mc (alert time), then mc_usd (enriched), then live_mcap
-            # This ensures we save the market cap that was shown in the Telegram post
-            mcap = alert.get("entry_mc") or alert.get("mc_usd") or alert.get("live_mcap")
+            # CRITICAL: Save the "Current MCAP" that was shown in the Telegram post
+            # This is different from entry_mc (which is the MCAP when alert was triggered)
+            # The Telegram post shows "Current MC: $142.0K" - this is what users see
+            current_mcap_shown = alert.get("current_mcap")
+            if current_mcap_shown is None:
+                # Fallback: use entry_mc or mc_usd if current_mcap not available
+                current_mcap_shown = alert.get("entry_mc") or alert.get("mc_usd") or alert.get("live_mcap")
+            
+            # Also save entry_mc separately (the MCAP when alert was triggered)
+            entry_mc = alert.get("entry_mc")
             
             alert_entry = {
                 "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -66,8 +73,9 @@ class KPILogger:
                 "callers": alert.get("callers"),
                 "subs": alert.get("subs"),
                 "liq_usd": alert.get("liq_usd"),
-                "mc_usd": mcap,  # Save the market cap that was shown in the post
-                "entry_mc": alert.get("entry_mc"),  # Also save entry_mc separately if available
+                "mc_usd": current_mcap_shown,  # Save the CURRENT MCAP that was shown in the Telegram post
+                "current_mcap": current_mcap_shown,  # Explicit field for current MCAP from post
+                "entry_mc": entry_mc,  # Save entry_mc separately (MCAP when alert was triggered)
                 "last_buy_sol": alert.get("last_buy_sol"),
                 "top_buy_sol": alert.get("top_buy_sol"),
                 "matched_signals": alert.get("matched_signals", []),
