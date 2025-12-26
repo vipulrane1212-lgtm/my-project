@@ -202,8 +202,14 @@ async def get_stats():
 
 
 @app.get("/api/alerts/recent")
-async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None):
-    """Get recent alerts."""
+async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe: bool = True):
+    """Get recent alerts.
+    
+    Args:
+        limit: Number of alerts to return (default: 20)
+        tier: Filter by tier (1, 2, or 3) - optional
+        dedupe: If True, show only latest alert per token (default: True)
+    """
     try:
         kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
         alerts = kpi_data.get("alerts", [])
@@ -213,6 +219,17 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None):
             key=lambda x: datetime.fromisoformat(x.get("timestamp", "2000-01-01")).replace(tzinfo=timezone.utc),
             reverse=True
         )
+        
+        # Deduplicate: Keep only the latest alert per token (if dedupe=True)
+        if dedupe:
+            seen_tokens = set()
+            deduplicated = []
+            for alert in alerts:
+                token = alert.get("token", "").upper()
+                if token and token not in seen_tokens:
+                    seen_tokens.add(token)
+                    deduplicated.append(alert)
+            alerts = deduplicated
         
         # Filter by tier if specified
         if tier:
