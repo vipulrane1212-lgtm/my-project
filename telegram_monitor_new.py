@@ -413,7 +413,17 @@ class TelegramMonitorNew:
                 print(f"⏭️ Skipping alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold")
                 continue  # Skip this alert
             
-            # Log alert for KPI tracking
+            # CRITICAL: Get the Current MCAP that will be shown in the Telegram post
+            # This must be done BEFORE formatting the message, so we save the correct value
+            # The format_alert function uses _get_current_mc() which prefers live_mcap -> mc_usd -> entry_mc
+            from live_alert_formatter import _get_current_mc
+            current_mc_shown = _get_current_mc(alert)  # This is what will be displayed in Telegram
+            if current_mc_shown is not None:
+                alert["current_mcap"] = current_mc_shown  # Save the MCAP that will be shown
+                alert["current_mcap_source"] = alert.get("mc_source", "unknown")  # Track source
+                print(f"📊 Current MCAP ({alert.get('current_mcap_source', 'unknown')}): ${current_mc_shown:,.0f}")
+            
+            # Log alert for KPI tracking (NOW with correct current_mcap)
             level = alert.get("level", "MEDIUM")
             self.kpi_logger.log_alert(alert, level)
             
