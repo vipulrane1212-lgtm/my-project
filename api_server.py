@@ -200,8 +200,14 @@ async def get_stats():
         tier_counts = {1: 0, 2: 0, 3: 0}
         for alert in alerts:
             level = alert.get("level", "MEDIUM")
-            alert_tier = alert.get("tier")  # Use tier field if available
-            tier = get_tier_from_level(level, alert_tier, alert)  # Pass alert for heuristics
+            # CRITICAL: Use tier field DIRECTLY from Telegram post - this is the source of truth
+            alert_tier = alert.get("tier")
+            if alert_tier is not None and alert_tier in [1, 2, 3]:
+                # Tier field exists - use it directly (this is EXACTLY what was shown in Telegram post)
+                tier = alert_tier
+            else:
+                # Only use heuristics if tier field is missing (for old alerts)
+                tier = get_tier_from_level(level, alert_tier, alert)
             tier_counts[tier] = tier_counts.get(tier, 0) + 1
         
         # Calculate win rate (true positives / total alerts)
