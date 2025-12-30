@@ -1,0 +1,13 @@
+{
+  "build": {
+    "builder": "python",
+    "buildCommand": "python build.py"
+  },
+  "deploy": {
+    "startCommand": "python telegram_monitor_new.py",
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 300,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  }
+}
