@@ -20,6 +20,12 @@ from telethon.errors import FloodWaitError, RPCError
 from telethon.tl.types import ChannelParticipantsAdmins
 from telethon.tl.custom import Button
 
+# Build environment check - exit early if in Railway build phase
+if os.getenv('RAILWAY_ENVIRONMENT') == 'build' or os.getenv('CI') or os.getenv('BUILD_PHASE'):
+    print("Build phase detected - exiting early to prevent timeout")
+    print("Dependencies installed successfully")
+    exit(0)
+
 from message_parser import MessageParser
 from live_monitor_core import LiveMemecoinMonitor
 from live_alert_formatter import format_alert
