@@ -543,7 +543,7 @@ def format_alert(alert: Dict[str, any], weights: Optional[Dict] = None) -> str:
     ⏰ Cohort: {cohort_time_ago}
     💧 Hot List: {hot_list_emoji} {hot_list_status}
     
-    📊 Chart • 🎯 GMGN • 🔍 Rugcheck
+    🎯 GMGN • 🎵 Maestro • 🔍 Rugcheck
     
     — Monitored by solboy {tier_name}
     """
@@ -638,9 +638,11 @@ def format_alert(alert: Dict[str, any], weights: Optional[Dict] = None) -> str:
     
     # Links (embedded, no preview) - all on one line - BELOW Cohort/Hot List
     if contract:
-        text += f"\n[📊 Chart](https://dexscreener.com/solana/{contract}) • [🎯 GMGN](https://gmgn.ai/sol/token/{contract}) • [🔍 Rugcheck](https://rugcheck.xyz/t/{contract})\n"
+        gmgn_ref_link = f"https://t.me/gmgnaibot?start=i_drplague_sol_{contract}"
+        maestro_ref_link = f"https://t.me/maestro?start={contract}-degendartadmin"
+        text += f"\n[🎯 GMGN]({gmgn_ref_link}) • [🎵 Maestro]({maestro_ref_link}) • [🔍 Rugcheck](https://rugcheck.xyz/t/{contract})\n"
     else:
-        text += "\n📊 Chart: — (no CA) • 🎯 GMGN: — (no CA) • 🔍 Rugcheck: — (no CA)\n"
+        text += "\n🎯 GMGN: — (no CA) • 🎵 Maestro: — (no CA) • 🔍 Rugcheck: — (no CA)\n"
     
     # Footer - entire text as clickable link
     text += f"\n[— Monitored by solboy](https://t.me/solboy_calls)"

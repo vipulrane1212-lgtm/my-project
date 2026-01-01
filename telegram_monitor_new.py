@@ -784,6 +784,11 @@ class TelegramMonitorNew:
                         "📖 **Complete Trading Guide:**\n"
                         "[Read the Alert Pipeline Guide](https://telegra.ph/Solboy-Alert-Pipeline--Complete-Trading-Guide-12-23)\n\n"
                         
+                        "🛠️ **Trading Tools:**\n"
+                        "• [🎯 GMGN Bot](https://t.me/gmgnaibot) — Token analytics & tracking\n"
+                        "• [🎵 Maestro Bot](https://t.me/maestro) — Advanced trading features\n"
+                        "• [🔍 Rugcheck](https://rugcheck.xyz) — Safety verification\n\n"
+                        
                         "**Quick Actions:**\n"
                         "Use the buttons below to subscribe or add your group/channel to receive alerts.\n\n"
                         
