@@ -19,7 +19,18 @@ class KPILogger:
     """Track KPIs for live monitoring system."""
     
     def __init__(self, log_file: str = "kpi_logs.json"):
-        self.log_file = Path(log_file)
+        # Check if Railway persistent volume exists (/data is common mount point)
+        # This ensures data persists across Railway redeployments
+        data_dir = Path("/data")
+        if data_dir.exists() and data_dir.is_dir():
+            # Use persistent volume if available
+            self.log_file = data_dir / "kpi_logs.json"
+            print(f"📦 Using Railway persistent volume: {self.log_file}")
+        else:
+            # Fallback to local file (works for local dev and Railway without volumes)
+            self.log_file = Path(log_file)
+            print(f"📁 Using local file: {self.log_file}")
+        
         self.alerts: List[Dict] = []
         self.false_positives: List[Dict] = []
         self.true_positives: List[Dict] = []
