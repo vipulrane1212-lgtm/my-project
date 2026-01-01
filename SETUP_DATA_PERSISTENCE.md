@@ -37,24 +37,55 @@ Railway will auto-deploy with recovered data!
 
 ### Setup Steps:
 
+**IMPORTANT:** Railway Volumes require **Railway Pro plan** ($5/month). If you're on free tier, skip to "Free Alternative" below.
+
 1. **Go to Railway Dashboard**
-   - Open your service
-   - Click **+ New** → **Volume**
+   - Click on your **PROJECT** (not service)
+   - Or go to your **Service** → **Settings** tab
+   - Scroll to **Volumes** section
 
 2. **Create Volume**
+   - Click **+ New Volume** (from project level OR service settings)
    - Name: `kpi-data`
    - Mount Path: `/data`
    - Click **Create**
 
-3. **Done!** 
-   - Code already updated to use `/data` volume automatically
-   - Redeploy and data will persist!
+3. **Verify Volume**
+   - Go to Service → Settings → Volumes
+   - Should see `kpi-data` volume listed with mount `/data`
+
+4. **Redeploy**
+   - Push code or manually redeploy
+   - Check logs - should show "Using Railway persistent volume"
+
+**If you get "No services found" error:**
+- Make sure you're creating volume from **PROJECT** level, not service level
+- Or create from Service → Settings → Volumes section
+- Check you have Railway Pro plan (free tier doesn't support volumes)
 
 ---
 
-## 💰 Free Alternative: Auto Git Sync
+## 💰 Free Alternative: Automatic Backups (NO Railway Pro Needed!)
 
-If you don't have Railway Pro, use automatic Git commits:
+**Good News:** You don't need Railway Pro! The code already has automatic backups that work on free tier.
+
+### What's Already Active:
+
+✅ **Automatic Backups** - Every alert creates a backup automatically
+✅ **Last 5 Backups Kept** - Stored in `backups/` folder  
+✅ **Enhanced Save Reliability** - 5 retries with emergency save
+✅ **Recovery Script** - Can recover from Telegram if needed
+
+### How It Works:
+
+1. **Every alert is saved** with automatic backup
+2. **Backups are created** before each save
+3. **If Railway redeploys**, you can recover from backups
+4. **Recovery script** can get alerts from Telegram
+
+### Optional: Auto Git Sync (For Extra Safety)
+
+If you want extra protection, use automatic Git commits:
 
 ### Option A: Local Scheduled Task (Windows)
 
