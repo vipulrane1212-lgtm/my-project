@@ -26,15 +26,27 @@ class KPILogger:
             # Use persistent volume if available
             self.log_file = data_dir / "kpi_logs.json"
             print(f"📦 Using Railway persistent volume: {self.log_file}")
+            print(f"   ✅ Data will persist across Railway redeployments!")
         else:
             # Fallback to local file (works for local dev and Railway without volumes)
             self.log_file = Path(log_file)
             print(f"📁 Using local file: {self.log_file}")
+            print(f"   ⚠️  WARNING: Using ephemeral storage - data may be lost on Railway redeploy!")
+            print(f"   💡 Solution: Set up Railway Volume (see SETUP_DATA_PERSISTENCE.md)")
+        
+        # Ensure directory exists
+        self.log_file.parent.mkdir(parents=True, exist_ok=True)
         
         self.alerts: List[Dict] = []
         self.false_positives: List[Dict] = []
         self.true_positives: List[Dict] = []
         self.load_logs()
+        
+        # Log persistence status
+        print(f"   📊 Loaded {len(self.alerts)} existing alerts")
+        if self.alerts:
+            latest = max(self.alerts, key=lambda x: x.get("timestamp", ""))
+            print(f"   🕐 Latest alert: {latest.get('token', 'N/A')} ({latest.get('timestamp', 'N/A')[:10]})")
     
     def load_logs(self):
         """Load existing logs from file."""
@@ -48,13 +60,16 @@ class KPILogger:
                 pass
     
     def save_logs(self):
-        """Save logs to file with atomic write and error handling."""
+        """Save logs to file with atomic write, error handling, and automatic backups."""
         data = {
             "alerts": self.alerts,
             "false_positives": self.false_positives,
             "true_positives": self.true_positives,
             "last_updated": datetime.now(timezone.utc).isoformat(),
         }
+        
+        # CRITICAL: Create backup before writing (keep last 5 backups)
+        self._create_backup()
         
         # Atomic write: write to temp file first, then rename
         # This prevents corruption if the process crashes during write
@@ -71,6 +86,13 @@ class KPILogger:
             if not self.log_file.exists():
                 raise IOError(f"Failed to save {self.log_file} - file does not exist after write")
             
+            # Verify file can be read back (integrity check)
+            try:
+                with open(self.log_file, 'r', encoding='utf-8') as f:
+                    json.load(f)
+            except Exception as verify_error:
+                raise IOError(f"File saved but verification failed: {verify_error}")
+            
         except Exception as e:
             # If temp file exists, try to clean it up
             if temp_file.exists():
@@ -80,6 +102,36 @@ class KPILogger:
                     pass
             # Re-raise the exception so caller can handle it
             raise IOError(f"Failed to save logs to {self.log_file}: {e}") from e
+    
+    def _create_backup(self):
+        """Create a backup of kpi_logs.json (keep last 5 backups)."""
+        try:
+            if not self.log_file.exists():
+                return  # No file to backup
+            
+            # Create backup directory if it doesn't exist
+            backup_dir = self.log_file.parent / "backups"
+            backup_dir.mkdir(exist_ok=True)
+            
+            # Create timestamped backup
+            timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+            backup_file = backup_dir / f"kpi_logs_{timestamp}.json"
+            
+            # Copy current file to backup
+            import shutil
+            shutil.copy2(self.log_file, backup_file)
+            
+            # Keep only last 5 backups (delete older ones)
+            backups = sorted(backup_dir.glob("kpi_logs_*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+            for old_backup in backups[5:]:  # Keep only 5 most recent
+                try:
+                    old_backup.unlink()
+                except:
+                    pass
+            
+        except Exception as e:
+            # Don't fail if backup creation fails - just log it
+            print(f"⚠️ Warning: Could not create backup: {e}")
     
     def log_alert(self, alert: Dict, level: str):
         """Log an alert with metadata.
@@ -125,42 +177,63 @@ class KPILogger:
             self.alerts.append(alert_entry)
             
             # CRITICAL: Save logs immediately - don't batch, ensure persistence
-            max_retries = 3
+            # This ensures alerts are NEVER lost, even if Railway redeploys
+            max_retries = 5  # Increased retries for better reliability
+            save_success = False
+            
             for attempt in range(max_retries):
                 try:
                     self.save_logs()
-                    print(f"✅ Alert saved to kpi_logs.json: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
+                    save_success = True
+                    print(f"✅ Alert saved to {self.log_file}: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
+                    print(f"   Total alerts in file: {len(self.alerts)}")
                     break  # Success - exit retry loop
                 except Exception as save_error:
                     if attempt < max_retries - 1:
-                        print(f"⚠️ Save attempt {attempt + 1} failed: {save_error}, retrying...")
+                        print(f"⚠️ Save attempt {attempt + 1}/{max_retries} failed: {save_error}, retrying...")
                         import time
-                        time.sleep(0.2 * (attempt + 1))  # Exponential backoff
+                        time.sleep(0.5 * (attempt + 1))  # Exponential backoff
                     else:
-                        # Last attempt failed - this is critical
+                        # Last attempt failed - this is CRITICAL
                         print(f"❌ CRITICAL: Failed to save alert after {max_retries} attempts: {save_error}")
-                        print(f"   Alert data: token={alert.get('token')}, tier={alert.get('tier')}")
-                        # Try one more time with a different approach - direct write
+                        print(f"   Alert data: token={alert.get('token')}, tier={alert.get('tier')}, contract={alert.get('contract')}")
+                        
+                        # EMERGENCY: Try direct write as absolute last resort
                         try:
                             import shutil
-                            # Create backup of current file
+                            # Create emergency backup
                             if self.log_file.exists():
-                                backup_file = self.log_file.with_suffix('.json.backup')
-                                shutil.copy2(self.log_file, backup_file)
+                                emergency_backup = self.log_file.parent / f"kpi_logs_EMERGENCY_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json"
+                                shutil.copy2(self.log_file, emergency_backup)
+                                print(f"   Created emergency backup: {emergency_backup}")
                             
-                            # Direct write as last resort
-                            json_str = json.dumps({
+                            # Direct write - no atomic operations, just save the data
+                            emergency_data = {
                                 "alerts": self.alerts,
                                 "false_positives": self.false_positives,
                                 "true_positives": self.true_positives,
                                 "last_updated": datetime.now(timezone.utc).isoformat(),
-                            }, indent=2, ensure_ascii=False)
+                            }
+                            json_str = json.dumps(emergency_data, indent=2, ensure_ascii=False)
                             self.log_file.write_text(json_str, encoding='utf-8')
-                            print(f"✅ Emergency save succeeded for {alert.get('token')}")
+                            
+                            # Verify it worked
+                            if self.log_file.exists() and self.log_file.stat().st_size > 0:
+                                print(f"✅ EMERGENCY SAVE SUCCEEDED for {alert.get('token')}")
+                                save_success = True
+                            else:
+                                raise IOError("Emergency save file is empty or doesn't exist")
+                                
                         except Exception as emergency_error:
                             print(f"❌ EMERGENCY SAVE ALSO FAILED: {emergency_error}")
                             import traceback
                             traceback.print_exc()
+                            # Last resort: print alert data so it's at least in logs
+                            print(f"🚨 ALERT DATA (may be lost): {json.dumps(alert_entry, indent=2)}")
+            
+            if not save_success:
+                print(f"❌❌❌ CRITICAL DATA LOSS RISK: Alert for {alert.get('token')} may not be saved!")
+                print(f"   Check logs and backups directory immediately!")
             
             return alert_entry
         except Exception as e:
