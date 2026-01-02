@@ -241,11 +241,57 @@ async def main():
         print(f"   ✅ Found LICO alert: {lico_alert.get('token')} at {lico_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Connect to Telegram
-    print(f"\n🔌 Connecting to Telegram with recovery session: {SESSION_NAME}")
-    client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+    # Try to use an existing authorized session if recovery_session isn't authorized
+    session_to_use = SESSION_NAME
+    session_file = Path(f"{session_to_use}.session")
+    
+    # Try railway_production_session if recovery_session doesn't exist or isn't authorized
+    if not session_file.exists():
+        railway_session = Path("railway_production_session.session")
+        if railway_session.exists():
+            print(f"⚠️  {session_to_use} not found, trying railway_production_session...")
+            session_to_use = "railway_production_session"
+            session_file = railway_session
+        else:
+            # Try local_dev_session as fallback
+            local_session = Path("local_dev_session.session")
+            if local_session.exists():
+                print(f"⚠️  {session_to_use} not found, trying local_dev_session...")
+                session_to_use = "local_dev_session"
+                session_file = local_session
+    
+    # Try multiple sessions until we find an authorized one
+    sessions_to_try = [session_to_use, "railway_production_session", "local_dev_session"]
+    client = None
+    authorized_session = None
+    
+    for session_name in sessions_to_try:
+        session_path = Path(f"{session_name}.session")
+        if not session_path.exists():
+            continue
+        
+        print(f"\n🔌 Trying session: {session_name}")
+        test_client = TelegramClient(session_name, API_ID, API_HASH)
+        try:
+            await test_client.connect()
+            if await test_client.is_user_authorized():
+                print(f"✅ Found authorized session: {session_name}")
+                client = test_client
+                authorized_session = session_name
+                break
+            else:
+                await test_client.disconnect()
+        except Exception as e:
+            await test_client.disconnect()
+            continue
+    
+    if not client or not authorized_session:
+        print(f"❌ No authorized session found!")
+        print(f"   Please run the bot once locally to authenticate a session.")
+        return
     
     try:
-        await client.start()
+        
         print("✅ Connected to Telegram")
         
         # Fetch alerts from Telegram after LICO
