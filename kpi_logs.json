@@ -25,6 +25,17 @@
       "current_mcap_source": "mc_usd"
     },
     {
+      "timestamp": "2025-12-26T05:07:42+00:00",
+      "level": "HIGH",
+      "token": "FAZE",
+      "contract": "DSPWUQBXXIVXZ7SCHDMKG3TYIWD4P1VQIZSCQ6ZXPUMP",
+      "mc_usd": 66600.0,
+      "current_mcap": 66600.0,
+      "entry_mc": 66600.0,
+      "tier": 1,
+      "source": "telegram_backfill"
+    },
+    {
       "timestamp": "2025-12-26T03:20:38.839724+00:00",
       "level": "MEDIUM",
       "token": "EOS",
@@ -4241,9 +4252,37 @@
         "tiny_buy"
       ],
       "tier": 3
+    },
+    {
+      "timestamp": "2025-06-16T03:55:38+00:00",
+      "level": "MEDIUM",
+      "token": "A47",
+      "contract": "CN162nCPpq3DxPCyKLbAvEJeB1aCxsnVTEG4ZU8vpump",
+      "mc_usd": null,
+      "current_mcap": null,
+      "entry_mc": null,
+      "tier": 3,
+      "source": "telegram_backfill"
+    },
+    {
+      "timestamp": "2024-11-07T12:08:49+00:00",
+      "level": "MEDIUM",
+      "token": "DYOR",
+      "contract": "5b7KMftREnMfegGAR9X5eZnTQPUdKks4eTyPa49gdTCy",
+      "mc_usd": null,
+      "current_mcap": null,
+      "entry_mc": null,
+      "tier": 3,
+      "source": "telegram_backfill"
     }
   ],
   "false_positives": [],
   "true_positives": [],
-  "last_updated": "2025-12-26T10:25:19.829726+00:00"
+  "last_updated": "2026-01-02T15:17:46.875895+00:00",
+  "backfill_info": {
+    "backfilled_at": "2026-01-02T15:17:46.875907+00:00",
+    "new_alerts_added": 3,
+    "total_alerts": 177,
+    "after_token": "LICO"
+  }
 }

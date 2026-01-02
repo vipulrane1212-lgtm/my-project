@@ -153,11 +153,20 @@ async def fetch_telegram_alerts_after_lico(client: TelegramClient, limit: int = 
     print(f"\n📡 Fetching alerts from Telegram channel: {ALERT_CHAT_ID}")
     print(f"   Looking for alerts after LICO timestamp...")
     
+    # Get entity first
+    try:
+        chat_id_int = int(ALERT_CHAT_ID)
+        entity = await client.get_entity(chat_id_int)
+        print(f"   ✅ Connected to: {entity.title if hasattr(entity, 'title') else 'Chat'}")
+    except (ValueError, TypeError):
+        entity = await client.get_entity(ALERT_CHAT_ID)
+        print(f"   ✅ Connected to: {entity.title if hasattr(entity, 'title') else 'Chat'}")
+    
     alerts = []
     lico_found = False
     
     try:
-        async for message in client.iter_messages(ALERT_CHAT_ID, limit=limit):
+        async for message in client.iter_messages(entity, limit=limit):
             if not message.text:
                 continue
             

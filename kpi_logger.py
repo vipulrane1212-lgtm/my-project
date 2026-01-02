@@ -207,12 +207,39 @@ class KPILogger:
                     print(f"✅ Alert saved to {self.log_file}: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
                     print(f"   Total alerts in file: {len(self.alerts)}")
                     
+                    # #region agent log
+                    try:
+                        with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                            import json as json_lib
+                            now = datetime.now(timezone.utc)
+                            log_entry = {
+                                "sessionId": "debug-session",
+                                "runId": "run1",
+                                "hypothesisId": "H3",
+                                "location": "kpi_logger.py:202",
+                                "message": "alert saved successfully",
+                                "data": {
+                                    "token": alert.get("token"),
+                                    "tier": alert.get("tier"),
+                                    "timestamp": alert_entry.get("timestamp"),
+                                    "file_path": str(self.log_file),
+                                    "total_alerts": len(self.alerts)
+                                },
+                                "timestamp": int(now.timestamp() * 1000)
+                            }
+                            f.write(json_lib.dumps(log_entry) + '\n')
+                    except Exception:
+                        pass
+                    # #endregion
+                    
                     # Increment alert count and check if we should sync to Git
                     self.alert_count_since_last_sync += 1
                     time_since_last_sync = (datetime.now(timezone.utc) - self.last_git_sync_time).total_seconds()
                     
-                    # Sync to Git every 10 alerts OR every hour (whichever comes first)
-                    if self.alert_count_since_last_sync >= 10 or time_since_last_sync >= 3600:
+                    # CRITICAL: Sync to Git more aggressively to prevent data loss on redeployments
+                    # Sync every 3 alerts OR every 15 minutes (whichever comes first)
+                    # This ensures data is in Git before any redeployment
+                    if self.alert_count_since_last_sync >= 3 or time_since_last_sync >= 900:
                         try:
                             self.sync_to_git()
                             self.alert_count_since_last_sync = 0
