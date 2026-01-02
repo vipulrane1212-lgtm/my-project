@@ -47,7 +47,12 @@ if not ALERT_CHAT_ID:
                 alert_groups_data = json.load(f)
                 groups = alert_groups_data.get("groups", [])
                 if groups:
-                    ALERT_CHAT_ID = str(groups[0].get("id", groups[0]))
+                    # Handle both formats: list of IDs or list of objects with "id" field
+                    first_group = groups[0]
+                    if isinstance(first_group, dict):
+                        ALERT_CHAT_ID = str(first_group.get("id", first_group))
+                    else:
+                        ALERT_CHAT_ID = str(first_group)
                     print(f"Using alert channel from alert_groups.json: {ALERT_CHAT_ID}")
     except Exception as e:
         print(f"Could not load alert_groups.json: {e}")
