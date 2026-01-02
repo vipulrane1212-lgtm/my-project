@@ -246,8 +246,10 @@ def main():
     print("BACKFILL FROM JSON EXPORT")
     print("="*80)
     
-    # Find JSON export file (try new path first, then old)
-    json_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02 (5)\result.json")
+    # Find JSON export file (try newest first, then older)
+    json_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02 (6)\result.json")
+    if not json_file.exists():
+        json_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02 (5)\result.json")
     if not json_file.exists():
         json_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02 (3)\result.json")
     if not json_file.exists():
