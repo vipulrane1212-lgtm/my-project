@@ -236,10 +236,10 @@ class KPILogger:
                     self.alert_count_since_last_sync += 1
                     time_since_last_sync = (datetime.now(timezone.utc) - self.last_git_sync_time).total_seconds()
                     
-                    # CRITICAL: Sync to Git more aggressively to prevent data loss on redeployments
-                    # Sync every 3 alerts OR every 15 minutes (whichever comes first)
-                    # This ensures data is in Git before any redeployment
-                    if self.alert_count_since_last_sync >= 3 or time_since_last_sync >= 900:
+                    # CRITICAL: Sync to Git IMMEDIATELY after every alert
+                    # Railway redeploys reset filesystem, so we MUST push to Git after every alert
+                    # This is the ONLY way to prevent data loss on redeploy
+                    if True:  # Always sync after every alert - no batching
                         try:
                             self.sync_to_git()
                             self.alert_count_since_last_sync = 0
@@ -361,18 +361,39 @@ class KPILogger:
                 check=False
             )
             
-            # Push to remote (non-blocking, don't fail if push fails)
+            # CRITICAL: Push to remote - this is REQUIRED for Railway persistence
+            # Railway redeploys reset filesystem to remote Git state, so push is essential
             try:
-                subprocess.run(
+                push_result = subprocess.run(
                     ['git', 'push', 'origin', 'main'],
                     capture_output=True,
                     timeout=30,
-                    check=False
+                    check=False,
+                    text=True
                 )
-                print(f"✅ Synced {len(self.alerts)} alerts to Git")
-            except Exception:
-                # Push failed, but that's OK - commit is still local
-                pass
+                if push_result.returncode == 0:
+                    print(f"✅ Synced {len(self.alerts)} alerts to Git and pushed to remote")
+                else:
+                    # Push failed - this is CRITICAL, try again
+                    print(f"⚠️  Git push failed, retrying... Error: {push_result.stderr}")
+                    retry_result = subprocess.run(
+                        ['git', 'push', 'origin', 'main'],
+                        capture_output=True,
+                        timeout=30,
+                        check=False,
+                        text=True
+                    )
+                    if retry_result.returncode == 0:
+                        print(f"✅ Retry succeeded - synced {len(self.alerts)} alerts to Git")
+                    else:
+                        print(f"❌ CRITICAL: Git push failed after retry: {retry_result.stderr}")
+                        print(f"   Alerts are committed locally but NOT in remote Git!")
+                        print(f"   Railway redeploy will LOSE these alerts!")
+            except Exception as e:
+                # Push failed - this is CRITICAL
+                print(f"❌ CRITICAL: Git push exception: {e}")
+                print(f"   Alerts are committed locally but NOT in remote Git!")
+                print(f"   Railway redeploy will LOSE these alerts!")
                 
         except Exception as e:
             # Don't raise - Git sync is non-critical

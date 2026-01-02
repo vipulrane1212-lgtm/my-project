@@ -236,8 +236,10 @@ def main():
     print("BACKFILL FROM HTML EXPORT")
     print("="*80)
     
-    # Find HTML export file
-    html_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02\messages.html")
+    # Find HTML export file (try both locations)
+    html_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02 (2)\messages.html")
+    if not html_file.exists():
+        html_file = Path(r"c:\Users\Admin\Downloads\Telegram Desktop\ChatExport_2026-01-02\messages.html")
     if not html_file.exists():
         print(f"❌ HTML export not found at: {html_file}")
         print("   Please provide the path to your Telegram HTML export file.")
