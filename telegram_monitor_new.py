@@ -1772,14 +1772,26 @@ class TelegramMonitorNew:
         
         # Keep running (both clients will stay connected)
         # Use asyncio.gather to keep both clients running
-        if self.bot_client:
-            await asyncio.gather(
-                self.client.run_until_disconnected(),
-                self.bot_client.run_until_disconnected(),
-                return_exceptions=True
-            )
-        else:
-            await self.client.run_until_disconnected()
+        # Wrap in try-except to catch disconnection errors
+        try:
+            if self.bot_client:
+                results = await asyncio.gather(
+                    self.client.run_until_disconnected(),
+                    self.bot_client.run_until_disconnected(),
+                    return_exceptions=True
+                )
+                # Check if any exceptions occurred
+                for i, result in enumerate(results):
+                    if isinstance(result, Exception):
+                        client_name = "main client" if i == 0 else "bot client"
+                        print(f"\n⚠️  {client_name} disconnected with error: {type(result).__name__}: {result}")
+            else:
+                await self.client.run_until_disconnected()
+        except Exception as e:
+            print(f"\n⚠️  Connection error in monitor.start(): {type(e).__name__}: {e}")
+            import traceback
+            traceback.print_exc()
+            raise  # Re-raise to trigger restart
 
 async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_bot: bool = False, bot_token: str = None):
     """Connect to Telegram with retry logic and exponential backoff"""
@@ -1980,8 +1992,8 @@ async def run_api_server():
         import traceback
         traceback.print_exc()
 
-async def main():
-    """Main function"""
+async def run_bot_once():
+    """Run the bot once - will be called in a restart loop"""
     # CRITICAL: Ensure session file is in the right location for Railway
     # If session file exists in current directory but not in /app/, copy it
     session_file = f"{SESSION_NAME}.session"
@@ -2141,19 +2153,79 @@ async def main():
             return_exceptions=True
         )
         
-    except KeyboardInterrupt:
-        print("\nMonitoring stopped by user")
-    except Exception as e:
-        print(f"\nError: {e}")
-        import traceback
-        traceback.print_exc()
     finally:
+        # Clean up connections
         try:
-            await client.disconnect()
-            if bot_client:
+            if client.is_connected():
+                await client.disconnect()
+        except:
+            pass
+        try:
+            if bot_client and bot_client.is_connected():
                 await bot_client.disconnect()
         except:
             pass
+
+async def main():
+    """Main function with 24/7 restart loop"""
+    import time
+    from datetime import datetime
+    
+    restart_count = 0
+    max_restart_delay = 300  # Maximum 5 minutes between restarts
+    
+    print("\n" + "="*80)
+    print("🚀 TELEGRAM MONITOR - 24/7 MODE")
+    print("="*80)
+    print("Bot will automatically restart on connection failures")
+    print("="*80 + "\n")
+    
+    while True:
+        try:
+            restart_count += 1
+            if restart_count > 1:
+                # Calculate exponential backoff (min 10s, max 5min)
+                delay = min(10 * (2 ** (restart_count - 2)), max_restart_delay)
+                print(f"\n{'='*80}")
+                print(f"🔄 RESTART #{restart_count} - Waiting {delay} seconds before restart...")
+                print(f"   Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                print(f"{'='*80}\n")
+                await asyncio.sleep(delay)
+            
+            print(f"\n{'='*80}")
+            print(f"🔄 Starting bot (Attempt #{restart_count})")
+            print(f"   Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"{'='*80}\n")
+            
+            await run_bot_once()
+            
+            # If we get here, the bot stopped normally (shouldn't happen in 24/7 mode)
+            print(f"\n⚠️  Bot stopped unexpectedly. Will restart in 30 seconds...")
+            await asyncio.sleep(30)
+            
+        except KeyboardInterrupt:
+            print("\n\n" + "="*80)
+            print("🛑 Monitoring stopped by user (KeyboardInterrupt)")
+            print("="*80 + "\n")
+            break
+        except Exception as e:
+            error_type = type(e).__name__
+            error_msg = str(e)
+            print(f"\n❌ Error in main loop: {error_type}: {error_msg}")
+            import traceback
+            traceback.print_exc()
+            
+            # Don't restart immediately on certain fatal errors
+            fatal_errors = ['AuthKeyDuplicatedError', 'FileNotFoundError', 'EOFError']
+            if any(fatal in error_type for fatal in fatal_errors):
+                print(f"\n❌ FATAL ERROR: {error_type}")
+                print("   This error requires manual intervention. Bot will not restart.")
+                print("   Please fix the issue and restart manually.")
+                break
+            
+            # For other errors, wait a bit before restarting
+            print(f"\n⚠️  Will restart in 30 seconds...")
+            await asyncio.sleep(30)
 
 if __name__ == '__main__':
     asyncio.run(main())
