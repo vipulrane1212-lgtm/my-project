@@ -224,6 +224,7 @@ class KPILogger:
             # This ensures alerts are NEVER lost, even if Railway redeploys
             max_retries = 5  # Increased retries for better reliability
             save_success = False
+            save_error = None
             
             for attempt in range(max_retries):
                 try:
@@ -231,6 +232,38 @@ class KPILogger:
                     save_success = True
                     print(f"✅ Alert saved to {self.log_file}: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
                     print(f"   Total alerts in file: {len(self.alerts)}")
+                    # #region agent log
+                    try:
+                        with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                            import json as json_lib
+                            now = datetime.now(timezone.utc)
+                            file_mtime = self.log_file.stat().st_mtime if self.log_file.exists() else 0
+                            file_size = self.log_file.stat().st_size if self.log_file.exists() else 0
+                            log_entry = {
+                                "sessionId": "debug-session",
+                                "runId": "run1",
+                                "hypothesisId": "H3,H4",
+                                "location": "kpi_logger.py:230",
+                                "message": "alert saved successfully to file",
+                                "data": {
+                                    "token": alert.get("token"),
+                                    "tier": alert.get("tier"),
+                                    "contract": alert.get("contract", "")[:20] if alert.get("contract") else None,
+                                    "timestamp": alert_entry.get("timestamp"),
+                                    "file_path": str(self.log_file),
+                                    "total_alerts": len(self.alerts),
+                                    "file_mtime": file_mtime,
+                                    "file_size": file_size,
+                                    "file_exists": self.log_file.exists(),
+                                    "attempt": attempt + 1
+                                },
+                                "timestamp": int(now.timestamp() * 1000)
+                            }
+                            f.write(json_lib.dumps(log_entry) + '\n')
+                    except Exception:
+                        pass
+                    # #endregion
+                    break  # Success, exit retry loop
                     
                     # #region agent log
                     try:

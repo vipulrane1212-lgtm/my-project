@@ -447,10 +447,22 @@ class TelegramMonitorNew:
             # This ensures ALL alerts are saved, even if they're duplicates or exceed MCAP threshold
             # The API needs complete data, filters only affect Telegram delivery
             level = alert.get("level", "MEDIUM")
-            self.kpi_logger.log_alert(alert, level)
-            # #region agent log
-            debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:470","message":"Alert saved to kpi_logs.json before filters","data":{"token":token,"tier":tier,"current_mcap":current_mcap,"will_send_to_telegram":"checking"},"timestamp":int(current_time*1000)})
-            # #endregion
+            try:
+                self.kpi_logger.log_alert(alert, level)
+                # #region agent log
+                debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:470","message":"Alert saved to kpi_logs.json before filters","data":{"token":token,"tier":tier,"current_mcap":current_mcap,"contract":alert.get("contract"),"will_send_to_telegram":"checking"},"timestamp":int(current_time*1000)})
+                # #endregion
+                print(f"✅ CRITICAL: Alert saved to kpi_logs.json: {token} (Tier {tier}, Contract: {alert.get('contract', 'N/A')[:20]}...)")
+            except Exception as save_error:
+                # CRITICAL: If saving fails, log it but don't stop processing
+                print(f"❌ CRITICAL ERROR: Failed to save alert to kpi_logs.json: {save_error}")
+                print(f"   Token: {token}, Tier: {tier}, Contract: {alert.get('contract', 'N/A')}")
+                import traceback
+                traceback.print_exc()
+                # #region agent log
+                debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H5","location":"telegram_monitor_new.py:475","message":"CRITICAL: Alert save failed","data":{"token":token,"tier":tier,"error":str(save_error),"contract":alert.get("contract")},"timestamp":int(current_time*1000)})
+                # #endregion
+                # Continue anyway - alert might still be sent to Telegram
             
             # NOW apply filters for Telegram sending (but alert is already saved)
             should_send_to_telegram = True
