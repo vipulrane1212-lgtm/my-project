@@ -12,7 +12,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from collections import defaultdict
 
 class KPILogger:
@@ -42,11 +42,18 @@ class KPILogger:
         self.true_positives: List[Dict] = []
         self.load_logs()
         
+        # Track alerts for periodic Git sync
+        self.alert_count_since_last_sync = 0
+        self.last_git_sync_time = datetime.now(timezone.utc)
+        
         # Log persistence status
         print(f"   📊 Loaded {len(self.alerts)} existing alerts")
         if self.alerts:
             latest = max(self.alerts, key=lambda x: x.get("timestamp", ""))
             print(f"   🕐 Latest alert: {latest.get('token', 'N/A')} ({latest.get('timestamp', 'N/A')[:10]})")
+            
+            # Check for gaps in alert timestamps (potential missing alerts)
+            self.check_for_gaps()
     
     def load_logs(self):
         """Load existing logs from file."""
@@ -92,6 +99,18 @@ class KPILogger:
                     json.load(f)
             except Exception as verify_error:
                 raise IOError(f"File saved but verification failed: {verify_error}")
+            
+            # CRITICAL: Force flush to disk to ensure data is persisted immediately
+            # This prevents data loss if the process crashes right after save
+            try:
+                import os
+                file_handle = open(self.log_file, 'r+b')
+                file_handle.flush()
+                os.fsync(file_handle.fileno())  # Force write to disk
+                file_handle.close()
+            except Exception as flush_error:
+                # Flush failure is not critical, but log it
+                print(f"⚠️  Warning: Could not flush file to disk: {flush_error}")
             
         except Exception as e:
             # If temp file exists, try to clean it up
@@ -187,6 +206,21 @@ class KPILogger:
                     save_success = True
                     print(f"✅ Alert saved to {self.log_file}: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
                     print(f"   Total alerts in file: {len(self.alerts)}")
+                    
+                    # Increment alert count and check if we should sync to Git
+                    self.alert_count_since_last_sync += 1
+                    time_since_last_sync = (datetime.now(timezone.utc) - self.last_git_sync_time).total_seconds()
+                    
+                    # Sync to Git every 10 alerts OR every hour (whichever comes first)
+                    if self.alert_count_since_last_sync >= 10 or time_since_last_sync >= 3600:
+                        try:
+                            self.sync_to_git()
+                            self.alert_count_since_last_sync = 0
+                            self.last_git_sync_time = datetime.now(timezone.utc)
+                        except Exception as git_error:
+                            # Don't fail alert save if Git sync fails
+                            print(f"⚠️  Warning: Git sync failed (non-critical): {git_error}")
+                    
                     break  # Success - exit retry loop
                 except Exception as save_error:
                     if attempt < max_retries - 1:
@@ -244,6 +278,78 @@ class KPILogger:
             traceback.print_exc()
             # Return None to indicate failure, but don't raise exception
             return None
+    
+    def sync_to_git(self):
+        """Sync kpi_logs.json to Git repository.
+        
+        This ensures alerts are backed up to Git and available on Railway after redeploy.
+        Runs automatically every 10 alerts or every hour.
+        """
+        try:
+            import subprocess
+            import os
+            
+            # Only sync if we're in a Git repository
+            if not os.path.exists('.git'):
+                return  # Not a Git repo, skip sync
+            
+            # Get the actual file path (might be in /data on Railway)
+            file_to_sync = self.log_file
+            
+            # If file is in /data, we need to copy it to the repo root for Git
+            if str(file_to_sync).startswith('/data'):
+                repo_file = Path('kpi_logs.json')
+                import shutil
+                shutil.copy2(file_to_sync, repo_file)
+                file_to_sync = repo_file
+            
+            # Check if file has changes
+            try:
+                result = subprocess.run(
+                    ['git', 'diff', '--quiet', str(file_to_sync)],
+                    capture_output=True,
+                    timeout=5
+                )
+                if result.returncode == 0:
+                    # No changes, skip commit
+                    return
+            except Exception:
+                # Git command failed, skip sync
+                return
+            
+            # Stage the file
+            subprocess.run(
+                ['git', 'add', str(file_to_sync)],
+                capture_output=True,
+                timeout=10,
+                check=False
+            )
+            
+            # Commit with timestamp
+            commit_message = f"Auto-sync kpi_logs.json - {len(self.alerts)} alerts - {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC"
+            subprocess.run(
+                ['git', 'commit', '-m', commit_message],
+                capture_output=True,
+                timeout=10,
+                check=False
+            )
+            
+            # Push to remote (non-blocking, don't fail if push fails)
+            try:
+                subprocess.run(
+                    ['git', 'push', 'origin', 'main'],
+                    capture_output=True,
+                    timeout=30,
+                    check=False
+                )
+                print(f"✅ Synced {len(self.alerts)} alerts to Git")
+            except Exception:
+                # Push failed, but that's OK - commit is still local
+                pass
+                
+        except Exception as e:
+            # Don't raise - Git sync is non-critical
+            print(f"⚠️  Git sync error (non-critical): {e}")
     
     def _generate_tags(self, alert: Dict) -> List[str]:
         """Generate tags for false positive analysis."""
@@ -326,6 +432,54 @@ class KPILogger:
             "high_precision": high_precision,
             "fp_breakdown": dict(fp_causes),
         }
+    
+    def check_for_gaps(self) -> Optional[Dict]:
+        """Check for gaps in alert timestamps that might indicate missing alerts.
+        
+        Returns dict with gap information if gaps > 1 hour detected, None otherwise.
+        """
+        if len(self.alerts) < 2:
+            return None
+        
+        # Sort alerts by timestamp
+        sorted_alerts = sorted(
+            self.alerts,
+            key=lambda x: datetime.fromisoformat(x.get("timestamp", "2000-01-01").replace("Z", "+00:00"))
+        )
+        
+        gaps = []
+        for i in range(1, len(sorted_alerts)):
+            try:
+                prev_time = datetime.fromisoformat(
+                    sorted_alerts[i-1].get("timestamp", "2000-01-01").replace("Z", "+00:00")
+                )
+                curr_time = datetime.fromisoformat(
+                    sorted_alerts[i].get("timestamp", "2000-01-01").replace("Z", "+00:00")
+                )
+                gap_seconds = (curr_time - prev_time).total_seconds()
+                
+                # If gap is more than 1 hour, it might indicate missing alerts
+                if gap_seconds > 3600:
+                    gaps.append({
+                        "after_token": sorted_alerts[i-1].get("token"),
+                        "after_timestamp": sorted_alerts[i-1].get("timestamp"),
+                        "before_token": sorted_alerts[i].get("token"),
+                        "before_timestamp": sorted_alerts[i].get("timestamp"),
+                        "gap_hours": gap_seconds / 3600
+                    })
+            except Exception:
+                continue
+        
+        if gaps:
+            print(f"\n⚠️  WARNING: Detected {len(gaps)} potential gap(s) in alert timeline:")
+            for gap in gaps[:5]:  # Show first 5 gaps
+                print(f"   Gap of {gap['gap_hours']:.1f} hours after {gap['after_token']} ({gap['after_timestamp'][:10]})")
+            if len(gaps) > 5:
+                print(f"   ... and {len(gaps) - 5} more gaps")
+            print(f"   💡 Consider running backfill script to recover missing alerts")
+            return {"gaps": gaps, "count": len(gaps)}
+        
+        return None
     
     def print_stats(self, days: int = 1):
         """Print statistics to console."""

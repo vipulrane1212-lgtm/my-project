@@ -60,6 +60,65 @@ KPI_LOGS_FILE = BASE_DIR / "kpi_logs.json"
 ALERT_GROUPS_FILE = BASE_DIR / "alert_groups.json"
 USER_PREFERENCES_FILE = BASE_DIR / "user_preferences.json"
 
+# In-memory cache for kpi_data (refreshes every 30 seconds or when file changes)
+_kpi_data_cache = None
+_cache_timestamp = None
+_cache_file_mtime = None
+CACHE_TTL_SECONDS = 30
+
+
+def get_cached_kpi_data() -> Dict:
+    """Get kpi_data from cache or load from file if cache is stale.
+    
+    Cache refreshes:
+    - Every 30 seconds (CACHE_TTL_SECONDS)
+    - When kpi_logs.json file modification time changes
+    
+    Returns full kpi_data dict with alerts, true_positives, false_positives.
+    """
+    global _kpi_data_cache, _cache_timestamp, _cache_file_mtime
+    
+    now = datetime.now(timezone.utc)
+    
+    # Check if cache is valid
+    cache_valid = False
+    if _kpi_data_cache is not None and _cache_timestamp is not None:
+        # Check TTL
+        age_seconds = (now - _cache_timestamp).total_seconds()
+        if age_seconds < CACHE_TTL_SECONDS:
+            # Check file modification time
+            try:
+                current_mtime = KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0
+                if _cache_file_mtime == current_mtime:
+                    cache_valid = True
+            except Exception:
+                pass
+    
+    # Load from file if cache is invalid
+    if not cache_valid:
+        _kpi_data_cache = load_json_file(KPI_LOGS_FILE, {"alerts": [], "true_positives": [], "false_positives": []})
+        _cache_timestamp = now
+        try:
+            _cache_file_mtime = KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0
+        except Exception:
+            _cache_file_mtime = 0
+    
+    return _kpi_data_cache
+
+
+def get_cached_alerts() -> List[Dict]:
+    """Get alerts from cache (convenience function)."""
+    kpi_data = get_cached_kpi_data()
+    return kpi_data.get("alerts", [])
+
+
+def invalidate_cache():
+    """Force cache invalidation (call after updates)."""
+    global _kpi_data_cache, _cache_timestamp, _cache_file_mtime
+    _kpi_data_cache = None
+    _cache_timestamp = None
+    _cache_file_mtime = None
+
 
 def load_json_file(file_path: Path, default: dict = None) -> dict:
     """Safely load JSON file with retry logic."""
@@ -199,8 +258,8 @@ async def health_check():
     latest_alert = None
     alert_count = 0
     try:
-        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
-        alerts = kpi_data.get("alerts", [])
+        # Use cached alerts for better performance
+        alerts = get_cached_alerts()
         alert_count = len(alerts)
         if alerts:
             # Get most recent alert
@@ -238,9 +297,9 @@ async def health_check():
 async def get_stats():
     """Get real-time statistics for the website."""
     try:
-        # Load data
+        # Load data (use cached kpi_data for better performance)
         subscriptions_data = load_json_file(SUBSCRIPTIONS_FILE, {"users": []})
-        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": [], "true_positives": [], "false_positives": []})
+        kpi_data = get_cached_kpi_data()
         alert_groups_data = load_json_file(ALERT_GROUPS_FILE, {"groups": []})
         
         alerts = kpi_data.get("alerts", [])
@@ -315,8 +374,8 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         dedupe: If True, show only latest alert per token (default: True)
     """
     try:
-        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
-        alerts = kpi_data.get("alerts", [])
+        # Use cached alerts for better performance
+        alerts = get_cached_alerts()
         
         # Sort by timestamp (newest first)
         alerts.sort(
@@ -585,8 +644,8 @@ async def get_subscribers():
 async def get_tier_breakdown():
     """Get alert breakdown by tier."""
     try:
-        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
-        alerts = kpi_data.get("alerts", [])
+        # Use cached alerts for better performance
+        alerts = get_cached_alerts()
         
         tier_breakdown = {
             1: {"count": 0, "alerts": []},
@@ -629,8 +688,8 @@ async def get_tier_breakdown():
 async def get_daily_stats(days: int = 7):
     """Get daily statistics for charts."""
     try:
-        kpi_data = load_json_file(KPI_LOGS_FILE, {"alerts": []})
-        alerts = kpi_data.get("alerts", [])
+        # Use cached alerts for better performance
+        alerts = get_cached_alerts()
         
         # Group alerts by date
         daily_stats = defaultdict(lambda: {"total": 0, "tier1": 0, "tier2": 0, "tier3": 0})
@@ -676,6 +735,13 @@ async def get_daily_stats(days: int = 7):
     except Exception as e:
         print(f"Error in get_daily_stats: {e}")
         raise HTTPException(status_code=500, detail=f"Error fetching daily stats: {str(e)}")
+
+
+@app.post("/api/cache/refresh")
+async def refresh_cache():
+    """Force cache refresh (admin endpoint)."""
+    invalidate_cache()
+    return {"status": "success", "message": "Cache invalidated, will refresh on next request"}
 
 
 if __name__ == "__main__":

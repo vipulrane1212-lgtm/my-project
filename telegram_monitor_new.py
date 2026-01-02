@@ -46,7 +46,34 @@ def debug_log(data: dict):
 # ========== CONFIG ==========
 API_ID = int(os.getenv('API_ID', '25177061'))
 API_HASH = os.getenv('API_HASH', 'c11ea2f1db2aa742144dfa2a30448408')
-SESSION_NAME = os.getenv('SESSION_NAME', 'railway_production_session')
+
+def get_session_name():
+    """Get session name based on environment (Railway vs local).
+    
+    CRITICAL: Railway and local must use DIFFERENT session files to avoid conflicts.
+    - Railway uses: railway_production_session
+    - Local uses: local_dev_session
+    
+    This prevents AuthKeyDuplicatedError when both try to use the same session.
+    """
+    # Check if explicitly set via environment variable
+    env_session = os.getenv('SESSION_NAME')
+    if env_session:
+        return env_session
+    
+    # Detect if running on Railway
+    is_railway = (
+        os.path.exists('/app') or  # Railway mounts /app directory
+        os.getenv('RAILWAY_ENVIRONMENT') is not None or  # Railway sets this env var
+        os.getenv('RAILWAY') is not None  # Alternative Railway env var
+    )
+    
+    if is_railway:
+        return 'railway_production_session'
+    else:
+        return 'local_dev_session'
+
+SESSION_NAME = get_session_name()
 
 # Forum topics to monitor
 FORUM_TOPICS = [
@@ -163,6 +190,15 @@ class TelegramMonitorNew:
         self.recent_alerts = {}  # Track recent alerts to prevent duplicates: (token, tier) -> timestamp
         self.enrich_with_live_mcap = enrich_with_live_mcap  # Enable live MCAP enrichment via DexScreener
         self.kpi_logger = KPILogger()  # KPI tracking
+        
+        # Check for gaps in alerts on startup (potential missing alerts)
+        gap_info = self.kpi_logger.check_for_gaps()
+        if gap_info and gap_info.get("count", 0) > 0:
+            print(f"\n⚠️  STARTUP RECOVERY: Detected {gap_info['count']} gap(s) in alert timeline")
+            print(f"   This may indicate missing alerts that need to be backfilled.")
+            print(f"   Consider running: python backfill_missing_after_lico.py")
+            # Note: We don't auto-backfill here to avoid blocking startup
+            # User can run backfill script manually or schedule it
         self.load_subscriptions()
         self.load_alert_groups()  # Load saved group IDs
         self.load_user_preferences()  # Load user tier preferences
@@ -1994,11 +2030,31 @@ async def run_api_server():
 
 async def run_bot_once():
     """Run the bot once - will be called in a restart loop"""
+    # CRITICAL: Session conflict prevention
+    # Check if we're running locally but Railway session exists
+    is_railway_env = (
+        os.path.exists('/app') or
+        os.getenv('RAILWAY_ENVIRONMENT') is not None or
+        os.getenv('RAILWAY') is not None
+    )
+    
+    railway_session_file = 'railway_production_session.session'
+    if not is_railway_env and os.path.exists(railway_session_file):
+        print("\n" + "="*80)
+        print("⚠️  SESSION CONFLICT DETECTED!")
+        print("="*80)
+        print(f"   Railway session file '{railway_session_file}' found locally.")
+        print(f"   This session is currently in use on Railway.")
+        print(f"   Using separate local session: '{SESSION_NAME}.session'")
+        print(f"   This prevents AuthKeyDuplicatedError conflicts.")
+        print("="*80 + "\n")
+    
     # CRITICAL: Ensure session file is in the right location for Railway
     # If session file exists in current directory but not in /app/, copy it
     session_file = f"{SESSION_NAME}.session"
     print(f"\n🔍 Checking for session file: {session_file}")
-    print(f"   SESSION_NAME env: {SESSION_NAME}")
+    print(f"   SESSION_NAME: {SESSION_NAME}")
+    print(f"   Environment: {'Railway' if is_railway_env else 'Local'}")
     print(f"   Current directory: {os.getcwd()}")
     
     # List all .session files in current directory
