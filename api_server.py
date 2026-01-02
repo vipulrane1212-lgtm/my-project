@@ -510,12 +510,26 @@ async def get_stats():
 
 @app.get("/api/alerts/recent")
 async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe: bool = True):
-    """Get recent alerts.
+    """Get recent alerts - STREAMS LIVE ALERTS FROM JSON STORAGE.
+    
+    This endpoint:
+    - Returns ALL alerts stored in kpi_logs.json (old + new)
+    - Updates in real-time (cache refreshes every 5s or on file change)
+    - No data loss: All alerts persisted to JSON + Git sync after each alert
+    - Survives redeploys: Git sync ensures alerts are restored on redeploy
     
     Args:
-        limit: Number of alerts to return (default: 20)
+        limit: Number of alerts to return (default: 20, use 0 for all)
         tier: Filter by tier (1, 2, or 3) - optional
         dedupe: If True, show only latest alert per token (default: True)
+    
+    Returns:
+        {
+            "alerts": [...],  # All alerts (old + new)
+            "count": 123,
+            "total_in_storage": 276,  # Total alerts in kpi_logs.json
+            "timestamp": "2026-01-02T..."
+        }
     """
     try:
         # Use cached alerts for better performance
@@ -807,6 +821,7 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         return {
             "alerts": formatted_alerts,
             "count": len(formatted_alerts),
+            "total_in_storage": total_alerts_count,  # Total alerts in kpi_logs.json
             "timestamp": datetime.now(timezone.utc).isoformat()
         }
     except Exception as e:
