@@ -1998,6 +1998,56 @@ async def connect_with_retry(client: TelegramClient, max_attempts: int = 5, is_b
             print("\n4. See RAILWAY_SESSION_SETUP.md for detailed instructions")
             print("=" * 80 + "\n")
             raise  # Don't retry - needs manual intervention
+        except FloodWaitError as e:
+            # CRITICAL: FloodWaitError requires waiting the EXACT time specified by Telegram
+            # Don't use exponential backoff - wait the full required time
+            wait_seconds = e.seconds
+            wait_minutes = wait_seconds / 60
+            print(f"\n" + "=" * 80)
+            print(f"⏳ FLOOD WAIT ERROR - Telegram Rate Limit")
+            print("=" * 80)
+            print(f"Telegram requires waiting {wait_seconds} seconds ({wait_minutes:.1f} minutes)")
+            print(f"before attempting to connect again.")
+            print(f"\nThis happens when:")
+            print(f"  - Too many connection attempts in a short time")
+            print(f"  - Session file was used from multiple locations")
+            print(f"  - Telegram API rate limits were exceeded")
+            print(f"\n⏰ Waiting {wait_minutes:.1f} minutes before retrying...")
+            print(f"   (This is required by Telegram - cannot skip)")
+            print("=" * 80 + "\n")
+            
+            # #region agent log
+            try:
+                with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                    import json as json_lib
+                    from datetime import datetime, timezone
+                    now = datetime.now(timezone.utc)
+                    log_entry = {
+                        "sessionId": "debug-session",
+                        "runId": "run1",
+                        "hypothesisId": "H4",
+                        "location": "telegram_monitor_new.py:2001",
+                        "message": "FloodWaitError detected - waiting required time",
+                        "data": {
+                            "wait_seconds": wait_seconds,
+                            "wait_minutes": wait_minutes,
+                            "attempt": attempt,
+                            "max_attempts": max_attempts,
+                            "is_bot": is_bot
+                        },
+                        "timestamp": int(now.timestamp() * 1000)
+                    }
+                    f.write(json_lib.dumps(log_entry) + '\n')
+            except Exception:
+                pass
+            # #endregion
+            
+            # Wait the FULL required time (add small buffer to be safe)
+            await asyncio.sleep(wait_seconds + 5)
+            
+            # After waiting, retry (don't count this as a failed attempt)
+            print(f"✅ Wait complete. Retrying connection...")
+            continue  # Continue to next iteration (retry connection)
         except Exception as e:
             if attempt < max_attempts:
                 wait_time = min(2 ** attempt, 30)  # Exponential backoff, max 30 seconds
