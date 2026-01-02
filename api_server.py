@@ -145,16 +145,28 @@ def get_cached_kpi_data() -> Dict:
     # Check if cache is valid
     cache_valid = False
     if _kpi_data_cache is not None and _cache_timestamp is not None:
-        # Check TTL
-        age_seconds = (now - _cache_timestamp).total_seconds()
-        if age_seconds < CACHE_TTL_SECONDS:
-            # Check file modification time
-            try:
-                current_mtime = KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0
-                if _cache_file_mtime == current_mtime:
+        # CRITICAL: Always check file modification time FIRST (most reliable)
+        try:
+            current_mtime = KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0
+            if _cache_file_mtime is not None and current_mtime > 0:
+                # File was modified - invalidate cache immediately
+                if current_mtime != _cache_file_mtime:
+                    cache_valid = False
+                else:
+                    # File not modified - check TTL
+                    age_seconds = (now - _cache_timestamp).total_seconds()
+                    if age_seconds < CACHE_TTL_SECONDS:
+                        cache_valid = True
+            else:
+                # Fallback to TTL check if mtime unavailable
+                age_seconds = (now - _cache_timestamp).total_seconds()
+                if age_seconds < CACHE_TTL_SECONDS:
                     cache_valid = True
-            except Exception:
-                pass
+        except Exception:
+            # Fallback to TTL check on error
+            age_seconds = (now - _cache_timestamp).total_seconds()
+            if age_seconds < CACHE_TTL_SECONDS:
+                cache_valid = True
     
     # #region agent log
     try:
