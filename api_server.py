@@ -937,6 +937,12 @@ async def refresh_cache():
     invalidate_cache()
     return {"status": "success", "message": "Cache invalidated, will refresh on next request"}
 
+@app.get("/api/cache/refresh")
+async def refresh_cache_get():
+    """Force cache refresh (GET endpoint for easy browser access)."""
+    invalidate_cache()
+    return {"status": "success", "message": "Cache invalidated, will refresh on next request"}
+
 
 if __name__ == "__main__":
     import uvicorn
