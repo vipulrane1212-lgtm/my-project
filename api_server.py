@@ -527,7 +527,6 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         {
             "alerts": [...],  # All alerts (old + new)
             "count": 123,
-            "total_in_storage": 276,  # Total alerts in kpi_logs.json
             "timestamp": "2026-01-02T..."
         }
     """
