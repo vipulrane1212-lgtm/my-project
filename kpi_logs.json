@@ -1,6 +1,1886 @@
 {
   "alerts": [
     {
+      "timestamp": "2026-01-02T20:40:08+00:00",
+      "level": "HIGH",
+      "token": "YOSHI",
+      "contract": "7W359GHTF2MPY9CB4SJFEC66UJ8ONNM3CR472WLLPUMP",
+      "mc_usd": 198100.0,
+      "current_mcap": 198100.0,
+      "entry_mc": 198100.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T20:33:15+00:00",
+      "level": "HIGH",
+      "token": "USEFUL",
+      "contract": "BWPRTJRZGFH76JXWMBRX6VUYTE1PGUHB3ZZMYKJ2BONK",
+      "mc_usd": 238900.0,
+      "current_mcap": 238900.0,
+      "entry_mc": 238900.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T20:19:13+00:00",
+      "level": "MEDIUM",
+      "token": "SOLAMA",
+      "contract": "8PRFNZXCJHUDN2JPS4BQFZGQE37CQBVXSGU9ENJIPUMP",
+      "mc_usd": 268700.0,
+      "current_mcap": 268700.0,
+      "entry_mc": 268700.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T20:03:53+00:00",
+      "level": "MEDIUM",
+      "token": "YOSHI",
+      "contract": "7W359GHTF2MPY9CB4SJFEC66UJ8ONNM3CR472WLLPUMP",
+      "mc_usd": 212100.0,
+      "current_mcap": 212100.0,
+      "entry_mc": 212100.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T19:57:19+00:00",
+      "level": "MEDIUM",
+      "token": "DHG",
+      "contract": "3R48QGXWZN5WYQZUWOXQXUFVUEEUYC9WDDOCSQPPBONK",
+      "mc_usd": 158000.0,
+      "current_mcap": 158000.0,
+      "entry_mc": 158000.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T16:45:40+00:00",
+      "level": "MEDIUM",
+      "token": "LOBSTER",
+      "contract": "3ZAEDMFB74ARSBJ5ISPU8GWJ8MGUJ4GZL4XF6HCWPUMP",
+      "mc_usd": 116000.0,
+      "current_mcap": 116000.0,
+      "entry_mc": 116000.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T16:24:17+00:00",
+      "level": "MEDIUM",
+      "token": "HNYA",
+      "contract": "JGAXYXHJCCJH6AA9JQ1JKPPY3IMVEKPMMXMEQVPPUMP",
+      "mc_usd": 365200.0,
+      "current_mcap": 365200.0,
+      "entry_mc": 365200.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T16:16:12+00:00",
+      "level": "MEDIUM",
+      "token": "AI",
+      "contract": "FHXCHSRVEZTFBY4LB4MQSBHZQS88OO3GX5LTKBFMPUMP",
+      "mc_usd": 93100.0,
+      "current_mcap": 93100.0,
+      "entry_mc": 93100.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T16:15:08+00:00",
+      "level": "MEDIUM",
+      "token": "DUCK",
+      "contract": "B79HPCZAJP6XE41EZUOU8RWJQNFXS8OLSWCS4ZQ2PUMP",
+      "mc_usd": 475900.0,
+      "current_mcap": 475900.0,
+      "entry_mc": 475900.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T14:09:14+00:00",
+      "level": "MEDIUM",
+      "token": "HIGH",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "mc_usd": 363900.0,
+      "current_mcap": 363900.0,
+      "entry_mc": 363900.0,
+      "tier": 2,
+      "confirmations": {
+        "glydo": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T13:58:43+00:00",
+      "level": "MEDIUM",
+      "token": "BLAST",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "mc_usd": 297300.0,
+      "current_mcap": 297300.0,
+      "entry_mc": 297300.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T12:49:17+00:00",
+      "level": "HIGH",
+      "token": "RBFISH",
+      "contract": "J1H3QUFCMNPHRZS9ASHWT6BDGNFNWAM5VCKODSLXPUMP",
+      "mc_usd": 133200.0,
+      "current_mcap": 133200.0,
+      "entry_mc": 133200.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T11:55:06+00:00",
+      "level": "MEDIUM",
+      "token": "FFH",
+      "contract": "ACYY3EENTIH7M9XR9PGGPZBXQUTM9YQPUZV1QTLGBONK",
+      "mc_usd": 156000.0,
+      "current_mcap": 156000.0,
+      "entry_mc": 156000.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T11:40:06+00:00",
+      "level": "HIGH",
+      "token": "DOWZA",
+      "contract": "GOCCRRKY3N5MN7AHFUDTVP5DJRYEDYCXKFIJCBZMPUMP",
+      "mc_usd": 164600.0,
+      "current_mcap": 164600.0,
+      "entry_mc": 164600.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T11:26:11+00:00",
+      "level": "MEDIUM",
+      "token": "DOWZA",
+      "contract": "GOCCRRKY3N5MN7AHFUDTVP5DJRYEDYCXKFIJCBZMPUMP",
+      "mc_usd": 124700.0,
+      "current_mcap": 124700.0,
+      "entry_mc": 124700.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T10:27:24+00:00",
+      "level": "MEDIUM",
+      "token": "QPAY",
+      "contract": "EMG2QKFZ6PLVGCKVGJ8X6NMYRKIUOAMYNTDOXXN8PUMP",
+      "mc_usd": 403400.0,
+      "current_mcap": 403400.0,
+      "entry_mc": 403400.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T10:23:39+00:00",
+      "level": "MEDIUM",
+      "token": "GOLDEN",
+      "contract": "HDJRBVIYS64TBP8QJEDKDCOTN7RTTP8YEWL8W39YBONK",
+      "mc_usd": 177300.0,
+      "current_mcap": 177300.0,
+      "entry_mc": 177300.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T10:00:07+00:00",
+      "level": "MEDIUM",
+      "token": "ORDX",
+      "contract": "5VYT3CVESZQTWQ9U8EFNZHLN48WNINWFXCPDGUYJN57T",
+      "mc_usd": 168600.0,
+      "current_mcap": 168600.0,
+      "entry_mc": 168600.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T09:48:10+00:00",
+      "level": "MEDIUM",
+      "token": "SHIKEN",
+      "contract": "8X5BXQ8PV5KKOEKZCF26I3DVOAQVZSSN4JGYGXGTPUMP",
+      "mc_usd": 291800.0,
+      "current_mcap": 291800.0,
+      "entry_mc": 291800.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T09:20:48+00:00",
+      "level": "MEDIUM",
+      "token": "HIGH",
+      "contract": "4JPYH4ATBE8HFCH7LQHXF3YTHSECZM6HTMLVMUYRBONK",
+      "mc_usd": 66800.0,
+      "current_mcap": 66800.0,
+      "entry_mc": 66800.0,
+      "tier": 2,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-02T09:13:16+00:00",
+      "level": "MEDIUM",
+      "token": "PVC",
+      "contract": "ZUYKIMNSBFABAW9BTYTRB3P5RTQDXWWS4DNEC7XPUMP",
+      "mc_usd": 394000.0,
+      "current_mcap": 394000.0,
+      "entry_mc": 394000.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T20:15:23+00:00",
+      "level": "MEDIUM",
+      "token": "STRAWHAT",
+      "contract": "9BHBKX3SBXGGJKZSMSNMJAMXHWGF9OENH6WUK79C1HSK",
+      "mc_usd": 45100.0,
+      "current_mcap": 45100.0,
+      "entry_mc": 45100.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T19:34:15+00:00",
+      "level": "MEDIUM",
+      "token": "EVA",
+      "contract": "9HPYAOBLUUNP8UX1H3H2EFKTXSCYTPZ4BEV8WSTPUMP",
+      "mc_usd": 499500.0,
+      "current_mcap": 499500.0,
+      "entry_mc": 499500.0,
+      "tier": 3,
+      "confirmations": {
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T18:45:07+00:00",
+      "level": "HIGH",
+      "token": "HOUSE",
+      "contract": "7B2DTBY16XMRQDXPZ8EBFDDP4UTQGQR2FRCQGXCZBONK",
+      "mc_usd": 59900.0,
+      "current_mcap": 59900.0,
+      "entry_mc": 59900.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T18:34:57+00:00",
+      "level": "MEDIUM",
+      "token": "HOUSE",
+      "contract": "7B2DTBY16XMRQDXPZ8EBFDDP4UTQGQR2FRCQGXCZBONK",
+      "mc_usd": 59900.0,
+      "current_mcap": 59900.0,
+      "entry_mc": 59900.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T18:30:12+00:00",
+      "level": "HIGH",
+      "token": "FISH",
+      "contract": "CMGJ1POBHUQB7MEA8QDKIG2TUPMTSKWJ8D9JEZWSPUMP",
+      "mc_usd": 57000.0,
+      "current_mcap": 57000.0,
+      "entry_mc": 57000.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T17:21:28+00:00",
+      "level": "MEDIUM",
+      "token": "UNICORN",
+      "contract": "CRNCHBHLNU4CZEJUC8UOXWFCABGAYVY7RCF1VSM1PUMP",
+      "mc_usd": 59700.0,
+      "current_mcap": 59700.0,
+      "entry_mc": 59700.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T17:08:52+00:00",
+      "level": "MEDIUM",
+      "token": "UNICORN",
+      "contract": "CRNCHBHLNU4CZEJUC8UOXWFCABGAYVY7RCF1VSM1PUMP",
+      "mc_usd": 414500.0,
+      "current_mcap": 414500.0,
+      "entry_mc": 414500.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T15:04:09+00:00",
+      "level": "HIGH",
+      "token": "VOID",
+      "contract": "9HSALB4A674PNS3UJCYRU4U5BBVI4UWBCRS9AKNFPUMP",
+      "mc_usd": 119200.0,
+      "current_mcap": 119200.0,
+      "entry_mc": 119200.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T14:31:22+00:00",
+      "level": "MEDIUM",
+      "token": "21",
+      "contract": "D3FALAK8W4VJK1NNXPHQHGVA7IUT5CGPEEHUUW2PPUMP",
+      "mc_usd": 361900.0,
+      "current_mcap": 361900.0,
+      "entry_mc": 361900.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T13:51:12+00:00",
+      "level": "HIGH",
+      "token": "FISH",
+      "contract": "CMGJ1POBHUQB7MEA8QDKIG2TUPMTSKWJ8D9JEZWSPUMP",
+      "mc_usd": 159300.0,
+      "current_mcap": 159300.0,
+      "entry_mc": 159300.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T13:40:45+00:00",
+      "level": "MEDIUM",
+      "token": "FISH",
+      "contract": "CMGJ1POBHUQB7MEA8QDKIG2TUPMTSKWJ8D9JEZWSPUMP",
+      "mc_usd": 126500.0,
+      "current_mcap": 126500.0,
+      "entry_mc": 126500.0,
+      "tier": 3,
+      "confirmations": {
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T13:38:52+00:00",
+      "level": "MEDIUM",
+      "token": "ELLIPSIS",
+      "contract": "MEWTBYQN9HBRUDGDZNTXS73TPLQPJA4YOCJVNCTPUMP",
+      "mc_usd": 112700.0,
+      "current_mcap": 112700.0,
+      "entry_mc": 112700.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T13:05:13+00:00",
+      "level": "MEDIUM",
+      "token": "DORAE",
+      "contract": "BZ9QTMDWBRTWFSMPZY4N1JRPPCSLDQ3FTXANRQ6EPUMP",
+      "mc_usd": 106200.0,
+      "current_mcap": 106200.0,
+      "entry_mc": 106200.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T12:30:45+00:00",
+      "level": "HIGH",
+      "token": "TINTIN",
+      "contract": "6RGCLBFHJMYXV8X2KU3FIUAUHNDRQOBYC9KTD75IPUMP",
+      "mc_usd": 115500.0,
+      "current_mcap": 115500.0,
+      "entry_mc": 115500.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T11:40:08+00:00",
+      "level": "HIGH",
+      "token": "PIKA",
+      "contract": "91TUAAFEGETMKPINQF9ECT8MZCJASC3P5ZCQVF5APUMP",
+      "mc_usd": 108600.0,
+      "current_mcap": 108600.0,
+      "entry_mc": 108600.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T11:04:50+00:00",
+      "level": "HIGH",
+      "token": "RS",
+      "contract": "6YVXJWLOVNQNYUNCFAMZMPRKK2NJLYUKY2WYA9Z4PUMP",
+      "mc_usd": 108500.0,
+      "current_mcap": 108500.0,
+      "entry_mc": 108500.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T10:58:33+00:00",
+      "level": "MEDIUM",
+      "token": "PIKA",
+      "contract": "91TUAAFEGETMKPINQF9ECT8MZCJASC3P5ZCQVF5APUMP",
+      "mc_usd": 108900.0,
+      "current_mcap": 108900.0,
+      "entry_mc": 108900.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T10:50:07+00:00",
+      "level": "MEDIUM",
+      "token": "RS",
+      "contract": "6YVXJWLOVNQNYUNCFAMZMPRKK2NJLYUKY2WYA9Z4PUMP",
+      "mc_usd": 152200.0,
+      "current_mcap": 152200.0,
+      "entry_mc": 152200.0,
+      "tier": 3,
+      "confirmations": {
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T10:09:26+00:00",
+      "level": "HIGH",
+      "token": "ROVER",
+      "contract": "VESFGGHP4FQD7NRCNZLPXA2PRFWOA4EDVIIEZ1UPUMP",
+      "mc_usd": 322500.0,
+      "current_mcap": 322500.0,
+      "entry_mc": 322500.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T09:56:55+00:00",
+      "level": "MEDIUM",
+      "token": "ROVER",
+      "contract": "VESFGGHP4FQD7NRCNZLPXA2PRFWOA4EDVIIEZ1UPUMP",
+      "mc_usd": 159700.0,
+      "current_mcap": 159700.0,
+      "entry_mc": 159700.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T09:54:18+00:00",
+      "level": "HIGH",
+      "token": "WHITEHORSE",
+      "contract": "3KDKPH5Q9CM3YUTMM39NGEDGX9JRRCHQKYNT2KMEPUMP",
+      "mc_usd": 137000.0,
+      "current_mcap": 137000.0,
+      "entry_mc": 137000.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T09:41:39+00:00",
+      "level": "MEDIUM",
+      "token": "WHITEHORSE",
+      "contract": "3KDKPH5Q9CM3YUTMM39NGEDGX9JRRCHQKYNT2KMEPUMP",
+      "mc_usd": 103400.0,
+      "current_mcap": 103400.0,
+      "entry_mc": 103400.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T09:05:12+00:00",
+      "level": "MEDIUM",
+      "token": "GPU",
+      "contract": "EGPZZWOBEMABD8K6HKWQ8JZHF1KOWGW2TVP5HBZ4PUMP",
+      "mc_usd": 124800.0,
+      "current_mcap": 124800.0,
+      "entry_mc": 124800.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T08:48:18+00:00",
+      "level": "MEDIUM",
+      "token": "TAXREVOLT",
+      "contract": "2YTBX7P7M8FFAKVZ1QCMQH4WXDOH3KZX3UVRZNJZPUMP",
+      "mc_usd": 75800.0,
+      "current_mcap": 75800.0,
+      "entry_mc": 75800.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T08:39:13+00:00",
+      "level": "MEDIUM",
+      "token": "DAYCARE",
+      "contract": "7KZMPD1QQSJ9AFDQPNQGCDWFOMO6SI42KFY5UFEDPUMP",
+      "mc_usd": 174300.0,
+      "current_mcap": 174300.0,
+      "entry_mc": 174300.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T07:26:54+00:00",
+      "level": "HIGH",
+      "token": "STRAWHAT",
+      "contract": "9BHBKX3SBXGGJKZSMSNMJAMXHWGF9OENH6WUK79C1HSK",
+      "mc_usd": 125900.0,
+      "current_mcap": 125900.0,
+      "entry_mc": 125900.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T07:17:46+00:00",
+      "level": "HIGH",
+      "token": "21",
+      "contract": "D3FALAK8W4VJK1NNXPHQHGVA7IUT5CGPEEHUUW2PPUMP",
+      "mc_usd": 146100.0,
+      "current_mcap": 146100.0,
+      "entry_mc": 146100.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T07:13:28+00:00",
+      "level": "MEDIUM",
+      "token": "STRAWHAT",
+      "contract": "9BHBKX3SBXGGJKZSMSNMJAMXHWGF9OENH6WUK79C1HSK",
+      "mc_usd": 184200.0,
+      "current_mcap": 184200.0,
+      "entry_mc": 184200.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T06:32:03+00:00",
+      "level": "HIGH",
+      "token": "ELLIPSIS",
+      "contract": "MEWTBYQN9HBRUDGDZNTXS73TPLQPJA4YOCJVNCTPUMP",
+      "mc_usd": 248800.0,
+      "current_mcap": 248800.0,
+      "entry_mc": 248800.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T06:28:33+00:00",
+      "level": "MEDIUM",
+      "token": "UNICORN",
+      "contract": "CRNCHBHLNU4CZEJUC8UOXWFCABGAYVY7RCF1VSM1PUMP",
+      "mc_usd": 174200.0,
+      "current_mcap": 174200.0,
+      "entry_mc": 174200.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T05:52:07+00:00",
+      "level": "HIGH",
+      "token": "DAY1",
+      "contract": "B46Q6AJ4XRWWTXUWTCU1SK5DVUIEHAEGLPPOTJBIPUMP",
+      "mc_usd": 140500.0,
+      "current_mcap": 140500.0,
+      "entry_mc": 140500.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T05:37:10+00:00",
+      "level": "MEDIUM",
+      "token": "DAY1",
+      "contract": "B46Q6AJ4XRWWTXUWTCU1SK5DVUIEHAEGLPPOTJBIPUMP",
+      "mc_usd": 105600.0,
+      "current_mcap": 105600.0,
+      "entry_mc": 105600.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:56:36+00:00",
+      "level": "MEDIUM",
+      "token": "BLAST",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "mc_usd": 195200.0,
+      "current_mcap": 195200.0,
+      "entry_mc": 195200.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:53:47+00:00",
+      "level": "MEDIUM",
+      "token": "CUM",
+      "contract": "5HQANAZRETWU2DGWDNVK1NIMJZCMNMSJGUHVW8Z7PUMP",
+      "mc_usd": 115100.0,
+      "current_mcap": 115100.0,
+      "entry_mc": 115100.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:26:49+00:00",
+      "level": "HIGH",
+      "token": "DAISY",
+      "contract": "5TJK9D2N1SUJU8KTMOBTOTE4P2N2QRC4MKLUYPVXPUMP",
+      "mc_usd": 171200.0,
+      "current_mcap": 171200.0,
+      "entry_mc": 171200.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:23:40+00:00",
+      "level": "HIGH",
+      "token": "ART",
+      "contract": "7GZPZBE8RSP6JUUNR1X4IQTWFYUDUDV44HPRCCK8QCDP",
+      "mc_usd": 55900.0,
+      "current_mcap": 55900.0,
+      "entry_mc": 55900.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:22:50+00:00",
+      "level": "MEDIUM",
+      "token": "TAXSTRIKE",
+      "contract": "ANCUQECZ3AUMA8PSWJ5TTHVKRGDDXIA6J5D6KFE5PUMP",
+      "mc_usd": 121800.0,
+      "current_mcap": 121800.0,
+      "entry_mc": 121800.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T04:08:56+00:00",
+      "level": "MEDIUM",
+      "token": "ART",
+      "contract": "7GZPZBE8RSP6JUUNR1X4IQTWFYUDUDV44HPRCCK8QCDP",
+      "mc_usd": 99300.0,
+      "current_mcap": 99300.0,
+      "entry_mc": 99300.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T03:52:36+00:00",
+      "level": "MEDIUM",
+      "token": "BLAST",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "mc_usd": 135600.0,
+      "current_mcap": 135600.0,
+      "entry_mc": 135600.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T03:30:58+00:00",
+      "level": "HIGH",
+      "token": "GORKIN",
+      "contract": "64TFRAVQZGNSAHSERC4JIZUAQMBFKKKYR6YGKQNZ5QXW",
+      "mc_usd": 142100.0,
+      "current_mcap": 142100.0,
+      "entry_mc": 142100.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T02:35:12+00:00",
+      "level": "HIGH",
+      "token": "1M",
+      "contract": "FWKUBES4EBDSNUSNNTEBGMEHMCQRTEHFWBJ6HZRBPUMP",
+      "mc_usd": 113300.0,
+      "current_mcap": 113300.0,
+      "entry_mc": 113300.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T02:18:52+00:00",
+      "level": "MEDIUM",
+      "token": "1M",
+      "contract": "FWKUBES4EBDSNUSNNTEBGMEHMCQRTEHFWBJ6HZRBPUMP",
+      "mc_usd": 171900.0,
+      "current_mcap": 171900.0,
+      "entry_mc": 171900.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T02:12:54+00:00",
+      "level": "MEDIUM",
+      "token": "BYE2025",
+      "contract": "RMTNFK3BDFGLBVW4UJRSSTNBMII9YGAJL1YHNPIPUMP",
+      "mc_usd": 340600.0,
+      "current_mcap": 340600.0,
+      "entry_mc": 340600.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T01:10:08+00:00",
+      "level": "HIGH",
+      "token": "HFD",
+      "contract": "GEIAFOFCVGVVE4KNCOQMN2TDPDRUFKHZRIHACPDPUMP",
+      "mc_usd": 126100.0,
+      "current_mcap": 126100.0,
+      "entry_mc": 126100.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T00:54:41+00:00",
+      "level": "MEDIUM",
+      "token": "HFD",
+      "contract": "GEIAFOFCVGVVE4KNCOQMN2TDPDRUFKHZRIHACPDPUMP",
+      "mc_usd": 142700.0,
+      "current_mcap": 142700.0,
+      "entry_mc": 142700.0,
+      "tier": 3,
+      "confirmations": {
+        "momentum": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "momentum",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-01T00:13:16+00:00",
+      "level": "MEDIUM",
+      "token": "26",
+      "contract": "CPO4YNN5QV2JGVNPJWE8JWQKDUWMSKLUFVD1RGJQPUMP",
+      "mc_usd": 43700.0,
+      "current_mcap": 43700.0,
+      "entry_mc": 43700.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T23:57:41+00:00",
+      "level": "HIGH",
+      "token": "DAYCARE",
+      "contract": "7KZMPD1QQSJ9AFDQPNQGCDWFOMO6SI42KFY5UFEDPUMP",
+      "mc_usd": 145600.0,
+      "current_mcap": 145600.0,
+      "entry_mc": 145600.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T23:49:53+00:00",
+      "level": "HIGH",
+      "token": "KIRK",
+      "contract": "BKDAXAYEOBHRQ7QLE32EDXU3TVNWCA3BR74HP4G5PUMP",
+      "mc_usd": 375300.0,
+      "current_mcap": 375300.0,
+      "entry_mc": 375300.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T23:28:36+00:00",
+      "level": "MEDIUM",
+      "token": "GROKTOKEN",
+      "contract": "ANE5YGVSJI9VEVEF6ACGNBVMNW4YBKHFPHBF6AAWPUMP",
+      "mc_usd": 172600.0,
+      "current_mcap": 172600.0,
+      "entry_mc": 172600.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T22:45:43+00:00",
+      "level": "MEDIUM",
+      "token": "HIGH",
+      "contract": "2LOIYOMEA13IWFXDFMPMGY9W1W17JUSDYKGZQB4D1TO1",
+      "mc_usd": 441300.0,
+      "current_mcap": 441300.0,
+      "entry_mc": 441300.0,
+      "tier": 2,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T22:43:59+00:00",
+      "level": "HIGH",
+      "token": "STABLE",
+      "contract": "ACUZXCSPGISFM9PBWQZG5944UJV2DHYQPH979VE51TO1",
+      "mc_usd": 177000.0,
+      "current_mcap": 177000.0,
+      "entry_mc": 177000.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T22:33:04+00:00",
+      "level": "MEDIUM",
+      "token": "STABLE",
+      "contract": "ACUZXCSPGISFM9PBWQZG5944UJV2DHYQPH979VE51TO1",
+      "mc_usd": 108800.0,
+      "current_mcap": 108800.0,
+      "entry_mc": 108800.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T21:31:45+00:00",
+      "level": "MEDIUM",
+      "token": "UHD",
+      "contract": "4VBIVCWSHYDM63R4MRHDG9RSN7FLX7X17PVACBCUPUMP",
+      "mc_usd": 114700.0,
+      "current_mcap": 114700.0,
+      "entry_mc": 114700.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T21:20:11+00:00",
+      "level": "HIGH",
+      "token": "PEPE",
+      "contract": "6ROMRAMUBUJYHLGUQHDC7E3YJPCG8WW4FLPXD8BRPUMP",
+      "mc_usd": 113200.0,
+      "current_mcap": 113200.0,
+      "entry_mc": 113200.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T21:07:05+00:00",
+      "level": "MEDIUM",
+      "token": "PEPE",
+      "contract": "6ROMRAMUBUJYHLGUQHDC7E3YJPCG8WW4FLPXD8BRPUMP",
+      "mc_usd": 88500.0,
+      "current_mcap": 88500.0,
+      "entry_mc": 88500.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T20:43:58+00:00",
+      "level": "MEDIUM",
+      "token": "HORSES",
+      "contract": "ERYJUTDCH9P1YLF8OQQ8XCITFBHNTDBNRWH7CBSYPUMP",
+      "mc_usd": 155200.0,
+      "current_mcap": 155200.0,
+      "entry_mc": 155200.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T20:34:17+00:00",
+      "level": "HIGH",
+      "token": "UNICORN",
+      "contract": "CRNCHBHLNU4CZEJUC8UOXWFCABGAYVY7RCF1VSM1PUMP",
+      "mc_usd": 160300.0,
+      "current_mcap": 160300.0,
+      "entry_mc": 160300.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T20:30:15+00:00",
+      "level": "HIGH",
+      "token": "MOON",
+      "contract": "7IPJBJXZ6MBJQ1V4DTBN9NP2F8HPAS6DOGPN4KUXPUMP",
+      "mc_usd": 128000.0,
+      "current_mcap": 128000.0,
+      "entry_mc": 128000.0,
+      "tier": 1,
+      "confirmations": {
+        "glydo": true,
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo",
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T20:12:19+00:00",
+      "level": "MEDIUM",
+      "token": "MOON",
+      "contract": "7IPJBJXZ6MBJQ1V4DTBN9NP2F8HPAS6DOGPN4KUXPUMP",
+      "mc_usd": 151600.0,
+      "current_mcap": 151600.0,
+      "entry_mc": 151600.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T20:06:06+00:00",
+      "level": "MEDIUM",
+      "token": "HORSES",
+      "contract": "ERYJUTDCH9P1YLF8OQQ8XCITFBHNTDBNRWH7CBSYPUMP",
+      "mc_usd": 174500.0,
+      "current_mcap": 174500.0,
+      "entry_mc": 174500.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T19:58:34+00:00",
+      "level": "MEDIUM",
+      "token": "QPAY",
+      "contract": "EMG2QKFZ6PLVGCKVGJ8X6NMYRKIUOAMYNTDOXXN8PUMP",
+      "mc_usd": 174300.0,
+      "current_mcap": 174300.0,
+      "entry_mc": 174300.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T18:21:26+00:00",
+      "level": "MEDIUM",
+      "token": "POLYOS",
+      "contract": "EYNWZNRWTT7JTTDPWDJM3NMUH3UHPKBVUPAWCES4PUMP",
+      "mc_usd": 129500.0,
+      "current_mcap": 129500.0,
+      "entry_mc": 129500.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T00:43:20+00:00",
+      "level": "MEDIUM",
+      "token": "OMNI",
+      "contract": "4UGXGGGRWEQYSHAYUWBM9IWENT58ADN8UVAUPRWBPUMP",
+      "mc_usd": 108800.0,
+      "current_mcap": 108800.0,
+      "entry_mc": 108800.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T00:41:29+00:00",
+      "level": "MEDIUM",
+      "token": "DUCK",
+      "contract": "B79HPCZAJP6XE41EZUOU8RWJQNFXS8OLSWCS4ZQ2PUMP",
+      "mc_usd": 439300.0,
+      "current_mcap": 439300.0,
+      "entry_mc": 439300.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T00:28:48+00:00",
+      "level": "MEDIUM",
+      "token": "DUCK",
+      "contract": "B79HPCZAJP6XE41EZUOU8RWJQNFXS8OLSWCS4ZQ2PUMP",
+      "mc_usd": 337000.0,
+      "current_mcap": 337000.0,
+      "entry_mc": 337000.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T00:19:47+00:00",
+      "level": "MEDIUM",
+      "token": "FRAUDCOIN",
+      "contract": "6MJFCBDGECE4AAPDP2UUNPBRMKKKEJEXR8UCARBC92VG",
+      "mc_usd": 144500.0,
+      "current_mcap": 144500.0,
+      "entry_mc": 144500.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-31T00:17:39+00:00",
+      "level": "MEDIUM",
+      "token": "FRAUDCOIN",
+      "contract": "6MJFCBDGECE4AAPDP2UUNPBRMKKKEJEXR8UCARBC92VG",
+      "mc_usd": 124500.0,
+      "current_mcap": 124500.0,
+      "entry_mc": 124500.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-30T18:57:11+00:00",
+      "level": "MEDIUM",
+      "token": "LONG",
+      "contract": "29ZPC8UEQN4WBPFQ5SU8EE1AKALHDWTBLWXR1A3EPUMP",
+      "mc_usd": 420300.0,
+      "current_mcap": 420300.0,
+      "entry_mc": 420300.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-30T00:32:25+00:00",
+      "level": "MEDIUM",
+      "token": "ZORIA",
+      "contract": "9IVAQQYRQISTA3SGV7K8JLEVNVU64STEBZUUR6FGPUMP",
+      "mc_usd": 222000.0,
+      "current_mcap": 222000.0,
+      "entry_mc": 222000.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-29T15:58:55+00:00",
+      "level": "MEDIUM",
+      "token": "PBANK",
+      "contract": "F5QMUBVNUPAUQSCBYHC6WNCMMGRDW1BM3A6OATXSPUMP",
+      "mc_usd": 184600.0,
+      "current_mcap": 184600.0,
+      "entry_mc": 184600.0,
+      "tier": 3,
+      "confirmations": {
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T16:18:21+00:00",
+      "level": "MEDIUM",
+      "token": "HOLLO",
+      "contract": "8V6VKJIKCZQQNBRFKQEENJ6U4DEETAI5YSUEGGFLPUMP",
+      "mc_usd": 88100.0,
+      "current_mcap": 88100.0,
+      "entry_mc": 88100.0,
+      "tier": 3,
+      "confirmations": {
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T15:39:58+00:00",
+      "level": "MEDIUM",
+      "token": "LARPBALL",
+      "contract": "CE5HEYZTBWUP5U2UDCMDFGHJMH7OH7VVPVKNP3FFPUMP",
+      "mc_usd": 496700.0,
+      "current_mcap": 496700.0,
+      "entry_mc": 496700.0,
+      "tier": 3,
+      "confirmations": {
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T14:15:51+00:00",
+      "level": "MEDIUM",
+      "token": "UZDABRAZOR",
+      "contract": "DCDQBMZM9HYCFQDJ8PQXZEQXVETMWSKMAFWSCKCXPUMP",
+      "mc_usd": 88500.0,
+      "current_mcap": 88500.0,
+      "entry_mc": 88500.0,
+      "tier": 3,
+      "confirmations": {
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T14:07:39+00:00",
+      "level": "MEDIUM",
+      "token": "RASTAWHALE",
+      "contract": "7AUVBYPZ3MTNTMKD23UGFYYB6ZOTSGLB8P2PTZUTPUMP",
+      "mc_usd": 107100.0,
+      "current_mcap": 107100.0,
+      "entry_mc": 107100.0,
+      "tier": 3,
+      "confirmations": {
+        "momentum": true,
+        "smart_money": true,
+        "volume": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "momentum",
+        "smart_money",
+        "volume"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T13:29:56+00:00",
+      "level": "MEDIUM",
+      "token": "SILVER",
+      "contract": "DVGUBPGNIXDWVCM654YIALCMNIY2CDUYJXJK3U9GPUMP",
+      "mc_usd": 172700.0,
+      "current_mcap": 172700.0,
+      "entry_mc": 172700.0,
+      "tier": 3,
+      "confirmations": {
+        "glydo": true
+      },
+      "callers": null,
+      "subs": null,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T12:32:44+00:00",
+      "level": "MEDIUM",
+      "token": "LAUNCHR",
+      "contract": "86ZNAUJEVLMTNNAZECET1ZYR7HN2PEF5ZPEWUKTDPUMP",
+      "mc_usd": 50300.0,
+      "current_mcap": 50300.0,
+      "entry_mc": 50300.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
+      "timestamp": "2025-12-26T11:38:12+00:00",
+      "level": "MEDIUM",
+      "token": "QUESADILLA",
+      "contract": "HT41SF2VFPURV9BJK9N2VVDSVTX3VZ4PVVBCSAQSPUMP",
+      "mc_usd": 154600.0,
+      "current_mcap": 154600.0,
+      "entry_mc": 154600.0,
+      "tier": 3,
+      "confirmations": {},
+      "callers": null,
+      "subs": null,
+      "matched_signals": [],
+      "source": "json_export_backfill"
+    },
+    {
       "timestamp": "2025-12-26T10:50:00.000000+00:00",
       "level": "MEDIUM",
       "token": "LICO",
@@ -4278,7 +6158,7 @@
   ],
   "false_positives": [],
   "true_positives": [],
-  "last_updated": "2026-01-02T15:17:46.875895+00:00",
+  "last_updated": "2026-01-02T15:27:21.824410+00:00",
   "backfill_info": {
     "backfilled_at": "2026-01-02T15:17:46.875907+00:00",
     "new_alerts_added": 3,
