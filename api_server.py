@@ -55,8 +55,18 @@ app.add_middleware(
 
 # File paths
 BASE_DIR = Path(__file__).parent
+
+# CRITICAL: Check for Railway persistent volume first (same logic as kpi_logger)
+# This ensures API reads from the same file that the bot writes to
+data_dir = Path("/data")
+if data_dir.exists() and data_dir.is_dir():
+    # Use persistent volume if available (Railway)
+    KPI_LOGS_FILE = data_dir / "kpi_logs.json"
+else:
+    # Fallback to local file (local dev or Railway without volumes)
+    KPI_LOGS_FILE = BASE_DIR / "kpi_logs.json"
+
 SUBSCRIPTIONS_FILE = BASE_DIR / "subscriptions.json"
-KPI_LOGS_FILE = BASE_DIR / "kpi_logs.json"
 ALERT_GROUPS_FILE = BASE_DIR / "alert_groups.json"
 USER_PREFERENCES_FILE = BASE_DIR / "user_preferences.json"
 
@@ -80,6 +90,32 @@ def get_cached_kpi_data() -> Dict:
     
     now = datetime.now(timezone.utc)
     
+    # #region agent log
+    try:
+        with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+            import json as json_lib
+            log_entry = {
+                "sessionId": "debug-session",
+                "runId": "run1",
+                "hypothesisId": "H1,H2,H3",
+                "location": "api_server.py:70",
+                "message": "get_cached_kpi_data entry",
+                "data": {
+                    "cache_exists": _kpi_data_cache is not None,
+                    "cache_timestamp": str(_cache_timestamp) if _cache_timestamp else None,
+                    "file_path": str(KPI_LOGS_FILE),
+                    "file_exists": KPI_LOGS_FILE.exists(),
+                    "file_size": KPI_LOGS_FILE.stat().st_size if KPI_LOGS_FILE.exists() else 0,
+                    "data_dir_exists": data_dir.exists(),
+                    "now": now.isoformat()
+                },
+                "timestamp": int(now.timestamp() * 1000)
+            }
+            f.write(json_lib.dumps(log_entry) + '\n')
+    except Exception:
+        pass
+    # #endregion
+    
     # Check if cache is valid
     cache_valid = False
     if _kpi_data_cache is not None and _cache_timestamp is not None:
@@ -94,6 +130,29 @@ def get_cached_kpi_data() -> Dict:
             except Exception:
                 pass
     
+    # #region agent log
+    try:
+        with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+            import json as json_lib
+            log_entry = {
+                "sessionId": "debug-session",
+                "runId": "run1",
+                "hypothesisId": "H1,H2",
+                "location": "api_server.py:95",
+                "message": "cache validity check",
+                "data": {
+                    "cache_valid": cache_valid,
+                    "age_seconds": age_seconds if _cache_timestamp else None,
+                    "current_mtime": KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0,
+                    "cached_mtime": _cache_file_mtime
+                },
+                "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000)
+            }
+            f.write(json_lib.dumps(log_entry) + '\n')
+    except Exception:
+        pass
+    # #endregion
+    
     # Load from file if cache is invalid
     if not cache_valid:
         _kpi_data_cache = load_json_file(KPI_LOGS_FILE, {"alerts": [], "true_positives": [], "false_positives": []})
@@ -102,6 +161,31 @@ def get_cached_kpi_data() -> Dict:
             _cache_file_mtime = KPI_LOGS_FILE.stat().st_mtime if KPI_LOGS_FILE.exists() else 0
         except Exception:
             _cache_file_mtime = 0
+        
+        # #region agent log
+        try:
+            with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                import json as json_lib
+                alerts = _kpi_data_cache.get("alerts", [])
+                latest_alert = max(alerts, key=lambda x: x.get("timestamp", "")) if alerts else None
+                log_entry = {
+                    "sessionId": "debug-session",
+                    "runId": "run1",
+                    "hypothesisId": "H3",
+                    "location": "api_server.py:105",
+                    "message": "cache loaded from file",
+                    "data": {
+                        "alert_count": len(alerts),
+                        "latest_token": latest_alert.get("token") if latest_alert else None,
+                        "latest_timestamp": latest_alert.get("timestamp") if latest_alert else None,
+                        "file_mtime": _cache_file_mtime
+                    },
+                    "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000)
+                }
+                f.write(json_lib.dumps(log_entry) + '\n')
+        except Exception:
+            pass
+        # #endregion
     
     return _kpi_data_cache
 
@@ -377,6 +461,32 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         # Use cached alerts for better performance
         alerts = get_cached_alerts()
         
+        # #region agent log
+        try:
+            with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                import json as json_lib
+                now = datetime.now(timezone.utc)
+                latest_alert = max(alerts, key=lambda x: x.get("timestamp", "")) if alerts else None
+                log_entry = {
+                    "sessionId": "debug-session",
+                    "runId": "run1",
+                    "hypothesisId": "H3,H5",
+                    "location": "api_server.py:378",
+                    "message": "get_recent_alerts entry",
+                    "data": {
+                        "total_alerts": len(alerts),
+                        "latest_token": latest_alert.get("token") if latest_alert else None,
+                        "latest_timestamp": latest_alert.get("timestamp") if latest_alert else None,
+                        "limit": limit,
+                        "dedupe": dedupe
+                    },
+                    "timestamp": int(now.timestamp() * 1000)
+                }
+                f.write(json_lib.dumps(log_entry) + '\n')
+        except Exception:
+            pass
+        # #endregion
+        
         # Sort by timestamp (newest first)
         alerts.sort(
             key=lambda x: datetime.fromisoformat(x.get("timestamp", "2000-01-01")).replace(tzinfo=timezone.utc),
@@ -446,6 +556,30 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
         
         # Limit results
         alerts = alerts[:limit]
+        
+        # #region agent log
+        try:
+            with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                import json as json_lib
+                now = datetime.now(timezone.utc)
+                returned_tokens = [a.get("token") for a in alerts[:5]]
+                log_entry = {
+                    "sessionId": "debug-session",
+                    "runId": "run1",
+                    "hypothesisId": "H5",
+                    "location": "api_server.py:390",
+                    "message": "alerts after filtering/limiting",
+                    "data": {
+                        "alerts_returned": len(alerts),
+                        "first_5_tokens": returned_tokens,
+                        "first_alert_timestamp": alerts[0].get("timestamp") if alerts else None
+                    },
+                    "timestamp": int(now.timestamp() * 1000)
+                }
+                f.write(json_lib.dumps(log_entry) + '\n')
+        except Exception:
+            pass
+        # #endregion
         
         # Format alerts for frontend
         formatted_alerts = []
@@ -748,10 +882,22 @@ if __name__ == "__main__":
     import uvicorn
     # Railway uses PORT environment variable, fallback to 5000 for local dev
     port = int(os.getenv("PORT", "5000"))
+    
+    # CRITICAL: Invalidate cache on startup to ensure fresh data
+    invalidate_cache()
+    
+    # Log file path being used
     print("🚀 Starting SolBoy Alerts API Server...")
+    print(f"📁 Reading alerts from: {KPI_LOGS_FILE}")
+    print(f"   File exists: {KPI_LOGS_FILE.exists()}")
+    if KPI_LOGS_FILE.exists():
+        file_size = KPI_LOGS_FILE.stat().st_size
+        print(f"   File size: {file_size:,} bytes")
+    
     print(f"📡 API will be available at: http://0.0.0.0:{port}")
     print(f"📖 API docs at: http://0.0.0.0:{port}/docs")
     print(f"💚 Health check: http://0.0.0.0:{port}/api/health")
+    print(f"🔄 Cache refresh: http://0.0.0.0:{port}/api/cache/refresh")
     uvicorn.run(app, host="0.0.0.0", port=port)
 
 
