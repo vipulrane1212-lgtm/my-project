@@ -396,35 +396,17 @@ class TelegramMonitorNew:
             print(f"[{source.upper():<15}] ❌ [INGEST ERROR] {str(e)}")
             return
         for alert in alerts:
-            # Deduplication: Check if we've sent this exact alert recently (same token + tier)
+            # CRITICAL FIX: Save ALL alerts to kpi_logs.json FIRST, before any filters
+            # This ensures the API has complete data, even if alerts are filtered for Telegram sending
+            # Filters (duplicate check, MCAP filter) only affect Telegram delivery, NOT saving
+            
             token = alert.get("token") or "UNKNOWN"
             tier = alert.get("tier")
             alert_key = (token, tier)
             current_time = datetime.now(timezone.utc).timestamp()
             # #region agent log
-            debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H2,H7,H10","location":"telegram_monitor_new.py:343","message":"Alert before deduplication check","data":{"token":token,"tier":tier,"alert_key":str(alert_key),"alert_id":alert.get("alert_id"),"alert_keys":list(alert.keys())},"timestamp":int(current_time*1000)})
+            debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H2,H7,H10","location":"telegram_monitor_new.py:343","message":"Alert before processing","data":{"token":token,"tier":tier,"alert_key":str(alert_key),"alert_id":alert.get("alert_id"),"alert_keys":list(alert.keys())},"timestamp":int(current_time*1000)})
             # #endregion
-            
-            # Check if we sent this alert in the last 5 minutes
-            if alert_key in self.recent_alerts:
-                last_sent = self.recent_alerts[alert_key]
-                time_diff = current_time - last_sent
-                if time_diff < 300:  # 5 minutes = 300 seconds
-                    print(f"⚠️ Skipping duplicate alert for {token} TIER {tier} - sent {int(time_diff)}s ago")
-                    # #region agent log
-                    debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H1,H5","location":"telegram_monitor_new.py:351","message":"Duplicate alert detected and skipped","data":{"token":token,"tier":tier,"time_diff":time_diff,"alert_key":str(alert_key)},"timestamp":int(current_time*1000)})
-                    # #endregion
-                    continue
-            
-            # Mark this alert as sent
-            self.recent_alerts[alert_key] = current_time
-            # #region agent log
-            debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"telegram_monitor_new.py:355","message":"Alert marked as sent in recent_alerts","data":{"token":token,"tier":tier,"alert_key":str(alert_key),"recent_alerts_count":len(self.recent_alerts)},"timestamp":int(current_time*1000)})
-            # #endregion
-            
-            # Cleanup old entries (older than 1 hour)
-            cutoff = current_time - 3600
-            self.recent_alerts = {k: v for k, v in self.recent_alerts.items() if v > cutoff}
             
             # Enrich with live MCAP/symbol from DexScreener if enabled
             current_mcap = None
@@ -446,14 +428,10 @@ class TelegramMonitorNew:
                     # Don't fail alerts if DexScreener API fails
                     print(f"[DexScreener] Warning: Could not enrich alert: {e}")
             
-            # MCAP Filter: Skip alerts if current MCAP > 500k
+            # Get current MCAP for display
             if current_mcap is None:
                 # Fallback to alert's MCAP if enrichment failed
                 current_mcap = alert.get("mc_usd") or alert.get("market_cap")
-            
-            if current_mcap and current_mcap > 500000:  # 500k threshold
-                print(f"⏭️ Skipping alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold")
-                continue  # Skip this alert
             
             # CRITICAL: Get the Current MCAP that will be shown in the Telegram post
             # This must be done BEFORE formatting the message, so we save the correct value
@@ -465,9 +443,59 @@ class TelegramMonitorNew:
                 alert["current_mcap_source"] = alert.get("mc_source", "unknown")  # Track source
                 print(f"📊 Current MCAP ({alert.get('current_mcap_source', 'unknown')}): ${current_mc_shown:,.0f}")
             
-            # Log alert for KPI tracking (NOW with correct current_mcap)
+            # CRITICAL FIX: Save alert to kpi_logs.json FIRST (before any filters)
+            # This ensures ALL alerts are saved, even if they're duplicates or exceed MCAP threshold
+            # The API needs complete data, filters only affect Telegram delivery
             level = alert.get("level", "MEDIUM")
             self.kpi_logger.log_alert(alert, level)
+            # #region agent log
+            debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:470","message":"Alert saved to kpi_logs.json before filters","data":{"token":token,"tier":tier,"current_mcap":current_mcap,"will_send_to_telegram":"checking"},"timestamp":int(current_time*1000)})
+            # #endregion
+            
+            # NOW apply filters for Telegram sending (but alert is already saved)
+            should_send_to_telegram = True
+            skip_reason = None
+            
+            # Deduplication: Check if we've sent this exact alert recently (same token + tier)
+            # Check if we sent this alert in the last 5 minutes
+            if alert_key in self.recent_alerts:
+                last_sent = self.recent_alerts[alert_key]
+                time_diff = current_time - last_sent
+                if time_diff < 300:  # 5 minutes = 300 seconds
+                    print(f"⚠️ Duplicate alert for {token} TIER {tier} - sent {int(time_diff)}s ago (saved to JSON, but not sending to Telegram)")
+                    # #region agent log
+                    debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H1,H5","location":"telegram_monitor_new.py:351","message":"Duplicate alert detected - saved but not sending","data":{"token":token,"tier":tier,"time_diff":time_diff,"alert_key":str(alert_key)},"timestamp":int(current_time*1000)})
+                    # #endregion
+                    should_send_to_telegram = False
+                    skip_reason = "duplicate"
+            
+            # MCAP Filter: Skip sending if current MCAP > 500k (but alert is already saved)
+            if should_send_to_telegram and current_mcap and current_mcap > 500000:  # 500k threshold
+                print(f"⏭️ Alert for {token} - Current MCAP ${current_mcap:,.0f} exceeds 500k threshold (saved to JSON, but not sending to Telegram)")
+                should_send_to_telegram = False
+                skip_reason = "mcap_threshold"
+                # #region agent log
+                debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H6","location":"telegram_monitor_new.py:456","message":"MCAP threshold exceeded - saved but not sending","data":{"token":token,"tier":tier,"current_mcap":current_mcap},"timestamp":int(current_time*1000)})
+                # #endregion
+            
+            # Mark this alert as sent (even if we're not sending it, to prevent duplicates)
+            if should_send_to_telegram:
+                self.recent_alerts[alert_key] = current_time
+                # #region agent log
+                debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"telegram_monitor_new.py:355","message":"Alert marked as sent in recent_alerts","data":{"token":token,"tier":tier,"alert_key":str(alert_key),"recent_alerts_count":len(self.recent_alerts)},"timestamp":int(current_time*1000)})
+                # #endregion
+            
+            # Cleanup old entries (older than 1 hour)
+            cutoff = current_time - 3600
+            self.recent_alerts = {k: v for k, v in self.recent_alerts.items() if v > cutoff}
+            
+            # Only send to Telegram if filters passed
+            if not should_send_to_telegram:
+                print(f"✅ Alert saved to kpi_logs.json (skipped Telegram: {skip_reason})")
+                # #region agent log
+                debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:482","message":"Alert saved but not sent to Telegram","data":{"token":token,"tier":tier,"skip_reason":skip_reason},"timestamp":int(current_time*1000)})
+                # #endregion
+                continue  # Skip Telegram sending, but alert is already saved
             
             # Pass weights for tagline selection
             weights = self.monitor.weights if hasattr(self.monitor, 'weights') else None
