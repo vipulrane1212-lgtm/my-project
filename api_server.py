@@ -628,8 +628,10 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                     filtered_alerts.append(alert)
             alerts = filtered_alerts
         
-        # Limit results
-        alerts = alerts[:limit]
+        # Limit results (0 = return all)
+        total_alerts_count = len(alerts)
+        if limit > 0:
+            alerts = alerts[:limit]
         
         # #region agent log
         try:
