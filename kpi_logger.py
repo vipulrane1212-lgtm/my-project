@@ -22,6 +22,7 @@ class KPILogger:
         # Check if Railway persistent volume exists (/data is common mount point)
         # This ensures data persists across Railway redeployments
         data_dir = Path("/data")
+        data_dir = Path("/data")
         if data_dir.exists() and data_dir.is_dir():
             # Use persistent volume if available
             self.log_file = data_dir / "kpi_logs.json"
@@ -33,6 +34,30 @@ class KPILogger:
             print(f"📁 Using local file: {self.log_file}")
             print(f"   ⚠️  WARNING: Using ephemeral storage - data may be lost on Railway redeploy!")
             print(f"   💡 Solution: Set up Railway Volume (see SETUP_DATA_PERSISTENCE.md)")
+        
+        # #region agent log
+        try:
+            with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                import json as json_lib
+                now = datetime.now(timezone.utc)
+                log_entry = {
+                    "sessionId": "debug-session",
+                    "runId": "run1",
+                    "hypothesisId": "H1,H2",
+                    "location": "kpi_logger.py:35",
+                    "message": "KPILogger init - file path determined",
+                    "data": {
+                        "log_file_path": str(self.log_file),
+                        "data_dir_exists": data_dir.exists(),
+                        "file_exists": self.log_file.exists(),
+                        "file_size": self.log_file.stat().st_size if self.log_file.exists() else 0
+                    },
+                    "timestamp": int(now.timestamp() * 1000)
+                }
+                f.write(json_lib.dumps(log_entry) + '\n')
+        except Exception:
+            pass
+        # #endregion
         
         # Ensure directory exists
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -212,10 +237,12 @@ class KPILogger:
                         with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
                             import json as json_lib
                             now = datetime.now(timezone.utc)
+                            file_mtime = self.log_file.stat().st_mtime if self.log_file.exists() else 0
+                            file_size = self.log_file.stat().st_size if self.log_file.exists() else 0
                             log_entry = {
                                 "sessionId": "debug-session",
                                 "runId": "run1",
-                                "hypothesisId": "H3",
+                                "hypothesisId": "H3,H4",
                                 "location": "kpi_logger.py:202",
                                 "message": "alert saved successfully",
                                 "data": {
@@ -223,7 +250,10 @@ class KPILogger:
                                     "tier": alert.get("tier"),
                                     "timestamp": alert_entry.get("timestamp"),
                                     "file_path": str(self.log_file),
-                                    "total_alerts": len(self.alerts)
+                                    "total_alerts": len(self.alerts),
+                                    "file_mtime": file_mtime,
+                                    "file_size": file_size,
+                                    "file_exists": self.log_file.exists()
                                 },
                                 "timestamp": int(now.timestamp() * 1000)
                             }

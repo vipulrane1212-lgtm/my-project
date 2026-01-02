@@ -66,6 +66,32 @@ else:
     # Fallback to local file (local dev or Railway without volumes)
     KPI_LOGS_FILE = BASE_DIR / "kpi_logs.json"
 
+# #region agent log
+try:
+    with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+        import json as json_lib
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc)
+        log_entry = {
+            "sessionId": "debug-session",
+            "runId": "run1",
+            "hypothesisId": "H1,H2",
+            "location": "api_server.py:68",
+            "message": "API server init - KPI_LOGS_FILE path determined",
+            "data": {
+                "kpi_logs_file_path": str(KPI_LOGS_FILE),
+                "data_dir_exists": data_dir.exists(),
+                "file_exists": KPI_LOGS_FILE.exists(),
+                "file_size": KPI_LOGS_FILE.stat().st_size if KPI_LOGS_FILE.exists() else 0,
+                "base_dir": str(BASE_DIR)
+            },
+            "timestamp": int(now.timestamp() * 1000)
+        }
+        f.write(json_lib.dumps(log_entry) + '\n')
+except Exception:
+    pass
+# #endregion
+
 SUBSCRIPTIONS_FILE = BASE_DIR / "subscriptions.json"
 ALERT_GROUPS_FILE = BASE_DIR / "alert_groups.json"
 USER_PREFERENCES_FILE = BASE_DIR / "user_preferences.json"
@@ -155,6 +181,28 @@ def get_cached_kpi_data() -> Dict:
     
     # Load from file if cache is invalid
     if not cache_valid:
+        # #region agent log
+        try:
+            with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:
+                import json as json_lib
+                log_entry = {
+                    "sessionId": "debug-session",
+                    "runId": "run1",
+                    "hypothesisId": "H3,H4",
+                    "location": "api_server.py:157",
+                    "message": "cache invalid - loading from file",
+                    "data": {
+                        "file_path": str(KPI_LOGS_FILE),
+                        "file_exists": KPI_LOGS_FILE.exists(),
+                        "file_size": KPI_LOGS_FILE.stat().st_size if KPI_LOGS_FILE.exists() else 0
+                    },
+                    "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000)
+                }
+                f.write(json_lib.dumps(log_entry) + '\n')
+        except Exception:
+            pass
+        # #endregion
+        
         _kpi_data_cache = load_json_file(KPI_LOGS_FILE, {"alerts": [], "true_positives": [], "false_positives": []})
         _cache_timestamp = now
         try:
@@ -172,7 +220,7 @@ def get_cached_kpi_data() -> Dict:
                     "sessionId": "debug-session",
                     "runId": "run1",
                     "hypothesisId": "H3",
-                    "location": "api_server.py:105",
+                    "location": "api_server.py:180",
                     "message": "cache loaded from file",
                     "data": {
                         "alert_count": len(alerts),
