@@ -363,13 +363,46 @@ class KPILogger:
             
             # CRITICAL: Push to remote - this is REQUIRED for Railway persistence
             # Railway redeploys reset filesystem to remote Git state, so push is essential
+            # Use GitHub token from environment if available
+            github_token = os.getenv('GITHUB_TOKEN') or os.getenv('GIT_TOKEN')
+            
+            # Configure Git credentials if token is available
+            if github_token:
+                # Set up credential helper to use token
+                subprocess.run(
+                    ['git', 'config', '--global', 'credential.helper', 'store'],
+                    capture_output=True,
+                    timeout=5,
+                    check=False
+                )
+                # Set remote URL with token (if not already set)
+                remote_url = subprocess.run(
+                    ['git', 'config', '--get', 'remote.origin.url'],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                ).stdout.strip()
+                
+                if remote_url and 'github.com' in remote_url and '@' not in remote_url:
+                    # Update remote URL to include token
+                    from urllib.parse import urlparse, urlunparse
+                    parsed = urlparse(remote_url)
+                    new_url = f"{parsed.scheme}://{github_token}@{parsed.netloc}{parsed.path}"
+                    subprocess.run(
+                        ['git', 'remote', 'set-url', 'origin', new_url],
+                        capture_output=True,
+                        timeout=5,
+                        check=False
+                    )
+            
             try:
                 push_result = subprocess.run(
                     ['git', 'push', 'origin', 'main'],
                     capture_output=True,
                     timeout=30,
                     check=False,
-                    text=True
+                    text=True,
+                    env={**os.environ, 'GIT_TERMINAL_PROMPT': '0'}  # Disable prompts
                 )
                 if push_result.returncode == 0:
                     print(f"✅ Synced {len(self.alerts)} alerts to Git and pushed to remote")
