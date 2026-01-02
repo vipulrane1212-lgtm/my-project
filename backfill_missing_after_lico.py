@@ -261,7 +261,8 @@ async def main():
                 session_file = local_session
     
     # Try multiple sessions until we find an authorized one
-    sessions_to_try = [session_to_use, "railway_production_session", "local_dev_session"]
+    # Prioritize railway_production_session since it likely has chat access
+    sessions_to_try = ["railway_production_session", session_to_use, "local_dev_session"]
     client = None
     authorized_session = None
     
@@ -276,18 +277,34 @@ async def main():
             await test_client.connect()
             if await test_client.is_user_authorized():
                 print(f"✅ Found authorized session: {session_name}")
-                client = test_client
-                authorized_session = session_name
-                break
+                # Test if we can access the chat
+                try:
+                    chat_id_int = int(ALERT_CHAT_ID)
+                    test_entity = await test_client.get_entity(chat_id_int)
+                    print(f"   ✅ Session has access to chat: {test_entity.title if hasattr(test_entity, 'title') else 'Chat'}")
+                    client = test_client
+                    authorized_session = session_name
+                    break
+                except Exception as e:
+                    print(f"   ⚠️  Session authorized but cannot access chat: {e}")
+                    await test_client.disconnect()
+                    continue
             else:
                 await test_client.disconnect()
         except Exception as e:
-            await test_client.disconnect()
+            try:
+                await test_client.disconnect()
+            except:
+                pass
             continue
     
     if not client or not authorized_session:
-        print(f"❌ No authorized session found!")
-        print(f"   Please run the bot once locally to authenticate a session.")
+        print(f"❌ No authorized session with chat access found!")
+        print(f"   Please:")
+        print(f"   1. Stop Railway deployment")
+        print(f"   2. Run the bot locally once: python telegram_monitor_new.py")
+        print(f"   3. Let it join the alert chat")
+        print(f"   4. Then run this backfill script again")
         return
     
     try:
