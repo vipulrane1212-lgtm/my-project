@@ -384,6 +384,27 @@ class TelegramMonitorNew:
         if info_parts:
             print(f"    Details: {' | '.join(info_parts)}")
 
+        # Parse MC arrow (entry -> current) for XTRACK messages to keep both values
+        # Example: "MC: $114.6k 👉 $808.5k"
+        entry_mc_arrow = None
+        current_mc_arrow = None
+        arrow_match = re.search(r'MC:\s*\$([\d,\.]+[KMkm]?)\s*👉\s*\$([\d,\.]+[KMkm]?)', content, re.IGNORECASE)
+
+        def _parse_mc_val(val: str) -> Optional[float]:
+            try:
+                clean = val.replace(',', '').upper()
+                if clean.endswith('K'):
+                    return float(clean[:-1]) * 1_000
+                if clean.endswith('M'):
+                    return float(clean[:-1]) * 1_000_000
+                return float(clean)
+            except Exception:
+                return None
+
+        if arrow_match:
+            entry_mc_arrow = _parse_mc_val(arrow_match.group(1))
+            current_mc_arrow = _parse_mc_val(arrow_match.group(2))
+
         # Normalize and ingest into new live monitor with error handling
         try:
             event = self.monitor.normalize_event(
@@ -394,13 +415,19 @@ class TelegramMonitorNew:
                 contract=contract,
                 raw_text=content,
                 multiplier=parsed.xtrack_multiplier,
-                mc_usd=parsed.market_cap,
+                mc_usd=current_mc_arrow or parsed.market_cap,
                 liquidity_usd=parsed.liquidity,
                 buy_size_sol=parsed.buy_size_sol,  # Pass buy size from parsed message
             )
         except Exception as e:
             print(f"[{source.upper():<15}] ❌ [NORMALIZE ERROR] {str(e)}")
             return
+
+        # Preserve entry/current MC from arrow if present
+        if entry_mc_arrow is not None:
+            event["entry_mc_override"] = entry_mc_arrow
+        if current_mc_arrow is not None:
+            event["mc_usd"] = current_mc_arrow  # ensure current MC on event
 
         try:
             alerts = self.monitor.ingest_event(event)

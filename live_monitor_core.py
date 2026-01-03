@@ -36,21 +36,54 @@ def _ts(dt: datetime) -> float:
 
 
 def parse_callers_subs(text: str) -> Tuple[Optional[int], Optional[int]]:
+    """
+    Parse callers and subs from message text.
+    Handles multiple formats:
+    1. 📢 Callers: 3 | Subs: 12357 (XTRACK format with emoji and pipe)
+    2. Callers: 3 | Subs: 12357 (without emoji, with pipe)
+    3. Callers: 3 (separate lines, fallback)
+    """
     callers = None
     subs = None
     if text:
-        c_match = re.search(r"Callers:\s*([0-9]+)", text, re.IGNORECASE)
-        s_match = re.search(r"Subs:\s*([0-9]+)", text, re.IGNORECASE)
-        if c_match:
+        # Pattern 1: 📢 Callers: 3 | Subs: 12357 (XTRACK format with emoji and pipe)
+        pattern1 = re.search(r'📢\s*Callers[:\s]+(\d+)\s*\|\s*Subs[:\s]+([0-9,]+)', text, re.IGNORECASE)
+        if pattern1:
             try:
-                callers = int(c_match.group(1))
+                callers = int(pattern1.group(1))
+                subs_str = pattern1.group(2).replace(',', '')
+                subs = int(subs_str)
             except Exception:
                 pass
-        if s_match:
-            try:
-                subs = int(s_match.group(1))
-            except Exception:
-                pass
+        
+        # Pattern 2: Callers: 3 | Subs: 12357 (without emoji, with pipe)
+        if callers is None or subs is None:
+            pattern2 = re.search(r'Callers[:\s]+(\d+)\s*\|\s*Subs[:\s]+([0-9,]+)', text, re.IGNORECASE)
+            if pattern2:
+                try:
+                    callers = int(pattern2.group(1))
+                    subs_str = pattern2.group(2).replace(',', '')
+                    subs = int(subs_str)
+                except Exception:
+                    pass
+        
+        # Pattern 3: Separate lines (fallback)
+        if callers is None:
+            c_match = re.search(r"Callers[:\s]+([0-9]+)", text, re.IGNORECASE)
+            if c_match:
+                try:
+                    callers = int(c_match.group(1))
+                except Exception:
+                    pass
+        
+        if subs is None:
+            s_match = re.search(r"Subs[:\s]+([0-9,]+)", text, re.IGNORECASE)
+            if s_match:
+                try:
+                    subs_str = s_match.group(1).replace(',', '')
+                    subs = int(subs_str)
+                except Exception:
+                    pass
     return callers, subs
 
 
@@ -311,7 +344,8 @@ class LiveMemecoinMonitor:
                     "message_id": event["message_id"],
                     "alert_level": None,
                     "first_seen_ts": event["timestamp_ts"],  # Track first appearance for early bonus
-                    "entry_mc": event.get("mc_usd"),  # Store entry MC from XTRACK event
+                    # Use entry_mc_override (left side of arrow) if provided; fallback to mc_usd
+                    "entry_mc": event.get("entry_mc_override") or event.get("mc_usd"),
                 }
                 self.store.set_cohort(token, cohort, self.retention["cohort_ttl_hours"])
                 return cohort
@@ -831,7 +865,7 @@ class LiveMemecoinMonitor:
         # Build meta for alert (use opportunity data if available)
         if opportunity:
             meta = {
-                "mc_usd": entry_mc,
+                "mc_usd": entry_mc,  # Entry MC (from first XTRACK arrow value)
                 "mc_source": mc_source,
                 "matched_signals": opportunity["confirmations"]["details"],
                 "tier": opportunity["tier"],
@@ -839,6 +873,13 @@ class LiveMemecoinMonitor:
                 "hot_list": opportunity["hot_list"],
                 "confirmations": opportunity["confirmations"]
             }
+            # Track latest MC from events for display (current MC)
+            latest_mc = None
+            for ev in token_events:
+                if ev.get("mc_usd") is not None:
+                    latest_mc = ev.get("mc_usd")
+            if latest_mc is not None:
+                meta["live_mcap"] = latest_mc
             # Get latest callers/subs from events
             latest_callers = None
             latest_subs = None
