@@ -626,6 +626,74 @@ class KPILogger:
             "fp_breakdown": dict(fp_causes),
         }
     
+    def update_alert_callers_subs(self, token: str, tier: Optional[int], callers: Optional[int], subs: Optional[int]) -> bool:
+        """Update callers/subs for existing alert(s).
+        
+        This method is called when XTRACK messages arrive with callers/subs data.
+        It updates existing alerts in kpi_logs.json so the API can return updated values.
+        
+        Args:
+            token: Token symbol (case-insensitive)
+            tier: Tier (optional - if None, updates all tiers for this token)
+            callers: New callers value
+            subs: New subs value
+        
+        Returns:
+            True if any alert was updated, False otherwise
+        """
+        if not callers and not subs:
+            return False  # Nothing to update
+        
+        updated = False
+        updated_tokens = []
+        
+        for alert in self.alerts:
+            alert_token = alert.get("token", "")
+            if not alert_token:
+                continue
+            
+            # Case-insensitive token matching
+            if alert_token.upper() != token.upper():
+                continue
+            
+            # If tier specified, only update matching tier
+            if tier is not None:
+                alert_tier = alert.get("tier")
+                if alert_tier != tier:
+                    continue
+            
+            # Update callers/subs if provided
+            alert_updated = False
+            if callers is not None:
+                old_callers = alert.get("callers")
+                if old_callers != callers:
+                    alert["callers"] = callers
+                    alert_updated = True
+            
+            if subs is not None:
+                old_subs = alert.get("subs")
+                if old_subs != subs:
+                    alert["subs"] = subs
+                    alert_updated = True
+            
+            if alert_updated:
+                updated = True
+                tier_str = f"Tier {alert.get('tier')}" if alert.get('tier') is not None else "all tiers"
+                updated_tokens.append(f"{alert_token} {tier_str}")
+        
+        if updated:
+            # Save immediately to persist the update
+            try:
+                self.save_logs()
+                tokens_str = ", ".join(updated_tokens)
+                print(f"✅ Updated callers/subs for {tokens_str}: callers={callers}, subs={subs}")
+                return True
+            except Exception as e:
+                print(f"❌ Failed to save updated alert: {e}")
+                return False
+        
+        return False
+    
     def check_for_gaps(self) -> Optional[Dict]:
         """Check for gaps in alert timestamps that might indicate missing alerts.
         

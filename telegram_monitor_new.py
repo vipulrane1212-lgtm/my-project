@@ -27,10 +27,11 @@ if os.getenv('RAILWAY_ENVIRONMENT') == 'build' or os.getenv('CI') or os.getenv('
     exit(0)
 
 from message_parser import MessageParser
-from live_monitor_core import LiveMemecoinMonitor
+from live_monitor_core import LiveMemecoinMonitor, parse_callers_subs
 from live_alert_formatter import format_alert
 from dexscreener_fetcher import enrich_alert_with_live_data
 from kpi_logger import KPILogger
+import re
 
 # Debug logging helper (only logs if DEBUG_LOG_PATH is set)
 def debug_log(data: dict):
@@ -342,9 +343,23 @@ class TelegramMonitorNew:
             return
 
         # Validate parsed data
-        if not parsed.symbol or parsed.symbol == "UNKNOWN":
-            print(f"[{source.upper():<15}] ❌ [VALIDATION FAILED] Invalid symbol")
+        # Allow UNKNOWN symbols if we have a valid contract address - symbol can be extracted/looked up later
+        if not parsed.symbol:
+            print(f"[{source.upper():<15}] ❌ [VALIDATION FAILED] No symbol extracted")
             return
+        
+        # If symbol is UNKNOWN, we need a valid contract address to proceed
+        # The symbol can be looked up from the contract address later
+        if parsed.symbol == "UNKNOWN":
+            if not parsed.contract_address or str(parsed.contract_address).startswith("GLYDO_"):
+                print(f"[{source.upper():<15}] ❌ [VALIDATION FAILED] Symbol is UNKNOWN and no valid contract address")
+                return
+            # Check if contract is valid Solana address
+            if not self.parser.is_valid_solana_address(parsed.contract_address):
+                print(f"[{source.upper():<15}] ❌ [VALIDATION FAILED] Symbol is UNKNOWN and contract address is invalid")
+                return
+            # Allow UNKNOWN symbol if we have valid contract - symbol can be looked up later
+            print(f"[{source.upper():<15}] ⚠️  [SYMBOL UNKNOWN] Using contract address - symbol will be looked up")
         
         # Handle contract address validation
         contract = None
@@ -395,6 +410,47 @@ class TelegramMonitorNew:
         except Exception as e:
             print(f"[{source.upper():<15}] ❌ [INGEST ERROR] {str(e)}")
             return
+        
+        # AUTO-UPDATE: If this is an XTRACK message with callers/subs, update existing alerts
+        # This ensures the API shows updated callers/subs even if the alert was posted earlier
+        if source == 'xtrack' or 'xtrack' in source.lower():
+            # Extract callers/subs from XTRACK message
+            callers, subs = parse_callers_subs(content)
+            
+            if callers is not None or subs is not None:
+                # Extract token from XTRACK message (format: 🚀 #TOKEN did 👉 or TOKEN did 👉)
+                token_match = re.search(r'🚀\s*#?([A-Z0-9]+)\s+did\s+👉', content, re.IGNORECASE)
+                if not token_match:
+                    # Try without emoji
+                    token_match = re.search(r'#?([A-Z0-9]+)\s+did\s+👉', content, re.IGNORECASE)
+                
+                if token_match:
+                    xtrack_token = token_match.group(1).upper()
+                    
+                    # Update existing alerts for this token (all tiers)
+                    updated = self.kpi_logger.update_alert_callers_subs(
+                        token=xtrack_token,
+                        tier=None,  # Update all tiers for this token
+                        callers=callers,
+                        subs=subs
+                    )
+                    
+                    if updated:
+                        print(f"[{source.upper():<15}] ✅ Updated existing alerts for {xtrack_token}: callers={callers}, subs={subs}")
+                    else:
+                        print(f"[{source.upper():<15}] ℹ️  No existing alerts found to update for {xtrack_token}")
+                else:
+                    # Try using parsed symbol as fallback
+                    if parsed.symbol and parsed.symbol != "UNKNOWN":
+                        updated = self.kpi_logger.update_alert_callers_subs(
+                            token=parsed.symbol.upper(),
+                            tier=None,
+                            callers=callers,
+                            subs=subs
+                        )
+                        if updated:
+                            print(f"[{source.upper():<15}] ✅ Updated existing alerts for {parsed.symbol}: callers={callers}, subs={subs}")
+        
         for alert in alerts:
             # CRITICAL FIX: Save ALL alerts to kpi_logs.json FIRST, before any filters
             # This ensures the API has complete data, even if alerts are filtered for Telegram sending
@@ -444,11 +500,16 @@ class TelegramMonitorNew:
                 print(f"📊 Current MCAP ({alert.get('current_mcap_source', 'unknown')}): ${current_mc_shown:,.0f}")
             
             # CRITICAL FIX: Save alert to kpi_logs.json FIRST (before any filters)
-            # This ensures ALL alerts are saved, even if they're duplicates or exceed MCAP threshold
-            # The API needs complete data, filters only affect Telegram delivery
+            # Deduplication: Skip if same token + same tier already exists
+            # This ensures no duplicate alerts for same token+tier, but allows different tiers
             level = alert.get("level", "MEDIUM")
             try:
-                self.kpi_logger.log_alert(alert, level)
+                saved_alert = self.kpi_logger.log_alert(alert, level)
+                if saved_alert is None:
+                    # Duplicate alert skipped (same token + same tier already exists)
+                    print(f"⚠️  DUPLICATE ALERT SKIPPED: {token} Tier {tier} already exists - not saving")
+                    return  # Skip processing this alert entirely
+                
                 # #region agent log
                 debug_log({"sessionId":"debug-session","runId":"run1","hypothesisId":"H3,H4","location":"telegram_monitor_new.py:470","message":"Alert saved to kpi_logs.json before filters","data":{"token":token,"tier":tier,"current_mcap":current_mcap,"contract":alert.get("contract"),"will_send_to_telegram":"checking"},"timestamp":int(current_time*1000)})
                 # #endregion
