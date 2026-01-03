@@ -13,11 +13,13 @@
         "glydo": true,
         "smart_money": true
       },
-      "callers": null,
-      "subs": null,
+      "callers": 3,
+      "subs": 12357,
       "matched_signals": [
+        "early_trending",
         "glydo",
-        "smart_money"
+        "large_buy",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -33,10 +35,13 @@
       "confirmations": {
         "smart_money": true
       },
-      "callers": null,
-      "subs": null,
+      "callers": 3,
+      "subs": 12357,
       "matched_signals": [
-        "smart_money"
+        "early_trending",
+        "glydo",
+        "large_buy",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -55,7 +60,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money"
+        "large_buy",
+        "whalebuy"
       ],
       "source": "json_export_backfill"
     },
@@ -71,7 +77,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "momentum"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -89,7 +97,9 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "early_trending",
+        "glydo",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -105,7 +115,11 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "early_trending",
+        "glydo",
+        "volume"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -123,7 +137,7 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money"
+        "large_buy"
       ],
       "source": "json_export_backfill"
     },
@@ -139,7 +153,10 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "kolscope",
+        "spydefi"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -173,7 +190,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "momentum"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -191,7 +210,9 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "early_trending",
+        "glydo",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -212,7 +233,7 @@
       "subs": null,
       "matched_signals": [
         "glydo",
-        "smart_money"
+        "large_buy"
       ],
       "source": "json_export_backfill"
     },
@@ -247,7 +268,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money",
+        "early_trending",
+        "glydo",
         "volume"
       ],
       "source": "json_export_backfill"
@@ -264,7 +286,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "early_trending"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -283,7 +307,7 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money",
+        "large_buy",
         "volume"
       ],
       "source": "json_export_backfill"
@@ -303,7 +327,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "glydo",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -323,7 +348,7 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money",
+        "large_buy",
         "volume"
       ],
       "source": "json_export_backfill"
@@ -340,7 +365,11 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "early_trending",
+        "kolscope",
+        "volume"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -359,8 +388,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo",
-        "volume"
+        "large_buy",
+        "whalebuy"
       ],
       "source": "json_export_backfill"
     },
@@ -379,7 +408,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "large_buy",
+        "whalebuy"
       ],
       "source": "json_export_backfill"
     },
@@ -400,7 +430,7 @@
       "subs": null,
       "matched_signals": [
         "glydo",
-        "smart_money"
+        "large_buy"
       ],
       "source": "json_export_backfill"
     },
@@ -416,7 +446,10 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "kolscope",
+        "spydefi"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -437,7 +470,7 @@
       "subs": null,
       "matched_signals": [
         "glydo",
-        "smart_money",
+        "large_buy",
         "volume"
       ],
       "source": "json_export_backfill"
@@ -458,7 +491,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "smart_money",
+        "glydo",
+        "large_buy",
         "volume"
       ],
       "source": "json_export_backfill"
@@ -478,7 +512,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "glydo",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -494,7 +529,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "momentum"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -509,7 +546,11 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "early_trending",
+        "kolscope",
+        "volume"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -524,7 +565,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "whalebuy"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -544,7 +587,8 @@
       "subs": null,
       "matched_signals": [
         "glydo",
-        "smart_money"
+        "large_buy",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -560,7 +604,9 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "whalebuy"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -1214,7 +1260,8 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "large_buy",
+        "whalebuy"
       ],
       "source": "json_export_backfill"
     },
@@ -1331,7 +1378,10 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "large_buy",
+        "whalebuy"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -1775,7 +1825,10 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -1820,7 +1873,11 @@
       "confirmations": {},
       "callers": null,
       "subs": null,
-      "matched_signals": [],
+      "matched_signals": [
+        "early_trending",
+        "kolscope",
+        "volume"
+      ],
       "source": "json_export_backfill"
     },
     {
@@ -1838,7 +1895,9 @@
       "callers": null,
       "subs": null,
       "matched_signals": [
-        "glydo"
+        "early_trending",
+        "kolscope",
+        "volume"
       ],
       "source": "json_export_backfill"
     },
@@ -6330,11 +6389,40 @@
       "entry_mc": null,
       "tier": 3,
       "source": "telegram_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T09:57:13+00:00",
+      "level": "MEDIUM",
+      "token": "KURUMI",
+      "contract": "GJ2EDGMBBFXYH1UIQREYPTNC8FRDSZVUIKZA2GJKPUMP",
+      "tier": 3,
+      "mc_usd": 146600.0,
+      "current_mcap": 146600.0,
+      "entry_mc": 146600.0,
+      "matched_signals": [
+        "large_buy",
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T10:03:28+00:00",
+      "level": "MEDIUM",
+      "token": "HODL",
+      "contract": "13SZPHUKSVH32HAU5ZRZ32Y5QRPXSKCHSNZ1T8EKBONK",
+      "tier": 3,
+      "mc_usd": 61100.0,
+      "current_mcap": 61100.0,
+      "entry_mc": 61100.0,
+      "matched_signals": [
+        "large_buy"
+      ],
+      "source": "telegram_export_backfill"
     }
   ],
   "false_positives": [],
   "true_positives": [],
-  "last_updated": "2026-01-02T18:00:11.206221+00:00",
+  "last_updated": "2026-01-03T05:12:52.909460+00:00",
   "backfill_info": {
     "backfilled_at": "2026-01-02T15:17:46.875907+00:00",
     "new_alerts_added": 3,
