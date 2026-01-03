@@ -644,7 +644,13 @@ class TelegramMonitorNew:
                 # STRICT FILTERING: If group has preferences set, ONLY send alerts matching those tiers
                 # Alerts without a tier (alert_tier is None) should be filtered out if preferences are set
                 should_send = True
-                if group_tiers is not None and len(group_tiers) > 0:
+                
+                # SPECIAL CASE: Channel -1001729898681 (@solboy_calls) ONLY receives TIER 1 alerts
+                if group_id == -1001729898681:
+                    if alert_tier != 1:
+                        should_send = False
+                
+                elif group_tiers is not None and len(group_tiers) > 0:
                     # Group has specific tier preferences - STRICT MODE
                     # Only send if alert has a tier AND tier is in group's preferences
                     if alert_tier is None or alert_tier not in group_tiers:
@@ -672,7 +678,10 @@ class TelegramMonitorNew:
                         self.alert_groups.discard(group_id)
                         self.save_alert_groups()
                 else:
-                    print(f"⏭️ Skipped group/channel {group_id} - tier {alert_tier} not in preferences {group_tiers}")
+                    if group_id == -1001729898681:
+                        print(f"⏭️ SPECIAL FILTER: Skipped channel {group_id} (@solboy_calls) - tier {alert_tier} is not TIER 1")
+                    else:
+                        print(f"⏭️ Skipped group/channel {group_id} - tier {alert_tier} not in preferences {group_tiers}")
         
         # Send to subscribed users with tier filtering
         # IMPORTANT: Skip users who are in groups that already received the alert to prevent duplicates
@@ -1294,9 +1303,18 @@ class TelegramMonitorNew:
                             tier_numbers = []
                             for part in tier_arg.split(','):
                                 part = part.strip()
+                                # Support both formats: "t1" or just "1"
                                 if part.startswith('t'):
                                     try:
                                         tier_num = int(part[1:])
+                                        if tier_num in [1, 2, 3]:
+                                            tier_numbers.append(tier_num)
+                                    except ValueError:
+                                        pass
+                                else:
+                                    # Direct number format: "1", "2", "3"
+                                    try:
+                                        tier_num = int(part)
                                         if tier_num in [1, 2, 3]:
                                             tier_numbers.append(tier_num)
                                     except ValueError:
