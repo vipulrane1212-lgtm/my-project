@@ -182,8 +182,40 @@ class KPILogger:
         
         CRITICAL: This method MUST always succeed - alerts must be saved to JSON
         even if there are errors. This ensures the API always has the latest alerts.
+        
+        DEDUPLICATION: Prevents duplicate alerts for the same token and tier.
+        - Same token + same tier = SKIP (duplicate)
+        - Same token + different tier = ALLOW (Tier 1 and Tier 2 for same token is OK)
         """
         try:
+            token = alert.get("token")
+            tier = alert.get("tier")
+            
+            # DEDUPLICATION: Check if alert for same token and tier already exists
+            # Allow different tiers for same token (Tier 1 and Tier 2 is OK)
+            # But prevent same tier for same token IF it's within 24 hours (true duplicate)
+            # If older than 24 hours, allow it (token might have relaunched)
+            if token and tier is not None:
+                current_time = datetime.now(timezone.utc)
+                # Check existing alerts for duplicate (same token + same tier)
+                for existing_alert in self.alerts:
+                    existing_token = existing_alert.get("token")
+                    existing_tier = existing_alert.get("tier")
+                    if existing_token == token and existing_tier == tier:
+                        # Check if existing alert is recent (within 24 hours)
+                        try:
+                            existing_timestamp = datetime.fromisoformat(existing_alert.get("timestamp", "")).replace(tzinfo=timezone.utc)
+                            time_diff = (current_time - existing_timestamp).total_seconds()
+                            if time_diff < 86400:  # 24 hours
+                                # Recent duplicate - skip saving
+                                print(f"⚠️  DUPLICATE ALERT SKIPPED: {token} Tier {tier} already exists (sent {int(time_diff/3600)}h ago)")
+                                print(f"   Existing alert timestamp: {existing_alert.get('timestamp', 'unknown')}")
+                                return None  # Skip saving duplicate
+                            # If older than 24 hours, allow it (might be a relaunch)
+                        except Exception:
+                            # If timestamp parsing fails, skip deduplication check for this alert
+                            pass
+            
             # CRITICAL: Save the "Current MCAP" that was shown in the Telegram post
             # This is different from entry_mc (which is the MCAP when alert was triggered)
             # The Telegram post shows "Current MC: $142.0K" - this is what users see
@@ -232,6 +264,23 @@ class KPILogger:
                     save_success = True
                     print(f"✅ Alert saved to {self.log_file}: {alert.get('token')} (Tier {alert.get('tier')}, Current MC ${current_mcap_shown:,.0f})")
                     print(f"   Total alerts in file: {len(self.alerts)}")
+                    
+                    # CRITICAL: Auto-sync to Git to prevent data loss on Railway redeploy
+                    # Only sync if we're using local file (not Railway volume)
+                    if not str(self.log_file).startswith("/data/"):
+                        try:
+                            import subprocess
+                            import os
+                            repo_dir = Path(__file__).parent
+                            os.chdir(repo_dir)
+                            # Non-blocking: try to sync but don't fail if Git is unavailable
+                            subprocess.Popen(
+                                ["python", "fix_railway_data_loss.py"],
+                                stdout=subprocess.DEVNULL,
+                                stderr=subprocess.DEVNULL
+                            )
+                        except Exception:
+                            pass  # Silently fail - Git sync is best-effort
                     # #region agent log
                     try:
                         with open(r'c:\Users\Admin\Desktop\amaverse\.cursor\debug.log', 'a', encoding='utf-8') as f:

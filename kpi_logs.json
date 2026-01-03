@@ -6418,11 +6418,622 @@
         "large_buy"
       ],
       "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T00:33:07+00:00",
+      "level": "MEDIUM",
+      "token": "MURICA",
+      "contract": "RNMLBLNUUEJVEGPLCS2BGSY3MCJGRXZ8BQQ8EBWBONK",
+      "tier": 3,
+      "mc_usd": 115900.0,
+      "current_mcap": 115900.0,
+      "entry_mc": 115900.0,
+      "matched_signals": [],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T00:41:49+00:00",
+      "level": "MEDIUM",
+      "token": "DHG",
+      "contract": "3R48QGXWZN5WYQZUWOXQXUFVUEEUYC9WDDOCSQPPBONK",
+      "tier": 3,
+      "mc_usd": 237600.0,
+      "current_mcap": 237600.0,
+      "entry_mc": 237600.0,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T00:45:56+00:00",
+      "level": "MEDIUM",
+      "token": "MWG",
+      "contract": "3RQEUT98EKX1KJT1OWKP1WHN71XTVXAGTZB2HLQSFACK",
+      "tier": 3,
+      "mc_usd": 143800.0,
+      "current_mcap": 143800.0,
+      "entry_mc": 143800.0,
+      "matched_signals": [
+        "whalebuy"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T00:47:18+00:00",
+      "level": "MEDIUM",
+      "token": "BLAST",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "tier": 3,
+      "mc_usd": 458400.0,
+      "current_mcap": 458400.0,
+      "entry_mc": 458400.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T00:58:00+00:00",
+      "level": "MEDIUM",
+      "token": "FATGF",
+      "contract": "W891VENHV6H1KPZJCEIXC2YXYBVFK5Z3GYR5R2DPUMP",
+      "tier": 3,
+      "mc_usd": 201700.0,
+      "current_mcap": 201700.0,
+      "entry_mc": 201700.0,
+      "matched_signals": [
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:00:07+00:00",
+      "level": "MEDIUM",
+      "token": "AHAB",
+      "contract": "BOEKJ48BVXVUXVLGNRV3AOPHNFFUAUREUAZT7GP2PUMP",
+      "tier": 3,
+      "mc_usd": 142400.0,
+      "current_mcap": 142400.0,
+      "entry_mc": 142400.0,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:21:41+00:00",
+      "level": "MEDIUM",
+      "token": "ALOKA",
+      "contract": "7GASRHXXE5U2OLASRASZH3SAJRGSJKHB4QTE3FSQHTKB",
+      "tier": 3,
+      "mc_usd": 164400.0,
+      "current_mcap": 164400.0,
+      "entry_mc": 164400.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:23:04+00:00",
+      "level": "MEDIUM",
+      "token": "DHG",
+      "contract": "3R48QGXWZN5WYQZUWOXQXUFVUEEUYC9WDDOCSQPPBONK",
+      "tier": 3,
+      "mc_usd": 500000.0,
+      "current_mcap": 500000.0,
+      "entry_mc": 500000.0,
+      "matched_signals": [
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:32:17+00:00",
+      "level": "MEDIUM",
+      "token": "ANDY",
+      "contract": "2CSNTGRUJQPLROQWWMY2BKRM6URK6R3I62EBZC49PUMP",
+      "tier": 3,
+      "mc_usd": 381700.0,
+      "current_mcap": 381700.0,
+      "entry_mc": 381700.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "momentum",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:34:43+00:00",
+      "level": "MEDIUM",
+      "token": "AF",
+      "contract": "USA1CIBJOPLPWOS66L6VQY7XNVHDBE9SWH1VQVUNQUY",
+      "tier": 3,
+      "mc_usd": 121300.0,
+      "current_mcap": 121300.0,
+      "entry_mc": 121300.0,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:38:24+00:00",
+      "level": "HIGH",
+      "token": "ALOKA",
+      "contract": "7GASRHXXE5U2OLASRASZH3SAJRGSJKHB4QTE3FSQHTKB",
+      "tier": 1,
+      "mc_usd": 178400.0,
+      "current_mcap": 178400.0,
+      "entry_mc": 178400.0,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:39:23+00:00",
+      "level": "MEDIUM",
+      "token": "BLAST",
+      "contract": "9IEWUXV5Y9VAEK6GLVFZVKWZBMSVKEKUKAA61XATWA97",
+      "tier": 3,
+      "mc_usd": 459100.0,
+      "current_mcap": 459100.0,
+      "entry_mc": 459100.0,
+      "matched_signals": [
+        "whalebuy"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:42:23+00:00",
+      "level": "MEDIUM",
+      "token": "MWG",
+      "contract": "3RQEUT98EKX1KJT1OWKP1WHN71XTVXAGTZB2HLQSFACK",
+      "tier": 3,
+      "mc_usd": 278300.0,
+      "current_mcap": 278300.0,
+      "entry_mc": 278300.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:45:11+00:00",
+      "level": "HIGH",
+      "token": "HORSE",
+      "contract": "49Q6GXBEJAFDVOZPKRJOTKMH3WG76GYFMMRCXYOCPUMP",
+      "tier": 1,
+      "mc_usd": 437400.0,
+      "current_mcap": 437400.0,
+      "entry_mc": 437400.0,
+      "matched_signals": [
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T01:58:09+00:00",
+      "level": "MEDIUM",
+      "token": "1USD",
+      "contract": "HDKI2Y6NIHRYKDQXT63DZT6JMLTGL9VQREGXXLJCPUMP",
+      "tier": 3,
+      "mc_usd": 76400.0,
+      "current_mcap": 76400.0,
+      "entry_mc": 76400.0,
+      "matched_signals": [
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T02:08:41+00:00",
+      "level": "MEDIUM",
+      "token": "LAYING",
+      "contract": "DYPQFQUYDZUQXJA1WQKOTA7MURWMWW9GNCHWW9QSBYB8",
+      "tier": 3,
+      "mc_usd": 83500.0,
+      "current_mcap": 83500.0,
+      "entry_mc": 83500.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "momentum",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T02:16:16+00:00",
+      "level": "MEDIUM",
+      "token": "PITBULL",
+      "contract": "DB1FQYMLTBZFDZFS7NL58UOZEOHTEUVOEHJD9VWPPUMP",
+      "tier": 3,
+      "mc_usd": 138900.0,
+      "current_mcap": 138900.0,
+      "entry_mc": 138900.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T02:39:10+00:00",
+      "level": "HIGH",
+      "token": "PITBULL",
+      "contract": "DB1FQYMLTBZFDZFS7NL58UOZEOHTEUVOEHJD9VWPPUMP",
+      "tier": 1,
+      "mc_usd": 129400.0,
+      "current_mcap": 129400.0,
+      "entry_mc": 129400.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T02:45:07+00:00",
+      "level": "HIGH",
+      "token": "1ST",
+      "contract": "FFMSFPDIK9GQHCKMZE8XSC3SDTE4XVTKFCJZQJI74OFA",
+      "tier": 1,
+      "mc_usd": 148400.0,
+      "current_mcap": 148400.0,
+      "entry_mc": 148400.0,
+      "matched_signals": [
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T02:58:33+00:00",
+      "level": "HIGH",
+      "token": "BURGER",
+      "contract": "DPNW1OGHF5N5VW6HJZ9GCK9CNLSV2AYADZRCZHDRGMXZ",
+      "tier": 1,
+      "mc_usd": 156200.0,
+      "current_mcap": 156200.0,
+      "entry_mc": 156200.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T03:24:14+00:00",
+      "level": "MEDIUM",
+      "token": "TRACKER",
+      "contract": "EHIPS3KN9GUSNEMGTB9RXCNBVFH5GTNRVXNTQFTBAGS",
+      "tier": 3,
+      "mc_usd": 280000.0,
+      "current_mcap": 280000.0,
+      "entry_mc": 280000.0,
+      "matched_signals": [
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T03:31:47+00:00",
+      "level": "HIGH",
+      "token": "BILLIONS",
+      "contract": "DITE2Z8EJ9SM72BXEHWZXUPWI8YBCDQUSFVYUJ8DQ7IX",
+      "tier": 1,
+      "mc_usd": 140000.0,
+      "current_mcap": 140000.0,
+      "entry_mc": 140000.0,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T03:37:58+00:00",
+      "level": "MEDIUM",
+      "token": "TRILLIONS",
+      "contract": "48ZJPS8WZ4XSDFDDRMOMTA8NUYCBKNKJPR3JXB7QCATS",
+      "tier": 3,
+      "mc_usd": 98800.0,
+      "current_mcap": 98800.0,
+      "entry_mc": 98800.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T03:59:04+00:00",
+      "level": "MEDIUM",
+      "token": "R0KO",
+      "contract": "BPW5JKZNXECKD9VUX3C8ZYUSKUHWNNQNCDKDYPGWPUMP",
+      "tier": 3,
+      "mc_usd": 170800.0,
+      "current_mcap": 170800.0,
+      "entry_mc": 170800.0,
+      "matched_signals": [
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T04:01:11+00:00",
+      "level": "HIGH",
+      "token": "SAMDINEKO",
+      "contract": "DK29AXM8KPWEXKXXBAPPVCTERBWMLSLXPW3F7SRKPUMP",
+      "tier": 1,
+      "mc_usd": 118200.0,
+      "current_mcap": 118200.0,
+      "entry_mc": 118200.0,
+      "matched_signals": [
+        "glydo",
+        "momentum",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T04:09:07+00:00",
+      "level": "HIGH",
+      "token": "R0KO",
+      "contract": "BPW5JKZNXECKD9VUX3C8ZYUSKUHWNNQNCDKDYPGWPUMP",
+      "tier": 1,
+      "mc_usd": 127600.0,
+      "current_mcap": 127600.0,
+      "entry_mc": 127600.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T04:11:33+00:00",
+      "level": "MEDIUM",
+      "token": "MARLEE",
+      "contract": "8IMCGF8YNFMPJ4Z5QHYPRGRDNUE2YK8KBMDZASCBBONK",
+      "tier": 3,
+      "mc_usd": 131000.0,
+      "current_mcap": 131000.0,
+      "entry_mc": 131000.0,
+      "matched_signals": [
+        "whalebuy",
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T04:30:40+00:00",
+      "level": "HIGH",
+      "token": "MARLEE",
+      "contract": "8IMCGF8YNFMPJ4Z5QHYPRGRDNUE2YK8KBMDZASCBBONK",
+      "tier": 1,
+      "mc_usd": 148000.0,
+      "current_mcap": 148000.0,
+      "entry_mc": 148000.0,
+      "matched_signals": [
+        "glydo",
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T05:14:17+00:00",
+      "level": "MEDIUM",
+      "token": "SUPERCYCLE",
+      "contract": "HRJHZK323Z6VZ6TGKLGDZR9B9MAY92PRNZTE3XRBONK",
+      "tier": 3,
+      "mc_usd": 384700.0,
+      "current_mcap": 384700.0,
+      "entry_mc": 384700.0,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T05:35:01+00:00",
+      "level": "MEDIUM",
+      "token": "TRAX",
+      "contract": "A124RFSGPRD33UYMZHGFSFCC5K5Z6OWKCUSQ23JRPUMP",
+      "tier": 3,
+      "mc_usd": 90500.0,
+      "current_mcap": 90500.0,
+      "entry_mc": 90500.0,
+      "matched_signals": [
+        "whalebuy",
+        "momentum"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T05:54:56+00:00",
+      "level": "HIGH",
+      "token": "SUPERCYCLE",
+      "contract": "HRJHZK323Z6VZ6TGKLGDZR9B9MAY92PRNZTE3XRBONK",
+      "tier": 1,
+      "mc_usd": 496700.0,
+      "current_mcap": 496700.0,
+      "entry_mc": 496700.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T06:12:10+00:00",
+      "level": "MEDIUM",
+      "token": "KEK",
+      "contract": "3YRZZAU9LJIVZKRTZBQMFDK3TZO2FTHOVGTPHQMFPUMP",
+      "tier": 3,
+      "mc_usd": 108000.0,
+      "current_mcap": 108000.0,
+      "entry_mc": 108000.0,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T06:29:52+00:00",
+      "level": "MEDIUM",
+      "token": "HIGH",
+      "contract": "DPNJYMRKIZPKPPY35Y3QDTMPFXXEUZSMD1K26SWZBONK",
+      "tier": 2,
+      "mc_usd": 73900.0,
+      "current_mcap": 73900.0,
+      "entry_mc": 73900.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T08:45:00+00:00",
+      "level": "MEDIUM",
+      "token": "LIZARD",
+      "contract": "GFQYXDFMK6OTRX2IGNFQPVVRD3DHFCFHRJFE7EP2PUMP",
+      "tier": 3,
+      "mc_usd": 112500.0,
+      "current_mcap": 112500.0,
+      "entry_mc": 112500.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T09:37:42+00:00",
+      "level": "MEDIUM",
+      "token": "TWI",
+      "contract": "14MMSZQZSJVIUEMBYLKQM9TQIATVVF7NB32BC6TUPUMP",
+      "tier": 3,
+      "mc_usd": 407200.0,
+      "current_mcap": 407200.0,
+      "entry_mc": 407200.0,
+      "matched_signals": [
+        "glydo"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T09:54:41+00:00",
+      "level": "MEDIUM",
+      "token": "WLFI",
+      "contract": "ELMDRVKH8G5PZC5NM5ACG25C3BWHXSNKBTFQCO3DBONK",
+      "tier": 3,
+      "mc_usd": 71000.0,
+      "current_mcap": 71000.0,
+      "entry_mc": 71000.0,
+      "matched_signals": [
+        "whalebuy"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T11:36:28+00:00",
+      "level": "MEDIUM",
+      "token": "TRAX",
+      "contract": "DK2PDPYS1H6S5TCV3AFX8BMXJB1XBSWBJBREXTJIPUMP",
+      "tier": 3,
+      "mc_usd": 99400.0,
+      "current_mcap": 99400.0,
+      "entry_mc": 99400.0,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T12:32:29+00:00",
+      "level": "MEDIUM",
+      "token": "TRAX",
+      "contract": "DK2PDPYS1H6S5TCV3AFX8BMXJB1XBSWBJBREXTJIPUMP",
+      "tier": 3,
+      "mc_usd": 195400.0,
+      "current_mcap": 195400.0,
+      "entry_mc": 195400.0,
+      "matched_signals": [
+        "glydo",
+        "volume"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T12:36:51+00:00",
+      "level": "MEDIUM",
+      "token": "VENEZUELA",
+      "contract": "CCMST2SDHY12V1C28ESL2WEKT2H6EVHZA5S16UWRPUMP",
+      "tier": 3,
+      "mc_usd": 143600.0,
+      "current_mcap": 143600.0,
+      "entry_mc": 143600.0,
+      "matched_signals": [
+        "glydo",
+        "volume",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
+    },
+    {
+      "timestamp": "2026-01-03T12:41:59+00:00",
+      "level": "HIGH",
+      "token": "LIBERTY",
+      "contract": "CAB23ZQ6UTMMXLO3X8LBPYNCAVXLW28UBVCG7WYHBONK",
+      "tier": 1,
+      "mc_usd": 235800.0,
+      "current_mcap": 235800.0,
+      "entry_mc": 235800.0,
+      "matched_signals": [
+        "whalebuy",
+        "glydo",
+        "momentum",
+        "early_trending"
+      ],
+      "source": "telegram_export_backfill"
     }
   ],
   "false_positives": [],
   "true_positives": [],
-  "last_updated": "2026-01-03T05:12:52.909460+00:00",
+  "last_updated": "2026-01-03T07:17:06.185635+00:00",
   "backfill_info": {
     "backfilled_at": "2026-01-02T15:17:46.875907+00:00",
     "new_alerts_added": 3,
