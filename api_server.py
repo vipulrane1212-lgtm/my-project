@@ -749,24 +749,33 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                 matched_signals = alert.get("matched_signals", [])
                 confirmation_count = len(matched_signals)
             
-            # Get cohort time relative (e.g., "0s ago", "5m ago")
+            # Get relative time from alert timestamp (e.g., "16m ago", "5h ago")
+            # CRITICAL: Use alert timestamp, NOT cohort_start - this shows time since alert was posted
             cohort_time_relative = None
             try:
-                cohort_start = alert.get("cohort_start_utc") or alert.get("cohort_start_ist")
-                if cohort_start:
-                    if isinstance(cohort_start, str):
-                        cohort_dt = datetime.fromisoformat(cohort_start.replace("Z", "+00:00"))
+                # Use alert timestamp (when alert was posted) for relative time
+                alert_timestamp_str = alert.get("timestamp")
+                if alert_timestamp_str:
+                    # Parse alert timestamp
+                    if isinstance(alert_timestamp_str, str):
+                        alert_dt = datetime.fromisoformat(alert_timestamp_str.replace("Z", "+00:00"))
                     else:
-                        cohort_dt = cohort_start
+                        alert_dt = alert_timestamp_str
                     
-                    if cohort_dt.tzinfo is None:
-                        cohort_dt = cohort_dt.replace(tzinfo=timezone.utc)
+                    # Ensure timezone aware (UTC)
+                    if alert_dt.tzinfo is None:
+                        alert_dt = alert_dt.replace(tzinfo=timezone.utc)
+                    else:
+                        alert_dt = alert_dt.astimezone(timezone.utc)
                     
+                    # Calculate time difference from now
                     now = datetime.now(timezone.utc)
-                    delta = now - cohort_dt
+                    delta = now - alert_dt
                     
+                    # Only show positive time differences (alert is in the past)
                     if delta.total_seconds() >= 0:
                         total_seconds = int(delta.total_seconds())
+                        
                         if total_seconds < 60:
                             cohort_time_relative = f"{total_seconds}s ago"
                         else:
@@ -795,8 +804,13 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                                             cohort_time_relative = f"{days}d ago"
                                     else:
                                         cohort_time_relative = f"{days}d ago"
-            except Exception:
-                pass  # Silently fail if cohort time calculation fails
+                    else:
+                        # Alert is in the future (timezone issue) - show as "just now"
+                        cohort_time_relative = "just now"
+            except Exception as e:
+                # Log error for debugging but don't fail
+                print(f"Warning: Could not calculate relative time for alert {alert.get('token')}: {e}")
+                cohort_time_relative = None
             
             formatted_alert = {
                 "id": alert.get("contract", "")[:8] + "_" + alert.get("timestamp", "")[:10],
@@ -807,8 +821,8 @@ async def get_recent_alerts(limit: int = 20, tier: Optional[int] = None, dedupe:
                 "contract": alert.get("contract"),
                 "score": alert.get("score"),
                 "liquidity": alert.get("liq_usd"),
-                "callers": alert.get("callers"),
-                "subs": alert.get("subs"),
+                "callers": alert.get("callers"),  # May be null if not extracted from XTRACK messages
+                "subs": alert.get("subs"),        # May be null if not extracted from XTRACK messages
                 "matchedSignals": alert.get("matched_signals", []),
                 "tags": alert.get("tags", []),
                 "hotlist": hotlist,

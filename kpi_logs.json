@@ -6391,7 +6391,7 @@
       "source": "telegram_backfill"
     },
     {
-      "timestamp": "2026-01-03T09:57:13+00:00",
+      "timestamp": "2026-01-03T04:27:13+00:00",
       "level": "MEDIUM",
       "token": "KURUMI",
       "contract": "GJ2EDGMBBFXYH1UIQREYPTNC8FRDSZVUIKZA2GJKPUMP",
@@ -6406,7 +6406,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T10:03:28+00:00",
+      "timestamp": "2026-01-03T04:33:28+00:00",
       "level": "MEDIUM",
       "token": "HODL",
       "contract": "13SZPHUKSVH32HAU5ZRZ32Y5QRPXSKCHSNZ1T8EKBONK",
@@ -6924,7 +6924,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T08:45:00+00:00",
+      "timestamp": "2026-01-03T03:15:00+00:00",
       "level": "MEDIUM",
       "token": "LIZARD",
       "contract": "GFQYXDFMK6OTRX2IGNFQPVVRD3DHFCFHRJFE7EP2PUMP",
@@ -6940,7 +6940,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T09:37:42+00:00",
+      "timestamp": "2026-01-03T04:07:42+00:00",
       "level": "MEDIUM",
       "token": "TWI",
       "contract": "14MMSZQZSJVIUEMBYLKQM9TQIATVVF7NB32BC6TUPUMP",
@@ -6954,7 +6954,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T09:54:41+00:00",
+      "timestamp": "2026-01-03T04:24:41+00:00",
       "level": "MEDIUM",
       "token": "WLFI",
       "contract": "ELMDRVKH8G5PZC5NM5ACG25C3BWHXSNKBTFQCO3DBONK",
@@ -6968,7 +6968,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T11:36:28+00:00",
+      "timestamp": "2026-01-03T06:06:28+00:00",
       "level": "MEDIUM",
       "token": "TRAX",
       "contract": "DK2PDPYS1H6S5TCV3AFX8BMXJB1XBSWBJBREXTJIPUMP",
@@ -6983,7 +6983,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T12:32:29+00:00",
+      "timestamp": "2026-01-03T07:02:29+00:00",
       "level": "MEDIUM",
       "token": "TRAX",
       "contract": "DK2PDPYS1H6S5TCV3AFX8BMXJB1XBSWBJBREXTJIPUMP",
@@ -6998,7 +6998,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T12:36:51+00:00",
+      "timestamp": "2026-01-03T07:06:51+00:00",
       "level": "MEDIUM",
       "token": "VENEZUELA",
       "contract": "CCMST2SDHY12V1C28ESL2WEKT2H6EVHZA5S16UWRPUMP",
@@ -7014,7 +7014,7 @@
       "source": "telegram_export_backfill"
     },
     {
-      "timestamp": "2026-01-03T12:41:59+00:00",
+      "timestamp": "2026-01-03T07:11:59+00:00",
       "level": "HIGH",
       "token": "LIBERTY",
       "contract": "CAB23ZQ6UTMMXLO3X8LBPYNCAVXLW28UBVCG7WYHBONK",
@@ -7033,7 +7033,7 @@
   ],
   "false_positives": [],
   "true_positives": [],
-  "last_updated": "2026-01-03T07:17:06.185635+00:00",
+  "last_updated": "2026-01-03T07:24:03.798773+00:00",
   "backfill_info": {
     "backfilled_at": "2026-01-02T15:17:46.875907+00:00",
     "new_alerts_added": 3,

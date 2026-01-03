@@ -48,10 +48,26 @@ def parse_alert_from_telegram_message(message: Dict) -> Optional[Dict]:
             return None
         
         try:
-            message_date = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-            if message_date.tzinfo is None:
-                message_date = message_date.replace(tzinfo=timezone.utc)
-        except Exception:
+            # Parse date string (format: "2026-01-03T12:36:51")
+            # CRITICAL: Telegram export dates are in IST (UTC+5:30), NOT UTC
+            # Need to convert IST to UTC by subtracting 5 hours 30 minutes
+            if "T" in date_str:
+                # Remove timezone if present
+                date_str_clean = date_str.split("+")[0].split("Z")[0]
+                message_date = datetime.fromisoformat(date_str_clean)
+                
+                # Telegram export dates are in IST (UTC+5:30)
+                # Convert to UTC by subtracting 5:30
+                from datetime import timedelta
+                ist_offset = timedelta(hours=5, minutes=30)
+                message_date_utc = message_date - ist_offset
+                
+                # Set to UTC timezone
+                message_date = message_date_utc.replace(tzinfo=timezone.utc)
+            else:
+                return None
+        except Exception as e:
+            print(f"Error parsing date '{date_str}': {e}")
             return None
         
         # Extract tier
