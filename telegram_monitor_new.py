@@ -502,9 +502,16 @@ class TelegramMonitorNew:
                         alert["mc_usd"] = current_mcap
                         alert["mc_source"] = "dexscreener_live"
                         print(f"[DexScreener] Updated MCAP for {alert.get('token')}: ${current_mcap:,.2f}")
-                    if enriched.get("live_symbol") and not alert.get("token"):
+                    if enriched.get("live_symbol") and (not alert.get("token") or alert.get("token") == "UNKNOWN"):
                         alert["token"] = enriched["live_symbol"]
                         print(f"[DexScreener] Updated symbol: {enriched['live_symbol']}")
+                    
+                    # Update local token variable and alert_key after enrichment
+                    if alert.get("token") and alert.get("token") != token:
+                        token = alert.get("token")
+                        alert_key = (token, tier)
+                        print(f"🔄 Token updated to: {token}")
+                        
                     if enriched.get("live_liquidity") is not None:
                         alert["liq_usd"] = enriched["live_liquidity"]
                 except Exception as e:

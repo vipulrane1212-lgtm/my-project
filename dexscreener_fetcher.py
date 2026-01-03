@@ -93,7 +93,22 @@ def extract_token_info(data: Dict, contract_address: str) -> Tuple[Optional[str]
     # Extract data
     base_token = main_pair.get("baseToken", {})
     symbol = base_token.get("symbol")
+    name = base_token.get("name")
     
+    # Clean symbol/name
+    if symbol:
+        symbol = symbol.strip()
+    if name:
+        name = name.strip()
+        
+    # Prefer name if symbol is emoji or just numbers and name is better
+    # But for now, let's just make sure we return the best possible identifier
+    if not symbol and name:
+        symbol = name
+    elif symbol and symbol.replace('.', '').isdigit() and name and not name.replace('.', '').isdigit():
+        # If symbol is just numbers but name is text, use name
+        symbol = name
+        
     # MCAP: prefer marketCap, fallback to fdv
     mcap = main_pair.get("marketCap")
     if mcap is None:
